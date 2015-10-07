@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>2015-05-17总结 | 她比烟花还寂寞</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本周总结
+熟悉了一下Linux命令，一些常用的命令再也不需要每次用到的时候去查资料了。主要有下面的
+
+mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  project  project1tail -n2000 -f  jboss.log scp 192.168.1.2/data/jboss 192">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2015-05-17总结">
+<meta property="og:url" content="http://liuyiyou.cn/2015/05/17/2015-05-17总结/index.html">
+<meta property="og:site_name" content="她比烟花还寂寞">
+<meta property="og:description" content="本周总结
+熟悉了一下Linux命令，一些常用的命令再也不需要每次用到的时候去查资料了。主要有下面的
+
+mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  project  project1tail -n2000 -f  jboss.log scp 192.168.1.2/data/jboss 192">
+<meta property="og:updated_time" content="2015-10-07T12:38:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2015-05-17总结">
+<meta name="twitter:description" content="本周总结
+熟悉了一下Linux命令，一些常用的命令再也不需要每次用到的时候去查资料了。主要有下面的
+
+mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  project  project1tail -n2000 -f  jboss.log scp 192.168.1.2/data/jboss 192">
+  
+    <link rel="alternative" href="/atom.xml" title="她比烟花还寂寞" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">她比烟花还寂寞</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">liuyiyou的个人小站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liuyiyou.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2015-05-17总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/17/2015-05-17总结/" class="article-date">
+  <time datetime="2015-05-16T16:00:00.000Z" itemprop="datePublished">2015-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/summarry/">summarry</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      2015-05-17总结
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本周总结">本周总结</h2><ol>
+<li>熟悉了一下Linux命令，一些常用的命令再也不需要每次用到的时候去查资料了。主要有下面的</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">mkdir  </span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line">rm -rf  file/direct</span><br><span class="line">jar -xvf  project.war</span><br><span class="line">unzip -xvf project.war</span><br><span class="line">mv  project  project1</span><br><span class="line">tail -n2000 <span class="operator">-f</span>  jboss.log </span><br><span class="line">scp <span class="number">192.168</span>.<span class="number">1.2</span>/data/jboss <span class="number">192.169</span>.<span class="number">1.3</span>/data/jboss</span><br><span class="line">ps -ef|grep jboss</span><br></pre></td></tr></table></figure>
+<a id="more"></a>
+<ol>
+<li>springmvc的json日期格式后台返回</li>
+</ol>
+<p>如果数据库类型为timestap，则默认情况下，返回到前台是long类型，在非Ajax的情况下，可以使用jstl标签库或者velocity的一些工具函数，但是直接返回json的时候，这些都不行。如何办呢？</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 解决SpringMVC使用<span class="doctag">@ResponseBody</span>返回json时，日期格式默认显示为时间戳的问题。需配合&lt;mvc:message-converters&gt;使用</span><br><span class="line"> * </span><br><span class="line"> */</span></span><br><span class="line"><span class="annotation">@Component</span>(<span class="string">"customObjectMapper"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomObjectMapper</span> <span class="keyword">extends</span> <span class="title">ObjectMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CustomObjectMapper</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		CustomSerializerFactory factory = <span class="keyword">new</span> CustomSerializerFactory();</span><br><span class="line">		factory.addGenericMapping(Date.class, <span class="keyword">new</span> JsonSerializer&lt;Date&gt;() &#123;</span><br><span class="line">			<span class="annotation">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">serialize</span><span class="params">(Date value, JsonGenerator jsonGenerator,</span><br><span class="line">					SerializerProvider provider)</span> <span class="keyword">throws</span> IOException, JsonProcessingException </span>&#123;</span><br><span class="line">				SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">				jsonGenerator.writeString(sdf.format(value));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		<span class="keyword">this</span>.setSerializerFactory(factory);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>然后在<strong>dispatch-servlet.xml</strong>中配置</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">mvc:annotation-driven</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">mvc:message-converters</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">class</span>=<span class="value">"org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"objectMapper"</span> <span class="attribute">ref</span>=<span class="value">"customObjectMapper"</span>&gt;</span><span class="tag">&lt;/<span class="title">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">mvc:message-converters</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">mvc:annotation-driven</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>当然还有其他方法，到时候总结一下</p>
+<h2 id="里面有几个坑，在这里记录一下">里面有几个坑，在这里记录一下</h2><ol>
+<li>jboss </li>
+</ol>
+<p>以前没用过，只用过tomcat，只要把war包放到deploy文件夹下就行，不过和tomcat不同的是，tomcat会自动解压，解压后的文件夹名称为原有名称去掉.war后缀。而他不会自动解压，而是直接以war包运行。看公司其他运行的项目都是已projectName.war（不是war包，而是一个文件夹的名称）运行，为啥不直接叫projectName呢？<br>于是在部署的时候，和运维的同事说，先解压再启动吧，这样以后局部跟新的时候比较好替换，于是理所当然的解压为项目名称，结果虽然能正常启动，但是访问路径的时候报404错误。 直到重命名为为项目吗.war之后，才能正确运行</p>
+<p>所用版本为jboss.4.2.3.GA版本。貌似很低很低的版本</p>
+<ol>
+<li>jQuery多次绑定问题</li>
+</ol>
+<p>项目里面涉及到一个评论，每个评论都有点赞功能和删除功能。<br>刚开始赶时间，发布评论的时候也没会刷新，然后将作品评论全部加载出来，只查询一次数据库，不过体验不好，因为该也没有视频，不能在看视频的发布评论<br>评论改为Ajax提交，不刷新也没，但是评论列表不能展现最新的评论，所以想到直接在已有评论列表中直接插入，不过里面涉及到了点赞和删除。为了偷懒，在点赞的时候只返回一个状态码，增加是直接通过js加上去的。这样处理有两个问题</p>
+<ol>
+<li>js绑定</li>
+</ol>
+<p>假设点赞html是这样的</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&lt;li  class="upvoteAdd"   &gt;点赞(&lt;span id="voteupNum_1" )0&lt;/span&gt;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+<p>上面的li是增加成功后在前台拼接而成的，然后我在js中这样写：</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">       $(<span class="string">".upvoteAdd"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="comment">//拿到现在的然后+1  偷懒的方法 </span></span><br><span class="line">      &#125;);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<p>结果就是点赞不起作用，原因是js执行流程是按照先后顺序的。所以新增的li是没有绑定click事件的，所以该js代码必须写在增加评论成功后，比如这样</p>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$.getJSON(<span class="string">'/path/to/file'</span>, &#123;</span><br><span class="line">	param1: <span class="string">'value1'</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">json, textStatus</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (json.suucess) &#123;</span><br><span class="line">		<span class="comment">//在这里进行绑定</span></span><br><span class="line">		$(<span class="string">".upvoteAdd"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			<span class="comment">//拿到现在的然后+1  偷懒的方法 </span></span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<p>这样，点赞才能起作用，不过这样还会有一个问题，连续发三次评论，然后分别点赞，第三次显示1，第二次显示2，第一次显示3.原因是因为第二次增加评论的时候，第一次发布的评论又绑定了两次，第三次发布的时候第二个评论绑定了两次，第一次发布的绑定了三次。</p>
+<p>解决办法：很多种</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/05/17/2015-05-17总结/" data-id="cifgs4bpf00069pthyaw2f35x" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/05/17/2015-05-17总结/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/27/为什么使用Redis/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          为什么使用Redis
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/17/memcached常用命令/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">memcached常用命令</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015年10月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">2015年09月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">2015年07月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">2015年06月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015年05月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">2015年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">2014年11月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">2014年09月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">2014年01月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2013年02月</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">类目</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/datastruts/">datastruts</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skill/">skill</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/">summarry</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/10/07/2015-06-28-summary7/">2015-6-28总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/07/关于需求的一些想法/">关于需求的一些想法</a>
+          </li>
+        
+          <li>
+            <a href="/2015/09/29/jquery-datatable/">jQuery.DataTable</a>
+          </li>
+        
+          <li>
+            <a href="/2015/09/25/新的开始/">新的开始</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/25/maven指定profile进行打包/">maven指定pom文件进行打包</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/05/2015-07-05总结/">2015-07-05总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/28/2015-06-28总结/">2015-06-28总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/25/mybatis对枚举的支持/">mybatis对枚举的支持</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/21/2015-06-21总结/">2015-06-21总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/14/2015-06-14总结/">2015-06-14总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastruts/">datastruts</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatable/">datatable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcache/">memcache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/novel/">novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/datastruts/" style="font-size: 18px;">datastruts</a> <a href="/tags/datatable/" style="font-size: 10px;">datatable</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcache/" style="font-size: 12px;">memcache</a> <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/novel/" style="font-size: 10px;">novel</a> <a href="/tags/redis/" style="font-size: 16px;">redis</a> <a href="/tags/总结/" style="font-size: 20px;">总结</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2012 - 2015 liuyiyou<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="showDays"></span>
+<script>
+var birthDay = new Date("11/15/2014");
+var now = new Date();
+var duration = now.getTime() - birthDay.getTime(); 
+var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+</script>
+
+  
+ <scriptt language="javascript" type="text/javascript" src="http://js.users.51.la/17798200.js"></script>
+<noscript><a href="http://www.51.la/?17798200" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17798200.asp" style="border:none" /></a></noscript>
+<script language="javascript" type="text/javascript" src="http://js.users.51.la/17798200.js"></script>
+<noscript><a href="http://www.51.la/?17798200" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17798200.asp" style="border:none" /></a></noscript>
+    </div>
+  </div>
+  
+
+
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'liuyiyou';
+  
+  var disqus_url = 'http://liuyiyou.cn/2015/05/17/2015-05-17总结/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+
+
+  </div>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>

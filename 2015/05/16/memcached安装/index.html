@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>memcached安装 | 她比烟花还寂寞</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="在MyBatis集成第三方缓存的时候，用到了Memcached，不过自己的电脑上只有MongoDB，没有Memcached，所以装了一个Memcached，在这里记录一下
+使用homebrew进行安装，在安装之前可以看一下homebrew已经安装了哪些软件
+lyy:~ liuyiyou$ brew list
+安装了运行如下方法">
+<meta property="og:type" content="article">
+<meta property="og:title" content="memcached安装">
+<meta property="og:url" content="http://liuyiyou.cn/2015/05/16/memcached安装/index.html">
+<meta property="og:site_name" content="她比烟花还寂寞">
+<meta property="og:description" content="在MyBatis集成第三方缓存的时候，用到了Memcached，不过自己的电脑上只有MongoDB，没有Memcached，所以装了一个Memcached，在这里记录一下
+使用homebrew进行安装，在安装之前可以看一下homebrew已经安装了哪些软件
+lyy:~ liuyiyou$ brew list
+安装了运行如下方法">
+<meta property="og:updated_time" content="2015-10-07T12:32:08.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="memcached安装">
+<meta name="twitter:description" content="在MyBatis集成第三方缓存的时候，用到了Memcached，不过自己的电脑上只有MongoDB，没有Memcached，所以装了一个Memcached，在这里记录一下
+使用homebrew进行安装，在安装之前可以看一下homebrew已经安装了哪些软件
+lyy:~ liuyiyou$ brew list
+安装了运行如下方法">
+  
+    <link rel="alternative" href="/atom.xml" title="她比烟花还寂寞" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">她比烟花还寂寞</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">liuyiyou的个人小站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/archives">归档</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liuyiyou.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-memcached安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/16/memcached安装/" class="article-date">
+  <time datetime="2015-05-15T16:00:00.000Z" itemprop="datePublished">2015-05-16</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      memcached安装
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在MyBatis集成第三方缓存的时候，用到了Memcached，不过自己的电脑上只有MongoDB，没有Memcached，所以装了一个Memcached，在这里记录一下</p>
+<p>使用homebrew进行安装，在安装之前可以看一下homebrew已经安装了哪些软件</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">lyy:~ liuyiyou$ brew list</span><br></pre></td></tr></table></figure>
+<p>安装了运行如下方法</p>
+<a id="more"></a>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">lyy:~ liuyiyou$ brew install memcached</span><br><span class="line">==&gt; Installing dependencies <span class="keyword">for</span> memcached: openssl, libevent</span><br><span class="line">==&gt; Installing memcached dependency: openssl</span><br><span class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/openssl-<span class="number">1.0</span>.<span class="number">2</span>a-<span class="number">1</span>.mavericks.bottle.tar.gz</span><br><span class="line"></span><br><span class="line">curl: (<span class="number">22</span>) The requested URL returned error: <span class="number">404</span> Not Found</span><br><span class="line">Error: Failed to download resource <span class="string">"openssl"</span></span><br><span class="line">Download failed: https://homebrew.bintray.com/bottles/openssl-<span class="number">1.0</span>.<span class="number">2</span>a-<span class="number">1</span>.mavericks.bottle.tar.gz</span><br><span class="line">Warning: Bottle installation failed: building from source.</span><br><span class="line">Error: /usr/<span class="built_in">local</span>/opt/makedepend not present or broken</span><br><span class="line">Please reinstall makedepend. Sorry :(</span><br><span class="line">lyy:~ liuyiyou$ brew install memcached</span><br></pre></td></tr></table></figure>
+<p>可见需要依赖openssl和 libevent，而前者无法<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#10;```sh&#10;&#10;lyy:~ liuyiyou$ brew install openssl&#10;==&#62; Downloading https://homebrew.bintray.com/bottles/openssl-1.0.2a-1.mavericks.bottle.tar.gz&#10;&#10;curl: (22) The requested URL returned error: 404 Not Found&#10;Error: Failed to download resource &#34;openssl&#34;&#10;Download failed: https://homebrew.bintray.com/bottles/openssl-1.0.2a-1.mavericks.bottle.tar.gz&#10;Warning: Bottle installation failed: building from source.&#10;==&#62; Installing openssl dependency: makedepend&#10;==&#62; Downloading https://homebrew.bintray.com/bottles/makedepend-1.0.5.mavericks.bottle.tar.gz&#10;######################################################################## 100.0%&#10;==&#62; Pouring makedepend-1.0.5.mavericks.bottle.tar.gz&#10;&#127866;  /usr/local/Cellar/makedepend/1.0.5: 7 files, 92K&#10;==&#62; Downloading https://www.openssl.org/source/openssl-1.0.2a.tar.gz&#10;&#10;curl: (28) Operation timed out after 5605 milliseconds with 0 out of 0 bytes received&#10;Trying a mirror...&#10;==&#62; Downloading https://raw.githubusercontent.com/DomT4/LibreMirror/master/OpenSSL/openssl-1.0.2a.ta&#10;######################################################################## 100.0%&#10;==&#62; perl ./Configure --prefix=/usr/local/Cellar/openssl/1.0.2a-1 --openssldir=/usr/local/etc/openssl&#10;==&#62; make depend&#10;==&#62; make&#10;==&#62; make test&#10;==&#62; make install MANDIR=/usr/local/Cellar/openssl/1.0.2a-1/share/man MANSUFFIX=ssl&#10;==&#62; Caveats&#10;A CA file has been bootstrapped using certificates from the system&#10;keychain. To add additional certificates, place .pem files in&#10;  /usr/local/etc/openssl/certs&#10;&#10;and run&#10;  /usr/local/opt/openssl/bin/c_rehash&#10;&#10;This formula is keg-only, which means it was not symlinked into /usr/local.&#10;&#10;Mac OS X already provides this software and installing another version in&#10;parallel can cause all kinds of trouble.&#10;&#10;Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries&#10;&#10;Generally there are no consequences of this for you. If you build your&#10;own software and it requires this formula, you&#39;ll need to add to your&#10;build variables:&#10;&#10;    LDFLAGS:  -L/usr/local/opt/openssl/lib&#10;    CPPFLAGS: -I/usr/local/opt/openssl/include&#10;&#10;==&#62; Summary&#10;&#127866;  /usr/local/Cellar/openssl/1.0.2a-1: 463 files, 18M, built in 4.7 minutes&#10;lyy:~ liuyiyou$ brew list&#10;gradle&#9; makedepend&#9;openssl&#10;lyy:~ liuyiyou$ brew install memcached&#10;==&#62; Installing memcached dependency: libevent&#10;==&#62; Downloading https://homebrew.bintray.com/bottles/libevent-2.0.22.mavericks.bottle.tar.gz&#10;######################################################################## 100.0%&#10;==&#62; Pouring libevent-2.0.22.mavericks.bottle.tar.gz&#10;&#127866;  /usr/local/Cellar/libevent/2.0.22: 48 files, 1.8M&#10;==&#62; Installing memcached&#10;==&#62; Downloading https://homebrew.bintray.com/bottles/memcached-1.4.20.mavericks.bottle.1.tar.gz&#10;######################################################################## 100.0%&#10;==&#62; Pouring memcached-1.4.20.mavericks.bottle.1.tar.gz&#10;==&#62; Caveats&#10;To have launchd start memcached at login:&#10;    ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents&#10;Then to load memcached now:&#10;    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist&#10;Or, if you don&#39;t want/need launchctl, you can just run:&#10;    /usr/local/opt/memcached/bin/memcached&#10;==&#62; Summary&#10;&#127866;  /usr/local/Cellar/memcached/1.4.20: 10 files, 184K&#10;lyy:~ liuyiyou$ brew list&#10;gradle&#9; libevent&#9;makedepend&#9;memcached&#9;openssl</span><br></pre></td></tr></table></figure></p>
+<p>启动memcached</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">lyy:~ liuyiyou$ /usr/<span class="built_in">local</span>/bin/memcached -p <span class="number">11211</span></span><br></pre></td></tr></table></figure>
+<p>一般情况下，不会使用这个参数，因为会占用终端，而是使用一个-d参数 ，作为一个守护进程来使用，具体如何使用，可以通过<br><code>memcached -h</code>查看</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/05/16/memcached安装/" data-id="cifgrxakc001m7cthnaa4fc8e" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/05/16/memcached安装/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memcache/">memcache</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/17/memcached常用命令/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          memcached常用命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/01/06/希尔排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">希尔排序</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015年10月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">2015年09月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">2015年07月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">2015年06月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015年05月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">2015年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">2014年11月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">2014年09月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">2014年01月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2013年02月</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">类目</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/datastruts/">datastruts</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skill/">skill</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/">summarry</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">3</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/10/07/2015-06-28-summary7/">2015-6-28总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/07/关于需求的一些想法/">关于需求的一些想法</a>
+          </li>
+        
+          <li>
+            <a href="/2015/09/29/jquery-datatable/">jQuery.DataTable</a>
+          </li>
+        
+          <li>
+            <a href="/2015/09/25/新的开始/">新的开始</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/25/maven指定profile进行打包/">maven指定pom文件进行打包</a>
+          </li>
+        
+          <li>
+            <a href="/2015/07/05/2015-07-05总结/">2015-07-05总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/28/2015-06-28总结/">2015-06-28总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/25/mybatis对枚举的支持/">mybatis对枚举的支持</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/21/2015-06-21总结/">2015-06-21总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/06/14/2015-06-14总结/">2015-06-14总结</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastruts/">datastruts</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatable/">datatable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcache/">memcache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/novel/">novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">9</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/datastruts/" style="font-size: 18px;">datastruts</a> <a href="/tags/datatable/" style="font-size: 10px;">datatable</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcache/" style="font-size: 12px;">memcache</a> <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/novel/" style="font-size: 10px;">novel</a> <a href="/tags/redis/" style="font-size: 16px;">redis</a> <a href="/tags/总结/" style="font-size: 20px;">总结</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2012 - 2015 liuyiyou<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="showDays"></span>
+<script>
+var birthDay = new Date("11/15/2014");
+var now = new Date();
+var duration = now.getTime() - birthDay.getTime(); 
+var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+</script>
+
+  
+ <scriptt language="javascript" type="text/javascript" src="http://js.users.51.la/17798200.js"></script>
+<noscript><a href="http://www.51.la/?17798200" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17798200.asp" style="border:none" /></a></noscript>
+<script language="javascript" type="text/javascript" src="http://js.users.51.la/17798200.js"></script>
+<noscript><a href="http://www.51.la/?17798200" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17798200.asp" style="border:none" /></a></noscript>
+    </div>
+  </div>
+  
+
+
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/archives" class="mobile-nav-link">归档</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'liuyiyou';
+  
+  var disqus_url = 'http://liuyiyou.cn/2015/05/16/memcached安装/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+
+
+  </div>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
