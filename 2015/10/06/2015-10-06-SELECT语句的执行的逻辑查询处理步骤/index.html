@@ -3,17 +3,21 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: datatable | 她比烟花还寂寞</title>
+  <title>SELECT语句的执行的逻辑查询处理步骤 | 她比烟花还寂寞</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="温故而知新、触类而旁通">
-<meta property="og:type" content="website">
-<meta property="og:title" content="她比烟花还寂寞">
-<meta property="og:url" content="http://liuyiyou.cn/tags/datatable/index.html">
+  <meta name="description" content="SELECT语句的执行的逻辑查询处理步骤：
+(8)	SELECT (9)DISTINCT(11)	&amp;lt;TOP_specification&amp;gt; &amp;lt;select_list&amp;gt;(1) 	FROM &amp;lt;left_table&amp;gt;(3)	&amp;lt;join_type&amp;gt; JOIN &amp;lt;right_table&amp;gt;(2)	ON &amp;lt;join_condition&amp;gt;(4)">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SELECT语句的执行的逻辑查询处理步骤">
+<meta property="og:url" content="http://liuyiyou.cn/2015/10/06/2015-10-06-SELECT语句的执行的逻辑查询处理步骤/index.html">
 <meta property="og:site_name" content="她比烟花还寂寞">
-<meta property="og:description" content="温故而知新、触类而旁通">
+<meta property="og:description" content="SELECT语句的执行的逻辑查询处理步骤：
+(8)	SELECT (9)DISTINCT(11)	&amp;lt;TOP_specification&amp;gt; &amp;lt;select_list&amp;gt;(1) 	FROM &amp;lt;left_table&amp;gt;(3)	&amp;lt;join_type&amp;gt; JOIN &amp;lt;right_table&amp;gt;(2)	ON &amp;lt;join_condition&amp;gt;(4)">
+<meta property="og:updated_time" content="2015-10-12T05:40:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="她比烟花还寂寞">
-<meta name="twitter:description" content="温故而知新、触类而旁通">
+<meta name="twitter:title" content="SELECT语句的执行的逻辑查询处理步骤">
+<meta name="twitter:description" content="SELECT语句的执行的逻辑查询处理步骤：
+(8)	SELECT (9)DISTINCT(11)	&amp;lt;TOP_specification&amp;gt; &amp;lt;select_list&amp;gt;(1) 	FROM &amp;lt;left_table&amp;gt;(3)	&amp;lt;join_type&amp;gt; JOIN &amp;lt;right_table&amp;gt;(2)	ON &amp;lt;join_condition&amp;gt;(4)">
   
     <link rel="alternative" href="/atom.xml" title="她比烟花还寂寞" type="application/atom+xml">
   
@@ -60,39 +64,103 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/09/29/jquery-datatable/" class="archive-article-date">
-  <time datetime="2015-09-29T00:00:00.000Z" itemprop="datePublished">09月29日</time>
+        <section id="main"><article id="post-2015-10-06-SELECT语句的执行的逻辑查询处理步骤" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/06/2015-10-06-SELECT语句的执行的逻辑查询处理步骤/" class="article-date">
+  <time datetime="2015-10-06T00:00:00.000Z" itemprop="datePublished">2015-10-06</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mysql/">mysql</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/09/29/jquery-datatable/">jQuery.DataTable</a>
+    <h1 class="article-title" itemprop="name">
+      SELECT语句的执行的逻辑查询处理步骤
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>SELECT语句的执行的逻辑查询处理步骤：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">(8)	<span class="operator"><span class="keyword">SELECT</span> (<span class="number">9</span>)<span class="keyword">DISTINCT</span></span><br><span class="line">(<span class="number">11</span>)	&lt;TOP_specification&gt; &lt;select_list&gt;</span><br><span class="line">(<span class="number">1</span>) 	<span class="keyword">FROM</span> &lt;left_table&gt;</span><br><span class="line">(<span class="number">3</span>)	&lt;join_type&gt; <span class="keyword">JOIN</span> &lt;right_table&gt;</span><br><span class="line">(<span class="number">2</span>)	<span class="keyword">ON</span> &lt;join_condition&gt;</span><br><span class="line">(<span class="number">4</span>)	<span class="keyword">WHERE</span> &lt;where_condition&gt;</span><br><span class="line">(<span class="number">5</span>)	<span class="keyword">GROUP</span> <span class="keyword">BY</span> &lt;group_by_list&gt;</span><br><span class="line">(<span class="number">6</span>)	<span class="keyword">WITH</span> &#123;<span class="keyword">CUBE</span> | <span class="keyword">ROLLUP</span>&#125;</span><br><span class="line">(<span class="number">7</span>)	<span class="keyword">HAVING</span> &lt;having_condition&gt;</span><br><span class="line">(<span class="number">10</span>)	<span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;order_by_list&gt;</span></span><br></pre></td></tr></table></figure>
+<p>每个步骤产生一个虚拟表，该虚拟表被用作下一个步骤的输入。只有最后一步生成的表返回给调用者。如</p>
+<p>果没有某一子句，则跳过相应的步骤。</p>
+<ol>
+<li><p>FROM:对FROM子句中的前两个表执行笛卡尔积，生成虚拟表VT1。</p>
+</li>
+<li><p>ON:对VT1应用ON筛选器。只有那些使<join_condition>为真的行才被插入VT2。</join_condition></p>
+</li>
+<li><p>OUTER(JOIN):如果指定了OUTER JOIN，保留表中未找到匹配的行将作为外部行添加到VT2，生成VT3。如果FROM子句包含两个以上的表，则对上一个联接生成的结果表和下一个表重复执行步骤1到步骤3，直到处理完所有的表为止。</p>
+</li>
+<li><p>对VT3应用WHERE筛选器。只有使<where_condition>为TRUE的行才被插入VT4。</where_condition></p>
+</li>
+<li><p>GROUP BY:按GROUP BY 子句中的列列表对VT4中的行分组，生成VT5。</p>
+</li>
+<li><p>CUBEROLLUP:把超组插入VT5，生成VT6。</p>
+</li>
+<li><p>HAVING:对VT6应用HAVING筛选器。只有使<having_condition>为TRUE的组才会被插入VT7。</having_condition></p>
+</li>
+<li><p>SELECT:处理SELECT列表，产生VT8。</p>
+</li>
+<li><p>DISTINCT:将重复的行从VT8中移除，产生VT9。</p>
+</li>
+<li><p>ORDER BY:将VT9中的行按ORDER BY子句中的列列表排序，生成一个有表(VC10)。</p>
+</li>
+<li><p>TOP:从VC10的开始处选择指定数量或比例的行，生成表VT11,并返回给调用者。</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/10/06/2015-10-06-SELECT语句的执行的逻辑查询处理步骤/" data-id="cifnii4qh002ejeth62qx6cl9" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/10/06/2015-10-06-SELECT语句的执行的逻辑查询处理步骤/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mysql/">mysql</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/10/07/关于需求的一些想法/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          关于需求的一些想法
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/09/29/jquery-datatable/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">jQuery.DataTable</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </section>
         
           <aside id="sidebar">
@@ -226,11 +294,13 @@ document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
 <script>
   var disqus_shortname = 'liuyiyou';
   
+  var disqus_url = 'http://liuyiyou.cn/2015/10/06/2015-10-06-SELECT语句的执行的逻辑查询处理步骤/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
