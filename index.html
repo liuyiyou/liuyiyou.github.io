@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>她比烟花还寂寞</title>
+  <title>O ever youthful,O ever weeping</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="温故而知新、触类而旁通">
 <meta property="og:type" content="website">
-<meta property="og:title" content="她比烟花还寂寞">
+<meta property="og:title" content="O ever youthful,O ever weeping">
 <meta property="og:url" content="http://liuyiyou.cn/index.html">
-<meta property="og:site_name" content="她比烟花还寂寞">
+<meta property="og:site_name" content="O ever youthful,O ever weeping">
 <meta property="og:description" content="温故而知新、触类而旁通">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="她比烟花还寂寞">
+<meta name="twitter:title" content="O ever youthful,O ever weeping">
 <meta name="twitter:description" content="温故而知新、触类而旁通">
   
-    <link rel="alternative" href="/atom.xml" title="她比烟花还寂寞" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="O ever youthful,O ever weeping" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -30,7 +30,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">她比烟花还寂寞</a>
+        <a href="/" id="logo">O ever youthful,O ever weeping</a>
       </h1>
       
         <h2 id="subtitle-wrap">
@@ -44,7 +44,7 @@
         
           <a class="main-nav-link" href="/">首页</a>
         
-          <a class="main-nav-link" href="/archives">归档</a>
+          <a class="main-nav-link" href="/about">关于我</a>
         
       </nav>
       <nav id="sub-nav">
@@ -61,6 +61,155 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-2015-10-24-MyBatis批量插入" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/24/2015-10-24-MyBatis批量插入/" class="article-date">
+  <time datetime="2015-10-23T16:00:00.000Z" itemprop="datePublished">2015-10-24</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mybatis/">mybatis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/24/2015-10-24-MyBatis批量插入/">第五篇：MyBatis插入和批量插入</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="注意事项：">注意事项：</h2><p>批量插入的时候，需要注意动态SQL的写法：即拼接出来的SQL语句和常规的SQL语句语法一致。</p>
+<p>批量插入的时候，需要注意，在后台要写成user.name或者map.name，否则会出错 </p>
+<p>插入返回主键需要通过entity.getId()来进行返回。 </p>
+        
+          <p class="article-more-link">
+            <a href="/2015/10/24/2015-10-24-MyBatis批量插入/#more">阅读更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/10/24/2015-10-24-MyBatis批量插入/" data-id="cig825pv2002iktthtmn11ltc" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/10/24/2015-10-24-MyBatis批量插入/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mybatis/">mybatis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Java保留两位小数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/15/Java保留两位小数/" class="article-date">
+  <time datetime="2015-10-14T16:00:00.000Z" itemprop="datePublished">2015-10-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/15/Java保留两位小数/">Java保留两位小数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>好吧，这个应该是很基础的功能，然而在之前却没有用过，最近在做报表分析统计工作的时候，要加上这个功能，发现者其中的几个类都没有使用过。所以在这里记录一下，用来备忘。</p>
+<h2 id="NumberFormat">NumberFormat</h2><p>NumberFormat 用来格式化数字。</p>
+<h2 id="注意事项">注意事项</h2><ul>
+<li></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//数字实例化</span></span><br><span class="line">NumberFormat.getNumberInstance();</span><br><span class="line"></span><br><span class="line"><span class="comment">//百分号实例化</span></span><br><span class="line">NumberFormat.getPercentInstance()</span><br><span class="line"> </span><br><span class="line"> <span class="comment">/**</span><br><span class="line"> * 设置数的小数部分所允许的最大位数。</span><br><span class="line"> * <span class="doctag">@param</span> newValue</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMaximumFractionDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</span><br><span class="line">         </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 设置数的整数部分所允许的最大位数。</span><br><span class="line"> * <span class="doctag">@param</span> newValue</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMaximumIntegerDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</span><br><span class="line">        </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  设置数的小数部分所允许的最小位数。</span><br><span class="line"> * <span class="doctag">@param</span> newValue</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMinimumFractionDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 设置数的整数部分所允许的最小位数。</span><br><span class="line"> * <span class="doctag">@param</span> newValue</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMinimumIntegerDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/10/15/Java保留两位小数/" data-id="cig825puz002fktthbqxl1hto" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/10/15/Java保留两位小数/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-10-15-Java保留两位小数" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/10/15/2015-10-15-Java保留两位小数/" class="article-date">
+  <time datetime="2015-10-14T16:00:00.000Z" itemprop="datePublished">2015-10-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/10/15/2015-10-15-Java保留两位小数/">Java保留两位小数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>好吧，这个应该是很基础的功能，然而在之前却没有用过，最近在做报表分析统计工作的时候，要加上这个功能，发现者其中的几个类都没有使用过。所以在这里记录一下，用来备忘。</p>
+<h2 id="NumberFormat">NumberFormat</h2><p>NumberFormat 用来格式化数字。</p>
+<h2 id="注意事项">注意事项</h2><ul>
+<li></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//数字实例化</span></span><br><span class="line">NumberFormat.getNumberInstance();</span><br><span class="line"></span><br><span class="line"><span class="comment">//百分号实例化</span></span><br><span class="line">NumberFormat.getPercentInstance()</span><br><span class="line"> </span><br><span class="line"> <span class="comment">/**</span><br><span class="line"> * 设置数的小数部分所允许的最大位数。</span><br><span class="line"> * <span class="doctag">@param</span> newValue</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMaximumFractionDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</span><br><span class="line">         </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 设置数的整数部分所允许的最大位数。</span><br><span class="line"> * <span class="doctag">@param</span> newValue</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMaximumIntegerDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</span><br><span class="line">        </span><br><span class="line"><span class="comment">/**</span><br><span class="line"> *  设置数的小数部分所允许的最小位数。</span><br><span class="line"> * <span class="doctag">@param</span> newValue</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMinimumFractionDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 设置数的整数部分所允许的最小位数。</span><br><span class="line"> * <span class="doctag">@param</span> newValue</span><br><span class="line"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMinimumIntegerDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/10/15/2015-10-15-Java保留两位小数/" data-id="cig825pv6002lktthg5r2653m" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/10/15/2015-10-15-Java保留两位小数/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
   
     <article id="post-2015-10-11总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -101,7 +250,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2015/10/11/2015-10-11总结/" data-id="cifo0n7660034b4thfvgodx69" class="article-share-link">Share</a>
+      <a data-url="http://liuyiyou.cn/2015/10/11/2015-10-11总结/" data-id="cig825pv7002oktth10ys7zqp" class="article-share-link">Share</a>
       
         <a href="http://liuyiyou.cn/2015/10/11/2015-10-11总结/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -154,7 +303,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2015/10/07/关于需求的一些想法/" data-id="cifo0e2ug0013b4th0krv1fmn" class="article-share-link">Share</a>
+      <a data-url="http://liuyiyou.cn/2015/10/07/关于需求的一些想法/" data-id="cig825ptr0014ktthag2hl8uj" class="article-share-link">Share</a>
       
         <a href="http://liuyiyou.cn/2015/10/07/关于需求的一些想法/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -226,7 +375,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2015/10/06/2015-10-06-SELECT语句的执行的逻辑查询处理步骤/" data-id="cifo0e2vq002eb4th9exgmt94" class="article-share-link">Share</a>
+      <a data-url="http://liuyiyou.cn/2015/10/06/2015-10-06-SELECT语句的执行的逻辑查询处理步骤/" data-id="cig825pvb002tktth4orijmxm" class="article-share-link">Share</a>
       
         <a href="http://liuyiyou.cn/2015/10/06/2015-10-06-SELECT语句的执行的逻辑查询处理步骤/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -277,7 +426,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2015/09/29/jquery-datatable/" data-id="cifo0e2uy001tb4thm9satew8" class="article-share-link">Share</a>
+      <a data-url="http://liuyiyou.cn/2015/09/29/jquery-datatable/" data-id="cig825puf001uktthmrvkyux3" class="article-share-link">Share</a>
       
         <a href="http://liuyiyou.cn/2015/09/29/jquery-datatable/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -329,7 +478,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2015/09/25/新的开始/" data-id="cifo0e2tp000fb4thf93bttui" class="article-share-link">Share</a>
+      <a data-url="http://liuyiyou.cn/2015/09/25/新的开始/" data-id="cig825pt0000gktthr249uw2k" class="article-share-link">Share</a>
       
         <a href="http://liuyiyou.cn/2015/09/25/新的开始/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -379,7 +528,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2015/07/25/maven指定profile进行打包/" data-id="cifo0e2uw001pb4thwxq925o8" class="article-share-link">Share</a>
+      <a data-url="http://liuyiyou.cn/2015/07/25/maven指定profile进行打包/" data-id="cig825puc001qktthz167w3uk" class="article-share-link">Share</a>
       
         <a href="http://liuyiyou.cn/2015/07/25/maven指定profile进行打包/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -393,14 +542,14 @@
 
 
   
-    <article id="post-2015-07-05总结" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-09-24-eclipse快捷键" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/07/05/2015-07-05总结/" class="article-date">
+    <a href="/2015/07/05/2015-09-24-eclipse快捷键/" class="article-date">
   <time datetime="2015-07-04T16:00:00.000Z" itemprop="datePublished">2015-07-05</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/summarry/">summarry</a>
+    <a class="article-category-link" href="/categories/tools/">tools</a>►<a class="article-category-link" href="/categories/tools/eclipse/">eclipse</a>
   </div>
 
   </div>
@@ -411,7 +560,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2015/07/05/2015-07-05总结/">2015-07-05总结</a>
+      <a class="article-title" href="/2015/07/05/2015-09-24-eclipse快捷键/">eclipse快捷键</a>
     </h1>
   
 
@@ -419,184 +568,24 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>10.7号整理的时候才发现这是最后一篇总结，而且没写什么东西，后面的话会开始继续该系列吧！不过因为刚进公司，之前的一切都是在熟悉的过程中。之前的就省略了。</p>
-<p>我知道我早晚会回到长沙的，但是没想到是这个时候。就像我没想到我会在北京一呆就是三年，如果不出意外的话还可能继续呆在北京。</p>
-<p>现在是7月5号凌晨，距离我来长沙大约一周的时间，我在公司旁边的酒店里面开始总结一下我来长沙的一周生活。</p>
-<p>刚回到家的时候温度在37左右，在北京三年过夏天没有吹过电风扇的我，坐在家里的时候竟然还流汗。以往这个时候基本上都出去了，今年却因为各种原因，好多小伙伴都在家，只是终究不是小时候可以无忧无虑的玩耍了，有了家庭加上不同的经历，有些话却不知道怎么说了。也许，这就是成长</p>
-<p>在家去了一趟县城，不记得上次去的具体时间了，好像是某个十一去了一趟学校，这次去发现小县城里面的车辆越来越多，也越来越堵了，在县人民医院门口竟然还堵了五六分钟</p>
-<p>来长沙的时候是中午，坐在出租车里也热得要死</p>
-<p>不过接下来的几天不是下雨就是阴天，穿着短袖竟然还有点冷。让我觉得好像来到了秋天</p>
-<p>公司里面是新开张的，所以加班的时间比较多，不过也许是因为住得比较近的原因，感觉还好，只是没了在地铁上看书的时间了，有点不习惯。我才换的平板除了当闹铃好像没啥用了。</p>
-<p>公司里面用的是内部框架，不过好像见识多了之后，发现基本上都差不多，不过发现基础应该重新巩固一遍了</p>
+        <p>一直使用eclipse，却发现很多快捷键没用到，而是使用鼠标，不过在切换电脑之后，鼠标用得不习惯。所以在这里记录一下eclipse中的快捷键。</p>
+<p>代码辅助： option+ /</p>
+<p>快速打开大纲视图： cmd + O</p>
+<p>getter/setter方法： cmd+option</p>
+<p>显示某个类的变量和方法：  双击鼠标点击该类。按f3</p>
+<p>查找jar某个类： cmd+shift+T </p>
+<p>查找工作空间的某个类： cmd+shift+o</p>
+<p>批量修改： option +cmd + a   /alt+shift +a   </p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2015/07/05/2015-07-05总结/" data-id="cifo0e2vt002jb4thy3kh0jtp" class="article-share-link">Share</a>
+      <a data-url="http://liuyiyou.cn/2015/07/05/2015-09-24-eclipse快捷键/" data-id="cig825pvf002yktthn4qravcn" class="article-share-link">Share</a>
       
-        <a href="http://liuyiyou.cn/2015/07/05/2015-07-05总结/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2015-06-28总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/06/28/2015-06-28总结/" class="article-date">
-  <time datetime="2015-06-27T16:00:00.000Z" itemprop="datePublished">2015-06-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/summarry/">summarry</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/28/2015-06-28总结/">2015-06-28总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>我是2011年11月份来到北京，那个时候临近毕业，可是工作还没有着落。如果不能在这年把工作搞定，第二年的三月份将会更加难找工作。当然，这也是我后来才知道的，我之前还天真的以为，不都是到三月份才开始找工作的么，怎么现在就开始。直到被提醒，那个时候找工作已经比较难了，校招已经马上要开始了。</p>
-<p>于是，面试了几家，貌似都没有面试上，也是从这个时候开始，我才知道我的表达能力已经很差了。这个时候，听说北京有一份工作，于是我和我的四个小伙伴一起来到北京，不过我是临时决定，所以虽然是同一列车，他们早已经买票，而我是出发前一晚才匆匆买到。</p>
-<p>我记得那个时候，长沙天气还比较炎热。而到长沙的时候，正是下午三点多。我记得那天天气特别好，从火车看窗外阳光明媚，只是下车的时候才发现，原来这么明媚的阳光照在身上竟然会发冷</p>
-<p>那个时候，iPhone4大火，HTC是安卓的王者，然而与我们无关，都是用的非智能机。所以乘车路线是在学校的时候就在网上找好以后画在纸上的。到了地点却没有发现去公司的331路公交车，问人的时候却被告知这里没有该路公交车。当时心里一凉，以为被骗到传销里去了。</p>
-<p>不过还好，没过多久，我就找到了。是在香山路林科院里面。也是在这里，开始了我在北京的职业生涯</p>
-        
-          <p class="article-more-link">
-            <a href="/2015/06/28/2015-06-28总结/#more">阅读更多</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2015/06/28/2015-06-28总结/" data-id="cifo0e2vx002mb4thyqmrapxd" class="article-share-link">Share</a>
-      
-        <a href="http://liuyiyou.cn/2015/06/28/2015-06-28总结/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://liuyiyou.cn/2015/07/05/2015-09-24-eclipse快捷键/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-mybatis对枚举的支持" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/06/25/mybatis对枚举的支持/" class="article-date">
-  <time datetime="2015-06-25T00:00:00.000Z" itemprop="datePublished">2015-06-25</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/mybatis/">mybatis</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/25/mybatis对枚举的支持/">mybatis对枚举的支持</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>mybatis对枚举类型提供了两种类型支持：</p>
-<ul>
-<li>org.apache.ibatis.type.EnumTypeHandler</li>
-<li>org.apache.ibatis.type.EnumOrdinalTypeHandler</li>
-</ul>
-<h3 id="EnumTypeHandler">EnumTypeHandler</h3><p>EnumTypeHandler是mybatis默认的枚举类型转换器，如果pojo类中使用了枚举类型，而配置文件没有指定类型转换类，mybatis将使用EnumTypeHandler处理枚举属性。EnumTypeHandler的将把枚举类的name进行存储，枚举类的name即枚举类名。</p>
-<h3 id="EnumOrdinalTypeHandler">EnumOrdinalTypeHandler</h3><p>EnumOrdinalTypeHandler是mybatis提供的另一种转换器，顾名思义这个转换类使用了枚举类的ordinal属性作为数据库存储信息，由于ordinal属性是int类型的，按照官网的说明数据库中对应资源应该是int或double类型的，但是个人测试过程中MYSQL的varchar字段也可以存储。</p>
-        
-          <p class="article-more-link">
-            <a href="/2015/06/25/mybatis对枚举的支持/#more">阅读更多</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2015/06/25/mybatis对枚举的支持/" data-id="cifo0e2ul001cb4thnd8o0sow" class="article-share-link">Share</a>
-      
-        <a href="http://liuyiyou.cn/2015/06/25/mybatis对枚举的支持/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mybatis/">mybatis</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-2015-06-21总结" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/06/21/2015-06-21总结/" class="article-date">
-  <time datetime="2015-06-20T16:00:00.000Z" itemprop="datePublished">2015-06-21</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/summarry/">summarry</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/06/21/2015-06-21总结/">2015-06-21总结</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>周二的时候，交接完成，原本以为会当天拿到离职证明的，后面才知道，离职证明需要一周才能拿到，所以还打算在北京呆一周左右，然后就离开北京了。</p>
-<p>周三上午看了nba总决赛，下午不知道干嘛了。</p>
-<p>周四和周五都开始整理博客，终于开始打算写Spring系列了。也许是因为一直在使用，反而不想从基础的开始写起。所以从mvc开始写起，结果发现用过和表达出来还是有点难度，所以只完成了几篇，不过接下来写什么还是有计划了，甚至地方都已经预备好了。所以这几天看了我博客的知道，很多文章只写了标题。争取尽快写完mvc系列吧，到新公司应该没什么时间再写了。</p>
-<p>也许是因为离职的原因，双休日竟然没有看书或者写代码，这种感觉很不好，好像是欠了自己一点什么，以至于这个时候（周日11点40）还是在博客上写点东西。好像从去年九月份离职开始，就已经开始习惯每个周末中的一天去看书或者写代码，不知不觉已经坚持了大半年。</p>
-<p>效果如何还不好说，因为很多时候还是在为写代码而写代码，很多东西还是写过就忘，比如数据结果和设计模式。也许实际过程中用得比较少吧！而且没有到那个一看就懂的级别，哪怕一直在用的Spring，也有很多不懂的地方</p>
-<p>一直打算看Spring源码，也断断续续的看过一段时间，可是一段时间复习又忘记了。</p>
-<p>另外，博客已经改版了，首页终于变成我想象中的样子了。不过还有一些细节需要修改。比如关于我。（2015-10-07又改版了。。。）</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2015/06/21/2015-06-21总结/" data-id="cifo0e2w0002pb4thin79rqmo" class="article-share-link">Share</a>
-      
-        <a href="http://liuyiyou.cn/2015/06/21/2015-06-21总结/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/eclipse/">eclipse</a></li></ul>
 
     </footer>
   </div>
@@ -618,7 +607,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015年10月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">2015年09月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">2015年07月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">2015年06月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015年05月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">2015年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">2014年11月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">2014年09月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">2014年01月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2013年02月</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015年10月</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">2015年09月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">2015年07月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">2015年06月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015年05月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">2015年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">2014年11月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">2014年09月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">2014年01月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2013年02月</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -627,7 +616,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">类目</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/datastruts/">datastruts</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skill/">skill</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/">summarry</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">3</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/datastruts/">datastruts</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skill/">skill</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/">summarry</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tools/eclipse/">eclipse</a><span class="category-list-count">1</span></li></ul></li></ul>
     </div>
   </div>
 
@@ -637,6 +626,18 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2015/10/24/2015-10-24-MyBatis批量插入/">第五篇：MyBatis插入和批量插入</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/15/Java保留两位小数/">Java保留两位小数</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/15/2015-10-15-Java保留两位小数/">Java保留两位小数</a>
+          </li>
         
           <li>
             <a href="/2015/10/11/2015-10-11总结/">2015-10-11总结</a>
@@ -663,19 +664,7 @@
           </li>
         
           <li>
-            <a href="/2015/07/05/2015-07-05总结/">2015-07-05总结</a>
-          </li>
-        
-          <li>
-            <a href="/2015/06/28/2015-06-28总结/">2015-06-28总结</a>
-          </li>
-        
-          <li>
-            <a href="/2015/06/25/mybatis对枚举的支持/">mybatis对枚举的支持</a>
-          </li>
-        
-          <li>
-            <a href="/2015/06/21/2015-06-21总结/">2015-06-21总结</a>
+            <a href="/2015/07/05/2015-09-24-eclipse快捷键/">eclipse快捷键</a>
           </li>
         
       </ul>
@@ -687,7 +676,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastruts/">datastruts</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatable/">datatable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcache/">memcache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/novel/">novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">10</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastruts/">datastruts</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatable/">datatable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcache/">memcache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/novel/">novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -696,7 +685,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/datastruts/" style="font-size: 18px;">datastruts</a> <a href="/tags/datatable/" style="font-size: 10px;">datatable</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 14px;">java</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcache/" style="font-size: 12px;">memcache</a> <a href="/tags/mybatis/" style="font-size: 10px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/novel/" style="font-size: 10px;">novel</a> <a href="/tags/redis/" style="font-size: 16px;">redis</a> <a href="/tags/总结/" style="font-size: 20px;">总结</a>
+      <a href="/tags/datastruts/" style="font-size: 17.5px;">datastruts</a> <a href="/tags/datatable/" style="font-size: 10px;">datatable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 17.5px;">java</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcache/" style="font-size: 12.5px;">memcache</a> <a href="/tags/mybatis/" style="font-size: 12.5px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/novel/" style="font-size: 10px;">novel</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/总结/" style="font-size: 20px;">总结</a>
     </div>
   </div>
 
@@ -738,7 +727,7 @@ document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
   
     <a href="/" class="mobile-nav-link">首页</a>
   
-    <a href="/archives" class="mobile-nav-link">归档</a>
+    <a href="/about" class="mobile-nav-link">关于我</a>
   
 </nav>
     
