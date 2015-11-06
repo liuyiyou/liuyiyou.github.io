@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>MyBatis通用dao和通用service | O ever youthful,O ever weeping</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="使用通用dao和通用service可以减少代码的开发。可以将常用的增删改查放到通用dao中。对不同的or框架，基本上都有自己的实现如SpringJPA的Repository就提供了常用的增删改查方法。而MyBatis借助代码生成工具也可以生成常用方法的映射
+这里只针对Mybatis。如果使用代码生成工具，会有一个问题：每个Mapper里面都有一些方法（增晒改查）。维护起来的话还好。只是在写serv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MyBatis通用dao和通用service">
+<meta property="og:url" content="http://liuyiyou.cn/2015/04/25/2015-04-25-mybatis通用dao/index.html">
+<meta property="og:site_name" content="O ever youthful,O ever weeping">
+<meta property="og:description" content="使用通用dao和通用service可以减少代码的开发。可以将常用的增删改查放到通用dao中。对不同的or框架，基本上都有自己的实现如SpringJPA的Repository就提供了常用的增删改查方法。而MyBatis借助代码生成工具也可以生成常用方法的映射
+这里只针对Mybatis。如果使用代码生成工具，会有一个问题：每个Mapper里面都有一些方法（增晒改查）。维护起来的话还好。只是在写serv">
+<meta property="og:updated_time" content="2015-11-06T06:48:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MyBatis通用dao和通用service">
+<meta name="twitter:description" content="使用通用dao和通用service可以减少代码的开发。可以将常用的增删改查放到通用dao中。对不同的or框架，基本上都有自己的实现如SpringJPA的Repository就提供了常用的增删改查方法。而MyBatis借助代码生成工具也可以生成常用方法的映射
+这里只针对Mybatis。如果使用代码生成工具，会有一个问题：每个Mapper里面都有一些方法（增晒改查）。维护起来的话还好。只是在写serv">
+  
+    <link rel="alternative" href="/atom.xml" title="O ever youthful,O ever weeping" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">O ever youthful,O ever weeping</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">liuyiyou的个人小站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/about">关于我</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liuyiyou.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2015-04-25-mybatis通用dao" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/04/25/2015-04-25-mybatis通用dao/" class="article-date">
+  <time datetime="2015-04-24T16:00:00.000Z" itemprop="datePublished">2015-04-25</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/mybatis/">mybatis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      MyBatis通用dao和通用service
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>使用通用dao和通用service可以减少代码的开发。可以将常用的增删改查放到通用dao中。对不同的or框架，基本上都有自己的实现如SpringJPA的Repository就提供了常用的增删改查方法。而MyBatis借助代码生成工具也可以生成常用方法的映射</p>
+<p>这里只针对Mybatis。如果使用代码生成工具，会有一个问题：每个Mapper里面都有一些方法（增晒改查）。维护起来的话还好。只是在写service的时候会有一个问题。</p>
+<a id="more"></a>
+<p>比如UserMapper里面有</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">insert(User user)</span><br><span class="line">find(Integer id)</span><br><span class="line">delete(Integer id)</span><br></pre></td></tr></table></figure>
+<p>等方法，则在service中也要有这些方法的实现。假设每个Mapper有5个方法。则service也需要有5个方法的实现。如果有10个实体类。mapper可以省略（由生成工具生成），但是service有50个方法。到后期肯定不好进行维护</p>
+<h3 id="更新于2015/01/29，增加了第三种方法">更新于2015/01/29，增加了第三种方法</h3><h2 id="更新于2015/02/09，第三种方法方法改进，service实现上不需要加泛型">更新于2015/02/09，第三种方法方法改进，service实现上不需要加泛型</h2><h2 id="使用通用Mapper和Service">使用通用Mapper和Service</h2><p>该通用Mapper使用了Spring-mybatis。所以没有实现类，而是直接调用xml文件中的同名方法。之所以将通用Mapper抽出来主要是为了方便些通用的service</p>
+<h2 id="第一种：需要三个泛型，当前实体对象，主键，映射对象，">第一种：需要三个泛型，当前实体对象，主键，映射对象，</h2><p>好处：具体Service实现类简单，如果自己没有特殊的方法，继承BaseServiceImpl之后不需要写任何东西</p>
+<p>不好之处：</p>
+<ol>
+<li><p>每个通用方法都需要传递映射参数：比如findById，如果是UserService调用，则需要这样写：userService.findById(1,UserMapper.class)，这样在BaseMapperImpl中才可以通过class.getName得到映射的名称</p>
+</li>
+<li><p>而且在BaseMapperImpl中写得比较死。修改起来比较复杂</p>
+</li>
+</ol>
+<h2 id="第二种：">第二种：</h2><p>第一：不需要在方法上写各种泛型参数，同时也不需要在各种方法中传递映射参数</p>
+<p>第二：通用dao也不需要写实现：mybatis-spring所倡导的的一致</p>
+<p>不好之处：</p>
+<p>需要在每个Service实现类中写上：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="annotation">@Autowired</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBaseMapper</span><span class="params">(UserMapper userMapper)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">super</span>.setBaseMapper(userMapper);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>而且关键的是@Autowired不能少。这个在开发过程中不好进行限制</p>
+<h3 id="具体代码">具体代码</h3><ol>
+<li>通用接口，该接口方法的名称与使用代码生成工具的名称完全相同</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.liuyiyou.yishop.mapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BaseMapper</span>&lt;<span class="title">T</span>,<span class="title">ID</span> <span class="keyword">extends</span> <span class="title">Serializable</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">deleteByPrimaryKey</span><span class="params">(ID id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insert</span><span class="params">(T record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insertSelective</span><span class="params">(T record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">T <span class="title">selectByPrimaryKey</span><span class="params">(ID id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateByPrimaryKeySelective</span><span class="params">(T record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateByPrimaryKeyWithBLOBs</span><span class="params">(T record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateByPrimaryKey</span><span class="params">(T record)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>通用service接口。为了方便，名字和通用Mapper同名，其实更倾向于命名add。edit，find这类的命名，显得更加面向对象</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.liuyiyou.yishop.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BaseService</span>&lt;<span class="title">T</span>,<span class="title">ID</span> <span class="keyword">extends</span> <span class="title">Serializable</span>&gt; </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setBaseMapper</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">deleteByPrimaryKey</span><span class="params">(ID id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insert</span><span class="params">(T record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insertSelective</span><span class="params">(T record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">T <span class="title">selectByPrimaryKey</span><span class="params">(ID id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateByPrimaryKeySelective</span><span class="params">(T record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateByPrimaryKeyWithBLOBs</span><span class="params">(T record)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">updateByPrimaryKey</span><span class="params">(T record)</span></span>;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>通用service实现。也很简单。就是调用通用mapper里面的方法即可</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.liuyiyou.yishop.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.mapper.BaseMapper;</span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.service.BaseService;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span>  <span class="class"><span class="keyword">class</span> <span class="title">AbstractService</span>&lt;<span class="title">T</span>, <span class="title">ID</span> <span class="keyword">extends</span> <span class="title">Serializable</span>&gt; <span class="keyword">implements</span> <span class="title">BaseService</span>&lt;<span class="title">T</span>, <span class="title">ID</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> BaseMapper&lt;T, ID&gt; baseMapper;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBaseMapper</span><span class="params">(BaseMapper&lt;T, ID&gt; baseMapper)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.baseMapper = baseMapper;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">deleteByPrimaryKey</span><span class="params">(ID id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> baseMapper.deleteByPrimaryKey(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">insertSelective</span><span class="params">(T record)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> baseMapper.insertSelective(record);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">selectByPrimaryKey</span><span class="params">(ID id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> baseMapper.selectByPrimaryKey(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">updateByPrimaryKeySelective</span><span class="params">(T record)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> baseMapper.updateByPrimaryKey(record);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">updateByPrimaryKeyWithBLOBs</span><span class="params">(T record)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> baseMapper.updateByPrimaryKeyWithBLOBs(record);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">updateByPrimaryKey</span><span class="params">(T record)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> baseMapper.updateByPrimaryKey(record);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">insert</span><span class="params">(T record)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> baseMapper.insert(record);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>具体的Mapper写法:</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.liuyiyou.yishop.mapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Repository;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.domain.ProductCategory;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Repository</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ProductCategoryMapper</span> <span class="keyword">extends</span> <span class="title">BaseMapper</span>&lt;<span class="title">ProductCategory</span>, <span class="title">Long</span>&gt;</span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="comment">/**</span><br><span class="line">     * 通过父id得到类目列表</span><br><span class="line">     * <span class="doctag">@param</span> praentId</span><br><span class="line">     * <span class="doctag">@return</span></span><br><span class="line">     */</span></span><br><span class="line">    <span class="function">List&lt;ProductCategory&gt; <span class="title">selectByParent</span><span class="params">(Long parent)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol>
+<li>具体的Servicd</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.liuyiyou.yishop.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.domain.Ad;</span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.domain.Product;</span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.mapper.AdMapper;</span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.mapper.ProductMapper;</span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.service.ProductService;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ProductServiceImpl</span> <span class="keyword">extends</span> <span class="title">AbstractService</span>&lt;<span class="title">Product</span>,<span class="title">Long</span>&gt; <span class="keyword">implements</span> <span class="title">ProductService</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="annotation">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> ProductMapper productMapper;</span><br><span class="line">    </span><br><span class="line">    <span class="annotation">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> AdMapper adMapper;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//这句必须要加上。不然会报空指针异常，因为在实际掉用的时候不是BaseMapper调用，而是这个productMapper</span></span><br><span class="line">    <span class="annotation">@Autowired</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setBaseMapper</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.setBaseMapper(productMapper);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> Map&lt;String,Object&gt; testTwo() &#123;</span><br><span class="line">        Product product = productMapper.selectByPrimaryKey(<span class="number">1l</span>);</span><br><span class="line">        Ad ad = adMapper.selectByPrimaryKey(<span class="number">1l</span>);</span><br><span class="line">        </span><br><span class="line">        Map&lt;String,Object&gt; map = <span class="keyword">new</span> HashMap&lt;String,Object&gt;();</span><br><span class="line">        map.put(<span class="string">"product"</span>, product);</span><br><span class="line">        map.put(<span class="string">"ad"</span>, ad);</span><br><span class="line">        <span class="keyword">return</span> map;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="第三种：更新于2015/01/31，增加了第三种方法">第三种：更新于2015/01/31，增加了第三种方法</h2><p>这一种算是第二种的改进。避免了在ServiceImpl中写@Autowired</p>
+<p>去掉，privste BaseMapper<t,id> baseMapper。</t,id></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.liuyiyou.yishop.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.mapper.BaseMapper;</span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.service.BaseService;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractService</span>&lt;<span class="title">T</span>, <span class="title">ID</span> <span class="keyword">extends</span> <span class="title">Serializable</span>&gt; <span class="keyword">implements</span> <span class="title">BaseService</span>&lt;<span class="title">T</span>, <span class="title">ID</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">abstract</span> BaseMapper&lt;T, ID&gt; getMapper() ;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">deleteByPrimaryKey</span><span class="params">(ID id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getMapper().deleteByPrimaryKey(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">insert</span><span class="params">(T record)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getMapper().insert(record);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">insertSelective</span><span class="params">(T record)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getMapper().insertSelective(record);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">selectByPrimaryKey</span><span class="params">(ID id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getMapper().selectByPrimaryKey(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">updateByPrimaryKeySelective</span><span class="params">(T record)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getMapper().updateByPrimaryKeySelective(record);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">updateByPrimaryKeyWithBLOBs</span><span class="params">(T record)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getMapper().updateByPrimaryKeyWithBLOBs(record);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">updateByPrimaryKey</span><span class="params">(T record)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getMapper().updateByPrimaryKey(record);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>具体的Service实现。在这个里面，通过抽象的Service，来强制具体Service实现getMapper方法，而不需要在该方法上加@Autowired。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.liuyiyou.yishop.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.domain.Ad;</span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.mapper.AdMapper;</span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.mapper.BaseMapper;</span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.service.AdService;</span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.yishop.service.BaseService;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AdServiceImpl</span> <span class="keyword">extends</span> <span class="title">AbstractService</span>&lt;<span class="title">Ad</span>,<span class="title">Long</span>&gt; <span class="keyword">implements</span> <span class="title">AdService</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    <span class="annotation">@Autowired</span></span><br><span class="line">    <span class="keyword">public</span> AdMapper adMapper;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="keyword">public</span> BaseMapper&lt;Ad, Long&gt; getMapper() &#123;</span><br><span class="line">        <span class="keyword">return</span> adMapper;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="最近更新于2015/02/09，第三种方法方法改进，service实现上不需要加泛型">最近更新于2015/02/09，第三种方法方法改进，service实现上不需要加泛型</h2><p>之所以记录下来的原因是因为，在service接口上没有使用泛型</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.liuyiyou.springmvc.mapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * User: liuyiyou</span><br><span class="line"> * Date: 14-12-27</span><br><span class="line"> * Time: 下午11:39</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BaseMapper</span>&lt;<span class="title">T</span>,<span class="title">ID</span> <span class="keyword">extends</span> <span class="title">Serializable</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//只需要这个就可以了，并不需要具体的实现，只需要在Service中设置BaseMapper</span></span><br><span class="line">    <span class="function">T <span class="title">findById</span><span class="params">(ID id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Integer <span class="title">insert</span><span class="params">(T t)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.liuyiyou.springmvc.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * User: liuyiyou</span><br><span class="line"> * Date: 14-12-27</span><br><span class="line"> * Time: 下午11:53</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BaseService</span> &lt;<span class="title">T</span>,<span class="title">ID</span> <span class="keyword">extends</span> <span class="title">Serializable</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">T <span class="title">findById</span><span class="params">(ID id)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">insert</span><span class="params">(T t)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.liuyiyou.springmvc.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.springmvc.mapper.BaseMapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.Serializable;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * User: liuyiyou</span><br><span class="line"> * Date: 14-12-27</span><br><span class="line"> * Time: 下午11:54</span><br><span class="line"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">BaseServiceImpl</span>&lt;<span class="title">T</span>,<span class="title">ID</span> <span class="keyword">extends</span> <span class="title">Serializable</span>&gt; <span class="keyword">implements</span> <span class="title">BaseService</span>&lt;<span class="title">T</span>,<span class="title">ID</span>&gt; </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span>  BaseMapper <span class="title">getMapper</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> T <span class="title">findById</span><span class="params">(ID id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> (T) getMapper().findById(id);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">insert</span><span class="params">(T t)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> getMapper().insert(t);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.liuyiyou.springmvc.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.springmvc.domain.User;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserService</span> <span class="keyword">extends</span> <span class="title">BaseService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">addUser</span><span class="params">(User user)</span></span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">package</span> cn.liuyiyou.springmvc.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.springmvc.mapper.BaseMapper;</span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.springmvc.mapper.UserMapper;</span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"><span class="keyword">import</span> org.springframework.transaction.annotation.Transactional;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> cn.liuyiyou.springmvc.domain.User;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@Service</span></span><br><span class="line"><span class="annotation">@Transactional</span>(value=<span class="string">"transactionManager"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl</span> <span class="keyword">extends</span> <span class="title">BaseServiceImpl</span>  <span class="keyword">implements</span> <span class="title">UserService</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> UserMapper userMapper;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="annotation">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> BaseMapper <span class="title">getMapper</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> userMapper;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">addUser</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> reuslt = userMapper.insert(user);</span><br><span class="line">        <span class="keyword">if</span> (reuslt&gt;<span class="number">0</span>)</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        <span class="keyword">return</span>    <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="资料">资料</h2><p><a href="http://liuyiyou.cn/2014/12/28/base-dao-service/">http://liuyiyou.cn/2014/12/28/base-dao-service/</a>  –这个好像有提到好坏</p>
+<p><a href="http://git.oschina.net/free/Mapper/blob/master/UseMapperInSpring4.md" target="_blank" rel="external">http://git.oschina.net/free/Mapper/blob/master/UseMapperInSpring4.md</a> –这个看了一下，但是没有进行试验，不知道好坏与否</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/04/25/2015-04-25-mybatis通用dao/" data-id="cignar4ug0000o9thdnysg7lc" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/04/25/2015-04-25-mybatis通用dao/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/mybatis/">mybatis</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/16/memcached安装/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          memcached安装
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/01/06/希尔排序/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">希尔排序</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">2015年11月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015年10月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">2015年09月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">2015年07月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">2015年06月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015年05月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">2015年04月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">2015年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">2014年11月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">2014年09月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">2014年01月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2013年02月</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">类目</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/datastruts/">datastruts</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skill/">skill</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/">summarry</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tools/eclipse/">eclipse</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/11/01/2015-11-01-JAVA并发编程常识/">JAVA并发编程常识</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/28/2015-10-28-osx一些软件安装配置/">osx一些软件安装配置</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/27/2015-10-27-json日期转换/">JSON日期转换</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/24/2015-10-24-MyBatis批量插入/">第五篇：MyBatis插入和批量插入</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/15/Spring的一些扩展点/">Spring的一些扩展点</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/15/2015-10-15-Java保留两位小数/">Java保留两位小数</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/11/2015-10-11总结/">2015-10-11总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/07/关于需求的一些想法/">关于需求的一些想法</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/06/2015-10-06-SELECT语句的执行的逻辑查询处理步骤/">SELECT语句的执行的逻辑查询处理步骤</a>
+          </li>
+        
+          <li>
+            <a href="/2015/09/29/jquery-datatable/">jQuery.DataTable</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastruts/">datastruts</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatable/">datatable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcache/">memcache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/novel/">novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并发/">并发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">10</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/datastruts/" style="font-size: 18px;">datastruts</a> <a href="/tags/datatable/" style="font-size: 10px;">datatable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 18px;">java</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcache/" style="font-size: 12px;">memcache</a> <a href="/tags/mybatis/" style="font-size: 14px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/novel/" style="font-size: 10px;">novel</a> <a href="/tags/redis/" style="font-size: 16px;">redis</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/总结/" style="font-size: 20px;">总结</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2012 - 2015 liuyiyou<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="showDays"></span>
+<script>
+var birthDay = new Date("11/15/2014");
+var now = new Date();
+var duration = now.getTime() - birthDay.getTime(); 
+var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+</script>
+
+  
+ <scriptt language="javascript" type="text/javascript" src="http://js.users.51.la/17798200.js"></script>
+<noscript><a href="http://www.51.la/?17798200" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17798200.asp" style="border:none" /></a></noscript>
+<script language="javascript" type="text/javascript" src="http://js.users.51.la/17798200.js"></script>
+<noscript><a href="http://www.51.la/?17798200" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17798200.asp" style="border:none" /></a></noscript>
+    </div>
+  </div>
+
+  <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=11665452319099709564' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+  
+
+
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/about" class="mobile-nav-link">关于我</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'liuyiyou';
+  
+  var disqus_url = 'http://liuyiyou.cn/2015/04/25/2015-04-25-mybatis通用dao/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+
+
+  </div>
+</body>
+</html>

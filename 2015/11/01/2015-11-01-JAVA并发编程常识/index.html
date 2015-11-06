@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>JAVA并发编程常识 | O ever youthful,O ever weeping</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="本文摘自虚极(梁飞)的某个PPT
+JVM内存模型堆：
+所有对象全部放在共享堆空间中
+对象的属性在共享堆空间内
+堆内存单字节对齐，short不变
+
+
+
+栈：
+每个线程都有独立的线程栈空间
+线程栈只存基本类型和对象地址
+栈内存4字节对齐，short变int
+对象地址4字节，引用堆空间
+
+
+方法中局部变量在线程栈空间内
+局部变量不会竞争，线程安全
+方法参数在栈顶交叉，不拷贝
+栈顶寄存，减少中间状态读取P">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JAVA并发编程常识">
+<meta property="og:url" content="http://liuyiyou.cn/2015/11/01/2015-11-01-JAVA并发编程常识/index.html">
+<meta property="og:site_name" content="O ever youthful,O ever weeping">
+<meta property="og:description" content="本文摘自虚极(梁飞)的某个PPT
+JVM内存模型堆：
+所有对象全部放在共享堆空间中
+对象的属性在共享堆空间内
+堆内存单字节对齐，short不变
+
+
+
+栈：
+每个线程都有独立的线程栈空间
+线程栈只存基本类型和对象地址
+栈内存4字节对齐，short变int
+对象地址4字节，引用堆空间
+
+
+方法中局部变量在线程栈空间内
+局部变量不会竞争，线程安全
+方法参数在栈顶交叉，不拷贝
+栈顶寄存，减少中间状态读取P">
+<meta property="og:updated_time" content="2015-10-28T13:56:59.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="JAVA并发编程常识">
+<meta name="twitter:description" content="本文摘自虚极(梁飞)的某个PPT
+JVM内存模型堆：
+所有对象全部放在共享堆空间中
+对象的属性在共享堆空间内
+堆内存单字节对齐，short不变
+
+
+
+栈：
+每个线程都有独立的线程栈空间
+线程栈只存基本类型和对象地址
+栈内存4字节对齐，short变int
+对象地址4字节，引用堆空间
+
+
+方法中局部变量在线程栈空间内
+局部变量不会竞争，线程安全
+方法参数在栈顶交叉，不拷贝
+栈顶寄存，减少中间状态读取P">
+  
+    <link rel="alternative" href="/atom.xml" title="O ever youthful,O ever weeping" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">O ever youthful,O ever weeping</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">liuyiyou的个人小站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/about">关于我</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liuyiyou.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2015-11-01-JAVA并发编程常识" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/11/01/2015-11-01-JAVA并发编程常识/" class="article-date">
+  <time datetime="2015-10-31T16:00:00.000Z" itemprop="datePublished">2015-11-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      JAVA并发编程常识
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>本文摘自虚极(梁飞)的某个PPT</p>
+<h2 id="JVM内存模型">JVM内存模型</h2><h3 id="堆：">堆：</h3><ul>
+<li>所有对象全部放在共享堆空间中</li>
+<li>对象的属性在共享堆空间内<ul>
+<li>堆内存单字节对齐，short不变</li>
+</ul>
+</li>
+</ul>
+<h3 id="栈：">栈：</h3><ul>
+<li>每个线程都有独立的线程栈空间</li>
+<li>线程栈只存基本类型和对象地址<ul>
+<li>栈内存4字节对齐，short变int</li>
+<li>对象地址4字节，引用堆空间</li>
+</ul>
+</li>
+<li>方法中局部变量在线程栈空间内<ul>
+<li>局部变量不会竞争，线程安全</li>
+<li>方法参数在栈顶交叉，不拷贝</li>
+<li>栈顶寄存，减少中间状态读取PC指针记录当前执行位置</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<h2 id="原子性">原子性</h2><h3 id="对象类型：">对象类型：</h3><ul>
+<li>对象地址原子读写，线程安全</li>
+<li>并发读不可变状态，线程安全</li>
+<li>并发读写可变状态，非线程线程</li>
+</ul>
+<h3 id="基本类型：">基本类型：</h3><ul>
+<li>int,char数值读写，线程安全</li>
+<li>long,double高低位，非线程安全</li>
+<li>i++等组合操作，非线程安全</li>
+</ul>
+<h2 id="可见性">可见性</h2><ul>
+<li><p>final<br>初始化final字段确保可见性</p>
+</li>
+<li><p>volatile<br>读写volatile字段确保可见性</p>
+</li>
+<li><p>synchronized<br>同步块内读写字段确保可见性</p>
+</li>
+<li><p>happen before<br>遵守happen before次序可见性</p>
+</li>
+</ul>
+<h2 id="可排序性">可排序性</h2><h3 id="Happen_Before_法则">Happen Before 法则</h3><ul>
+<li><p>程序次序法则<br>如果A一定在B之前发生，则happen before,</p>
+</li>
+<li><p>监视器法则<br>对一个监视器的解锁一定发生在后续对同一监视器加锁之前</p>
+</li>
+<li><p>Volatie变量法则<br>写volatile变量一定发生在后续对它的读之前</p>
+</li>
+<li><p>线程启动法则<br>Thread.start一定发生在线程中的动作之前</p>
+</li>
+<li><p>线程终结法则<br>线程中的任何动作一定发生在括号中的动作之前（其他线程检测到这个线程已经终止，从Thread.join调用成功返回，Thread.isAlive()返回false）</p>
+</li>
+<li><p>中断法则<br>一个线程调用另一个线程的interrupt一定发生在另一线程发现中断之前。</p>
+</li>
+<li><p>终结法则<br>一个对象的构造函数结束一定发生在对象的finalizer之前</p>
+</li>
+<li><p>传递性<br>A发生在B之前，B发生在C之前，A一定发生在C之前。 </p>
+</li>
+</ul>
+<h2 id="系统内存">系统内存</h2><h3 id="MESI协议:">MESI协议:</h3><ul>
+<li><p>Modified</p>
+<ul>
+<li>本CPU写，则直接写到Cache，不产生总线事务；其它CPU写，则不涉及本CPU的Cache，其它CPU读，则本CPU需要把Cache line中的数据提供给它，而不是让它去读内存。 </li>
+</ul>
+</li>
+<li><p>Exclusive</p>
+<ul>
+<li>只有本CPU有该内存的Cache，而且和内存一致。 本CPU的写操作会导致转到Modified状态。 </li>
+</ul>
+</li>
+<li><p>Shared</p>
+<ul>
+<li>多个CPU都对该内存有Cache，而且内容一致。任何一个CPU写自己的这个Cache都必须通知其它的CPU。 </li>
+</ul>
+</li>
+<li><p>Invalid</p>
+<ul>
+<li>一旦Cache line进入这个状态，CPU读数据就必须发出总线事务，从内存读。 </li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/11/01/2015-11-01-JAVA并发编程常识/" data-id="cigej7cnp00008hthja2bym0k" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/11/01/2015-11-01-JAVA并发编程常识/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/并发/">并发</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2015/10/28/2015-10-28-osx一些软件安装配置/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">osx一些软件安装配置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">2015年11月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015年10月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">2015年09月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">2015年07月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">2015年06月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015年05月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">2015年04月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">2015年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">2014年11月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">2014年09月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">2014年01月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2013年02月</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">类目</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/datastruts/">datastruts</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skill/">skill</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/">summarry</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tools/eclipse/">eclipse</a><span class="category-list-count">1</span></li></ul></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2015/11/01/2015-11-01-JAVA并发编程常识/">JAVA并发编程常识</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/28/2015-10-28-osx一些软件安装配置/">osx一些软件安装配置</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/27/2015-10-27-json日期转换/">JSON日期转换</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/24/2015-10-24-MyBatis批量插入/">第五篇：MyBatis插入和批量插入</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/15/Spring的一些扩展点/">Spring的一些扩展点</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/15/2015-10-15-Java保留两位小数/">Java保留两位小数</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/11/2015-10-11总结/">2015-10-11总结</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/07/关于需求的一些想法/">关于需求的一些想法</a>
+          </li>
+        
+          <li>
+            <a href="/2015/10/06/2015-10-06-SELECT语句的执行的逻辑查询处理步骤/">SELECT语句的执行的逻辑查询处理步骤</a>
+          </li>
+        
+          <li>
+            <a href="/2015/09/29/jquery-datatable/">jQuery.DataTable</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastruts/">datastruts</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatable/">datatable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcache/">memcache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/novel/">novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并发/">并发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">10</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/datastruts/" style="font-size: 18px;">datastruts</a> <a href="/tags/datatable/" style="font-size: 10px;">datatable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 18px;">java</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcache/" style="font-size: 12px;">memcache</a> <a href="/tags/mybatis/" style="font-size: 14px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/novel/" style="font-size: 10px;">novel</a> <a href="/tags/redis/" style="font-size: 16px;">redis</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/总结/" style="font-size: 20px;">总结</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2012 - 2015 liuyiyou<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="showDays"></span>
+<script>
+var birthDay = new Date("11/15/2014");
+var now = new Date();
+var duration = now.getTime() - birthDay.getTime(); 
+var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+</script>
+
+  
+ <scriptt language="javascript" type="text/javascript" src="http://js.users.51.la/17798200.js"></script>
+<noscript><a href="http://www.51.la/?17798200" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17798200.asp" style="border:none" /></a></noscript>
+<script language="javascript" type="text/javascript" src="http://js.users.51.la/17798200.js"></script>
+<noscript><a href="http://www.51.la/?17798200" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17798200.asp" style="border:none" /></a></noscript>
+    </div>
+  </div>
+
+  <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=11665452319099709564' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+  
+
+
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/about" class="mobile-nav-link">关于我</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'liuyiyou';
+  
+  var disqus_url = 'http://liuyiyou.cn/2015/11/01/2015-11-01-JAVA并发编程常识/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+
+
+  </div>
+</body>
+</html>
