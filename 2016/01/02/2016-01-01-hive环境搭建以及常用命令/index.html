@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hive环境搭建以及常用命令 | 温故而知新    触类而旁通</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Hadoop版本为2.6.0 ，参考下面安装
+ Setting up a Single Node Cluster
+ 发现还是官网的靠谱，按照操作能正常运行hadoop2.6.0
+ 不过环境搭建完了之后，不知道下一步干啥，因为在目前的工作中，主要用的是Hive，所以在也把Hive环境搭建起来
+ Hive版本为1.2.1，参考下面安装
+ GettingStarted">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hive环境搭建以及常用命令">
+<meta property="og:url" content="http://liuyiyou.cn/2016/01/02/2016-01-01-hive环境搭建以及常用命令/index.html">
+<meta property="og:site_name" content="温故而知新    触类而旁通">
+<meta property="og:description" content="Hadoop版本为2.6.0 ，参考下面安装
+ Setting up a Single Node Cluster
+ 发现还是官网的靠谱，按照操作能正常运行hadoop2.6.0
+ 不过环境搭建完了之后，不知道下一步干啥，因为在目前的工作中，主要用的是Hive，所以在也把Hive环境搭建起来
+ Hive版本为1.2.1，参考下面安装
+ GettingStarted">
+<meta property="og:updated_time" content="2015-12-30T12:42:42.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hive环境搭建以及常用命令">
+<meta name="twitter:description" content="Hadoop版本为2.6.0 ，参考下面安装
+ Setting up a Single Node Cluster
+ 发现还是官网的靠谱，按照操作能正常运行hadoop2.6.0
+ 不过环境搭建完了之后，不知道下一步干啥，因为在目前的工作中，主要用的是Hive，所以在也把Hive环境搭建起来
+ Hive版本为1.2.1，参考下面安装
+ GettingStarted">
+  
+    <link rel="alternative" href="/atom.xml" title="温故而知新    触类而旁通" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">温故而知新    触类而旁通</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">liuyiyou的个人小站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/about">关于我</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liuyiyou.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016-01-01-hive环境搭建以及常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/02/2016-01-01-hive环境搭建以及常用命令/" class="article-date">
+  <time datetime="2016-01-02T00:00:00.000Z" itemprop="datePublished">2016-01-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/大数据/">大数据</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hive环境搭建以及常用命令
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p> Hadoop版本为2.6.0 ，参考下面安装</p>
+<p> <a href="http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-common/SingleCluster.html#Purpose" target="_blank" rel="external">Setting up a Single Node Cluster</a></p>
+<p> 发现还是官网的靠谱，按照操作能正常运行hadoop2.6.0</p>
+<p> 不过环境搭建完了之后，不知道下一步干啥，因为在目前的工作中，主要用的是Hive，所以在也把Hive环境搭建起来</p>
+<p> Hive版本为1.2.1，参考下面安装</p>
+<p> <a href="https://cwiki.apache.org/confluence/display/Hive/GettingStarted" target="_blank" rel="external">GettingStarted</a></p>
+<a id="more"></a>
+<p> 如果出现以下错误</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Terminal initialization failed; falling back to unsupported</span><br><span class="line">java.lang.IncompatibleClassChangeError: Found class jline.Terminal, but interface was expected</span><br><span class="line">        at jline.TerminalFactory.create(TerminalFactory.java:<span class="number">101</span>)</span><br><span class="line">        at jline.TerminalFactory.get(TerminalFactory.java:<span class="number">158</span>)</span><br><span class="line">        at jline.console.ConsoleReader.&lt;init&gt;(ConsoleReader.java:<span class="number">229</span>)</span><br><span class="line">        at jline.console.ConsoleReader.&lt;init&gt;(ConsoleReader.java:<span class="number">221</span>)</span><br><span class="line">        at jline.console.ConsoleReader.&lt;init&gt;(ConsoleReader.java:<span class="number">209</span>)</span><br><span class="line">        at org.apache.hadoop.hive.cli.CliDriver.getConsoleReader(CliDriver.java:<span class="number">773</span>)</span><br><span class="line">        at org.apache.hadoop.hive.cli.CliDriver.executeDriver(CliDriver.java:<span class="number">715</span>)</span><br><span class="line">        at org.apache.hadoop.hive.cli.CliDriver.run(CliDriver.java:<span class="number">675</span>)</span><br><span class="line">        at org.apache.hadoop.hive.cli.CliDriver.main(CliDriver.java:<span class="number">615</span>)</span><br><span class="line">        at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">        at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:<span class="number">57</span>)</span><br><span class="line">        at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:<span class="number">43</span>)</span><br><span class="line">        at java.lang.reflect.Method.invoke(Method.java:<span class="number">606</span>)</span><br><span class="line">        at org.apache.hadoop.util.RunJar.main(RunJar.java:<span class="number">212</span>)</span><br></pre></td></tr></table></figure>
+<p>原因是因为hadoop目录下村镇老版本jline-0.9.94.jar在hadoop-2.6.0/share/hadoop/yarn/lib下</p>
+<p>将该jar文件删除，用hive中的jline-2.12.jar替换</p>
+<h1 id="常用命令">常用命令</h1><p>参考<a href="http://www.cnblogs.com/ggjucheng/archive/2013/01/04/2844393.html" target="_blank" rel="external">hive创建/删除/截断 表</a>有改动</p>
+<h2 id="登陆">登陆</h2><p>$HIVE_HOME/bin/hive  启动</p>
+<h2 id="显示数据库和选择数据库">显示数据库和选择数据库</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">show</span> <span class="keyword">databases</span>;</span></span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">use</span> <span class="keyword">default</span>;</span></span><br></pre></td></tr></table></figure>
+<h2 id="创建表">创建表</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">create</span> <span class="keyword">table</span> t_hive1(</span><br><span class="line">	<span class="keyword">id</span>  <span class="built_in">int</span>,</span><br><span class="line">	dtDontQuery  <span class="keyword">string</span>,</span><br><span class="line">	<span class="keyword">name</span>  <span class="keyword">string</span></span><br><span class="line">);</span></span><br></pre></td></tr></table></figure>
+<h2 id="创建有分区的表">创建有分区的表</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">create</span> <span class="keyword">table</span>  t_hive2(</span><br><span class="line">	<span class="keyword">id</span> <span class="built_in">int</span>  <span class="keyword">comment</span> <span class="string">'用户id'</span>,</span><br><span class="line">	dtDontQuery  <span class="keyword">string</span> <span class="keyword">comment</span> <span class="string">'不知道是什么'</span>,</span><br><span class="line">	<span class="keyword">name</span>   <span class="keyword">string</span>  <span class="keyword">comment</span> <span class="string">'用户名称'</span></span><br><span class="line">)</span><br><span class="line">partitioned <span class="keyword">by</span> (stat_day <span class="keyword">string</span>)  #字段名称不能使用<span class="built_in">date</span>等关键字</span><br><span class="line">;</span></span><br></pre></td></tr></table></figure>
+<h2 id="典型的默认表创建">典型的默认表创建</h2><figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">create</span> <span class="keyword">table</span> page_view(</span><br><span class="line">	view_time <span class="built_in">int</span> <span class="keyword">comment</span> <span class="string">'浏览时间'</span>,</span><br><span class="line">	userid <span class="built_in">bigint</span>  <span class="keyword">comment</span> <span class="string">'用户id'</span>,</span><br><span class="line">	page_url <span class="keyword">string</span>  <span class="keyword">comment</span> <span class="string">'浏览的url'</span>,</span><br><span class="line">	referrer_url <span class="keyword">string</span>  <span class="keyword">comment</span> <span class="string">'refer'</span>,</span><br><span class="line">	ip <span class="keyword">string</span> <span class="keyword">comment</span>  <span class="string">'用户ip'</span></span><br><span class="line">)</span><br><span class="line"><span class="keyword">comment</span> <span class="string">'这是一个pv表'</span></span><br><span class="line">partitioned <span class="keyword">by</span> (dt <span class="keyword">string</span>, country <span class="keyword">string</span>)</span><br><span class="line"><span class="keyword">row</span> <span class="keyword">format</span> <span class="keyword">delimited</span></span><br><span class="line">  <span class="keyword">fields</span> <span class="keyword">terminated</span> <span class="keyword">by</span> <span class="string">'\001'</span></span><br><span class="line">  collection items <span class="keyword">terminated</span>  <span class="keyword">by</span> <span class="string">'\002'</span></span><br><span class="line">  <span class="keyword">map</span> <span class="keyword">keys</span> <span class="keyword">terminated</span>  <span class="keyword">by</span> <span class="string">'\003'</span></span><br><span class="line"><span class="keyword">stored</span> <span class="keyword">as</span> textfile  </span><br><span class="line">;</span></span><br></pre></td></tr></table></figure>
+<p>row  format  delimited  是用来设置创建的表在加载数据的时候，支持的列分割符。不同列之间用一个’\001’分割，集合(例如 array,map)的元素之间以’\002’隔开，map中的key和value用’\003’分割</p>
+<h2 id="创建外部表">创建外部表</h2><p>如果数据已经存在hsfs的’/Users/liuyiyou/hadoop-2.6.0/warehouse/page_view’上了，如果想创建表，指向这个路径，就需要创建外部表</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#这个没有试验，hadoop很多概念还不懂呢！</span><br></pre></td></tr></table></figure>
+<h2 id="从文件加载到Hive表">从文件加载到Hive表</h2><p>参考<a href="http://www.cnblogs.com/ggjucheng/archive/2013/01/04/2844673.html" target="_blank" rel="external">hive数据操作</a></p>
+<p>加载数据到表时，hive不会做任何转换。加载操作是纯粹的复制/移动操作，移动数据文件到相应的hive表。</p>
+<p>LOAD DATA [LOCAL] INPATH ‘filepath’ [OVERWRITE] INTO TABLE tablename [PARTITION (partcol1=val1, partcol2=val2 …)]</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">load</span> <span class="keyword">data</span> <span class="keyword">local</span> inpath  <span class="string">'/Users/liuyiyou/apache-hive-1.2.1-bin/examples/files/kv3.txt'</span> overwrite <span class="keyword">into</span> <span class="keyword">table</span> invites <span class="keyword">partition</span>(ds=<span class="string">'2008-08-08'</span>);</span>;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2016/01/02/2016-01-01-hive环境搭建以及常用命令/" data-id="cijfajiha000gdqthomjlwm5n" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2016/01/02/2016-01-01-hive环境搭建以及常用命令/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hive/">hive</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/03/2016-01-03一些名词释义/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          一些名词释义
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/01/2016-01-01-osx下hadoop环境搭建/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">osx下hadoop环境搭建</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">2016年01月</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">2015年12月</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">2015年11月</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015年10月</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">2015年09月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">2015年07月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">2015年06月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015年05月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">2015年04月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">2015年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">2014年11月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">2014年09月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">2014年01月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2013年02月</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">类目</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/datastruts/">datastruts</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/阅读/">阅读</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skill/">skill</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/">summarry</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tools/eclipse/">eclipse</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/velocity/">velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wf/">wf</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/大数据/">大数据</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/01/04/2016-01-04-hadoop配置文件说明/">hadoop配置文件说明</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/03/2016-01-03一些名词释义/">一些名词释义</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/2016-01-01-hive环境搭建以及常用命令/">Hive环境搭建以及常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/01/2016-01-01-osx下hadoop环境搭建/">osx下hadoop环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/31/2015-12-31-java线程使用实例/">java线程使用实例</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/30/2015-12-30-java并发编程(6)/">java并发编程(6)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/2015-12-29-写在年末/">写在年末</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/14/2015-12-14-关于Map的几个注意点/">关于Map的几个注意点</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/03/2015-12-03-wf初试/">wf初试</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/01/2015-12-01-一些小技巧/">一些小技巧</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastruts/">datastruts</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatable/">datatable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcache/">memcache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/novel/">novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/skill/">skill</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/">tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/velocity/">velocity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wf/">wf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并发/">并发</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">10</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/datastruts/" style="font-size: 16.67px;">datastruts</a> <a href="/tags/datatable/" style="font-size: 10px;">datatable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/hadoop/" style="font-size: 15px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hive/" style="font-size: 13.33px;">hive</a> <a href="/tags/java/" style="font-size: 18.33px;">java</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/life/" style="font-size: 11.67px;">life</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcache/" style="font-size: 11.67px;">memcache</a> <a href="/tags/mybatis/" style="font-size: 15px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/novel/" style="font-size: 10px;">novel</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/skill/" style="font-size: 10px;">skill</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/velocity/" style="font-size: 10px;">velocity</a> <a href="/tags/wf/" style="font-size: 10px;">wf</a> <a href="/tags/多线程/" style="font-size: 11.67px;">多线程</a> <a href="/tags/并发/" style="font-size: 13.33px;">并发</a> <a href="/tags/总结/" style="font-size: 20px;">总结</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2012 - 2016 liuyiyou<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="showDays"></span>
+<script>
+var birthDay = new Date("11/15/2014");
+var now = new Date();
+var duration = now.getTime() - birthDay.getTime(); 
+var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+</script>
+
+  
+ <scriptt language="javascript" type="text/javascript" src="http://js.users.51.la/17798200.js"></script>
+<noscript><a href="http://www.51.la/?17798200" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17798200.asp" style="border:none" /></a></noscript>
+<script language="javascript" type="text/javascript" src="http://js.users.51.la/17798200.js"></script>
+<noscript><a href="http://www.51.la/?17798200" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17798200.asp" style="border:none" /></a></noscript>
+    </div>
+  </div>
+
+  <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=11665452319099709564' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+  
+
+
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/about" class="mobile-nav-link">关于我</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'liuyiyou';
+  
+  var disqus_url = 'http://liuyiyou.cn/2016/01/02/2016-01-01-hive环境搭建以及常用命令/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+
+
+  </div>
+</body>
+</html>

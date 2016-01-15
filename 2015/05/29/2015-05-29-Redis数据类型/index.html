@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Redis数据类型 | 温故而知新    触类而旁通</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="Redis数据类型主要分为五种类型
+
+string
+hash
+list
+set
+zset">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Redis数据类型">
+<meta property="og:url" content="http://liuyiyou.cn/2015/05/29/2015-05-29-Redis数据类型/index.html">
+<meta property="og:site_name" content="温故而知新    触类而旁通">
+<meta property="og:description" content="Redis数据类型主要分为五种类型
+
+string
+hash
+list
+set
+zset">
+<meta property="og:updated_time" content="2015-10-07T09:25:25.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Redis数据类型">
+<meta name="twitter:description" content="Redis数据类型主要分为五种类型
+
+string
+hash
+list
+set
+zset">
+  
+    <link rel="alternative" href="/atom.xml" title="温故而知新    触类而旁通" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">温故而知新    触类而旁通</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">liuyiyou的个人小站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/about">关于我</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liuyiyou.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2015-05-29-Redis数据类型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/29/2015-05-29-Redis数据类型/" class="article-date">
+  <time datetime="2015-05-29T00:00:00.000Z" itemprop="datePublished">2015-05-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/redis/">redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Redis数据类型
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Redis数据类型主要分为五种类型</p>
+<ul>
+<li>string</li>
+<li>hash</li>
+<li>list</li>
+<li>set</li>
+<li>zset</li>
+</ul>
+<a id="more"></a>
+<h3 id="string类型">string类型</h3><p>string类型是最简单的类型，一个key对应一个value，string类型是二进制安全的，redis的string可以包含任何数据，比如图片或者序列化的对象</p>
+<blockquote>
+<p>set：设置key对应的值为string类型的value，如果重复key，则后者会覆盖前者</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; <span class="built_in">set</span> name liuyiyou       <span class="comment">#name=liuyiyou</span></span><br><span class="line">OK</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>get:通过key得到value</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt;  get name</span><br><span class="line"><span class="string">"liuyiyou"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>setnx：设置key对应的值为string类型的value，如果key已经存在，返回0，更新不成功。nx是not exist的意思</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SETNX name liuyiyou</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>setex：设置key对应的值为string类型的value，并指定此键值对应的有效期</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#添加一个  newname=liuyiyou 10秒超时</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SETNX name liuyiyou</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">0</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SETEX  newname <span class="number">10</span>  liuyiyou</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; get newname</span><br><span class="line"><span class="string">"liuyiyou"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; get newname</span><br><span class="line"><span class="string">"liuyiyou"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; get newname</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>setrange：设置指定key的value值的子字符串，替换的长度默认为新字串的长度</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; <span class="built_in">set</span> lyy.email liuyiyou@<span class="number">163</span>.com</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; get lyy.email</span><br><span class="line"><span class="string">"liuyiyou@163.com"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SETRANGE lyy.email <span class="number">9</span> qq.com</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">16</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; GET lyy.email</span><br><span class="line"><span class="string">"liuyiyou@qq.comm"</span>   <span class="comment">#最后一个m没有去掉</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>mset：一次设置多个key的值</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; MSET  key1 liu key2 yi key3 you</span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; GET key1</span><br><span class="line"><span class="string">"liu"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; GET key2</span><br><span class="line"><span class="string">"yi"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; GET key3</span><br><span class="line"><span class="string">"you"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>msetnx：一次设置多个key的值，成功返回OK表示所有的值都设置了，失败返回0表示没有任何值被设置，但是不会覆盖已经存在的key</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; MSETNX  key4 <span class="built_in">test</span> key3 yi</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">0</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; GET key4</span><br><span class="line">(nil)</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; GET key3</span><br><span class="line"><span class="string">"you"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>getset：设置新值并返回旧值</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; GETSET key3 newyou</span><br><span class="line"><span class="string">"you"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; GET key3</span><br><span class="line"><span class="string">"newyou"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>getrange  </p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; GETRANGE   lyy.email <span class="number">0</span> <span class="number">14</span></span><br><span class="line"><span class="string">"liuyiyou@qq.com"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>mget ：一次获取多个key的值，如果对应key不存在，则返回nil  </p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; MGET  key1 key2 key3 key4 key5</span><br><span class="line"><span class="number">1</span>) <span class="string">"liu"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"yi"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"newyou"</span></span><br><span class="line"><span class="number">4</span>) (nil)</span><br><span class="line"><span class="number">5</span>) (nil)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> incr（递增）：对key的值做加操作，并返回新的值</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; INCR  key6</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">31</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; INCR  key6</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">32</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; INCR  key6</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">33</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; get key7</span><br><span class="line">(nil)</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; INCR key7</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; INCR key7</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>incrby：痛incr类似，加指定值，key不存在的时候会设置key，并认为原来的value是0</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; INCRBY key6 <span class="number">5</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">38</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; INCRBY key6 <span class="number">5</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">43</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; INCRBY key6 -<span class="number">5</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">38</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; INCRBY key6 -<span class="number">5</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">33</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> decr、decrby和incr、incrby相反</p>
+<p>append：给指定的key的字符串追加value，返回新字符串的长度</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; GET name</span><br><span class="line"><span class="string">"liuyiyou"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; APPEND name @qq.com</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">15</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; GET name</span><br><span class="line"><span class="string">"liuyiyou@qq.com"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>strlen：取指定key的value值的长度</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; STRLEN  name</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">15</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt;</span><br></pre></td></tr></table></figure>
+<p>###hash类型</p>
+<p>Redis的hash是一个string类型的field和value的映射表，它的添加、删除操作平均都是O(1)。hash特别适合存储对象。相较于将对象的每个字段存成单个string类型。将一个对象存储在hash类型中会占用更少的内存，并且更加方便的存储整个对象</p>
+<blockquote>
+<p>hset：设置hash field指定值，如果key不存在，则先创建</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HSET myhash field1 Hello</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HGET  user:<span class="number">001</span> name</span><br><span class="line"><span class="string">"liuyiyou"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> hsetnx：设置hash field为指定值，如果key不存在，则先创建，如果存在则返回0</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HSETNX user:<span class="number">002</span>  name yiyou</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HGET user:<span class="number">002</span> name</span><br><span class="line"><span class="string">"yiyou"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HSETNX user:<span class="number">002</span> name liuyiyou</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">0</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HGET user:<span class="number">002</span> name</span><br><span class="line"><span class="string">"yiyou"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>hmset：同时设置多个field</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HMSET user:<span class="number">003</span> name liuyiyou  age <span class="number">20</span> sex <span class="number">1</span></span><br><span class="line">OK</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HGET user:<span class="number">003</span> name</span><br><span class="line"><span class="string">"liuyiyou"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HGET user:<span class="number">003</span> age</span><br><span class="line"><span class="string">"20"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HGET user:<span class="number">003</span> sex</span><br><span class="line"><span class="string">"1"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>hmget：获取全部指定的hash field</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HMGET user:<span class="number">003</span>  name age sex</span><br><span class="line"><span class="number">1</span>) <span class="string">"liuyiyou"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"20"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"1"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>hincrby：指定的hash field加上给定值，返回新值</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HINCRBY user:<span class="number">003</span> name <span class="number">8</span></span><br><span class="line">(error) ERR <span class="built_in">hash</span> value is not an <span class="built_in">integer</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HINCRBY user:<span class="number">003</span> age -<span class="number">8</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">20</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>hexists：测试指定field是否存在，存在返回1，不存在返回0</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HEXISTS user:<span class="number">003</span> name</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HEXISTS user:<span class="number">003</span> address</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>hlen：返回指定hash的field的数量</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HLEN user:<span class="number">001</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HLEN user:<span class="number">003</span></span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">3</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>hdel：删除指定hash的field</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HDEL user:<span class="number">003</span> age</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HGET user:<span class="number">003</span> age</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>hkeys：返回hash的所有field</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HKEYS user:<span class="number">001</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"name"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HKEYS user:<span class="number">002</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"name"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HKEYS user:<span class="number">003</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"name"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"sex"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>hvals：返回hash的所有value</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HVALS user:<span class="number">001</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"liuyiyou"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HVALS user:<span class="number">003</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"liuyiyou"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"1"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>hgetall：获取某个hash中全部的field和value</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">1</span>) <span class="string">"name"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"liuyiyou"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; HGETALL user:<span class="number">003</span></span><br><span class="line"><span class="number">1</span>) <span class="string">"name"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"liuyiyou"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"sex"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"1"</span></span><br></pre></td></tr></table></figure>
+<p>###list类型</p>
+<p>###set类型</p>
+<p>set是集合，它是string类型的无序集合。set通过hash table实现的，添加和删除和查找的复杂度都是O(1)。对集合我们可以取并集、交集、差集。通过这些操作我们可以实现sns中的好友推荐和blog的tag功能。</p>
+<blockquote>
+<p>sadd：向名称为key的set中添加元素</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SADD myset1 one</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SADD myset1 two</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SADD myset1 two</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>smembers：查看集合中的元素</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SMEMBERS myset1</span><br><span class="line"><span class="number">1</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"two"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>srem：删除名称为key的set中的元素</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SREM myset1 one</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SMEMBERS myset1</span><br><span class="line"><span class="number">1</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SREM myset two</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">0</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SREM myset1 two</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SMEMBERS myset1</span><br><span class="line">(empty list or <span class="built_in">set</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>spop：随机返回并删除名称为key的set中的一个元素</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SMEMBERS myset3</span><br><span class="line"><span class="number">1</span>) <span class="string">"four"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"three"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">5</span>) <span class="string">"five"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SPOP myset3</span><br><span class="line"><span class="string">"three"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SPOP myset3</span><br><span class="line"><span class="string">"one"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SPOP myset3</span><br><span class="line"><span class="string">"four"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SPOP myset3</span><br><span class="line"><span class="string">"five"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SPOP myset3</span><br><span class="line"><span class="string">"two"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SPOP myset3</span><br><span class="line">(nil)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>sdiff：返回所有给定key与第一个key的差集，谁在前面，谁就是标准</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SMEMBERS myset1</span><br><span class="line"><span class="number">1</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SMEMBERS myset3</span><br><span class="line">(empty list or <span class="built_in">set</span>)</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SDIFF myset1 myset3</span><br><span class="line"><span class="number">1</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SDIFF myset3 myset1</span><br><span class="line">(empty list or <span class="built_in">set</span>)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>sdiffstore：返回所有给定key与第一个key的差集，并将结果存为另一个key</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#sdiffstore  需要存储的值     集合1   集合2</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>sunion  返回所有给定key的并集</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#sunion myset1 myset2</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>sunionstore：返回所有给定key的并集并存储到新的key中</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">#sunionstore  新的key   需要的并集1  需要的并集2</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>smove：从第一个key对应的set中移除member并添加到第二个对应的set中</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SMEMBERS myset2</span><br><span class="line"><span class="number">1</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SMEMBERS myset3</span><br><span class="line"><span class="number">1</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SADD myset3 three</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SMEMBERS myset2</span><br><span class="line"><span class="number">1</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SMEMBERS myset3</span><br><span class="line"><span class="number">1</span>) <span class="string">"three"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SMOVE myset3 myset2 three</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SMEMBERS myset2</span><br><span class="line"><span class="number">1</span>) <span class="string">"three"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SMEMBERS myset3</span><br><span class="line"><span class="number">1</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"two"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>scard：返回名称为key的set的元素个数</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SCARD myset3</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">2</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SCARD myset1</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>sismember：测试member是否是名称为key的元素</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SMEMBERS myset3</span><br><span class="line"><span class="number">1</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SISMEMBER myset3 two</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SISMEMBER myset3 three</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">0</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>srandmember：随机返回名称为key的set的一个元素，但不删除元素</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SRANDMEMBER myset</span><br><span class="line">(nil)</span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SRANDMEMBER myset3</span><br><span class="line"><span class="string">"two"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SRANDMEMBER myset3</span><br><span class="line"><span class="string">"two"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; SRANDMEMBER myset3</span><br><span class="line"><span class="string">"one"</span></span><br></pre></td></tr></table></figure>
+<p>###zset</p>
+<p>sorted set是set的一个升级版本，它在set的基础上增加了一个顺序属性，这一属性在添加、修改、元素的时候可以指定，每次指定后，zset会自动重新按新的值调整顺序。可以理解为友两列的mysql表，一列存储value，一列存储顺序。操作中key理解为zset的名字</p>
+<blockquote>
+<p>zadd：加入新元素，如果加入的元素和顺序都已经存在，则加入失败，如果顺序不同，则更新为新的顺序</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZADD zset1 <span class="number">1</span> one</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZADD zset1 <span class="number">1</span> one</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">0</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZADD zset1 <span class="number">2</span> two</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZADD zset1 <span class="number">3</span> three</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>zrange：去的zset中集合的元素，如果加上withscores则还取出元素的序列号</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZRANGE  zset1 <span class="number">0</span> -<span class="number">1</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"1"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"2"</span></span><br><span class="line"><span class="number">5</span>) <span class="string">"three"</span></span><br><span class="line"><span class="number">6</span>) <span class="string">"3"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>zrem：删除名称为key的zset中的元素member</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZRANGE  zset1 <span class="number">0</span> -<span class="number">1</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"1"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"2"</span></span><br><span class="line"><span class="number">5</span>) <span class="string">"three"</span></span><br><span class="line"><span class="number">6</span>) <span class="string">"3"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZREM zset1 three</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZRANGE  zset1 <span class="number">0</span> -<span class="number">1</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"1"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"2"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>zincrby：如果在名称为key的zset中已经存在元素member，则该元素的score增加increment，否则向该集合中添加该元素，其score的值为increment</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZRANGE  zset1 <span class="number">0</span> -<span class="number">1</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"1"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"2"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZINCRBY zset1 <span class="number">4</span>  one </span><br><span class="line"><span class="string">"5"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZRANGE zset1 <span class="number">0</span> -<span class="number">1</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"2"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"5"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>zrank 返回名称为key的zset中member元素的排名（按score从小到大排序）即下标</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZRANGE zset1 <span class="number">0</span> -<span class="number">1</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"1"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"2"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; zadd zset1 <span class="number">3</span> three</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZRANK zset1 two</span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">1</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>zrevrank：返回名称为key的zset中的member元素排名（按score从小到大排序）即下标</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>zrangebyscore：返回集合中score在给定区间的元素</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZRANGE zset1 <span class="number">0</span> -<span class="number">1</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"one"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"1"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"2"</span></span><br><span class="line"><span class="number">5</span>) <span class="string">"three"</span></span><br><span class="line"><span class="number">6</span>) <span class="string">"3"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZRANGEBYSCORE zset1 <span class="number">2</span> <span class="number">3</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"2"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"three"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"3"</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p> zcount：返回集合中score在给定区间的元素</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZRANGEBYSCORE zset1 <span class="number">2</span> <span class="number">3</span> withscores</span><br><span class="line"><span class="number">1</span>) <span class="string">"two"</span></span><br><span class="line"><span class="number">2</span>) <span class="string">"2"</span></span><br><span class="line"><span class="number">3</span>) <span class="string">"three"</span></span><br><span class="line"><span class="number">4</span>) <span class="string">"3"</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZCOUNT zset <span class="number">2</span> <span class="number">3</span> </span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">0</span></span><br><span class="line"><span class="number">127.0</span>.<span class="number">0.1</span>:<span class="number">6379</span>&gt; ZCOUNT zset1 <span class="number">2</span> <span class="number">3</span> </span><br><span class="line">(<span class="built_in">integer</span>) <span class="number">2</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>zremrangebyrank：删除集合中排名在给定区间的元素</p>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote>
+</blockquote>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/05/29/2015-05-29-Redis数据类型/" data-id="cijfajimb0049dqthyhjl4icj" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/05/29/2015-05-29-Redis数据类型/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2015/05/30/2015-05-30-Redis常用命令和高级应用/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Redis常用命令和高级应用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2015/05/29/2015-05-29总结/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">2015-05-29总结</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">2016年01月</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">2015年12月</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">2015年11月</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015年10月</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">2015年09月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">2015年07月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">2015年06月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015年05月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">2015年04月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">2015年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">2014年11月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">2014年09月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">2014年01月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2013年02月</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">类目</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/datastruts/">datastruts</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/阅读/">阅读</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skill/">skill</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/">summarry</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tools/eclipse/">eclipse</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/velocity/">velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wf/">wf</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/大数据/">大数据</a><span class="category-list-count">4</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/01/04/2016-01-04-hadoop配置文件说明/">hadoop配置文件说明</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/03/2016-01-03一些名词释义/">一些名词释义</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/2016-01-01-hive环境搭建以及常用命令/">Hive环境搭建以及常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/01/2016-01-01-osx下hadoop环境搭建/">osx下hadoop环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/31/2015-12-31-java线程使用实例/">java线程使用实例</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/30/2015-12-30-java并发编程(6)/">java并发编程(6)</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/29/2015-12-29-写在年末/">写在年末</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/14/2015-12-14-关于Map的几个注意点/">关于Map的几个注意点</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/03/2015-12-03-wf初试/">wf初试</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/01/2015-12-01-一些小技巧/">一些小技巧</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastruts/">datastruts</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatable/">datatable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcache/">memcache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/novel/">novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/skill/">skill</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/">tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/velocity/">velocity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wf/">wf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并发/">并发</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">10</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/datastruts/" style="font-size: 16.67px;">datastruts</a> <a href="/tags/datatable/" style="font-size: 10px;">datatable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/hadoop/" style="font-size: 15px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hive/" style="font-size: 13.33px;">hive</a> <a href="/tags/java/" style="font-size: 18.33px;">java</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/life/" style="font-size: 11.67px;">life</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcache/" style="font-size: 11.67px;">memcache</a> <a href="/tags/mybatis/" style="font-size: 15px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/novel/" style="font-size: 10px;">novel</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/skill/" style="font-size: 10px;">skill</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/velocity/" style="font-size: 10px;">velocity</a> <a href="/tags/wf/" style="font-size: 10px;">wf</a> <a href="/tags/多线程/" style="font-size: 11.67px;">多线程</a> <a href="/tags/并发/" style="font-size: 13.33px;">并发</a> <a href="/tags/总结/" style="font-size: 20px;">总结</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2012 - 2016 liuyiyou<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="showDays"></span>
+<script>
+var birthDay = new Date("11/15/2014");
+var now = new Date();
+var duration = now.getTime() - birthDay.getTime(); 
+var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+</script>
+
+  
+ <scriptt language="javascript" type="text/javascript" src="http://js.users.51.la/17798200.js"></script>
+<noscript><a href="http://www.51.la/?17798200" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17798200.asp" style="border:none" /></a></noscript>
+<script language="javascript" type="text/javascript" src="http://js.users.51.la/17798200.js"></script>
+<noscript><a href="http://www.51.la/?17798200" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17798200.asp" style="border:none" /></a></noscript>
+    </div>
+  </div>
+
+  <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=11665452319099709564' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+  
+
+
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/about" class="mobile-nav-link">关于我</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'liuyiyou';
+  
+  var disqus_url = 'http://liuyiyou.cn/2015/05/29/2015-05-29-Redis数据类型/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+
+
+  </div>
+</body>
+</html>

@@ -3,19 +3,19 @@
 <head>
   <meta charset="utf-8">
   
-  <title>O ever youthful,O ever weeping</title>
+  <title>温故而知新    触类而旁通</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="温故而知新、触类而旁通">
 <meta property="og:type" content="website">
-<meta property="og:title" content="O ever youthful,O ever weeping">
+<meta property="og:title" content="温故而知新    触类而旁通">
 <meta property="og:url" content="http://liuyiyou.cn/page/4/index.html">
-<meta property="og:site_name" content="O ever youthful,O ever weeping">
+<meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="温故而知新、触类而旁通">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="O ever youthful,O ever weeping">
+<meta name="twitter:title" content="温故而知新    触类而旁通">
 <meta name="twitter:description" content="温故而知新、触类而旁通">
   
-    <link rel="alternative" href="/atom.xml" title="O ever youthful,O ever weeping" type="application/atom+xml">
+    <link rel="alternative" href="/atom.xml" title="温故而知新    触类而旁通" type="application/atom+xml">
   
   
     <link rel="icon" href="/favicon.png">
@@ -30,7 +30,7 @@
   <div id="header-outer" class="outer">
     <div id="header-title" class="inner">
       <h1 id="logo-wrap">
-        <a href="/" id="logo">O ever youthful,O ever weeping</a>
+        <a href="/" id="logo">温故而知新    触类而旁通</a>
       </h1>
       
         <h2 id="subtitle-wrap">
@@ -62,271 +62,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-选择排序" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-06-21总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2015/01/03/选择排序/" class="article-date">
-  <time datetime="2015-01-03T00:00:00.000Z" itemprop="datePublished">2015-01-03</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/datastruts/">datastruts</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/03/选择排序/">选择排序</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="概述">概述</h3><p>选择排序：每一趟从待排序的数据元素中选出最小（或最大）的一个元素，顺序放在已排好序的数列的最后，直到全部待排序的数据元素排完。</p>
-<h3 id="原理：">原理：</h3><p>选择排序很简单，他的步骤如下：</p>
-<ol>
-<li>从左至右遍历，找到最小(大)的元素，然后与第一个元素交换。</li>
-<li>从剩余未排序元素中继续寻找最小（大）元素，然后与第二个元素进行交换。</li>
-<li>以此类推，直到所有元素均排序完毕。</li>
-</ol>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/03/选择排序/#more">阅读更多</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2015/01/03/选择排序/" data-id="cigauteu70006knth13k1ujiw" class="article-share-link">Share</a>
-      
-        <a href="http://liuyiyou.cn/2015/01/03/选择排序/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/datastruts/">datastruts</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-插入排序" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/02/插入排序/" class="article-date">
-  <time datetime="2015-01-02T00:00:00.000Z" itemprop="datePublished">2015-01-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/datastruts/">datastruts</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/02/插入排序/">插入排序</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="概述">概述</h2><p>插入排序包括 直接插入排序和希尔排序 </p>
-<p>直接插入排序的基本操作是：假设第一个元素是有序的，每次从无序表中取出第一个元素，把它插入到有序表的合适位置，从而得到一个新的，记录数增1的有序表</p>
-<p>第一种方式：</p>
-<ol>
-<li>从第一个元素开始，该元素可以认为已经被排序</li>
-<li>取出下一个元素，在已经排序的元素序列中从后向前扫描</li>
-<li>如果该元素小于前面的元素（已排序），则依次与前面元素进行比较如果小于则交换，直到找到大于该元素的就则停止；</li>
-<li>如果该元素大于前面的元素（已排序），则重复步骤2</li>
-<li>重复步骤2~4 直到所有元素都排好序 。</li>
-</ol>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/02/插入排序/#more">阅读更多</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2015/01/02/插入排序/" data-id="cigauteuu000pknth6f9rluxo" class="article-share-link">Share</a>
-      
-        <a href="http://liuyiyou.cn/2015/01/02/插入排序/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/datastruts/">datastruts</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-冒泡排序" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2015/01/01/冒泡排序/" class="article-date">
-  <time datetime="2015-01-01T00:00:00.000Z" itemprop="datePublished">2015-01-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/datastruts/">datastruts</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2015/01/01/冒泡排序/">冒泡排序</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="概述">概述</h2><p>冒泡排序：它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。</p>
-<p>这个算法的名字由来是因为越大的元素会经由交换慢慢“浮”到数列的顶端，故名</p>
-        
-          <p class="article-more-link">
-            <a href="/2015/01/01/冒泡排序/#more">阅读更多</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2015/01/01/冒泡排序/" data-id="cigauteve0011knthcsfhq190" class="article-share-link">Share</a>
-      
-        <a href="http://liuyiyou.cn/2015/01/01/冒泡排序/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/datastruts/">datastruts</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/28/isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法/" class="article-date">
-  <time datetime="2014-11-27T16:00:00.000Z" itemprop="datePublished">2014-11-28</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/28/isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法/">isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="commons-lang-jar中isNotEmpty和isNotBlank的区别">commons-lang.jar中isNotEmpty和isNotBlank的区别</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  String nullStr = <span class="keyword">null</span>;</span><br><span class="line">  String emptyStr =  <span class="string">""</span>;</span><br><span class="line">  String blankStr = <span class="string">" "</span>;</span><br><span class="line">  System.out.println(StringUtils.isBlank(nullStr));  <span class="comment">//true</span></span><br><span class="line">  System.out.println(StringUtils.isBlank(emptyStr));<span class="comment">//true</span></span><br><span class="line">  System.out.println(StringUtils.isBlank(blankStr));<span class="comment">//true</span></span><br><span class="line">  System.out.println(StringUtils.isNotBlank(nullStr));  <span class="comment">//false</span></span><br><span class="line">  System.out.println(StringUtils.isNotBlank(emptyStr)); <span class="comment">//false</span></span><br><span class="line">  System.out.println(StringUtils.isNotBlank(blankStr));<span class="comment">//false</span></span><br><span class="line"> </span><br><span class="line">  System.out.println(StringUtils.isEmpty(nullStr));<span class="comment">//true</span></span><br><span class="line">  System.out.println(StringUtils.isEmpty(emptyStr));<span class="comment">//true</span></span><br><span class="line">  System.out.println(StringUtils.isEmpty(blankStr)); <span class="comment">//false</span></span><br><span class="line">  System.out.println(StringUtils.isNotEmpty(nullStr));<span class="comment">//false</span></span><br><span class="line">  System.out.println(StringUtils.isNotEmpty(emptyStr));<span class="comment">//false</span></span><br><span class="line">  System.out.println(StringUtils.isNotEmpty(blankStr));<span class="comment">//true</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-        
-          <p class="article-more-link">
-            <a href="/2014/11/28/isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法/#more">阅读更多</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2014/11/28/isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法/" data-id="cigautewi001zkntheajgyzx5" class="article-share-link">Share</a>
-      
-        <a href="http://liuyiyou.cn/2014/11/28/isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-取两个集合的交集" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/05/取两个集合的交集/" class="article-date">
-  <time datetime="2014-11-05T00:00:00.000Z" itemprop="datePublished">2014-11-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/11/05/取两个集合的交集/">取两个集合的交集</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="概述">概述</h3><p>因为在项目中要用到这个功能，先使用一个查询，将一个外键查出来，然后在另外一个一个查询中查出外键，然后比较两个，如果第二个集合中的值在第一个中就需要做一些处理，所以就是一个求两个集合的交集，自己花了一段时间才写出来，到后面发现java framework中已经有这个方法了，但是之前一直没有使用过，所以记录一下：</p>
-        
-          <p class="article-more-link">
-            <a href="/2014/11/05/取两个集合的交集/#more">阅读更多</a>
-          </p>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2014/11/05/取两个集合的交集/" data-id="cigautevb000yknth5xfn3wue" class="article-share-link">Share</a>
-      
-        <a href="http://liuyiyou.cn/2014/11/05/取两个集合的交集/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-离职感言-第一份工作" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/09/10/离职感言-第一份工作/" class="article-date">
-  <time datetime="2014-09-09T16:00:00.000Z" itemprop="datePublished">2014-09-10</time>
+    <a href="/2015/06/21/2015-06-21总结/" class="article-date">
+  <time datetime="2015-06-20T16:00:00.000Z" itemprop="datePublished">2015-06-21</time>
 </a>
     
   <div class="article-category">
@@ -341,7 +80,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/09/10/离职感言-第一份工作/">离职感言-第一份工作</a>
+      <a class="article-title" href="/2015/06/21/2015-06-21总结/">2015-06-21总结</a>
     </h1>
   
 
@@ -349,21 +88,20 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>很久很久以前就有这个打算了，有多久，我自己也有点记不清了，所以在离职之后，有同学留言说终于换了，我问为什么还要加上一个前缀呢？她说因为我考虑了很久。然后我才想起还是五一左右的时候，同学来北京，我跟她说起我想辞职。结果一晃就晃到了九月中旬。</p>
-<p>而现在终于到了说再见的时候了，从2011年的11月到2014年的9月，差不多三年的时间都在这家公司度过，而现在却是到了说再见的时候了。</p>
-<p>这家公司是我职业生涯对我最好的公司，我想不出意外的话，以后也不会有。在这里我从一个技术一般的人到现在虽然不能说很牛逼，但是比起当初却进步了很多</p>
-<p>很多话想说，但是不知道从何说起，所以我很聪明的选择了另外一个人帮我来说，下面这篇就是和我一起来来却把我抛弃在北京的好基友的文章，也代表了我大多想法，看来我确实是个聪明人：括号内和画外音为本人所写</p>
-        
-          <p class="article-more-link">
-            <a href="/2014/09/10/离职感言-第一份工作/#more">阅读更多</a>
-          </p>
-        
+        <p>周二的时候，交接完成，原本以为会当天拿到离职证明的，后面才知道，离职证明需要一周才能拿到，所以还打算在北京呆一周左右，然后就离开北京了。</p>
+<p>周三上午看了nba总决赛，下午不知道干嘛了。</p>
+<p>周四和周五都开始整理博客，终于开始打算写Spring系列了。也许是因为一直在使用，反而不想从基础的开始写起。所以从mvc开始写起，结果发现用过和表达出来还是有点难度，所以只完成了几篇，不过接下来写什么还是有计划了，甚至地方都已经预备好了。所以这几天看了我博客的知道，很多文章只写了标题。争取尽快写完mvc系列吧，到新公司应该没什么时间再写了。</p>
+<p>也许是因为离职的原因，双休日竟然没有看书或者写代码，这种感觉很不好，好像是欠了自己一点什么，以至于这个时候（周日11点40）还是在博客上写点东西。好像从去年九月份离职开始，就已经开始习惯每个周末中的一天去看书或者写代码，不知不觉已经坚持了大半年。</p>
+<p>效果如何还不好说，因为很多时候还是在为写代码而写代码，很多东西还是写过就忘，比如数据结果和设计模式。也许实际过程中用得比较少吧！而且没有到那个一看就懂的级别，哪怕一直在用的Spring，也有很多不懂的地方</p>
+<p>一直打算看Spring源码，也断断续续的看过一段时间，可是一段时间复习又忘记了。</p>
+<p>另外，博客已经改版了，首页终于变成我想象中的样子了。不过还有一些细节需要修改。比如关于我。（2015-10-07又改版了。。。）</p>
+
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2014/09/10/离职感言-第一份工作/" data-id="cigauteug000bknthxybycbs3" class="article-share-link">Share</a>
+      <a data-url="http://liuyiyou.cn/2015/06/21/2015-06-21总结/" data-id="cijfajilp003sdqth6l1mzgkz" class="article-share-link">Share</a>
       
-        <a href="http://liuyiyou.cn/2014/09/10/离职感言-第一份工作/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://liuyiyou.cn/2015/06/21/2015-06-21总结/#disqus_thread" class="article-comment-link">Comments</a>
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
@@ -375,14 +113,14 @@
 
 
   
-    <article id="post-重生之大涅槃" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-06-14总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/01/02/重生之大涅槃/" class="article-date">
-  <time datetime="2014-01-02T00:00:00.000Z" itemprop="datePublished">2014-01-02</time>
+    <a href="/2015/06/14/2015-06-14总结/" class="article-date">
+  <time datetime="2015-06-13T16:00:00.000Z" itemprop="datePublished">2015-06-14</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/life/">life</a>
+    <a class="article-category-link" href="/categories/summarry/">summarry</a>
   </div>
 
   </div>
@@ -393,7 +131,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/02/重生之大涅槃/">重生之大涅槃</a>
+      <a class="article-title" href="/2015/06/14/2015-06-14总结/">2015-06-14总结</a>
     </h1>
   
 
@@ -401,23 +139,28 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>二十岁的年龄，会觉得时光匆匆是一件好事，三十岁的年龄，会发现时间不够用，四十岁的年龄会希望时间流逝得慢一点更充实一点。五十而立，六十岁甲，时光流淌如刀，雕刻在心脏上，让人疼痛</p>
-<p>也许这就是人生，看似平淡，事实上却波澜滔天的人生，因为谁也不能从现在这一刻，预知和丈量到未来究竟会发生什么。</p>
-<p>因为他们最宝贵的年华，也都在自己恨不得匆匆而过的成长中，匆匆而过的逝去了</p>
+        <p>这周主要干了以下几件事：</p>
+<ul>
+<li>申请离职</li>
+<li>搜狐面试</li>
+<li>将today和teambition换成了wuderlist(奇妙清楚)</li>
+<li>同学来北京了</li>
+</ul>
+<h2 id="申请离职">申请离职</h2><p>第一家公司呆了三年，而在这家公司只呆了九个月。意料之中，因为在呆的这几个月中都是以维护为主，天天就是改bug，而且还是 在对业务不熟的情况下改bug，长久下去感觉对自己的未来没有什么帮助，不过在这家公司里面学到了很多关于团队合作以及一家正规的公司做开发是如何进行的，到时候再写个文章希望下一家公司会沉下来，好好打磨一下自己（离职感言。之后补上）</p>
         
           <p class="article-more-link">
-            <a href="/2014/01/02/重生之大涅槃/#more">阅读更多</a>
+            <a href="/2015/06/14/2015-06-14总结/#more">阅读更多</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2014/01/02/重生之大涅槃/" data-id="cigautesv0001knthqjm1mehx" class="article-share-link">Share</a>
+      <a data-url="http://liuyiyou.cn/2015/06/14/2015-06-14总结/" data-id="cijfajils003vdqthb7j2ivp7" class="article-share-link">Share</a>
       
-        <a href="http://liuyiyou.cn/2014/01/02/重生之大涅槃/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://liuyiyou.cn/2015/06/14/2015-06-14总结/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/novel/">novel</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
 
     </footer>
   </div>
@@ -426,14 +169,14 @@
 
 
   
-    <article id="post-hexo初试" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-06-06总结" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2014/01/01/hexo初试/" class="article-date">
-  <time datetime="2014-01-01T00:00:00.000Z" itemprop="datePublished">2014-01-01</time>
+    <a href="/2015/06/06/2015-06-06总结/" class="article-date">
+  <time datetime="2015-06-05T16:00:00.000Z" itemprop="datePublished">2015-06-06</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/life/">life</a>
+    <a class="article-category-link" href="/categories/summarry/">summarry</a>
   </div>
 
   </div>
@@ -444,7 +187,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2014/01/01/hexo初试/">hexo初试</a>
+      <a class="article-title" href="/2015/06/06/2015-06-06总结/">2015-06-06总结</a>
     </h1>
   
 
@@ -452,25 +195,23 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <hr>
-<p>Welcome to <a href="http://hexo.io/">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+        <p>之前已经有了离职的打算，最开始是打算7月份，不过考虑到现在在这家公司的状态和对未来的打算，还是在这周开始了面试之旅。不过还没有主动发起进攻，只是在拉钩上挂了自己的简历</p>
+<h2 id="第一家是考拉fm">第一家是考拉fm</h2><p>最开始以为是一家小公司，后面听同学说这是网易旗下的，而且它的fm是比较有名气的，可我只用网易云音乐，没用过考拉fm，所以难免有点不用心</p>
+<p>面试过程总共谈了一个小时左右吧，期间面试官很少问基础，一般都是问工作过程中用了哪些技术。然而实际工作过程中，架构师搭起项目的架子之后，大部分的时间都是处理业务代码，在这种情况下，用到的技术确实很少。比如数据库的主从复制，读写分离。以及分布式缓存之类。这些在前期基本上就已经定下来了。而且一般情况下，很少用到技术底层的代码，比如Memcached缓存。公司用到了，但是是已经直接配置好了的。所以只能自己装一个玩一玩，知道是怎么用。所以连我自玩自乐的用到的一些技术和框架都拿了出来。</p>
         
           <p class="article-more-link">
-            <a href="/2014/01/01/hexo初试/#more">阅读更多</a>
+            <a href="/2015/06/06/2015-06-06总结/#more">阅读更多</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2014/01/01/hexo初试/" data-id="cigautewv0022knthtwmt7z4e" class="article-share-link">Share</a>
+      <a data-url="http://liuyiyou.cn/2015/06/06/2015-06-06总结/" data-id="cijfajilv003ydqth05wvmb71" class="article-share-link">Share</a>
       
-        <a href="http://liuyiyou.cn/2014/01/01/hexo初试/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://liuyiyou.cn/2015/06/06/2015-06-06总结/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hexo/">hexo</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
 
     </footer>
   </div>
@@ -479,14 +220,14 @@
 
 
   
-    <article id="post-新的初始化对象的方法" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-2015-05-30-Redis常用命令和高级应用" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/2013/02/01/新的初始化对象的方法/" class="article-date">
-  <time datetime="2013-02-01T00:00:00.000Z" itemprop="datePublished">2013-02-01</time>
+    <a href="/2015/05/30/2015-05-30-Redis常用命令和高级应用/" class="article-date">
+  <time datetime="2015-05-30T00:00:00.000Z" itemprop="datePublished">2015-05-30</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
+    <a class="article-category-link" href="/categories/redis/">redis</a>
   </div>
 
   </div>
@@ -497,7 +238,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2013/02/01/新的初始化对象的方法/">新的初始化对象的方法</a>
+      <a class="article-title" href="/2015/05/30/2015-05-30-Redis常用命令和高级应用/">Redis常用命令和高级应用</a>
     </h1>
   
 
@@ -505,21 +246,347 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="概述">概述</h2><p>之前我们初始化对象的时候，如果是一个接口，我们通常是实例化实现类，如果是类，我们直接通过new来实例化一个对象，但是今天看到了另外一种方法，记下来，也许很少用到，但是争取在心中留个印象</p>
+        <p>Redis提供了丰富的命令对数据库和各种数据库类型进行操作，这些命令可以在Linux终端使用</p>
+<h3 id="键值相关命令">键值相关命令</h3><ul>
+<li>keys：返回满足给定pattern的所有key   eg:  key *</li>
+<li>exists：确认一个key是否存在   eg:  exists  name</li>
+<li>del ：删除一个key    eg: del  age</li>
+<li>expire：设置key的过期时间  eg: expire  name 10</li>
+<li>ttl  ：获取key的有效时长   eg :  ttl name</li>
+<li>move：将当前数据库中的key转移到其它数据库中  eg : move age 1</li>
+<li>persist：移除指定key过期时间   persist age </li>
+<li>randomkey：随机返回一个key</li>
+<li>rename：重命名key</li>
+<li>type：返回key的数据类型</li>
+</ul>
         
           <p class="article-more-link">
-            <a href="/2013/02/01/新的初始化对象的方法/#more">阅读更多</a>
+            <a href="/2015/05/30/2015-05-30-Redis常用命令和高级应用/#more">阅读更多</a>
           </p>
         
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2013/02/01/新的初始化对象的方法/" data-id="cigauteuo000kknthq9dobifh" class="article-share-link">Share</a>
+      <a data-url="http://liuyiyou.cn/2015/05/30/2015-05-30-Redis常用命令和高级应用/" data-id="cijfajim60041dqthratohgsq" class="article-share-link">Share</a>
       
-        <a href="http://liuyiyou.cn/2013/02/01/新的初始化对象的方法/#disqus_thread" class="article-comment-link">Comments</a>
+        <a href="http://liuyiyou.cn/2015/05/30/2015-05-30-Redis常用命令和高级应用/#disqus_thread" class="article-comment-link">Comments</a>
       
       
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-05-29-Redis数据类型" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/29/2015-05-29-Redis数据类型/" class="article-date">
+  <time datetime="2015-05-29T00:00:00.000Z" itemprop="datePublished">2015-05-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/redis/">redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/29/2015-05-29-Redis数据类型/">Redis数据类型</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Redis数据类型主要分为五种类型</p>
+<ul>
+<li>string</li>
+<li>hash</li>
+<li>list</li>
+<li>set</li>
+<li>zset</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2015/05/29/2015-05-29-Redis数据类型/#more">阅读更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/05/29/2015-05-29-Redis数据类型/" data-id="cijfajimb0049dqthyhjl4icj" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/05/29/2015-05-29-Redis数据类型/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-05-29总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/29/2015-05-29总结/" class="article-date">
+  <time datetime="2015-05-28T16:00:00.000Z" itemprop="datePublished">2015-05-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/summarry/">summarry</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/29/2015-05-29总结/">2015-05-29总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、复习了一下Spring加载bean的流程。</p>
+<p>因为大多数时候都是在xml中配置或者直接使用注解，所以会用，但是具体原理只记得模模糊糊，之前也看过源代码，不过太过庞大，直接看晕了，不过看晕了也得看，这不，这周又开始看了，记忆也需要慢慢强化。</p>
+<p>2、 买了一本redis的书籍</p>
+<p>第一次买电子书，主要是看它便宜，只要7.9，本来还打算买一本《数据结构与算法分析-java语言描述》的电子书的，虽然有一本，但是是盗版的，排版质量一般，不过一看，貌似没有电子书，所以暂时搁置，等把电子书看完之后，再买一本纸质的书吧。 不过我的算法导论啥时候能看懂，啥时候能看完啊！！！</p>
+        
+          <p class="article-more-link">
+            <a href="/2015/05/29/2015-05-29总结/#more">阅读更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/05/29/2015-05-29总结/" data-id="cijfajim90046dqthmm3zdgs4" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/05/29/2015-05-29总结/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-05-28-Redis安装与基本测试" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/28/2015-05-28-Redis安装与基本测试/" class="article-date">
+  <time datetime="2015-05-28T00:00:00.000Z" itemprop="datePublished">2015-05-28</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/redis/">redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/28/2015-05-28-Redis安装与基本测试/">Redis安装与基本测试</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="安装">安装</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="variable">$lyy</span>:<span class="built_in">cd</span>  /Users/liuyiyou/soft</span><br><span class="line"><span class="variable">$lyy</span>: wget http://download.redis.io/releases/redis-<span class="number">3.0</span>.<span class="number">1</span>.tar.gz </span><br><span class="line"><span class="variable">$lyy</span>: tar xzf redis-<span class="number">3.0</span>.<span class="number">1</span>.tar.gz </span><br><span class="line"><span class="variable">$lyy</span>: <span class="built_in">cd</span> redis-<span class="number">3.0</span>.<span class="number">1</span> </span><br><span class="line"><span class="variable">$lyy</span>: make</span><br><span class="line"><span class="variable">$lyy</span>: <span class="built_in">cd</span> src  </span><br><span class="line"><span class="variable">$lyy</span>: install</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2015/05/28/2015-05-28-Redis安装与基本测试/#more">阅读更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/05/28/2015-05-28-Redis安装与基本测试/" data-id="cijfajimg004cdqthlamvcma3" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/05/28/2015-05-28-Redis安装与基本测试/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-05-27-为什么使用Redis" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/27/2015-05-27-为什么使用Redis/" class="article-date">
+  <time datetime="2015-05-26T16:00:00.000Z" itemprop="datePublished">2015-05-27</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/redis/">redis</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/27/2015-05-27-为什么使用Redis/">为什么使用Redis</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>相比于传统的关系数据库，Redis有以下优势：</p>
+<ul>
+<li>对数据高并发读写</li>
+<li>对海量数据的高效率存储和访问</li>
+<li>对数据的高可扩展和高可用性</li>
+</ul>
+        
+          <p class="article-more-link">
+            <a href="/2015/05/27/2015-05-27-为什么使用Redis/#more">阅读更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/05/27/2015-05-27-为什么使用Redis/" data-id="cijfajimn004fdqth6moialdd" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/05/27/2015-05-27-为什么使用Redis/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/redis/">redis</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-05-17总结" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/17/2015-05-17总结/" class="article-date">
+  <time datetime="2015-05-16T16:00:00.000Z" itemprop="datePublished">2015-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/summarry/">summarry</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/17/2015-05-17总结/">2015-05-17总结</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="本周总结">本周总结</h2><ol>
+<li>熟悉了一下Linux命令，一些常用的命令再也不需要每次用到的时候去查资料了。主要有下面的</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">mkdir  </span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line">rm -rf  file/direct</span><br><span class="line">jar -xvf  project.war</span><br><span class="line">unzip -xvf project.war</span><br><span class="line">mv  project  project1</span><br><span class="line">tail -n2000 <span class="operator">-f</span>  jboss.log </span><br><span class="line">scp <span class="number">192.168</span>.<span class="number">1.2</span>/data/jboss <span class="number">192.169</span>.<span class="number">1.3</span>/data/jboss</span><br><span class="line">ps -ef|grep jboss</span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2015/05/17/2015-05-17总结/#more">阅读更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/05/17/2015-05-17总结/" data-id="cijfajimq004idqthgyg39crn" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/05/17/2015-05-17总结/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/总结/">总结</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-2015-05-17-memcached常用命令" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2015/05/17/2015-05-17-memcached常用命令/" class="article-date">
+  <time datetime="2015-05-16T16:00:00.000Z" itemprop="datePublished">2015-05-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/tools/">tools</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2015/05/17/2015-05-17-memcached常用命令/">memcached常用命令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>转载自：<a href="http://www.cnblogs.com/jeffwongishandsome/archive/2011/11/06/2238265.html">Memcached常用命令</a></p>
+<p>首先，以下的这些命令都是在连接Memcached之后才进行</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">lyy:~ liuyiyou$ /usr/<span class="built_in">local</span>/bin/memcached <span class="operator">-d</span> <span class="number">11211</span></span><br><span class="line">lyy:~ liuyiyou$ /telnet   localhost  <span class="number">11211</span></span><br></pre></td></tr></table></figure>
+        
+          <p class="article-more-link">
+            <a href="/2015/05/17/2015-05-17-memcached常用命令/#more">阅读更多</a>
+          </p>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2015/05/17/2015-05-17-memcached常用命令/" data-id="cijfajimt004ldqth3edzhnkk" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2015/05/17/2015-05-17-memcached常用命令/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/memcache/">memcache</a></li></ul>
 
     </footer>
   </div>
@@ -530,7 +597,7 @@
   
   
     <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
+      <a class="extend prev" rel="prev" href="/page/3/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/">Next &raquo;</a>
     </nav>
   
 </section>
@@ -541,7 +608,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">2015年11月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015年10月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">2015年09月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">2015年07月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">2015年06月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015年05月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">2015年04月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">2015年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">2014年11月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">2014年09月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">2014年01月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2013年02月</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">2016年01月</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">2015年12月</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">2015年11月</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015年10月</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">2015年09月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">2015年07月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">2015年06月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015年05月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">2015年04月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">2015年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">2014年11月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">2014年09月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">2014年01月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2013年02月</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -550,7 +617,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">类目</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/datastruts/">datastruts</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skill/">skill</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/">summarry</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tools/eclipse/">eclipse</a><span class="category-list-count">1</span></li></ul></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/datastruts/">datastruts</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/阅读/">阅读</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skill/">skill</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/">summarry</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tools/eclipse/">eclipse</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/velocity/">velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wf/">wf</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/大数据/">大数据</a><span class="category-list-count">4</span></li></ul>
     </div>
   </div>
 
@@ -562,43 +629,43 @@
       <ul>
         
           <li>
-            <a href="/2015/11/01/2015-11-01-JAVA并发编程常识/">JAVA并发编程常识</a>
+            <a href="/2016/01/04/2016-01-04-hadoop配置文件说明/">hadoop配置文件说明</a>
           </li>
         
           <li>
-            <a href="/2015/10/28/2015-10-28-osx一些软件安装配置/">osx一些软件安装配置</a>
+            <a href="/2016/01/03/2016-01-03一些名词释义/">一些名词释义</a>
           </li>
         
           <li>
-            <a href="/2015/10/27/2015-10-27-json日期转换/">JSON日期转换</a>
+            <a href="/2016/01/02/2016-01-01-hive环境搭建以及常用命令/">Hive环境搭建以及常用命令</a>
           </li>
         
           <li>
-            <a href="/2015/10/24/2015-10-24-MyBatis批量插入/">第五篇：MyBatis插入和批量插入</a>
+            <a href="/2016/01/01/2016-01-01-osx下hadoop环境搭建/">osx下hadoop环境搭建</a>
           </li>
         
           <li>
-            <a href="/2015/10/15/Spring的一些扩展点/">Spring的一些扩展点</a>
+            <a href="/2015/12/31/2015-12-31-java线程使用实例/">java线程使用实例</a>
           </li>
         
           <li>
-            <a href="/2015/10/15/2015-10-15-Java保留两位小数/">Java保留两位小数</a>
+            <a href="/2015/12/30/2015-12-30-java并发编程(6)/">java并发编程(6)</a>
           </li>
         
           <li>
-            <a href="/2015/10/11/2015-10-11总结/">2015-10-11总结</a>
+            <a href="/2015/12/29/2015-12-29-写在年末/">写在年末</a>
           </li>
         
           <li>
-            <a href="/2015/10/07/关于需求的一些想法/">关于需求的一些想法</a>
+            <a href="/2015/12/14/2015-12-14-关于Map的几个注意点/">关于Map的几个注意点</a>
           </li>
         
           <li>
-            <a href="/2015/10/06/2015-10-06-SELECT语句的执行的逻辑查询处理步骤/">SELECT语句的执行的逻辑查询处理步骤</a>
+            <a href="/2015/12/03/2015-12-03-wf初试/">wf初试</a>
           </li>
         
           <li>
-            <a href="/2015/09/29/jquery-datatable/">jQuery.DataTable</a>
+            <a href="/2015/12/01/2015-12-01-一些小技巧/">一些小技巧</a>
           </li>
         
       </ul>
@@ -610,7 +677,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastruts/">datastruts</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatable/">datatable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcache/">memcache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/novel/">novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并发/">并发</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">10</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastruts/">datastruts</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatable/">datatable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcache/">memcache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/novel/">novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/skill/">skill</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/">tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/velocity/">velocity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wf/">wf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并发/">并发</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -619,7 +686,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/datastruts/" style="font-size: 18px;">datastruts</a> <a href="/tags/datatable/" style="font-size: 10px;">datatable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/java/" style="font-size: 18px;">java</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/life/" style="font-size: 10px;">life</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcache/" style="font-size: 12px;">memcache</a> <a href="/tags/mybatis/" style="font-size: 14px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 10px;">mysql</a> <a href="/tags/novel/" style="font-size: 10px;">novel</a> <a href="/tags/redis/" style="font-size: 16px;">redis</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/并发/" style="font-size: 10px;">并发</a> <a href="/tags/总结/" style="font-size: 20px;">总结</a>
+      <a href="/tags/datastruts/" style="font-size: 16.67px;">datastruts</a> <a href="/tags/datatable/" style="font-size: 10px;">datatable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/hadoop/" style="font-size: 15px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hive/" style="font-size: 13.33px;">hive</a> <a href="/tags/java/" style="font-size: 18.33px;">java</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/life/" style="font-size: 11.67px;">life</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcache/" style="font-size: 11.67px;">memcache</a> <a href="/tags/mybatis/" style="font-size: 15px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/novel/" style="font-size: 10px;">novel</a> <a href="/tags/redis/" style="font-size: 15px;">redis</a> <a href="/tags/skill/" style="font-size: 10px;">skill</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/velocity/" style="font-size: 10px;">velocity</a> <a href="/tags/wf/" style="font-size: 10px;">wf</a> <a href="/tags/多线程/" style="font-size: 11.67px;">多线程</a> <a href="/tags/并发/" style="font-size: 13.33px;">并发</a> <a href="/tags/总结/" style="font-size: 20px;">总结</a>
     </div>
   </div>
 
@@ -631,7 +698,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2012 - 2015 liuyiyou<br>
+      &copy; 2012 - 2016 liuyiyou<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
       <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 <span id="showDays"></span>
@@ -691,5 +758,35 @@ document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
 
 
   </div>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 </body>
 </html>
