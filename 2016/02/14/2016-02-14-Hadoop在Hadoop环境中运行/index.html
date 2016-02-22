@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <title>Hadoop在Hadoop环境中运行 | 温故而知新    触类而旁通</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="下面是一个完整的在Hadoop环境下运行WordCount的程序，相关命令以及在使用过程中遇到的问题都有详细的说明
+前提：已经在本机正确部署了Hadoop环境（单机或者伪分布式都可以）
+相比起直接在eclipse中运行，这个更有意义，也更有成就感
+本文参考了Hadoop官方文档MapReduceTutorial">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hadoop在Hadoop环境中运行">
+<meta property="og:url" content="http://liuyiyou.cn/2016/02/14/2016-02-14-Hadoop在Hadoop环境中运行/index.html">
+<meta property="og:site_name" content="温故而知新    触类而旁通">
+<meta property="og:description" content="下面是一个完整的在Hadoop环境下运行WordCount的程序，相关命令以及在使用过程中遇到的问题都有详细的说明
+前提：已经在本机正确部署了Hadoop环境（单机或者伪分布式都可以）
+相比起直接在eclipse中运行，这个更有意义，也更有成就感
+本文参考了Hadoop官方文档MapReduceTutorial">
+<meta property="og:updated_time" content="2016-02-12T18:18:41.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hadoop在Hadoop环境中运行">
+<meta name="twitter:description" content="下面是一个完整的在Hadoop环境下运行WordCount的程序，相关命令以及在使用过程中遇到的问题都有详细的说明
+前提：已经在本机正确部署了Hadoop环境（单机或者伪分布式都可以）
+相比起直接在eclipse中运行，这个更有意义，也更有成就感
+本文参考了Hadoop官方文档MapReduceTutorial">
+  
+    <link rel="alternative" href="/atom.xml" title="温故而知新    触类而旁通" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/css/style.css" type="text/css">
+</head>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">温故而知新    触类而旁通</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">liuyiyou的个人小站</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">首页</a>
+        
+          <a class="main-nav-link" href="/about">关于我</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" results="0" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://liuyiyou.cn"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-2016-02-14-Hadoop在Hadoop环境中运行" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/02/14/2016-02-14-Hadoop在Hadoop环境中运行/" class="article-date">
+  <time datetime="2016-02-14T00:00:00.000Z" itemprop="datePublished">2016-02-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/大数据/">大数据</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Hadoop在Hadoop环境中运行
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>下面是一个完整的在Hadoop环境下运行WordCount的程序，相关命令以及在使用过程中遇到的问题都有详细的说明</p>
+<p>前提：已经在本机正确部署了Hadoop环境（单机或者伪分布式都可以）</p>
+<p>相比起直接在eclipse中运行，这个更有意义，也更有成就感</p>
+<p>本文参考了Hadoop官方文档<a href="file:///Users/liuyiyou/Desktop/hadoop/hadoop-mapreduce-client/hadoop-mapreduce-client-core/MapReduceTutorial.html#Purpose" target="_blank" rel="external">MapReduceTutorial</a></p>
+<a id="more"></a>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"></span><br><span class="line">➜  hadoop-<span class="number">2.6</span>.<span class="number">0</span>  bin/hdfs fs -mkdir liuyiyou</span><br><span class="line">错误: 找不到或无法加载主类 fs 的  （这里是因为没有设置环境变量或者没有将tools.jar复制到hadoop中，具体可以参考环境变量设置和tools.jar的位置。）</span><br><span class="line">➜  hadoop-<span class="number">2.6</span>.<span class="number">0</span>  bin/hdfs dfs -mkdir liuyiyou （设置HDFS目录，可以通过相关命令进行查看）</span><br><span class="line"><span class="number">16</span>/<span class="number">02</span>/<span class="number">12</span> <span class="number">17</span>:<span class="number">50</span>:<span class="number">43</span> WARN util.NativeCodeLoader: Unable to load native-hadoop library <span class="keyword">for</span> your platform... using <span class="built_in">builtin</span>-java classes <span class="built_in">where</span> applicable</span><br><span class="line">mkdir: `liuyiyou<span class="string">': No such file or directory</span><br><span class="line">➜  hadoop-2.6.0  bin/hdfs dfs  -copyFromLocal input/test.txt /user/liuyiyou/test.txt（将本地文件复制到HDFS目录中）</span><br><span class="line">16/02/12 17:51:57 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">copyFromLocal: `/user/liuyiyou/test.txt'</span>: No such file or directory</span><br><span class="line">➜  hadoop-<span class="number">2.6</span>.<span class="number">0</span>  bin/hdfs dfs  -copyFromLocal input/test.txt /liuyiyou/test.txt</span><br><span class="line"><span class="number">16</span>/<span class="number">02</span>/<span class="number">12</span> <span class="number">17</span>:<span class="number">52</span>:<span class="number">39</span> WARN util.NativeCodeLoader: Unable to load native-hadoop library <span class="keyword">for</span> your platform... using <span class="built_in">builtin</span>-java classes <span class="built_in">where</span> applicable</span><br><span class="line">copyFromLocal: `/liuyiyou/test.txt<span class="string">': No such file or directory</span><br><span class="line">➜  hadoop-2.6.0  bin/hdfs dfs -mkdir /user</span><br><span class="line">16/02/12 17:53:35 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">➜  hadoop-2.6.0  bin/hdfs dfs -mkdir /user/liuyiyou</span><br><span class="line">16/02/12 17:54:18 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">➜  hadoop-2.6.0  bin/hdfs dfs  -copyFromLocal input/test.txt /user/liuyiyou/test.txt</span><br><span class="line">16/02/12 17:54:47 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">➜  hadoop-2.6.0  bin/hdfs dfs -ls                  （查看HDFS目录中的文件）</span><br><span class="line">16/02/12 17:55:40 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Found 1 items</span><br><span class="line">-rw-r--r--   1 liuyiyou supergroup        774 2016-02-12 17:54 test.txt</span><br><span class="line">➜  hadoop-2.6.0  bin/hdfs dfs -ls .（查看HDFS目录中的文件）</span><br><span class="line">16/02/12 17:56:05 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Found 1 items</span><br><span class="line">-rw-r--r--   1 liuyiyou supergroup        774 2016-02-12 17:54 test.txt</span><br><span class="line">➜  hadoop-2.6.0  bin/hdfs -mkdir books</span><br><span class="line">Unrecognized option: -mkdir</span><br><span class="line">Error: Could not create the Java Virtual Machine.</span><br><span class="line">Error: A fatal exception has occurred. Program will exit.</span><br><span class="line">➜  hadoop-2.6.0  bin/hdfs dfs -mkdir books</span><br><span class="line">16/02/12 17:58:00 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">➜  hadoop-2.6.0  bin/hdfs dfs -ls .</span><br><span class="line">16/02/12 17:58:26 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">Found 2 items</span><br><span class="line">drwxr-xr-x   - liuyiyou supergroup          0 2016-02-12 17:58 books</span><br><span class="line">-rw-r--r--   1 liuyiyou supergroup        774 2016-02-12 17:54 test.txt</span><br><span class="line"></span><br><span class="line">（这里开始运行文档中的WordCount程序）</span><br><span class="line"></span><br><span class="line">➜  hadoop-2.6.0  bin/hadoop com.sum.tools.javac.Main WordCount.java</span><br><span class="line">错误: 找不到或无法加载主类 com.sum.tools.javac.Main（需要设置环境变量或者复制tools.jar到hadoop中）</span><br><span class="line">➜  hadoop-2.6.0  cd ~</span><br><span class="line">➜  ~  source .bash_profile</span><br><span class="line">➜  ~  cd hadoop-2.6.0</span><br><span class="line">➜  hadoop-2.6.0  bin/hadoop com.sum.tools.javac.Main WordCount.java</span><br><span class="line">错误: 找不到或无法加载主类 com.sum.tools.javac.Main</span><br><span class="line">➜  hadoop-2.6.0  bin/hadoop com.sum.tools.javac.Main WordCount.java</span><br><span class="line">错误: 找不到或无法加载主类 com.sum.tools.javac.Main</span><br><span class="line">➜  hadoop-2.6.0  bin/hadoop com.sum.tools.javac.Main WordCount.java</span><br><span class="line">错误: 找不到或无法加载主类 com.sum.tools.javac.Main</span><br><span class="line">➜  hadoop-2.6.0  bin/hadoop com.sum.tools.javac.Main WordCount.java</span><br><span class="line">错误: 找不到或无法加载主类 com.sum.tools.javac.Main</span><br><span class="line"></span><br><span class="line">➜  hadoop-2.6.0  bin/hadoop com.sun.tools.javac.Main WordCount.java（这里已经设置好之后不报错，编译程序）</span><br><span class="line">➜  hadoop-2.6.0  jar cf wc.jar WordCount*.class（打包程序）</span><br><span class="line">➜  hadoop-2.6.0  bin/hdfs dfs -mkdir /user/joe/wordcount/input（设置HDFS输入目录，只能逐个设置）</span><br><span class="line">16/02/13 01:27:27 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">mkdir: `/user/joe/wordcount/input'</span>: No such file or directory</span><br><span class="line">➜  hadoop-<span class="number">2.6</span>.<span class="number">0</span>  bin/hdfs dfs -mkdir /user/joe/</span><br><span class="line"><span class="number">16</span>/<span class="number">02</span>/<span class="number">13</span> <span class="number">01</span>:<span class="number">27</span>:<span class="number">55</span> WARN util.NativeCodeLoader: Unable to load native-hadoop library <span class="keyword">for</span> your platform... using <span class="built_in">builtin</span>-java classes <span class="built_in">where</span> applicable</span><br><span class="line">➜  hadoop-<span class="number">2.6</span>.<span class="number">0</span>  bin/hdfs dfs -mkdir /user/joe/wordcount</span><br><span class="line"><span class="number">16</span>/<span class="number">02</span>/<span class="number">13</span> <span class="number">01</span>:<span class="number">28</span>:<span class="number">19</span> WARN util.NativeCodeLoader: Unable to load native-hadoop library <span class="keyword">for</span> your platform... using <span class="built_in">builtin</span>-java classes <span class="built_in">where</span> applicable</span><br><span class="line">➜  hadoop-<span class="number">2.6</span>.<span class="number">0</span>  bin/hdfs dfs -mkdir /user/joe/wordcount/input（设置HDFS目录完成）</span><br><span class="line"><span class="number">16</span>/<span class="number">02</span>/<span class="number">13</span> <span class="number">01</span>:<span class="number">28</span>:<span class="number">40</span> WARN util.NativeCodeLoader: Unable to load native-hadoop library <span class="keyword">for</span> your platform... using <span class="built_in">builtin</span>-java classes <span class="built_in">where</span> applicable</span><br><span class="line">➜  hadoop-<span class="number">2.6</span>.<span class="number">0</span>  bin/hdfs dfs -mkdir /user/joe/wordcount/output（这里不需要设置，输出如果没有，会自动生成，这样导致后面又将该目录删除了）</span><br><span class="line"><span class="number">16</span>/<span class="number">02</span>/<span class="number">13</span> <span class="number">01</span>:<span class="number">29</span>:<span class="number">03</span> WARN util.NativeCodeLoader: Unable to load native-hadoop library <span class="keyword">for</span> your platform... using <span class="built_in">builtin</span>-java classes <span class="built_in">where</span> applicable</span><br><span class="line">➜  hadoop-<span class="number">2.6</span>.<span class="number">0</span>  bin/hdfs dfs  -copyFromLocal input/file01 /user/joe/wordcount/input（将本地文件复制到HDFS目录）</span><br><span class="line"><span class="number">16</span>/<span class="number">02</span>/<span class="number">13</span> <span class="number">01</span>:<span class="number">33</span>:<span class="number">04</span> WARN util.NativeCodeLoader: Unable to load native-hadoop library <span class="keyword">for</span> your platform... using <span class="built_in">builtin</span>-java classes <span class="built_in">where</span> applicable</span><br><span class="line">➜  hadoop-<span class="number">2.6</span>.<span class="number">0</span>  bin/hdfs dfs  -copyFromLocal input/file02 /user/joe/wordcount/input</span><br><span class="line"><span class="number">16</span>/<span class="number">02</span>/<span class="number">13</span> <span class="number">01</span>:<span class="number">33</span>:<span class="number">38</span> WARN util.NativeCodeLoader: Unable to load native-hadoop library <span class="keyword">for</span> your platform... using <span class="built_in">builtin</span>-java classes <span class="built_in">where</span> applicable</span><br><span class="line">➜  hadoop-<span class="number">2.6</span>.<span class="number">0</span>  bin/hadoop jar wc.jar WordCount /user/joe/wordcount/input /user/joe/wordcount/output（运行程序失败，原因是output目录已经存在）</span><br><span class="line"></span><br><span class="line"><span class="number">16</span>/<span class="number">02</span>/<span class="number">13</span> <span class="number">01</span>:<span class="number">34</span>:<span class="number">10</span> WARN util.NativeCodeLoader: Unable to load native-hadoop library <span class="keyword">for</span> your platform... using <span class="built_in">builtin</span>-java classes <span class="built_in">where</span> applicable</span><br><span class="line"><span class="number">16</span>/<span class="number">02</span>/<span class="number">13</span> <span class="number">01</span>:<span class="number">34</span>:<span class="number">10</span> INFO Configuration.deprecation: session.id is deprecated. Instead, use dfs.metrics.session-id</span><br><span class="line"><span class="number">16</span>/<span class="number">02</span>/<span class="number">13</span> <span class="number">01</span>:<span class="number">34</span>:<span class="number">10</span> INFO jvm.JvmMetrics: Initializing JVM Metrics with processName=JobTracker, sessionId=</span><br><span class="line">Exception <span class="keyword">in</span> thread <span class="string">"main"</span> org.apache.hadoop.mapred.FileAlreadyExistsException: Output directory hdfs://localhost:<span class="number">9000</span>/user/joe/wordcount/output already exists</span><br><span class="line">at org.apache.hadoop.mapreduce.lib.output.FileOutputFormat.checkOutputSpecs(FileOutputFormat.java:<span class="number">146</span>)</span><br><span class="line">at org.apache.hadoop.mapreduce.JobSubmitter.checkSpecs(JobSubmitter.java:<span class="number">562</span>)</span><br><span class="line">at org.apache.hadoop.mapreduce.JobSubmitter.submitJobInternal(JobSubmitter.java:<span class="number">432</span>)</span><br><span class="line">at org.apache.hadoop.mapreduce.Job<span class="variable">$10</span>.run(Job.java:<span class="number">1296</span>)</span><br><span class="line">at org.apache.hadoop.mapreduce.Job<span class="variable">$10</span>.run(Job.java:<span class="number">1293</span>)</span><br><span class="line">at java.security.AccessController.doPrivileged(Native Method)</span><br><span class="line">at javax.security.auth.Subject.doAs(Subject.java:<span class="number">415</span>)</span><br><span class="line">at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:<span class="number">1628</span>)</span><br><span class="line">at org.apache.hadoop.mapreduce.Job.submit(Job.java:<span class="number">1293</span>)</span><br><span class="line">at org.apache.hadoop.mapreduce.Job.waitForCompletion(Job.java:<span class="number">1314</span>)</span><br><span class="line">at WordCount.main(WordCount.java:<span class="number">59</span>)</span><br><span class="line">at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span><br><span class="line">at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:<span class="number">57</span>)</span><br><span class="line">at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:<span class="number">43</span>)</span><br><span class="line">at java.lang.reflect.Method.invoke(Method.java:<span class="number">606</span>)</span><br><span class="line">at org.apache.hadoop.util.RunJar.run(RunJar.java:<span class="number">221</span>)</span><br><span class="line">at org.apache.hadoop.util.RunJar.main(RunJar.java:<span class="number">136</span>)</span><br><span class="line">➜  hadoop-<span class="number">2.6</span>.<span class="number">0</span>  bin/hdfs dfs -remove /user/joe/wordcount/output</span><br><span class="line">-remove: Unknown <span class="built_in">command</span></span><br><span class="line">➜  hadoop-<span class="number">2.6</span>.<span class="number">0</span>  bin/hdfs dfs -rm /user/joe/wordcount/output（删除output目录，但是失败）</span><br><span class="line"></span><br><span class="line"><span class="number">16</span>/<span class="number">02</span>/<span class="number">13</span> <span class="number">01</span>:<span class="number">38</span>:<span class="number">18</span> WARN util.NativeCodeLoader: Unable to load native-hadoop library <span class="keyword">for</span> your platform... using <span class="built_in">builtin</span>-java classes <span class="built_in">where</span> applicable</span><br><span class="line">rm: `/user/joe/wordcount/output<span class="string">': Is a directory</span><br><span class="line">➜  hadoop-2.6.0  bin/hdfs dfs -rm -R  /user/joe/wordcount/output（删除成功）</span><br><span class="line"></span><br><span class="line">16/02/13 01:39:15 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">16/02/13 01:39:16 INFO fs.TrashPolicyDefault: Namenode trash configuration: Deletion interval = 0 minutes, Emptier interval = 0 minutes.</span><br><span class="line">Deleted /user/joe/wordcount/output</span><br><span class="line">➜  hadoop-2.6.0  bin/hadoop jar wc.jar WordCount /user/joe/wordcount/input /user/joe/wordcount/output（运行成功）</span><br><span class="line"></span><br><span class="line">16/02/13 01:39:46 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable</span><br><span class="line">16/02/13 01:39:47 INFO Configuration.deprecation: session.id is deprecated. Instead, use dfs.metrics.session-id</span><br><span class="line">16/02/13 01:39:47 INFO jvm.JvmMetrics: Initializing JVM Metrics with processName=JobTracker, sessionId=</span><br><span class="line">16/02/13 01:39:47 WARN mapreduce.JobSubmitter: Hadoop command-line option parsing not performed. Implement the Tool interface and execute your application with ToolRunner to remedy this.</span><br><span class="line">16/02/13 01:39:47 INFO input.FileInputFormat: Total input paths to process : 2</span><br><span class="line">16/02/13 01:39:47 INFO mapreduce.JobSubmitter: number of splits:2</span><br><span class="line">16/02/13 01:39:48 INFO mapreduce.JobSubmitter: Submitting tokens for job: job_local108329066_0001</span><br><span class="line">16/02/13 01:39:48 INFO mapreduce.Job: The url to track the job: http://localhost:8080/</span><br><span class="line">16/02/13 01:39:48 INFO mapreduce.Job: Running job: job_local108329066_0001</span><br><span class="line">16/02/13 01:39:48 INFO mapred.LocalJobRunner: OutputCommitter set in config null</span><br><span class="line">16/02/13 01:39:48 INFO mapred.LocalJobRunner: OutputCommitter is org.apache.hadoop.mapreduce.lib.output.FileOutputCommitter</span><br><span class="line">16/02/13 01:39:48 INFO mapred.LocalJobRunner: Waiting for map tasks</span><br><span class="line">16/02/13 01:39:48 INFO mapred.LocalJobRunner: Starting task: attempt_local108329066_0001_m_000000_0</span><br><span class="line">16/02/13 01:39:48 INFO util.ProcfsBasedProcessTree: ProcfsBasedProcessTree currently is supported only on Linux.</span><br><span class="line">16/02/13 01:39:48 INFO mapred.Task:  Using ResourceCalculatorProcessTree : null</span><br><span class="line">16/02/13 01:39:48 INFO mapred.MapTask: Processing split: hdfs://localhost:9000/user/joe/wordcount/input/file02:0+27</span><br><span class="line">16/02/13 01:39:48 INFO mapred.MapTask: (EQUATOR) 0 kvi 26214396(104857584)</span><br><span class="line">16/02/13 01:39:48 INFO mapred.MapTask: mapreduce.task.io.sort.mb: 100</span><br><span class="line">16/02/13 01:39:48 INFO mapred.MapTask: soft limit at 83886080</span><br><span class="line">16/02/13 01:39:48 INFO mapred.MapTask: bufstart = 0; bufvoid = 104857600</span><br><span class="line">16/02/13 01:39:48 INFO mapred.MapTask: kvstart = 26214396; length = 6553600</span><br><span class="line">16/02/13 01:39:48 INFO mapred.MapTask: Map output collector class = org.apache.hadoop.mapred.MapTask$MapOutputBuffer</span><br><span class="line">16/02/13 01:39:48 INFO mapred.LocalJobRunner:</span><br><span class="line">16/02/13 01:39:48 INFO mapred.MapTask: Starting flush of map output</span><br><span class="line">16/02/13 01:39:48 INFO mapred.MapTask: Spilling map output</span><br><span class="line">16/02/13 01:39:48 INFO mapred.MapTask: bufstart = 0; bufend = 44; bufvoid = 104857600</span><br><span class="line">16/02/13 01:39:48 INFO mapred.MapTask: kvstart = 26214396(104857584); kvend = 26214384(104857536); length = 13/6553600</span><br><span class="line">16/02/13 01:39:48 INFO mapred.MapTask: Finished spill 0</span><br><span class="line">16/02/13 01:39:48 INFO mapred.Task: Task:attempt_local108329066_0001_m_000000_0 is done. And is in the process of committing</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner: map</span><br><span class="line">16/02/13 01:39:49 INFO mapred.Task: Task '</span>attempt_<span class="built_in">local</span>108329066_0001_m_000000_0<span class="string">' done.</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner: Finishing task: attempt_local108329066_0001_m_000000_0</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner: Starting task: attempt_local108329066_0001_m_000001_0</span><br><span class="line">16/02/13 01:39:49 INFO util.ProcfsBasedProcessTree: ProcfsBasedProcessTree currently is supported only on Linux.</span><br><span class="line">16/02/13 01:39:49 INFO mapred.Task:  Using ResourceCalculatorProcessTree : null</span><br><span class="line">16/02/13 01:39:49 INFO mapred.MapTask: Processing split: hdfs://localhost:9000/user/joe/wordcount/input/file01:0+21</span><br><span class="line">16/02/13 01:39:49 INFO mapred.MapTask: (EQUATOR) 0 kvi 26214396(104857584)</span><br><span class="line">16/02/13 01:39:49 INFO mapred.MapTask: mapreduce.task.io.sort.mb: 100</span><br><span class="line">16/02/13 01:39:49 INFO mapred.MapTask: soft limit at 83886080</span><br><span class="line">16/02/13 01:39:49 INFO mapred.MapTask: bufstart = 0; bufvoid = 104857600</span><br><span class="line">16/02/13 01:39:49 INFO mapred.MapTask: kvstart = 26214396; length = 6553600</span><br><span class="line">16/02/13 01:39:49 INFO mapred.MapTask: Map output collector class = org.apache.hadoop.mapred.MapTask$MapOutputBuffer</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner:</span><br><span class="line">16/02/13 01:39:49 INFO mapred.MapTask: Starting flush of map output</span><br><span class="line">16/02/13 01:39:49 INFO mapred.MapTask: Spilling map output</span><br><span class="line">16/02/13 01:39:49 INFO mapred.MapTask: bufstart = 0; bufend = 38; bufvoid = 104857600</span><br><span class="line">16/02/13 01:39:49 INFO mapred.MapTask: kvstart = 26214396(104857584); kvend = 26214384(104857536); length = 13/6553600</span><br><span class="line">16/02/13 01:39:49 INFO mapred.MapTask: Finished spill 0</span><br><span class="line">16/02/13 01:39:49 INFO mapred.Task: Task:attempt_local108329066_0001_m_000001_0 is done. And is in the process of committing</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner: map</span><br><span class="line">16/02/13 01:39:49 INFO mapred.Task: Task '</span>attempt_<span class="built_in">local</span>108329066_0001_m_000001_0<span class="string">' done.</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner: Finishing task: attempt_local108329066_0001_m_000001_0</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner: map task executor complete.</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner: Waiting for reduce tasks</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner: Starting task: attempt_local108329066_0001_r_000000_0</span><br><span class="line">16/02/13 01:39:49 INFO util.ProcfsBasedProcessTree: ProcfsBasedProcessTree currently is supported only on Linux.</span><br><span class="line">16/02/13 01:39:49 INFO mapred.Task:  Using ResourceCalculatorProcessTree : null</span><br><span class="line">16/02/13 01:39:49 INFO mapred.ReduceTask: Using ShuffleConsumerPlugin: org.apache.hadoop.mapreduce.task.reduce.Shuffle@a24b738</span><br><span class="line">16/02/13 01:39:49 INFO reduce.MergeManagerImpl: MergerManager: memoryLimit=333971456, maxSingleShuffleLimit=83492864, mergeThreshold=220421168, ioSortFactor=10, memToMemMergeOutputsThreshold=10</span><br><span class="line">16/02/13 01:39:49 INFO reduce.EventFetcher: attempt_local108329066_0001_r_000000_0 Thread started: EventFetcher for fetching Map Completion Events</span><br><span class="line">16/02/13 01:39:49 INFO reduce.LocalFetcher: localfetcher#1 about to shuffle output of map attempt_local108329066_0001_m_000000_0 decomp: 41 len: 45 to MEMORY</span><br><span class="line">16/02/13 01:39:49 INFO reduce.InMemoryMapOutput: Read 41 bytes from map-output for attempt_local108329066_0001_m_000000_0</span><br><span class="line">16/02/13 01:39:49 INFO reduce.MergeManagerImpl: closeInMemoryFile -&gt; map-output of size: 41, inMemoryMapOutputs.size() -&gt; 1, commitMemory -&gt; 0, usedMemory -&gt;41</span><br><span class="line">16/02/13 01:39:49 INFO reduce.LocalFetcher: localfetcher#1 about to shuffle output of map attempt_local108329066_0001_m_000001_0 decomp: 36 len: 40 to MEMORY</span><br><span class="line">16/02/13 01:39:49 INFO reduce.InMemoryMapOutput: Read 36 bytes from map-output for attempt_local108329066_0001_m_000001_0</span><br><span class="line">16/02/13 01:39:49 INFO reduce.MergeManagerImpl: closeInMemoryFile -&gt; map-output of size: 36, inMemoryMapOutputs.size() -&gt; 2, commitMemory -&gt; 41, usedMemory -&gt;77</span><br><span class="line">16/02/13 01:39:49 INFO reduce.EventFetcher: EventFetcher is interrupted.. Returning</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner: 2 / 2 copied.</span><br><span class="line">16/02/13 01:39:49 INFO reduce.MergeManagerImpl: finalMerge called with 2 in-memory map-outputs and 0 on-disk map-outputs</span><br><span class="line">16/02/13 01:39:49 INFO mapred.Merger: Merging 2 sorted segments</span><br><span class="line">16/02/13 01:39:49 INFO mapred.Merger: Down to the last merge-pass, with 2 segments left of total size: 61 bytes</span><br><span class="line">16/02/13 01:39:49 INFO reduce.MergeManagerImpl: Merged 2 segments, 77 bytes to disk to satisfy reduce memory limit</span><br><span class="line">16/02/13 01:39:49 INFO reduce.MergeManagerImpl: Merging 1 files, 79 bytes from disk</span><br><span class="line">16/02/13 01:39:49 INFO reduce.MergeManagerImpl: Merging 0 segments, 0 bytes from memory into reduce</span><br><span class="line">16/02/13 01:39:49 INFO mapred.Merger: Merging 1 sorted segments</span><br><span class="line">16/02/13 01:39:49 INFO mapred.Merger: Down to the last merge-pass, with 1 segments left of total size: 69 bytes</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner: 2 / 2 copied.</span><br><span class="line">16/02/13 01:39:49 INFO Configuration.deprecation: mapred.skip.on is deprecated. Instead, use mapreduce.job.skiprecords</span><br><span class="line">16/02/13 01:39:49 INFO mapred.Task: Task:attempt_local108329066_0001_r_000000_0 is done. And is in the process of committing</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner: 2 / 2 copied.</span><br><span class="line">16/02/13 01:39:49 INFO mapred.Task: Task attempt_local108329066_0001_r_000000_0 is allowed to commit now</span><br><span class="line">16/02/13 01:39:49 INFO output.FileOutputCommitter: Saved output of task '</span>attempt_<span class="built_in">local</span>108329066_0001_r_000000_0<span class="string">' to hdfs://localhost:9000/user/joe/wordcount/output/_temporary/0/task_local108329066_0001_r_000000</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner: reduce &gt; reduce</span><br><span class="line">16/02/13 01:39:49 INFO mapred.Task: Task '</span>attempt_<span class="built_in">local</span>108329066_0001_r_000000_0<span class="string">' done.</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner: Finishing task: attempt_local108329066_0001_r_000000_0</span><br><span class="line">16/02/13 01:39:49 INFO mapred.LocalJobRunner: reduce task executor complete.</span><br><span class="line">16/02/13 01:39:49 INFO mapreduce.Job: Job job_local108329066_0001 running in uber mode : false</span><br><span class="line">16/02/13 01:39:49 INFO mapreduce.Job:  map 100% reduce 100%</span><br><span class="line">16/02/13 01:39:49 INFO mapreduce.Job: Job job_local108329066_0001 completed successfully</span><br><span class="line">16/02/13 01:39:49 INFO mapreduce.Job: Counters: 35</span><br><span class="line">File System Counters</span><br><span class="line">FILE: Number of bytes read=10860</span><br><span class="line"></span><br><span class="line">FILE: Number of bytes written=772228</span><br><span class="line"></span><br><span class="line">FILE: Number of read operations=0</span><br><span class="line"></span><br><span class="line">FILE: Number of large read operations=0</span><br><span class="line"></span><br><span class="line">FILE: Number of write operations=0</span><br><span class="line"></span><br><span class="line">HDFS: Number of bytes read=123</span><br><span class="line"></span><br><span class="line">HDFS: Number of bytes written=41</span><br><span class="line"></span><br><span class="line">HDFS: Number of read operations=25</span><br><span class="line"></span><br><span class="line">HDFS: Number of large read operations=0</span><br><span class="line"></span><br><span class="line">HDFS: Number of write operations=5</span><br><span class="line"></span><br><span class="line">Map-Reduce Framework</span><br><span class="line">Map input records=2</span><br><span class="line"></span><br><span class="line">Map output records=8</span><br><span class="line"></span><br><span class="line">Map output bytes=82</span><br><span class="line"></span><br><span class="line">Map output materialized bytes=85</span><br><span class="line"></span><br><span class="line">Input split bytes=236</span><br><span class="line"></span><br><span class="line">Combine input records=8</span><br><span class="line"></span><br><span class="line">Combine output records=6</span><br><span class="line"></span><br><span class="line">Reduce input groups=5</span><br><span class="line"></span><br><span class="line">Reduce shuffle bytes=85</span><br><span class="line"></span><br><span class="line">Reduce input records=6</span><br><span class="line"></span><br><span class="line">Reduce output records=5</span><br><span class="line"></span><br><span class="line">Spilled Records=12</span><br><span class="line"></span><br><span class="line">Shuffled Maps =2</span><br><span class="line"></span><br><span class="line">Failed Shuffles=0</span><br><span class="line"></span><br><span class="line">Merged Map outputs=2</span><br><span class="line"></span><br><span class="line">GC time elapsed (ms)=13</span><br><span class="line"></span><br><span class="line">Total committed heap usage (bytes)=951058432</span><br><span class="line"></span><br><span class="line">Shuffle Errors</span><br><span class="line">BAD_ID=0</span><br><span class="line"></span><br><span class="line">CONNECTION=0</span><br><span class="line"></span><br><span class="line">IO_ERROR=0</span><br><span class="line"></span><br><span class="line">WRONG_LENGTH=0</span><br><span class="line"></span><br><span class="line">WRONG_MAP=0</span><br><span class="line"></span><br><span class="line">WRONG_REDUCE=0</span><br><span class="line"></span><br><span class="line">File Input Format Counters</span><br><span class="line">Bytes Read=48</span><br><span class="line"></span><br><span class="line">File Output Format Counters</span><br><span class="line">Bytes Written=41</span><br><span class="line"></span><br><span class="line">➜  hadoop-2.6.0  bin/hdfs dfs -cat /user/joe/wordcount/output/part-r-00000</span><br><span class="line">16/02/13 01:40:48 WARN util.NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable（查看结果）</span><br><span class="line"></span><br><span class="line">Bye 1</span><br><span class="line">Goodbye 1</span><br><span class="line">Hadoop 2</span><br><span class="line">Hello 2</span><br><span class="line">World 2</span></span><br></pre></td></tr></table></figure>
+<p>java文件：，位置：/hadoop-2.6.0/</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.util.StringTokenizer;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.conf.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.fs.Path;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.IntWritable;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.io.Text;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Job;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Mapper;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.Reducer;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.input.FileInputFormat;</span><br><span class="line"><span class="keyword">import</span> org.apache.hadoop.mapreduce.lib.output.FileOutputFormat;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WordCount</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">TokenizerMapper</span></span><br><span class="line">       <span class="keyword">extends</span> <span class="title">Mapper</span>&lt;<span class="title">Object</span>, <span class="title">Text</span>, <span class="title">Text</span>, <span class="title">IntWritable</span>&gt;</span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">static</span> IntWritable one = <span class="keyword">new</span> IntWritable(<span class="number">1</span>);</span><br><span class="line">    <span class="keyword">private</span> Text word = <span class="keyword">new</span> Text();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">map</span><span class="params">(Object key, Text value, Context context</span><br><span class="line">                    )</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">      StringTokenizer itr = <span class="keyword">new</span> StringTokenizer(value.toString());</span><br><span class="line">      <span class="keyword">while</span> (itr.hasMoreTokens()) &#123;</span><br><span class="line">        word.set(itr.nextToken());</span><br><span class="line">        context.write(word, one);</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="class"><span class="keyword">class</span> <span class="title">IntSumReducer</span></span><br><span class="line">       <span class="keyword">extends</span> <span class="title">Reducer</span>&lt;<span class="title">Text</span>,<span class="title">IntWritable</span>,<span class="title">Text</span>,<span class="title">IntWritable</span>&gt; </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> IntWritable result = <span class="keyword">new</span> IntWritable();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">reduce</span><span class="params">(Text key, Iterable&lt;IntWritable&gt; values,</span><br><span class="line">                       Context context</span><br><span class="line">                       )</span> <span class="keyword">throws</span> IOException, InterruptedException </span>&#123;</span><br><span class="line">      <span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">for</span> (IntWritable val : values) &#123;</span><br><span class="line">        sum += val.get();</span><br><span class="line">      &#125;</span><br><span class="line">      result.set(sum);</span><br><span class="line">      context.write(key, result);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">    Configuration conf = <span class="keyword">new</span> Configuration();</span><br><span class="line">    Job job = Job.getInstance(conf, <span class="string">"word count"</span>);</span><br><span class="line">    job.setJarByClass(WordCount.class);</span><br><span class="line">    job.setMapperClass(TokenizerMapper.class);</span><br><span class="line">    job.setCombinerClass(IntSumReducer.class);</span><br><span class="line">    job.setReducerClass(IntSumReducer.class);</span><br><span class="line">    job.setOutputKeyClass(Text.class);</span><br><span class="line">    job.setOutputValueClass(IntWritable.class);</span><br><span class="line">    FileInputFormat.addInputPath(job, <span class="keyword">new</span> Path(args[<span class="number">0</span>]));</span><br><span class="line">    FileOutputFormat.setOutputPath(job, <span class="keyword">new</span> Path(args[<span class="number">1</span>]));</span><br><span class="line">    System.exit(job.waitForCompletion(<span class="keyword">true</span>) ? <span class="number">0</span> : <span class="number">1</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2016/02/14/2016-02-14-Hadoop在Hadoop环境中运行/" data-id="cikxff8pz00016rthf70bs5wr" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2016/02/14/2016-02-14-Hadoop在Hadoop环境中运行/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2016/02/13/2016-02-13-Hadoop本地测试实例/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Hadoop本地测试实例</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">2016年02月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">2016年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">2015年12月</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">2015年11月</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015年10月</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">2015年09月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">2015年07月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">2015年06月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015年05月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">2015年04月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">2015年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">2014年11月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">2014年09月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">2014年01月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2013年02月</a><span class="archive-list-count">1</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">类目</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/datastruts/">datastruts</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/转载/">转载</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/阅读/">阅读</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skill/">skill</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/">summarry</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tools/eclipse/">eclipse</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/velocity/">velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wf/">wf</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/大数据/">大数据</a><span class="category-list-count">6</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2016/02/14/2016-02-14-Hadoop在Hadoop环境中运行/">Hadoop在Hadoop环境中运行</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/13/2016-02-13-Hadoop本地测试实例/">Hadoop本地测试实例</a>
+          </li>
+        
+          <li>
+            <a href="/2016/02/12/2016-02-12-Redis数据结构简介/">redis数据结构</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/04/2016-01-04-hadoop配置文件说明/">hadoop配置文件说明</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/03/2016-01-03一些名词释义/">一些名词释义</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/02/2016-01-01-hive环境搭建以及常用命令/">Hive环境搭建以及常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/01/2016-01-01-转载-Java虚拟机详解/">Hive环境搭建以及常用命令</a>
+          </li>
+        
+          <li>
+            <a href="/2016/01/01/2016-01-01-osx下hadoop环境搭建/">osx下hadoop环境搭建</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/31/2015-12-31-java线程使用实例/">java线程使用实例</a>
+          </li>
+        
+          <li>
+            <a href="/2015/12/30/2015-12-30-java并发编程(6)/">java并发编程(6)</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastruts/">datastruts</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatable/">datatable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/">jvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcache/">memcache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/novel/">novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/skill/">skill</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/">tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/velocity/">velocity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wf/">wf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并发/">并发</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">10</span></li></ul>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/datastruts/" style="font-size: 16.67px;">datastruts</a> <a href="/tags/datatable/" style="font-size: 10px;">datatable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/hadoop/" style="font-size: 18.33px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hive/" style="font-size: 13.33px;">hive</a> <a href="/tags/java/" style="font-size: 18.33px;">java</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/life/" style="font-size: 11.67px;">life</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcache/" style="font-size: 11.67px;">memcache</a> <a href="/tags/mybatis/" style="font-size: 15px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/novel/" style="font-size: 10px;">novel</a> <a href="/tags/redis/" style="font-size: 16.67px;">redis</a> <a href="/tags/skill/" style="font-size: 10px;">skill</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/velocity/" style="font-size: 10px;">velocity</a> <a href="/tags/wf/" style="font-size: 10px;">wf</a> <a href="/tags/多线程/" style="font-size: 11.67px;">多线程</a> <a href="/tags/并发/" style="font-size: 13.33px;">并发</a> <a href="/tags/总结/" style="font-size: 20px;">总结</a>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2012 - 2016 liuyiyou<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+      <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="showDays"></span>
+<script>
+var birthDay = new Date("11/15/2014");
+var now = new Date();
+var duration = now.getTime() - birthDay.getTime(); 
+var total= Math.floor(duration / (1000 * 60 * 60 * 24));
+document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
+</script>
+
+  
+ <scriptt language="javascript" type="text/javascript" src="http://js.users.51.la/17798200.js"></script>
+<noscript><a href="http://www.51.la/?17798200" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17798200.asp" style="border:none" /></a></noscript>
+<script language="javascript" type="text/javascript" src="http://js.users.51.la/17798200.js"></script>
+<noscript><a href="http://www.51.la/?17798200" target="_blank"><img alt="&#x6211;&#x8981;&#x5566;&#x514D;&#x8D39;&#x7EDF;&#x8BA1;" src="http://img.users.51.la/17798200.asp" style="border:none" /></a></noscript>
+    </div>
+  </div>
+
+  <script type="text/javascript">(function(){document.write(unescape('%3Cdiv id="bdcs"%3E%3C/div%3E'));var bdcs = document.createElement('script');bdcs.type = 'text/javascript';bdcs.async = true;bdcs.src = 'http://znsv.baidu.com/customer_search/api/js?sid=11665452319099709564' + '&plate_url=' + encodeURIComponent(window.location.href) + '&t=' + Math.ceil(new Date()/3600000);var s = document.getElementsByTagName('script')[0];s.parentNode.insertBefore(bdcs, s);})();</script>
+  
+
+
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">首页</a>
+  
+    <a href="/about" class="mobile-nav-link">关于我</a>
+  
+</nav>
+    
+<script>
+  var disqus_shortname = 'liuyiyou';
+  
+  var disqus_url = 'http://liuyiyou.cn/2016/02/14/2016-02-14-Hadoop在Hadoop环境中运行/';
+  
+  (function(){
+    var dsq = document.createElement('script');
+    dsq.type = 'text/javascript';
+    dsq.async = true;
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+  })();
+</script>
+
+
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css" type="text/css">
+  <script src="/fancybox/jquery.fancybox.pack.js" type="text/javascript"></script>
+
+
+<script src="/js/script.js" type="text/javascript"></script>
+
+
+
+
+  </div>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>
