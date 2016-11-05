@@ -3,27 +3,24 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Hive环境搭建以及常用命令 | 温故而知新    触类而旁通</title>
+  <title>(转载)Java虚拟机详解 | 温故而知新    触类而旁通</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="转载自：JVM内幕：Java虚拟机详解
 这篇文章解释了Java 虚拟机（JVM）的内部架构。下图显示了遵守 Java SE 7 规范的典型的 JVM 核心内部组件。
-上图显示的组件分两个章节解释。第一章讨论针对每个线程创建的组件，第二章节讨论了线程无关组件。
-线程JVM 系统线程每个线程相关的程序计数器栈本地栈栈限制栈帧局部变量数组操作数栈动态链接线程共享堆内存管理非堆内存即时编译方法区类文件结构">
+线程JVM 系统线程每个线程相关的程序计数器栈本地栈栈限制栈帧局部变量数组操作数栈动态链接线程共享堆内存管理非堆内存即时编译方法区类文件结构类加载器更快的类加载方法区在哪里类加载器参考运行时常量池异常表符号表Interned 字符串线">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hive环境搭建以及常用命令">
+<meta property="og:title" content="(转载)Java虚拟机详解">
 <meta property="og:url" content="http://liuyiyou.cn/2016/01/01/2016-01-01-转载-Java虚拟机详解/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="转载自：JVM内幕：Java虚拟机详解
 这篇文章解释了Java 虚拟机（JVM）的内部架构。下图显示了遵守 Java SE 7 规范的典型的 JVM 核心内部组件。
-上图显示的组件分两个章节解释。第一章讨论针对每个线程创建的组件，第二章节讨论了线程无关组件。
-线程JVM 系统线程每个线程相关的程序计数器栈本地栈栈限制栈帧局部变量数组操作数栈动态链接线程共享堆内存管理非堆内存即时编译方法区类文件结构">
-<meta property="og:updated_time" content="2016-02-17T02:24:24.000Z">
+线程JVM 系统线程每个线程相关的程序计数器栈本地栈栈限制栈帧局部变量数组操作数栈动态链接线程共享堆内存管理非堆内存即时编译方法区类文件结构类加载器更快的类加载方法区在哪里类加载器参考运行时常量池异常表符号表Interned 字符串线">
+<meta property="og:updated_time" content="2016-11-05T09:56:48.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hive环境搭建以及常用命令">
+<meta name="twitter:title" content="(转载)Java虚拟机详解">
 <meta name="twitter:description" content="转载自：JVM内幕：Java虚拟机详解
 这篇文章解释了Java 虚拟机（JVM）的内部架构。下图显示了遵守 Java SE 7 规范的典型的 JVM 核心内部组件。
-上图显示的组件分两个章节解释。第一章讨论针对每个线程创建的组件，第二章节讨论了线程无关组件。
-线程JVM 系统线程每个线程相关的程序计数器栈本地栈栈限制栈帧局部变量数组操作数栈动态链接线程共享堆内存管理非堆内存即时编译方法区类文件结构">
+线程JVM 系统线程每个线程相关的程序计数器栈本地栈栈限制栈帧局部变量数组操作数栈动态链接线程共享堆内存管理非堆内存即时编译方法区类文件结构类加载器更快的类加载方法区在哪里类加载器参考运行时常量池异常表符号表Interned 字符串线">
   
     <link rel="alternative" href="/atom.xml" title="温故而知新    触类而旁通" type="application/atom+xml">
   
@@ -88,7 +85,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hive环境搭建以及常用命令
+      (转载)Java虚拟机详解
     </h1>
   
 
@@ -98,9 +95,9 @@
       
         <p>转载自：<a href="http://www.importnew.com/17770.html" target="_blank" rel="external">JVM内幕：Java虚拟机详解</a></p>
 <p>这篇文章解释了Java 虚拟机（JVM）的内部架构。下图显示了遵守 Java SE 7 规范的典型的 JVM 核心内部组件。</p>
-<p>上图显示的组件分两个章节解释。第一章讨论针对每个线程创建的组件，第二章节讨论了线程无关组件。</p>
 <p>线程<br>JVM 系统线程<br>每个线程相关的<br>程序计数器<br>栈<br>本地栈<br>栈限制<br>栈帧<br>局部变量数组<br>操作数栈<br>动态链接<br>线程共享<br>堆<br>内存管理<br>非堆内存<br>即时编译<br>方法区<br>类文件结构<br>类加载器<br>更快的类加载<br>方法区在哪里<br>类加载器参考<br>运行时常量池<br>异常表<br>符号表<br>Interned 字符串<br>线程</p>
 <p>这里所说的线程指程序执行过程中的一个线程实体。JVM 允许一个应用并发执行多个线程。Hotspot JVM 中的 Java 线程与原生操作系统线程有直接的映射关系。当线程本地存储、缓冲区分配、同步对象、栈、程序计数器等准备好以后，就会创建一个操作系统原生线程。Java 线程结束，原生线程随之被回收。操作系统负责调度所有线程，并把它们分配到任何可用的 CPU 上。当原生线程初始化完毕，就会调用 Java 线程的 run() 方法。run() 返回时，被处理未捕获异常，原生线程将确认由于它的结束是否要终止 JVM 进程（比如这个线程是最后一个非守护线程）。当线程结束时，会释放原生线程和 Java 线程的所有资源。</p>
+<a id="more"></a>
 <p>JVM 系统线程</p>
 <p>如果使用 jconsole 或者其它调试器，你会看到很多线程在后台运行。这些后台线程与触发 public static void main(String[]) 函数的主线程以及主线程创建的其他线程一起运行。Hotspot JVM 后台运行的系统线程主要有下面几个：</p>
 <p>虚拟机线程（VM thread）  这个线程等待 JVM 到达安全点操作出现。这些操作必须要在独立的线程里执行，因为当堆修改无法进行时，线程都需要 JVM 位于安全点。这些操作的类型有：stop-the-world 垃圾回收、线程栈 dump、线程暂停、线程偏向锁（biased locking）解除。<br>周期性任务线程 这线程负责定时器事件（也就是中断），用来调度周期性操作的执行。<br>GC 线程 这些线程支持 JVM 中不同的垃圾回收活动。<br>编译器线程 这些线程在运行时将字节码动态编译成本地平台相关的机器码。<br>信号分发线程  这个线程接收发送到 JVM 的信号并调用适当的 JVM 方法处理。<br>线程相关组件</p>
@@ -123,7 +120,7 @@
 <p>操作数栈</p>
 <p>操作数栈在执行字节码指令过程中被用到，这种方式类似于原生 CPU 寄存器。大部分 JVM 字节码把时间花费在操作数栈的操作上：入栈、出栈、复制、交换、产生消费变量的操作。因此，局部变量数组和操作数栈之间的交换变量指令操作通过字节码频繁执行。比如，一个简单的变量初始化语句将产生两条跟操作数栈交互的字节码。</p>
 <p>1<br>int i;<br>被编译成下面的字节码：</p>
-<p>1<br>2<br>0:    iconst_0    // Push 0 to top of the operand stack<br>1:    istore_1    // Pop value from top of operand stack and store as local variable 1<br>更多关于局部变量数组、操作数栈和运行时常量池之间交互的详细信息，可以在类文件结构部分找到。</p>
+<p>0:    iconst_0    // Push 0 to top of the operand stack<br>1:    istore_1    // Pop value from top of operand stack and store as local variable 1<br>更多关于局部变量数组、操作数栈和运行时常量池之间交互的详细信息，可以在类文件结构部分找到。</p>
 <p>动态链接</p>
 <p>每个栈帧都有一个运行时常量池的引用。这个引用指向栈帧当前运行方法所在类的常量池。通过这个引用支持动态链接（dynamic linking）。</p>
 <p>C/C++ 代码一般被编译成对象文件，然后多个对象文件被链接到一起产生可执行文件或者 dll。在链接阶段，每个对象文件的符号引用被替换成了最终执行文件的相对偏移内存地址。在 Java中，链接阶段是运行时动态完成的。</p>
@@ -144,10 +141,11 @@
 <p>Classloader 引用<br>运行时常量池<br>数值型常量<br>字段引用<br>方法引用<br>属性<br>字段数据<br>针对每个字段的信息<br>字段名<br>类型<br>修饰符<br>属性（Attribute）<br>方法数据<br>每个方法<br>方法名<br>返回值类型<br>参数类型（按顺序）<br>修饰符<br>属性<br>方法代码<br>每个方法<br>字节码<br>操作数栈大小<br>局部变量大小<br>局部变量表<br>异常表<br>每个异常处理器<br>开始点<br>结束点<br>异常处理代码的程序计数器（PC）偏移量<br>被捕获的异常类对应的常量池下标<br>所有线程共享同一个方法区，因此访问方法区数据的和动态链接的进程必须线程安全。如果两个线程试图访问一个还未加载的类的字段或方法，必须只加载一次，而且两个线程必须等它加载完毕才能继续执行。</p>
 <p>类文件结构</p>
 <p>一个编译后的类文件包含下面的结构：</p>
-<p>ClassFile {<br>    u4            magic;<br>    u2            minor_version;<br>    u2            major_version;<br>    u2            constant_pool_count;<br>    cp_info        contant_pool[constant_pool_count – 1];<br>    u2            access_flags;<br>    u2            this_class;<br>    u2            super_class;<br>    u2            interfaces_count;<br>    u2            interfaces[interfaces_count];<br>    u2            fields_count;<br>    field_info        fields[fields_count];<br>    u2            methods_count;<br>    method_info        methods[methods_count];<br>    u2            attributes_count;<br>    attribute_info    attributes[attributes_count];<br>}<br>magic, minor_version, major_version 类文件的版本信息和用于编译这个类的 JDK 版本。<br>constant_pool 类似于符号表，尽管它包含更多数据。下面有更多的详细描述。<br>access_flags  提供这个类的描述符列表。<br>this_class  提供这个类全名的常量池(constant_pool)索引，比如org/jamesdbloom/foo/Bar。<br>super_class 提供这个类的父类符号引用的常量池索引。<br>interfaces  指向常量池的索引数组，提供那些被实现的接口的符号引用。<br>fields  提供每个字段完整描述的常量池索引数组。<br>methods 指向constant_pool的索引数组，用于表示每个方法签名的完整描述。如果这个方法不是抽象方法也不是 native 方法，那么就会显示这个函数的字节码。<br>attributes  不同值的数组，表示这个类的附加信息，包括 RetentionPolicy.CLASS 和 RetentionPolicy.RUNTIME 注解。<br>可以用 javap 查看编译后的 java class 文件字节码。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">ClassFile &#123;</span><br><span class="line">    u4            magic;</span><br><span class="line">    u2            minor_version;</span><br><span class="line">    u2            major_version;</span><br><span class="line">    u2            constant_pool_count;</span><br><span class="line">    cp_info        contant_pool[constant_pool_count – <span class="number">1</span>];</span><br><span class="line">    u2            access_flags;</span><br><span class="line">    u2            this_class;</span><br><span class="line">    u2            super_class;</span><br><span class="line">    u2            interfaces_count;</span><br><span class="line">    u2            interfaces[interfaces_count];</span><br><span class="line">    u2            fields_count;</span><br><span class="line">    field_info        fields[fields_count];</span><br><span class="line">    u2            methods_count;</span><br><span class="line">    method_info        methods[methods_count];</span><br><span class="line">    u2            attributes_count;</span><br><span class="line">    attribute_info    attributes[attributes_count];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>magic, minor_version, major_version 类文件的版本信息和用于编译这个类的 JDK 版本。<br>constant_pool 类似于符号表，尽管它包含更多数据。下面有更多的详细描述。<br>access_flags  提供这个类的描述符列表。<br>this_class  提供这个类全名的常量池(constant_pool)索引，比如org/jamesdbloom/foo/Bar。<br>super_class 提供这个类的父类符号引用的常量池索引。<br>interfaces  指向常量池的索引数组，提供那些被实现的接口的符号引用。<br>fields  提供每个字段完整描述的常量池索引数组。<br>methods 指向constant_pool的索引数组，用于表示每个方法签名的完整描述。如果这个方法不是抽象方法也不是 native 方法，那么就会显示这个函数的字节码。<br>attributes  不同值的数组，表示这个类的附加信息，包括 RetentionPolicy.CLASS 和 RetentionPolicy.RUNTIME 注解。<br>可以用 javap 查看编译后的 java class 文件字节码。</p>
 <p>如果你编译下面这个简单的类：</p>
-<p>1<br>2<br>3<br>4<br>5<br>6<br>package org.jvminternals;<br>public class SimpleClass {<br>    public void sayHello() {<br>        System.out.println(“Hello”);<br>    }<br>}<br>运行下面的命令，就可以得到下面的结果输出： javap -v -p -s -sysinfo -constants classes/org/jvminternals/SimpleClass.class。</p>
-<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>32<br>33<br>34<br>35<br>36<br>37<br>38<br>39<br>40<br>41<br>42<br>43<br>44<br>45<br>46<br>47<br>48<br>49<br>50<br>51<br>52<br>53<br>54<br>55<br>56<br>57<br>58<br>59<br>60<br>61<br>62<br>63<br>64<br>65<br>66<br>67<br>public class org.jvminternals.SimpleClass<br>  SourceFile: “SimpleClass.java”<br>  minor version: 0<br>  major version: 51<br>  flags: ACC_PUBLIC, ACC_SUPER<br>Constant pool:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> org.jvminternals;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">运行下面的命令，就可以得到下面的结果输出： javap -v -p -s -sysinfo -constants classes/org/jvminternals/SimpleClass.class。</span><br></pre></td></tr></table></figure>
+<p>public class org.jvminternals.SimpleClass<br>  SourceFile: “SimpleClass.java”<br>  minor version: 0<br>  major version: 51<br>  flags: ACC_PUBLIC, ACC_SUPER<br>Constant pool:</p>
 <p>   #1 = Methodref          #6.#17         //  java/lang/Object.”&lt;init&gt;”:()V</p>
 <p>   #2 = Fieldref           #18.#19        //  java/lang/System.out:Ljava/io/PrintStream;</p>
 <p>   #3 = String             #20            //  “Hello”</p>
@@ -205,44 +203,12 @@
 <p>常量池中可以存储多种类型的数据：</p>
 <p>数字型<br>字符串型<br>类引用型<br>域引用型<br>方法引用<br>示例代码如下：</p>
 <p>1<br>Object foo = new Object();<br>写成字节码将是下面这样：</p>
-<p>1<br>2<br>3<br>0:     new #2             // Class java/lang/Object<br>1:    dup<br>2:    invokespecial #3    // Method java/ lang/Object “&lt;init&gt;”( ) V<br>new 操作码的后面紧跟着操作数 #2 。这个操作数是常量池的一个索引，表示它指向常量池的第二个实体。第二个实体是一个类的引用，这个实体反过来引用了另一个在常量池中包含 UTF8 编码的字符串类名的实体（// Class java/lang/Object）。然后，这个符号引用被用来寻找 java.lang.Object 类。new 操作码创建一个类实例并初始化变量。新类实例的引用则被添加到操作数栈。dup 操作码创建一个操作数栈顶元素引用的额外拷贝。最后用 invokespecial 来调用第 2 行的实例初始化方法。操作码也包含一个指向常量池的引用。初始化方法把操作数栈出栈的顶部引用当做此方法的一个参数。最后这个新对象只有一个引用，这个对象已经完成了创建及初始化。</p>
+<p>0:     new #2             // Class java/lang/Object<br>1:    dup<br>2:    invokespecial #3    // Method java/ lang/Object “&lt;init&gt;”( ) V<br>new 操作码的后面紧跟着操作数 #2 。这个操作数是常量池的一个索引，表示它指向常量池的第二个实体。第二个实体是一个类的引用，这个实体反过来引用了另一个在常量池中包含 UTF8 编码的字符串类名的实体（// Class java/lang/Object）。然后，这个符号引用被用来寻找 java.lang.Object 类。new 操作码创建一个类实例并初始化变量。新类实例的引用则被添加到操作数栈。dup 操作码创建一个操作数栈顶元素引用的额外拷贝。最后用 invokespecial 来调用第 2 行的实例初始化方法。操作码也包含一个指向常量池的引用。初始化方法把操作数栈出栈的顶部引用当做此方法的一个参数。最后这个新对象只有一个引用，这个对象已经完成了创建及初始化。</p>
 <p>如果你编译下面的类：</p>
-<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>package org.jvminternals;<br>public class SimpleClass {</p>
-<pre><code><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span>(<span class="params"></span>) </span>{
-    System.<span class="keyword">out</span>.println(<span class="string">"Hello"</span>);
-}
-</code></pre><p>}<br>生成的类文件常量池将是这个样子：</p>
-<p>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21<br>22<br>23<br>24<br>25<br>26<br>27<br>28<br>29<br>30<br>31<br>Constant pool:</p>
-<p>   #1 = Methodref          #6.#17         //  java/lang/Object.”&lt;init&gt;”:()V</p>
-<p>   #2 = Fieldref           #18.#19        //  java/lang/System.out:Ljava/io/PrintStream;</p>
-<p>   #3 = String             #20            //  “Hello”</p>
-<p>   #4 = Methodref          #21.#22        //  java/io/PrintStream.println:(Ljava/lang/String;)V</p>
-<p>   #5 = Class              #23            //  org/jvminternals/SimpleClass</p>
-<p>   #6 = Class              #24            //  java/lang/Object</p>
-<p>   #7 = Utf8               &lt;init&gt;</p>
-<p>   #8 = Utf8               ()V</p>
-<p>   #9 = Utf8               Code</p>
-<p>  #10 = Utf8               LineNumberTable</p>
-<p>  #11 = Utf8               LocalVariableTable</p>
-<p>  #12 = Utf8               this</p>
-<p>  #13 = Utf8               Lorg/jvminternals/SimpleClass;</p>
-<p>  #14 = Utf8               sayHello</p>
-<p>  #15 = Utf8               SourceFile</p>
-<p>  #16 = Utf8               SimpleClass.java</p>
-<p>  #17 = NameAndType        #7:#8          //  “&lt;init&gt;”:()V</p>
-<p>  #18 = Class              #25            //  java/lang/System</p>
-<p>  #19 = NameAndType        #26:#27        //  out:Ljava/io/PrintStream;</p>
-<p>  #20 = Utf8               Hello</p>
-<p>  #21 = Class              #28            //  java/io/PrintStream</p>
-<p>  #22 = NameAndType        #29:#30        //  println:(Ljava/lang/String;)V</p>
-<p>  #23 = Utf8               org/jvminternals/SimpleClass</p>
-<p>  #24 = Utf8               java/lang/Object</p>
-<p>  #25 = Utf8               java/lang/System</p>
-<p>  #26 = Utf8               out</p>
-<p>  #27 = Utf8               Ljava/io/PrintStream;</p>
-<p>  #28 = Utf8               java/io/PrintStream</p>
-<p>  #29 = Utf8               println</p>
-<p>  #30 = Utf8               (Ljava/lang/String;)V<br>这个常量池包含了下面的类型：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> org.jvminternals;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleClass</span> </span>&#123;</span><br><span class="line"> </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Hello"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"> </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>生成的类文件常量池将是这个样子：</p>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Constant pool:</span><br><span class="line">   #1 = Methodref          #6.#17         //  java/lang/Object."&amp;lt;init&amp;gt;":()V</span><br><span class="line">   #2 = Fieldref           #18.#19        //  java/lang/System.out:Ljava/io/PrintStream;</span><br><span class="line">   #3 = String             #20            //  "Hello"</span><br><span class="line">   #4 = Methodref          #21.#22        //  java/io/PrintStream.println:(Ljava/lang/String;)V</span><br><span class="line">   #5 = Class              #23            //  org/jvminternals/SimpleClass</span><br><span class="line">   #6 = Class              #24            //  java/lang/Object</span><br><span class="line">   #7 = Utf8               &amp;lt;init&amp;gt;</span><br><span class="line">   #8 = Utf8               ()V</span><br><span class="line">   #9 = Utf8               Code</span><br><span class="line">  #10 = Utf8               LineNumberTable</span><br><span class="line">  #11 = Utf8               LocalVariableTable</span><br><span class="line">  #12 = Utf8               this</span><br><span class="line">  #13 = Utf8               Lorg/jvminternals/SimpleClass;</span><br><span class="line">  #14 = Utf8               sayHello</span><br><span class="line">  #15 = Utf8               SourceFile</span><br><span class="line">  #16 = Utf8               SimpleClass.java</span><br><span class="line">  #17 = NameAndType        #7:#8          //  "&amp;lt;init&amp;gt;":()V</span><br><span class="line">  #18 = Class              #25            //  java/lang/System</span><br><span class="line">  #19 = NameAndType        #26:#27        //  out:Ljava/io/PrintStream;</span><br><span class="line">  #20 = Utf8               Hello</span><br><span class="line">  #21 = Class              #28            //  java/io/PrintStream</span><br><span class="line">  #22 = NameAndType        #29:#30        //  println:(Ljava/lang/String;)V</span><br><span class="line">  #23 = Utf8               org/jvminternals/SimpleClass</span><br><span class="line">  #24 = Utf8               java/lang/Object</span><br><span class="line">  #25 = Utf8               java/lang/System</span><br><span class="line">  #26 = Utf8               out</span><br><span class="line">  #27 = Utf8               Ljava/io/PrintStream;</span><br><span class="line">  #28 = Utf8               java/io/PrintStream</span><br><span class="line">  #29 = Utf8               println</span><br><span class="line">  #30 = Utf8               (Ljava/lang/String;)V</span><br></pre></td></tr></table></figure>
+<p>这个常量池包含了下面的类型：</p>
 <p>Integer 4 字节常量<br>Long  8 字节常量<br>Float 4 字节常量<br>Double  8 字节常量<br>String  字符串常量指向常量池的另外一个包含真正字节 Utf8 编码的实体<br>Utf8  Utf8 编码的字符序列字节流<br>Class 一个 Class 常量，指向常量池的另一个 Utf8 实体，这个实体包含了符合 JVM 内部格式的类的全名（动态链接过程需要用到）<br>NameAndType 冒号（:）分隔的一组值，这些值都指向常量池中的其它实体。第一个值（“:”之前的）指向一个 Utf8 字符串实体，它是一个方法名或者字段名。第二个值指向表示类型的 Utf8 实体。对于字段类型，这个值是类的全名，对于方法类型，这个值是每个参数类型类的类全名的列表。<br>Fieldref, Methodref, InterfaceMethodref 点号（.）分隔的一组值，每个值都指向常量池中的其它的实体。第一个值（“.”号之前的）指向类实体，第二个值指向 NameAndType 实体。<br>异常表</p>
 <p>异常表像这样存储每个异常处理信息：</p>
 <p>起始点（Start point）<br>结束点（End point）<br>异常处理代码的 PC 偏移量<br>被捕获异常的常量池索引<br>如果一个方法有定义 try-catch 或者 try-finally 异常处理器，那么就会创建一个异常表。它为每个异常处理器和 finally 代码块存储必要的信息，包括处理器覆盖的代码块区域和处理异常的类型。</p>
@@ -261,7 +227,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2016/01/01/2016-01-01-转载-Java虚拟机详解/" data-id="cikxff8rc000n6rth38gi7buf" class="article-share-link">Share</a>
+      <a data-url="http://liuyiyou.cn/2016/01/01/2016-01-01-转载-Java虚拟机详解/" data-id="civ51fxoq000q97qsile2643l" class="article-share-link">Share</a>
       
         <a href="http://liuyiyou.cn/2016/01/01/2016-01-01-转载-Java虚拟机详解/#disqus_thread" class="article-comment-link">Comments</a>
       
@@ -274,19 +240,19 @@
     
 <nav id="article-nav">
   
-    <a href="/2016/01/02/2016-01-01-hive环境搭建以及常用命令/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2016/01/01/2016-01-01-osx下hadoop环境搭建以及启动/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          Hive环境搭建以及常用命令
+          osx下hadoop环境搭建以及启动
         
       </div>
     </a>
   
   
-    <a href="/2016/01/01/2016-01-01-osx下hadoop环境搭建/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2015/12/31/2015-12-31-java线程使用实例/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">osx下hadoop环境搭建</div>
+      <div class="article-nav-title">java线程使用实例</div>
     </a>
   
 </nav>
@@ -308,7 +274,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">2016年02月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">2016年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">2015年12月</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">2015年11月</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015年10月</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">2015年09月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">2015年07月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">2015年06月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015年05月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">2015年04月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">2015年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">2014年11月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">2014年09月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">2014年01月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2013年02月</a><span class="archive-list-count">1</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/02/">2016年02月</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/01/">2016年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/12/">2015年12月</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/11/">2015年11月</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/10/">2015年10月</a><span class="archive-list-count">9</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/09/">2015年09月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/07/">2015年07月</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/06/">2015年06月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/05/">2015年05月</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/04/">2015年04月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">2015年01月</a><span class="archive-list-count">5</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/11/">2014年11月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/09/">2014年09月</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/01/">2014年01月</a><span class="archive-list-count">2</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2013/02/">2013年02月</a><span class="archive-list-count">1</span></li></ul>
     </div>
   </div>
 
@@ -317,7 +283,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">类目</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/datastruts/">datastruts</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/转载/">转载</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/阅读/">阅读</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skill/">skill</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/">summarry</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tools/eclipse/">eclipse</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/velocity/">velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wf/">wf</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/大数据/">大数据</a><span class="category-list-count">6</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/datastruts/">datastruts</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">10</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/java/转载/">转载</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/java/阅读/">阅读</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/jquery/">jquery</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/life/">life</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mybatis/">mybatis</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/mysql/">mysql</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/redis/">redis</a><span class="category-list-count">5</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/skill/">skill</a><span class="category-list-count">2</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring/">spring</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/">summarry</a><span class="category-list-count">9</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/summarry/mysql/">mysql</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/tomcat/">tomcat</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/tools/">tools</a><span class="category-list-count">4</span><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/categories/tools/eclipse/">eclipse</a><span class="category-list-count">1</span></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/categories/velocity/">velocity</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/wf/">wf</a><span class="category-list-count">1</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/大数据/">大数据</a><span class="category-list-count">7</span></li></ul>
     </div>
   </div>
 
@@ -327,6 +293,10 @@
     <h3 class="widget-title">最新文章</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2016/02/14/2016-06-14-新的/">Hadoop在Hadoop环境中运行</a>
+          </li>
         
           <li>
             <a href="/2016/02/14/2016-02-14-Hadoop在Hadoop环境中运行/">Hadoop在Hadoop环境中运行</a>
@@ -353,19 +323,15 @@
           </li>
         
           <li>
-            <a href="/2016/01/01/2016-01-01-转载-Java虚拟机详解/">Hive环境搭建以及常用命令</a>
+            <a href="/2016/01/01/2016-01-01-osx下hadoop环境搭建以及启动/">osx下hadoop环境搭建以及启动</a>
           </li>
         
           <li>
-            <a href="/2016/01/01/2016-01-01-osx下hadoop环境搭建/">osx下hadoop环境搭建</a>
+            <a href="/2016/01/01/2016-01-01-转载-Java虚拟机详解/">(转载)Java虚拟机详解</a>
           </li>
         
           <li>
             <a href="/2015/12/31/2015-12-31-java线程使用实例/">java线程使用实例</a>
-          </li>
-        
-          <li>
-            <a href="/2015/12/30/2015-12-30-java并发编程(6)/">java并发编程(6)</a>
           </li>
         
       </ul>
@@ -377,7 +343,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签</h3>
     <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastruts/">datastruts</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatable/">datatable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/">jvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcache/">memcache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/novel/">novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/skill/">skill</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/">tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/velocity/">velocity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wf/">wf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并发/">并发</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">10</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/datastruts/">datastruts</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/datatable/">datatable</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/eclipse/">eclipse</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hadoop/">hadoop</a><span class="tag-list-count">7</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hexo/">hexo</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/hive/">hive</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/json/">json</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/jvm/">jvm</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/life/">life</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mac/">mac</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/maven/">maven</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/memcache/">memcache</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mybatis/">mybatis</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/mysql/">mysql</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/novel/">novel</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/redis/">redis</a><span class="tag-list-count">5</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/skill/">skill</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring/">spring</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/tomcat/">tomcat</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/velocity/">velocity</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/wf/">wf</a><span class="tag-list-count">1</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/多线程/">多线程</a><span class="tag-list-count">2</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/并发/">并发</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/总结/">总结</a><span class="tag-list-count">10</span></li></ul>
     </div>
   </div>
 
@@ -386,7 +352,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">标签云</h3>
     <div class="widget tagcloud">
-      <a href="/tags/datastruts/" style="font-size: 16.67px;">datastruts</a> <a href="/tags/datatable/" style="font-size: 10px;">datatable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/hadoop/" style="font-size: 18.33px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hive/" style="font-size: 13.33px;">hive</a> <a href="/tags/java/" style="font-size: 18.33px;">java</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/life/" style="font-size: 11.67px;">life</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcache/" style="font-size: 11.67px;">memcache</a> <a href="/tags/mybatis/" style="font-size: 15px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.67px;">mysql</a> <a href="/tags/novel/" style="font-size: 10px;">novel</a> <a href="/tags/redis/" style="font-size: 16.67px;">redis</a> <a href="/tags/skill/" style="font-size: 10px;">skill</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/velocity/" style="font-size: 10px;">velocity</a> <a href="/tags/wf/" style="font-size: 10px;">wf</a> <a href="/tags/多线程/" style="font-size: 11.67px;">多线程</a> <a href="/tags/并发/" style="font-size: 13.33px;">并发</a> <a href="/tags/总结/" style="font-size: 20px;">总结</a>
+      <a href="/tags/datastruts/" style="font-size: 15.71px;">datastruts</a> <a href="/tags/datatable/" style="font-size: 10px;">datatable</a> <a href="/tags/eclipse/" style="font-size: 10px;">eclipse</a> <a href="/tags/hadoop/" style="font-size: 18.57px;">hadoop</a> <a href="/tags/hexo/" style="font-size: 10px;">hexo</a> <a href="/tags/hive/" style="font-size: 12.86px;">hive</a> <a href="/tags/java/" style="font-size: 17.14px;">java</a> <a href="/tags/json/" style="font-size: 10px;">json</a> <a href="/tags/jvm/" style="font-size: 10px;">jvm</a> <a href="/tags/life/" style="font-size: 11.43px;">life</a> <a href="/tags/mac/" style="font-size: 10px;">mac</a> <a href="/tags/maven/" style="font-size: 10px;">maven</a> <a href="/tags/memcache/" style="font-size: 11.43px;">memcache</a> <a href="/tags/mybatis/" style="font-size: 14.29px;">mybatis</a> <a href="/tags/mysql/" style="font-size: 11.43px;">mysql</a> <a href="/tags/novel/" style="font-size: 10px;">novel</a> <a href="/tags/redis/" style="font-size: 15.71px;">redis</a> <a href="/tags/skill/" style="font-size: 10px;">skill</a> <a href="/tags/spring/" style="font-size: 10px;">spring</a> <a href="/tags/tomcat/" style="font-size: 10px;">tomcat</a> <a href="/tags/velocity/" style="font-size: 10px;">velocity</a> <a href="/tags/wf/" style="font-size: 10px;">wf</a> <a href="/tags/多线程/" style="font-size: 11.43px;">多线程</a> <a href="/tags/并发/" style="font-size: 12.86px;">并发</a> <a href="/tags/总结/" style="font-size: 20px;">总结</a>
     </div>
   </div>
 

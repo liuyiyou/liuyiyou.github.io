@@ -3,17 +3,31 @@
 <head>
   <meta charset="utf-8">
   
-  <title>Tag: spring | 温故而知新    触类而旁通</title>
+  <title>osx下hadoop环境搭建以及启动 | 温故而知新    触类而旁通</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="温故而知新、触类而旁通">
-<meta property="og:type" content="website">
-<meta property="og:title" content="温故而知新    触类而旁通">
-<meta property="og:url" content="http://liuyiyou.cn/tags/spring/index.html">
+  <meta name="description" content="参考：http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-common/SingleCluster.html#Standalone_Operation
+新年好！
+新年的第一天，开始大数据。
+以下文章只是为了自己记录，如果被各位搜到，参考就行了，如果参考后还是没有得到想要的结果，请自行谷歌，反正我也是谷歌出来的
+系统：osx">
+<meta property="og:type" content="article">
+<meta property="og:title" content="osx下hadoop环境搭建以及启动">
+<meta property="og:url" content="http://liuyiyou.cn/2016/01/01/2016-01-01-osx下hadoop环境搭建以及启动/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="温故而知新、触类而旁通">
+<meta property="og:description" content="参考：http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-common/SingleCluster.html#Standalone_Operation
+新年好！
+新年的第一天，开始大数据。
+以下文章只是为了自己记录，如果被各位搜到，参考就行了，如果参考后还是没有得到想要的结果，请自行谷歌，反正我也是谷歌出来的
+系统：osx">
+<meta property="og:image" content="http://liuyiyou.cn/images/hadoop-remote.png">
+<meta property="og:updated_time" content="2016-06-01T02:47:16.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="温故而知新    触类而旁通">
-<meta name="twitter:description" content="温故而知新、触类而旁通">
+<meta name="twitter:title" content="osx下hadoop环境搭建以及启动">
+<meta name="twitter:description" content="参考：http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-common/SingleCluster.html#Standalone_Operation
+新年好！
+新年的第一天，开始大数据。
+以下文章只是为了自己记录，如果被各位搜到，参考就行了，如果参考后还是没有得到想要的结果，请自行谷歌，反正我也是谷歌出来的
+系统：osx">
   
     <link rel="alternative" href="/atom.xml" title="温故而知新    触类而旁通" type="application/atom+xml">
   
@@ -60,39 +74,128 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main">
-  
-  
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2015" class="archive-year">2015</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/2015/10/15/2015-10-15-Spring的一些扩展点/" class="archive-article-date">
-  <time datetime="2015-10-14T16:00:00.000Z" itemprop="datePublished">10月15日</time>
+        <section id="main"><article id="post-2016-01-01-osx下hadoop环境搭建以及启动" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/01/01/2016-01-01-osx下hadoop环境搭建以及启动/" class="article-date">
+  <time datetime="2016-01-01T00:00:00.000Z" itemprop="datePublished">2016-01-01</time>
 </a>
-      
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/大数据/">大数据</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2015/10/15/2015-10-15-Spring的一些扩展点/">Spring的一些扩展点</a>
+    <h1 class="article-title" itemprop="name">
+      osx下hadoop环境搭建以及启动
     </h1>
   
 
-    </header>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="参考：">参考：</h2><p><a href="http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-common/SingleCluster.html#Standalone_Operation" target="_blank" rel="external">http://hadoop.apache.org/docs/r2.6.0/hadoop-project-dist/hadoop-common/SingleCluster.html#Standalone_Operation</a></p>
+<p>新年好！</p>
+<p>新年的第一天，开始大数据。</p>
+<p>以下文章只是为了自己记录，如果被各位搜到，参考就行了，如果参考后还是没有得到想要的结果，请自行谷歌，反正我也是谷歌出来的</p>
+<p>系统：osx</p>
+<p>参考：慕课网的相关视频（这个可以百度）</p>
+<p>下载的hadoop版本：<a href="http://mirror.bit.edu.cn/apache/hadoop/common/hadoop-2.6.0/hadoop-2.6.0.tar.gz" target="_blank" rel="external">下载地址</a>  </p>
+<a id="more"></a>
+<h2 id="步骤">步骤</h2><ol>
+<li><p>将下载的文件解压到 /User/liuyiyou 下，解压后的路径如下：/Users/liuyiyou/hadoop-2.6.0</p>
+</li>
+<li><p>配置环境变量:我是放在用户目录下，所以，每次都需要source .bash_profile以下。    </p>
+ <figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.<span class="number">7.0</span>_65.jdk/Contents/Home</span><br><span class="line">M2_HOME=/Users/liuyiyou/TechSoft/apache-maven-<span class="number">3.0</span>.<span class="number">5</span></span><br><span class="line">MYSQL_HOME=/usr/<span class="built_in">local</span>/mysql</span><br><span class="line">HADOOP_HOME=/Users/liuyiyou/hadoop-<span class="number">2.6</span>.<span class="number">0</span></span><br><span class="line">HIVE_HOME=/usr/<span class="built_in">local</span>/hive/apache-hive-<span class="number">1.2</span>.<span class="number">1</span>-bin</span><br><span class="line">PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$M2_HOME</span>/bin:<span class="variable">$MYSQL_HOME</span>/bin:<span class="variable">$HIVE_HOME</span>/bin:<span class="variable">$HADOOP_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> CLASSPATH=<span class="variable">$CLASSPATH</span>:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br><span class="line"><span class="built_in">export</span> CLASSPATH=<span class="variable">$CLASSPATH</span>:<span class="variable">$HVIE_HOME</span>/lib/*:.</span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> HADOOP_CLASSPATH=<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br></pre></td></tr></table></figure>
+<p> 2.1. hadoop-env.sh 中将修改：export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_65.jdk/Contents/Home</p>
+<p> 2.2. 修改etc/hdfs-site.xml：如下</p>
+ <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line">    <span class="pi">&lt;?xml-stylesheet type="text/xsl" href="configuration.xsl"?&gt;</span></span><br><span class="line">    <span class="comment">&lt;!--hdfs-site.xml 文件中包含的信息，如复制数据的值，名称节点的路径，本地文件系统的数据节点的路径。--&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- Put site-specific property overrides in this file. --&gt;</span>     </span><br><span class="line">    <span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">    	<span class="tag">&lt;<span class="title">property</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">name</span>&gt;</span>dfs.replication<span class="tag">&lt;/<span class="title">name</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">value</span>&gt;</span>1<span class="tag">&lt;/<span class="title">value</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">property</span>&gt;</span> </span><br><span class="line">          <span class="tag">&lt;<span class="title">name</span>&gt;</span>dfs.name.dir<span class="tag">&lt;/<span class="title">name</span>&gt;</span> </span><br><span class="line">          <span class="tag">&lt;<span class="title">value</span>&gt;</span>/Users/liuyiyou/hadoop-2.6.0/hadoopinfra/hdfs/namenode <span class="tag">&lt;/<span class="title">value</span>&gt;</span> </span><br><span class="line">       <span class="tag">&lt;/<span class="title">property</span>&gt;</span> </span><br><span class="line">       <span class="tag">&lt;<span class="title">property</span>&gt;</span> </span><br><span class="line">          <span class="tag">&lt;<span class="title">name</span>&gt;</span>dfs.data.dir<span class="tag">&lt;/<span class="title">name</span>&gt;</span></span><br><span class="line">          <span class="tag">&lt;<span class="title">value</span>&gt;</span>/Users/liuyiyou/hadoop-2.6.0/hadoopinfra/hdfs/datanode <span class="tag">&lt;/<span class="title">value</span> &gt;</span> </span><br><span class="line">       <span class="tag">&lt;/<span class="title">property</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> 2.3. 修改core-site.xml 如下</p>
+ <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="pi">&lt;?xml-stylesheet type="text/xsl" href="configuration.xsl"?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--core-site.xml文件中包含的信息，如使用Hadoop实例分配给文件系统的存储器，用于存储数据的内存限制的端口号，以及读/写缓冲器的大小。--&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- Put site-specific property overrides in this file. --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">configuration</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">property</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">name</span>&gt;</span>fs.defaultFS<span class="tag">&lt;/<span class="title">name</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">value</span>&gt;</span>hdfs://localhost:9000<span class="tag">&lt;/<span class="title">value</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p> 2.4. 修改mapred-site.xml如下</p>
+ <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="pi">&lt;?xml version="1.0"?&gt;</span></span><br><span class="line"><span class="pi">&lt;?xml-stylesheet type="text/xsl" href="configuration.xsl"?&gt;</span></span><br><span class="line"><span class="comment">&lt;!--</span><br><span class="line">  此文件用于指定我们正在使用的MapReduce框架。缺省情况下，包含 yarn-site.xml模板。首先，需要将文件从mapred-site.xml复制。模板mapred-site.xml文件使用以下命令。</span><br><span class="line">--&gt;</span>	</span><br><span class="line"><span class="comment">&lt;!-- Put site-specific property overrides in this file. --&gt;</span>	</span><br><span class="line"><span class="tag">&lt;<span class="title">configuration</span>&gt;</span>	</span><br><span class="line">   <span class="tag">&lt;<span class="title">property</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="title">name</span>&gt;</span>mapreduce.framework.name<span class="tag">&lt;/<span class="title">name</span>&gt;</span> </span><br><span class="line">      <span class="tag">&lt;<span class="title">value</span>&gt;</span>yarn<span class="tag">&lt;/<span class="title">value</span>&gt;</span> </span><br><span class="line">   <span class="tag">&lt;/<span class="title">property</span>&gt;</span>	</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="title">configuration</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+<li><p>注意：因为.bash_profile在终端关闭之后会失效，所以每次使用的时候需要重复source，不然会报错：找不到hadoop命令</p>
+</li>
+<li><p>ssh配置，在设置中将远程登录打开</p>
+<p><img src="/images/hadoop-remote.png" alt="console"></p>
+<p>成功标志是：ssh localhost 不报异常</p>
+</li>
+<li><p>在bin目录下运行  hadoop namenode -format </p>
+</li>
+</ol>
+<p>如果之前成功，则不需要按照上面的命令。因为format后，hadoop的数据会清除</p>
+<p> 如果在运行过程中与权限有关的错误，可以参考： <a href="http://my.oschina.net/vigiles/blog/132255?fromerr=aLe76Uag,&quot;Hadoop上路_04-启动Hadoop&quot;" target="_blank" rel="external">Hadoop上路_04-启动Hadoop</a> </p>
+<p>如果报错找不到文件异常：可以在相应地方创建一个文件夹：文件名可参考配置</p>
+<ol>
+<li>启动</li>
+</ol>
+<p>hadoop2.x版本会有两个启动hadoop的文件夹，一个是bin一个是sbin。其中bin是老版本的，sbin是新版本的</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hadoop-<span class="number">2.6</span>.<span class="number">0</span> sbin/start-dfs.sh</span><br></pre></td></tr></table></figure>
+<p>这个时候可以访问：<a href="http://localhost:50070/dfshealth.jsp" target="_blank" rel="external">http://localhost:50070/dfshealth.jsp</a> ，如果不出错，表示启动正常</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hadoop-<span class="number">2.6</span>.<span class="number">0</span> sbin/start-yarn.sh</span><br></pre></td></tr></table></figure>
+<p>这个时候可以访问：<a href="http://localhost:8088/cluster" target="_blank" rel="external">http://localhost:8088/cluster</a> 可以看到当前的</p>
+<p><a href="http://localhost:50030/jobtracker.jsp" target="_blank" rel="external">http://localhost:50030/jobtracker.jsp</a></p>
+<p>几个坑：</p>
+<ol>
+<li><p>环境变量配置问题，因为配置在用户环境变量中，导致hadoop找不到</p>
+</li>
+<li><p>权限问题，当时是放在/opt下，发现权限有问题，后来移动到用户目录下，还是没有解决，最终是参考了上面博客才解决</p>
+</li>
+<li><p>ssh登录问题，这个因系统而异</p>
+</li>
+<li><p>需要自己创建一个</p>
+</li>
+</ol>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://liuyiyou.cn/2016/01/01/2016-01-01-osx下hadoop环境搭建以及启动/" data-id="civ51fxou000x97qsv1wanvfy" class="article-share-link">Share</a>
+      
+        <a href="http://liuyiyou.cn/2016/01/01/2016-01-01-osx下hadoop环境搭建以及启动/#disqus_thread" class="article-comment-link">Comments</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/hadoop/">hadoop</a></li></ul>
+
+    </footer>
   </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2016/01/02/2016-01-01-hive环境搭建以及常用命令/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Hive环境搭建以及常用命令
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2016/01/01/2016-01-01-转载-Java虚拟机详解/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">(转载)Java虚拟机详解</div>
+    </a>
+  
+</nav>
+
+  
 </article>
-  
-  
-    </div></section>
-  
+
+
+<section id="comments">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
 </section>
         
           <aside id="sidebar">
@@ -228,11 +331,13 @@ document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
 <script>
   var disqus_shortname = 'liuyiyou';
   
+  var disqus_url = 'http://liuyiyou.cn/2016/01/01/2016-01-01-osx下hadoop环境搭建以及启动/';
+  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
@@ -251,5 +356,35 @@ document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
 
 
   </div>
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
 </body>
 </html>
