@@ -3,18 +3,17 @@
 <head>
   <meta charset="utf-8">
   
-  <title>取两个集合的交集 | 温故而知新    触类而旁通</title>
+  <title>Archives: 2016/6 | 温故而知新    触类而旁通</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="概述因为在项目中要用到这个功能，先使用一个查询，将一个外键查出来，然后在另外一个一个查询中查出外键，然后比较两个，如果第二个集合中的值在第一个中就需要做一些处理，所以就是一个求两个集合的交集，自己花了一段时间才写出来，到后面发现java framework中已经有这个方法了，但是之前一直没有使用过，所以记录一下：">
-<meta property="og:type" content="article">
-<meta property="og:title" content="取两个集合的交集">
-<meta property="og:url" content="http://liuyiyou.cn/2014/11/05/2014-11-05-取两个集合的交集/index.html">
+  <meta name="description" content="温故而知新、触类而旁通">
+<meta property="og:type" content="website">
+<meta property="og:title" content="温故而知新    触类而旁通">
+<meta property="og:url" content="http://liuyiyou.cn/archives/2016/06/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="概述因为在项目中要用到这个功能，先使用一个查询，将一个外键查出来，然后在另外一个一个查询中查出外键，然后比较两个，如果第二个集合中的值在第一个中就需要做一些处理，所以就是一个求两个集合的交集，自己花了一段时间才写出来，到后面发现java framework中已经有这个方法了，但是之前一直没有使用过，所以记录一下：">
-<meta property="og:updated_time" content="2015-10-07T11:40:26.000Z">
+<meta property="og:description" content="温故而知新、触类而旁通">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="取两个集合的交集">
-<meta name="twitter:description" content="概述因为在项目中要用到这个功能，先使用一个查询，将一个外键查出来，然后在另外一个一个查询中查出外键，然后比较两个，如果第二个集合中的值在第一个中就需要做一些处理，所以就是一个求两个集合的交集，自己花了一段时间才写出来，到后面发现java framework中已经有这个方法了，但是之前一直没有使用过，所以记录一下：">
+<meta name="twitter:title" content="温故而知新    触类而旁通">
+<meta name="twitter:description" content="温故而知新、触类而旁通">
   
     <link rel="alternative" href="/atom.xml" title="温故而知新    触类而旁通" type="application/atom+xml">
   
@@ -61,92 +60,39 @@
   </div>
 </header>
       <div class="outer">
-        <section id="main"><article id="post-2014-11-05-取两个集合的交集" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/11/05/2014-11-05-取两个集合的交集/" class="article-date">
-  <time datetime="2014-11-05T00:00:00.000Z" itemprop="datePublished">2014-11-05</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="article-title" itemprop="name">
-      取两个集合的交集
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2016" class="archive-year">2016</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2016/06/14/2016-06-14-新的/" class="archive-article-date">
+  <time datetime="2016-06-14T00:00:00.000Z" itemprop="datePublished">06月14日</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2016/06/14/2016-06-14-新的/">新的</a>
     </h1>
   
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="概述">概述</h3><p>因为在项目中要用到这个功能，先使用一个查询，将一个外键查出来，然后在另外一个一个查询中查出外键，然后比较两个，如果第二个集合中的值在第一个中就需要做一些处理，所以就是一个求两个集合的交集，自己花了一段时间才写出来，到后面发现java framework中已经有这个方法了，但是之前一直没有使用过，所以记录一下：</p>
-<a id="more"></a>
-<p>我写的：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">while</span> (iter.hasNext())&#123;</span><br><span class="line">           <span class="keyword">if</span> (!set2.contains(iter.next()))&#123;</span><br><span class="line">               iter.remove();</span><br><span class="line">              <span class="comment">// set1.remove(iter.next());这个不能使用，会出现ConcurrentModificationException异常</span></span><br><span class="line">              <span class="comment">//http://www.2cto.com/kf/201403/286536.html</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
-<h3 id="注意的是：迭代器的删除和非迭代器的删除，在一个集合进行循环的时候，不能对其进行操作，我就一直使用">注意的是：迭代器的删除和非迭代器的删除，在一个集合进行循环的时候，不能对其进行操作，我就一直使用</h3><p>之前看数据结构中有一段话不理解，现在理解了：</p>
-<blockquote>
-<p>Iterator接口的思路是，通过iteror方法，每个集合均可以创建并返回给客户一个实现Iterator接口的对象，并将当前位置的概念在对象内部存储下来。</p>
-<p>每次对next调用都给出集合的（尚未见到的）下一项。因此，第一次调用next给出第1项，第二次调用给出第二项，等等。hasNext用来告诉是否存在下一项。当编译器见到一个正在用于Iterable对象的增强for循环到时候，它用对iterator方法的那些调用代替增强的for循环以得到一个Iteraotr对象，然后调用next和hasNext</p>
-</blockquote>
-<p>。。。。。</p>
-<blockquote>
-<p>当直接使用Iterator(而不是通过一个增强的for循环间接使用)时，重要的是记住一个基本法则：如果对正在被迭代的集合进行结构上的改变（即对该集合进行add，remove，clear方法），那么迭代器就不再合法（并且在其后使用该迭代器的时候会有ConcurrentModifycationException异常被抛出）。为避免迭代器准备给出其某一项为下一项（next item）而该项后或者被删除，或者也许一个新的项正好插入该项的前面这样一些讨厌的情形，有必要记住上述法则，这意味着，只有在需要立即使用一个迭代器的时候，我们才应该获取该迭代器。然而，如果迭代器调用了它自己的remove方法，那么这个迭代器就仍然是合法的。这是有时候我们更愿意使用迭代器的remove方法的第二个原因</p>
-</blockquote>
-<p>之前就是使用错了remove方法，所以报ConcurrentModifycationExceptionConcurrentModifycationException异常。</p>
-<p>学习了iter.remove和   list.remove(obj)</p>
-<p>在jdk中的</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection&lt;?&gt; c)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">boolean</span> modified = <span class="keyword">false</span>;</span><br><span class="line">      Iterator&lt;E&gt; it = iterator();</span><br><span class="line">      <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">          <span class="keyword">if</span> (!c.contains(it.next())) &#123;</span><br><span class="line">              it.remove();</span><br><span class="line">              modified = <span class="keyword">true</span>;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> modified;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://liuyiyou.cn/2014/11/05/2014-11-05-取两个集合的交集/" data-id="civ51iusm005wd5qs9p7vw0zt" class="article-share-link">Share</a>
-      
-        <a href="http://liuyiyou.cn/2014/11/05/2014-11-05-取两个集合的交集/#disqus_thread" class="article-comment-link">Comments</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2014/11/28/2014-11-28-isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2014/09/10/2014-09-10-离职感言-第一份工作/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">离职感言-第一份工作</div>
-    </a>
-  
-</nav>
-
-  
 </article>
-
-
-<section id="comments">
-  <div id="disqus_thread">
-    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-  </div>
-</section>
+  
+  
+    </div></section>
+  
 </section>
         
           <aside id="sidebar">
@@ -282,13 +228,11 @@ document.getElementById("showDays").innerHTML = "本站已运行 "+total+" 天";
 <script>
   var disqus_shortname = 'liuyiyou';
   
-  var disqus_url = 'http://liuyiyou.cn/2014/11/05/2014-11-05-取两个集合的交集/';
-  
   (function(){
     var dsq = document.createElement('script');
     dsq.type = 'text/javascript';
     dsq.async = true;
-    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
   })();
 </script>
