@@ -105,7 +105,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -161,7 +161,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-right  ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -177,7 +177,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">liuyiyou的个人小站</p>
+        <h1 class="site-subtitle" itemprop="description">liuyiyou的个人小站</h1>
       
   </div>
 
@@ -217,16 +217,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -243,6 +233,16 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-inbox">
+          <a href="/inbox" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
+            
+            收藏
           </a>
         </li>
       
@@ -268,7 +268,7 @@
   <div id="posts" class="posts-expand">
   <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">分类</h1>
+	<h2 class="post-title" itemprop="name headline">分类</h2>
 
 
 
@@ -278,10 +278,10 @@
     
       <div class="tag-cloud">
         <div class="tag-cloud-title">
-            目前共计 25 个标签
+            目前共计 28 个标签
         </div>
         <div class="tag-cloud-tags">
-          <a href="/tags/datastruts/" style="font-size: 22.29px; color: #616161">datastruts</a> <a href="/tags/datatable/" style="font-size: 12px; color: #ccc">datatable</a> <a href="/tags/eclipse/" style="font-size: 12px; color: #ccc">eclipse</a> <a href="/tags/hadoop/" style="font-size: 27.43px; color: #2c2c2c">hadoop</a> <a href="/tags/hexo/" style="font-size: 12px; color: #ccc">hexo</a> <a href="/tags/hive/" style="font-size: 17.14px; color: #979797">hive</a> <a href="/tags/java/" style="font-size: 24.86px; color: #464646">java</a> <a href="/tags/json/" style="font-size: 12px; color: #ccc">json</a> <a href="/tags/jvm/" style="font-size: 12px; color: #ccc">jvm</a> <a href="/tags/life/" style="font-size: 14.57px; color: #b1b1b1">life</a> <a href="/tags/mac/" style="font-size: 12px; color: #ccc">mac</a> <a href="/tags/maven/" style="font-size: 12px; color: #ccc">maven</a> <a href="/tags/memcache/" style="font-size: 14.57px; color: #b1b1b1">memcache</a> <a href="/tags/mybatis/" style="font-size: 19.71px; color: #7c7c7c">mybatis</a> <a href="/tags/mysql/" style="font-size: 14.57px; color: #b1b1b1">mysql</a> <a href="/tags/novel/" style="font-size: 12px; color: #ccc">novel</a> <a href="/tags/redis/" style="font-size: 22.29px; color: #616161">redis</a> <a href="/tags/skill/" style="font-size: 12px; color: #ccc">skill</a> <a href="/tags/spring/" style="font-size: 12px; color: #ccc">spring</a> <a href="/tags/tomcat/" style="font-size: 12px; color: #ccc">tomcat</a> <a href="/tags/velocity/" style="font-size: 12px; color: #ccc">velocity</a> <a href="/tags/wf/" style="font-size: 12px; color: #ccc">wf</a> <a href="/tags/多线程/" style="font-size: 14.57px; color: #b1b1b1">多线程</a> <a href="/tags/并发/" style="font-size: 17.14px; color: #979797">并发</a> <a href="/tags/总结/" style="font-size: 30px; color: #111">总结</a>
+          <a href="/tags/datatable/" style="font-size: 12px; color: #ccc">datatable</a> <a href="/tags/eclipse/" style="font-size: 12px; color: #ccc">eclipse</a> <a href="/tags/hadoop/" style="font-size: 27.43px; color: #2c2c2c">hadoop</a> <a href="/tags/hexo/" style="font-size: 12px; color: #ccc">hexo</a> <a href="/tags/hive/" style="font-size: 17.14px; color: #979797">hive</a> <a href="/tags/java/" style="font-size: 24.86px; color: #464646">java</a> <a href="/tags/json/" style="font-size: 12px; color: #ccc">json</a> <a href="/tags/life/" style="font-size: 12px; color: #ccc">life</a> <a href="/tags/mac/" style="font-size: 12px; color: #ccc">mac</a> <a href="/tags/maven/" style="font-size: 12px; color: #ccc">maven</a> <a href="/tags/memcache/" style="font-size: 14.57px; color: #b1b1b1">memcache</a> <a href="/tags/mybatis/" style="font-size: 19.71px; color: #7c7c7c">mybatis</a> <a href="/tags/mysql/" style="font-size: 14.57px; color: #b1b1b1">mysql</a> <a href="/tags/redis/" style="font-size: 22.29px; color: #616161">redis</a> <a href="/tags/skill/" style="font-size: 12px; color: #ccc">skill</a> <a href="/tags/spring/" style="font-size: 12px; color: #ccc">spring</a> <a href="/tags/tomcat/" style="font-size: 12px; color: #ccc">tomcat</a> <a href="/tags/velocity/" style="font-size: 12px; color: #ccc">velocity</a> <a href="/tags/wf/" style="font-size: 12px; color: #ccc">wf</a> <a href="/tags/多线程/" style="font-size: 14.57px; color: #b1b1b1">多线程</a> <a href="/tags/小说/" style="font-size: 12px; color: #ccc">小说</a> <a href="/tags/并发/" style="font-size: 17.14px; color: #979797">并发</a> <a href="/tags/总结/" style="font-size: 30px; color: #111">总结</a> <a href="/tags/数据结构/" style="font-size: 22.29px; color: #616161">数据结构</a> <a href="/tags/生活/" style="font-size: 17.14px; color: #979797">生活</a>
         </div>
       </div>
     
@@ -324,15 +324,15 @@
                alt="liuyiyou" />
           <p class="site-author-name" itemprop="name">liuyiyou</p>
            
-              <p class="site-description motion-element" itemprop="description">温故而知新、触类而旁通</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -343,7 +343,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories.html">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -354,7 +354,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -365,6 +365,26 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
           
         </div>
 
@@ -527,8 +547,45 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

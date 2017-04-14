@@ -87,25 +87,19 @@
 
 
 
-<meta name="description" content="一.遍历个map类型
-1.先看后台java程序
-Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&amp;gt;();  ***  *** 中间赋值操作省略了  ***  data.put(&quot;paramValues&quot;, paramValues);//传值给velocity
-2.前台velocity模板文件中取出这个map的">
+<meta name="description" content="这个用到得多，但是很少去记住，在这里记录一下，至少要用到的时候，来这里找
+遍历个map类型先看后台java程序Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&amp;gt;();  ***  *** 中间赋值操作省略了  ***  data.put(&quot;paramValues&quot;, paramValues);//传值给vel">
 <meta property="og:type" content="article">
 <meta property="og:title" content="velocity的List和Map">
 <meta property="og:url" content="http://liuyiyou.cn/2015/10/01/2015-10-01-velocity的List和Map/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="一.遍历个map类型
-1.先看后台java程序
-Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&amp;gt;();  ***  *** 中间赋值操作省略了  ***  data.put(&quot;paramValues&quot;, paramValues);//传值给velocity
-2.前台velocity模板文件中取出这个map的">
-<meta property="og:updated_time" content="2015-11-11T03:05:06.000Z">
+<meta property="og:description" content="这个用到得多，但是很少去记住，在这里记录一下，至少要用到的时候，来这里找
+遍历个map类型先看后台java程序Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&amp;gt;();  ***  *** 中间赋值操作省略了  ***  data.put(&quot;paramValues&quot;, paramValues);//传值给vel">
+<meta property="og:updated_time" content="2017-04-14T06:09:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="velocity的List和Map">
-<meta name="twitter:description" content="一.遍历个map类型
-1.先看后台java程序
-Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&amp;gt;();  ***  *** 中间赋值操作省略了  ***  data.put(&quot;paramValues&quot;, paramValues);//传值给velocity
-2.前台velocity模板文件中取出这个map的">
+<meta name="twitter:description" content="这个用到得多，但是很少去记住，在这里记录一下，至少要用到的时候，来这里找
+遍历个map类型先看后台java程序Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&amp;gt;();  ***  *** 中间赋值操作省略了  ***  data.put(&quot;paramValues&quot;, paramValues);//传值给vel">
 
 
 
@@ -114,7 +108,7 @@ Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&a
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -164,7 +158,7 @@ Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&a
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -180,7 +174,7 @@ Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&a
       </a>
     </div>
       
-        <p class="site-subtitle">liuyiyou的个人小站</p>
+        <h1 class="site-subtitle" itemprop="description">liuyiyou的个人小站</h1>
       
   </div>
 
@@ -220,16 +214,6 @@ Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&a
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -246,6 +230,16 @@ Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&a
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-inbox">
+          <a href="/inbox" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
+            
+            收藏
           </a>
         </li>
       
@@ -295,14 +289,14 @@ Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&a
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
                 velocity的List和Map
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -372,16 +366,11 @@ Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&a
       
 
       
-        <p>一.遍历个map类型</p>
-<p>1.先看后台java程序</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Map&lt;String,String&gt; paramValues=<span class="keyword">new</span> HashMap&lt;String, String&gt;();  </span><br><span class="line">***  </span><br><span class="line">*** 中间赋值操作省略了  </span><br><span class="line">***  </span><br><span class="line">data.put(<span class="string">"paramValues"</span>, paramValues);<span class="comment">//传值给velocity</span></span><br></pre></td></tr></table></figure>
-<p>2.前台velocity模板文件中取出这个map的key和value</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"> #foreach($param in $&#123;paramValues.keySet()&#125;)  </span><br><span class="line"> <span class="tag">&lt;<span class="title">tr</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="title">th</span>&gt;</span>$param<span class="tag">&lt;/<span class="title">th</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="title">td</span>&gt;</span>$&#123;paramValues.get($param)&#125;<span class="tag">&lt;/<span class="title">td</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="title">tr</span>&gt;</span>  </span><br><span class="line"> #end</span><br></pre></td></tr></table></figure>
-<p>二.遍历List类型</p>
-<p>1.先看后台java代码</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">List&lt;Saler&gt; salerList=<span class="keyword">new</span> ArrayList&lt;Saler&gt;();  </span><br><span class="line">***  </span><br><span class="line">***中间赋值操作省略了  </span><br><span class="line">***  </span><br><span class="line">data.put(<span class="string">"salerList"</span>, salerList);<span class="comment">//传值给velocity</span></span><br></pre></td></tr></table></figure>
-<p>2.再看velocity模版中代码</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#foreach($sal in $&#123;salerList&#125;)  </span><br><span class="line">$sal.name  </span><br><span class="line">#end</span><br></pre></td></tr></table></figure>
+        <p>这个用到得多，但是很少去记住，在这里记录一下，至少要用到的时候，来这里找</p>
+<h1 id="遍历个map类型">遍历个map类型</h1><h2 id="先看后台java程序">先看后台java程序</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Map&lt;String,String&gt; paramValues=<span class="keyword">new</span> HashMap&lt;String, String&gt;();  </span><br><span class="line">***  </span><br><span class="line">*** 中间赋值操作省略了  </span><br><span class="line">***  </span><br><span class="line">data.put(<span class="string">"paramValues"</span>, paramValues);<span class="comment">//传值给velocity  </span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">List&lt;ScoreQuota&gt; scoreQuotas = scoreQuotaService.getAllScoreQuotas(<span class="string">"ScoreQuotaMain"</span>);</span><br><span class="line"><span class="comment">//传值给velocity  ,其中 scoreQuotas.item.ruleMap是一个Map类型</span></span><br><span class="line">beat().getModel().add(<span class="string">"scoreQuotas"</span>, scoreQuotas);</span><br></pre></td></tr></table></figure>
+<h2 id="前台velocity模板文件中取出这个map的key和value">前台velocity模板文件中取出这个map的key和value</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"> #foreach($param in $&#123;paramValues.keySet()&#125;)  </span><br><span class="line"> <span class="tag">&lt;<span class="title">tr</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="title">th</span>&gt;</span>$param<span class="tag">&lt;/<span class="title">th</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="title">td</span>&gt;</span>$&#123;paramValues.get($param)&#125;<span class="tag">&lt;/<span class="title">td</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="title">tr</span>&gt;</span>  </span><br><span class="line"> #end  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  #foreach($map in $!scoreQuota.scoreQuotaDto.rule_map.entrySet())</span><br><span class="line">        <span class="tag">&lt;<span class="title">label</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">input</span> <span class="attribute">name</span>=<span class="value">"form-field-checkbox"</span> <span class="attribute">type</span>=<span class="value">"checkbox"</span> <span class="attribute">class</span>=<span class="value">"ace"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="title">span</span> <span class="attribute">class</span>=<span class="value">"lbl"</span>&gt;</span> $map.key - $map.value<span class="tag">&lt;/<span class="title">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="title">label</span>&gt;</span></span><br><span class="line"> #end</span><br></pre></td></tr></table></figure>
+<h1 id="遍历List类型">遍历List类型</h1><h2 id="先看后台java代码">先看后台java代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">List&lt;Saler&gt; salerList=<span class="keyword">new</span> ArrayList&lt;Saler&gt;();  </span><br><span class="line">***  </span><br><span class="line">***中间赋值操作省略了  </span><br><span class="line">***  </span><br><span class="line">data.put(<span class="string">"salerList"</span>, salerList);<span class="comment">//传值给velocity</span></span><br></pre></td></tr></table></figure>
+<h2 id="再看velocity模版中代码">再看velocity模版中代码</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#foreach($sal in $&#123;salerList&#125;)  </span><br><span class="line">$sal.name  </span><br><span class="line">#end</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -483,23 +472,32 @@ Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&a
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
                alt="liuyiyou" />
           <p class="site-author-name" itemprop="name">liuyiyou</p>
            
-              <p class="site-description motion-element" itemprop="description">温故而知新、触类而旁通</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -510,7 +508,7 @@ Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&a
             
             <div class="site-state-item site-state-categories">
               <a href="/categories.html">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -521,7 +519,7 @@ Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&a
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -532,6 +530,26 @@ Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&a
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
           
         </div>
 
@@ -546,6 +564,22 @@ Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&a
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#遍历个map类型"><span class="nav-number">1.</span> <span class="nav-text">遍历个map类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#先看后台java程序"><span class="nav-number">1.1.</span> <span class="nav-text">先看后台java程序</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#前台velocity模板文件中取出这个map的key和value"><span class="nav-number">1.2.</span> <span class="nav-text">前台velocity模板文件中取出这个map的key和value</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#遍历List类型"><span class="nav-number">2.</span> <span class="nav-text">遍历List类型</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#先看后台java代码"><span class="nav-number">2.1.</span> <span class="nav-text">先看后台java代码</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#再看velocity模版中代码"><span class="nav-number">2.2.</span> <span class="nav-text">再看velocity模版中代码</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -698,8 +732,45 @@ Map&amp;lt;String,String&amp;gt; paramValues=new HashMap&amp;lt;String, String&a
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

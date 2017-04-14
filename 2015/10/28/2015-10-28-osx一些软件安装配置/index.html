@@ -95,7 +95,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="无论是windows还是linux，都需要进行一系列的配置，相对于windows来说，一般情况下linux都是作为服务器，而且很多新的开发框架或工具会优先适配linux，比如hadoop等。
 虽然系统中装了很多软件，比如java、MySQL、nodejs等，但是每次装的时候都是临时装的，没有记录下来。现在在这里写一个系列，并保持更新">
-<meta property="og:updated_time" content="2015-10-27T14:07:05.000Z">
+<meta property="og:updated_time" content="2017-04-14T08:46:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="osx一些软件安装配置">
 <meta name="twitter:description" content="无论是windows还是linux，都需要进行一系列的配置，相对于windows来说，一般情况下linux都是作为服务器，而且很多新的开发框架或工具会优先适配linux，比如hadoop等。
@@ -108,7 +108,7 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -158,7 +158,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -174,7 +174,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">liuyiyou的个人小站</p>
+        <h1 class="site-subtitle" itemprop="description">liuyiyou的个人小站</h1>
       
   </div>
 
@@ -214,16 +214,6 @@
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -240,6 +230,16 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-inbox">
+          <a href="/inbox" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
+            
+            收藏
           </a>
         </li>
       
@@ -289,14 +289,14 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
                 osx一些软件安装配置
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -381,7 +381,12 @@
 <p>不知道配置得是否正确</p>
 <h2 id="maven安装和环境变量配置">maven安装和环境变量配置</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">M2_HOME=/Users/liuyiyou/TechSoft/apache-maven-<span class="number">3.0</span>.<span class="number">5</span></span><br><span class="line">PATH=<span class="variable">$M2_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure>
 <h2 id="mysql">mysql</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">MYSQL_HOME=/usr/<span class="built_in">local</span>/mysql</span><br><span class="line">PATH=<span class="variable">$MYSQL_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure>
-
+<h2 id="memcached">memcached</h2><p>见 <a href="/2015/05/16/2015-05-16-memcached安装/">2015-05-16-memcached安装</a></p>
+<h2 id="redis">redis</h2><p>见 <a href="/2015/05/28/2015-05-28-Redis安装与基本测试/">2015-05-28-Redis安装与基本测试</a></p>
+<h2 id="hadoop">hadoop</h2><p>见 <a href="2016/01/01/2016-01-01-osx下hadoop环境搭建以及启动/">2016-01-01-osx下hadoop环境搭建以及启动</a></p>
+<h2 id="hive">hive</h2><p>见 <a href="/2016/01/02/2016-01-01-hive环境搭建以及常用命令/">2016-01-01-hive环境搭建以及常用命令</a></p>
+<h2 id="hbase">hbase</h2><h2 id="spark">spark</h2><h2 id="nginx">nginx</h2><p>位置：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Docroot is: /usr/<span class="built_in">local</span>/var/www</span><br><span class="line"></span><br><span class="line">The default port has been <span class="built_in">set</span> <span class="keyword">in</span> /usr/<span class="built_in">local</span>/etc/nginx/nginx.conf to <span class="number">8080</span> so that</span><br><span class="line">nginx can run without sudo.</span><br><span class="line"></span><br><span class="line">nginx will load all files <span class="keyword">in</span> /usr/<span class="built_in">local</span>/etc/nginx/servers/.</span><br><span class="line"></span><br><span class="line">To have launchd start nginx now and restart at login:</span><br><span class="line">  brew services start nginx</span><br><span class="line">Or, <span class="keyword">if</span> you don<span class="string">'t want/need a background service you can just run:</span><br><span class="line">  nginx</span><br><span class="line"></span><br><span class="line">位置：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">配置文件在上面有提到</span><br><span class="line">日志文件在Celler上</span><br><span class="line"></span><br><span class="line">常用命令：</span><br><span class="line"></span><br><span class="line">http://my.oschina.net/psuyun/blog/113694</span><br><span class="line"></span><br><span class="line">启动：sudo nginx</span><br><span class="line">重启：sudo nginx -s reload</span><br><span class="line">关闭：sudo nginx -s stop</span></span><br></pre></td></tr></table></figure>
       
     </div>
 
@@ -499,15 +504,15 @@
                alt="liuyiyou" />
           <p class="site-author-name" itemprop="name">liuyiyou</p>
            
-              <p class="site-description motion-element" itemprop="description">温故而知新、触类而旁通</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -518,7 +523,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories.html">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -529,7 +534,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -540,6 +545,26 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
           
         </div>
 
@@ -564,7 +589,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境变量的配置"><span class="nav-number">1.</span> <span class="nav-text">环境变量的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java环境变量的配置"><span class="nav-number">2.</span> <span class="nav-text">java环境变量的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven安装和环境变量配置"><span class="nav-number">3.</span> <span class="nav-text">maven安装和环境变量配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql"><span class="nav-number">4.</span> <span class="nav-text">mysql</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#环境变量的配置"><span class="nav-number">1.</span> <span class="nav-text">环境变量的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#java环境变量的配置"><span class="nav-number">2.</span> <span class="nav-text">java环境变量的配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#maven安装和环境变量配置"><span class="nav-number">3.</span> <span class="nav-text">maven安装和环境变量配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#mysql"><span class="nav-number">4.</span> <span class="nav-text">mysql</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#memcached"><span class="nav-number">5.</span> <span class="nav-text">memcached</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#redis"><span class="nav-number">6.</span> <span class="nav-text">redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hadoop"><span class="nav-number">7.</span> <span class="nav-text">hadoop</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hive"><span class="nav-number">8.</span> <span class="nav-text">hive</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#hbase"><span class="nav-number">9.</span> <span class="nav-text">hbase</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spark"><span class="nav-number">10.</span> <span class="nav-text">spark</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#nginx"><span class="nav-number">11.</span> <span class="nav-text">nginx</span></a></li></ol></div>
             
 
           </div>
@@ -722,8 +747,45 @@
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 

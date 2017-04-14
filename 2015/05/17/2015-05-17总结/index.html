@@ -99,7 +99,7 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
 熟悉了一下Linux命令，一些常用的命令再也不需要每次用到的时候去查资料了。主要有下面的
 
 mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  project  project1tail -n2000 -f  jboss.log scp 192.168.1.2/data/jboss 192">
-<meta property="og:updated_time" content="2015-10-07T12:38:15.000Z">
+<meta property="og:updated_time" content="2017-04-14T07:02:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2015-05-17总结">
 <meta name="twitter:description" content="本周总结
@@ -114,7 +114,7 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
     fancybox: true,
     motion: true,
     duoshuo: {
@@ -164,7 +164,7 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -180,7 +180,7 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
       </a>
     </div>
       
-        <p class="site-subtitle">liuyiyou的个人小站</p>
+        <h1 class="site-subtitle" itemprop="description">liuyiyou的个人小站</h1>
       
   </div>
 
@@ -220,16 +220,6 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
         </li>
       
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
-            
-            关于
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
             
@@ -246,6 +236,16 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-inbox">
+          <a href="/inbox" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
+            
+            收藏
           </a>
         </li>
       
@@ -295,14 +295,14 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
 
         
         
-          <h1 class="post-title" itemprop="name headline">
+          <h2 class="post-title" itemprop="name headline">
             
             
               
                 2015-05-17总结
               
             
-          </h1>
+          </h2>
         
 
         <div class="post-meta">
@@ -337,8 +337,8 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/summarry/" itemprop="url" rel="index">
-                    <span itemprop="name">summarry</span>
+                  <a href="/categories/总结/" itemprop="url" rel="index">
+                    <span itemprop="name">总结</span>
                   </a>
                 </span>
 
@@ -381,11 +381,12 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
 <li>springmvc的json日期格式后台返回</li>
 </ol>
 <p>如果数据库类型为timestap，则默认情况下，返回到前台是long类型，在非Ajax的情况下，可以使用jstl标签库或者velocity的一些工具函数，但是直接返回json的时候，这些都不行。如何办呢？</p>
+<p>可以使用 @JsonFormat试一下</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 解决SpringMVC使用<span class="doctag">@ResponseBody</span>返回json时，日期格式默认显示为时间戳的问题。需配合&lt;mvc:message-converters&gt;使用</span><br><span class="line"> * </span><br><span class="line"> */</span></span><br><span class="line"><span class="annotation">@Component</span>(<span class="string">"customObjectMapper"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomObjectMapper</span> <span class="keyword">extends</span> <span class="title">ObjectMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CustomObjectMapper</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		CustomSerializerFactory factory = <span class="keyword">new</span> CustomSerializerFactory();</span><br><span class="line">		factory.addGenericMapping(Date.class, <span class="keyword">new</span> JsonSerializer&lt;Date&gt;() &#123;</span><br><span class="line">			<span class="annotation">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">serialize</span><span class="params">(Date value, JsonGenerator jsonGenerator,</span><br><span class="line">					SerializerProvider provider)</span> <span class="keyword">throws</span> IOException, JsonProcessingException </span>&#123;</span><br><span class="line">				SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">				jsonGenerator.writeString(sdf.format(value));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		<span class="keyword">this</span>.setSerializerFactory(factory);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>然后在<strong>dispatch-servlet.xml</strong>中配置</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">mvc:annotation-driven</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">mvc:message-converters</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">class</span>=<span class="value">"org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"objectMapper"</span> <span class="attribute">ref</span>=<span class="value">"customObjectMapper"</span>&gt;</span><span class="tag">&lt;/<span class="title">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">mvc:message-converters</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">mvc:annotation-driven</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>当然还有其他方法，到时候总结一下</p>
-<h2 id="里面有几个坑，在这里记录一下">里面有几个坑，在这里记录一下</h2><ol>
+<h2 id="里面有几个坑">里面有几个坑</h2><ol>
 <li>jboss </li>
 </ol>
 <p>以前没用过，只用过tomcat，只要把war包放到deploy文件夹下就行，不过和tomcat不同的是，tomcat会自动解压，解压后的文件夹名称为原有名称去掉.war后缀。而他不会自动解压，而是直接以war包运行。看公司其他运行的项目都是已projectName.war（不是war包，而是一个文件夹的名称）运行，为啥不直接叫projectName呢？<br>于是在部署的时候，和运维的同事说，先解压再启动吧，这样以后局部跟新的时候比较好替换，于是理所当然的解压为项目名称，结果虽然能正常启动，但是访问路径的时候报404错误。 直到重命名为为项目吗.war之后，才能正确运行</p>
@@ -523,15 +524,15 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
                alt="liuyiyou" />
           <p class="site-author-name" itemprop="name">liuyiyou</p>
            
-              <p class="site-description motion-element" itemprop="description">温故而知新、触类而旁通</p>
-          
+              <p class="site-description motion-element" itemprop="description"></p>
+           
         </div>
         <nav class="site-state motion-element">
 
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">58</span>
+                <span class="site-state-item-count">59</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -542,7 +543,7 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
             
             <div class="site-state-item site-state-categories">
               <a href="/categories.html">
-                <span class="site-state-item-count">19</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -553,7 +554,7 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-count">28</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -564,6 +565,26 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
           
         </div>
 
@@ -588,7 +609,7 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本周总结"><span class="nav-number">1.</span> <span class="nav-text">本周总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#里面有几个坑，在这里记录一下"><span class="nav-number">2.</span> <span class="nav-text">里面有几个坑，在这里记录一下</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#本周总结"><span class="nav-number">1.</span> <span class="nav-text">本周总结</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#里面有几个坑"><span class="nav-number">2.</span> <span class="nav-text">里面有几个坑</span></a></li></ol></div>
             
 
           </div>
@@ -746,8 +767,45 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
   
 
   
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
 
   
 
