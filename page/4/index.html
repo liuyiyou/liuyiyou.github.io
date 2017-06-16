@@ -270,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/09/25/2015-09-25-新的开始/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/11/07/2015-11-07mysql的limit的用法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -292,8 +292,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/09/25/2015-09-25-新的开始/" itemprop="url">
-                  新的开始
+                <a class="post-title-link" href="/2015/11/07/2015-11-07mysql的limit的用法/" itemprop="url">
+                  mysql的limit的用法
                 </a>
               
             
@@ -309,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-09-25T08:00:00+08:00">
-                2015-09-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-07T08:00:00+08:00">
+                2015-11-07
               </time>
             
 
@@ -332,8 +332,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/life/" itemprop="url" rel="index">
-                    <span itemprop="name">life</span>
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
                   </a>
                 </span>
 
@@ -368,13 +368,181 @@
 
       
         
-          <p>终于决定：将现有的博客文章全部删除，重新开始。在这里给之前的三年做一个总结！保留的几篇也会进行相应的修改</p>
-<p>另外，告别了使用了很久的jekyll，转换到hexo，博客样式不再进行更改，转为好好的将文章写好</p>
-<p>另外，离职感言也一直没写，虽然感慨太多，但在下笔时却又不知从何说起，所以时间一晃就过去了几个月了。</p>
-<p>说是离职感言，其实是离别感言，因为如果不出意外的话，很难有机会再去北京工作，毕竟回来了，再出去就没有那个勇气了。</p>
+          
+            <p>limit主要用在mysql的分页查询中，不过现在很多时候都不会主动写sql了。比如在JPA中提供了Page方法，而Mybatis也有分页插件</p>
+<h3 id="语法">语法</h3><p>limit后面可以跟两个数字参数</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#从表中取出5条记录</span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">TABLE</span> <span class="keyword">LIMIT</span> <span class="number">5</span></span><br><span class="line"></span><br><span class="line">#从第<span class="number">5</span>+<span class="number">1</span>个开始，选取<span class="number">6</span>条记录(<span class="number">6</span>到<span class="number">12</span>行)</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> TBALE <span class="keyword">LIMIT</span> <span class="number">5</span>,  <span class="number">6</span></span></span><br></pre></td></tr></table></figure>
+<p>分页的时候就可以这样传：<br>假设每页显示50条记录</p>
+<p>第一页： 0,50</p>
+<p>第二页： 50,10</p>
+<p>第三页： 100,50</p>
+<p>第I页：  （i-1）*50, 50</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/11/01/2015-11-01-JAVA并发编程常识/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/11/01/2015-11-01-JAVA并发编程常识/" itemprop="url">
+                  JAVA并发编程常识
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-11-01T00:00:00+08:00">
+                2015-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>本文摘自虚极(梁飞)的某个PPT</p>
+<h2 id="JVM内存模型">JVM内存模型</h2><h3 id="堆：">堆：</h3><ul>
+<li>所有对象全部放在共享堆空间中</li>
+<li>对象的属性在共享堆空间内<ul>
+<li>堆内存单字节对齐，short不变</li>
+</ul>
+</li>
+</ul>
+<h3 id="栈：">栈：</h3><ul>
+<li>每个线程都有独立的线程栈空间</li>
+<li>线程栈只存基本类型和对象地址<ul>
+<li>栈内存4字节对齐，short变int</li>
+<li>对象地址4字节，引用堆空间</li>
+</ul>
+</li>
+<li>方法中局部变量在线程栈空间内<ul>
+<li>局部变量不会竞争，线程安全</li>
+<li>方法参数在栈顶交叉，不拷贝</li>
+<li>栈顶寄存，减少中间状态读取PC指针记录当前执行位置</li>
+</ul>
+</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/09/25/2015-09-25-新的开始/#далее" rel="contents">
+            <a class="btn" href="/2015/11/01/2015-11-01-JAVA并发编程常识/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -420,7 +588,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/07/25/2015-07-25-maven指定profile进行打包/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/10/28/2015-10-28-osx一些软件安装配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -442,8 +610,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/07/25/2015-07-25-maven指定profile进行打包/" itemprop="url">
-                  maven指定pom文件进行打包
+                <a class="post-title-link" href="/2015/10/28/2015-10-28-osx一些软件安装配置/" itemprop="url">
+                  osx一些软件安装配置
                 </a>
               
             
@@ -459,8 +627,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-07-25T08:00:00+08:00">
-                2015-07-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-28T00:00:00+08:00">
+                2015-10-28
               </time>
             
 
@@ -482,8 +650,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tools/" itemprop="url" rel="index">
-                    <span itemprop="name">tools</span>
+                  <a href="/categories/skill/" itemprop="url" rel="index">
+                    <span itemprop="name">skill</span>
                   </a>
                 </span>
 
@@ -518,11 +686,11 @@
 
       
         
-          <p>因为使用分布式服务框架，其中对服务端分为两部分，接口和实现。其中接口和实体类对外开放，服务实现是不对外开放的。但是两者却是放在同一个项目中的，对外公布的接口通过服务器上的iWork进行打包。本地则使用常规的打包方式，但是这样造成一个不便就是：如果不上传到iWork上打包，再依赖，而是直接依赖本地的话就比较麻烦。。。。。”</p>
-<p>第一种笨办法：都写在pom.xml中，打包的时候分开注释，第一次打包的时候通用打包，第二次打包的时候，通过maven-assembly-plugin进行打包（只打包实体类和服务接口），这样虽然能完成，但是非常麻烦。如果修改频繁，需要来回进行增加和去掉注释。</p>
+          <p>无论是windows还是linux，都需要进行一系列的配置，相对于windows来说，一般情况下linux都是作为服务器，而且很多新的开发框架或工具会优先适配linux，比如hadoop等。</p>
+<p>虽然系统中装了很多软件，比如java、MySQL、nodejs等，但是每次装的时候都是临时装的，没有记录下来。现在在这里写一个系列，并保持更新</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/07/25/2015-07-25-maven指定profile进行打包/#далее" rel="contents">
+            <a class="btn" href="/2015/10/28/2015-10-28-osx一些软件安装配置/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -568,7 +736,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/07/05/2015-09-24-eclipse快捷键/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/10/27/2015-10-27-json日期转换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -590,8 +758,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/07/05/2015-09-24-eclipse快捷键/" itemprop="url">
-                  eclipse快捷键
+                <a class="post-title-link" href="/2015/10/27/2015-10-27-json日期转换/" itemprop="url">
+                  JSON日期转换
                 </a>
               
             
@@ -607,8 +775,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-07-05T00:00:00+08:00">
-                2015-07-05
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-27T00:00:00+08:00">
+                2015-10-27
               </time>
             
 
@@ -630,19 +798,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tools/" itemprop="url" rel="index">
-                    <span itemprop="name">tools</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tools/eclipse/" itemprop="url" rel="index">
-                    <span itemprop="name">eclipse</span>
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
                   </a>
                 </span>
 
@@ -677,315 +834,13 @@
 
       
         
-          
-            <p>一直使用eclipse，却发现很多快捷键没用到，而是使用鼠标，不过在切换电脑之后，鼠标用得不习惯。所以在这里记录一下eclipse中的快捷键。</p>
-<p>代码辅助： option+ /</p>
-<p>快速打开大纲视图： cmd + O</p>
-<p>getter/setter方法： cmd+option</p>
-<p>显示某个类的变量和方法：  双击鼠标点击该类。按f3</p>
-<p>查找jar某个类： cmd+shift+T </p>
-<p>查找工作空间的某个类： cmd+shift+o</p>
-<p>批量修改： option +cmd + a   /alt+shift +a   </p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/07/05/2015-07-05总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuyiyou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="温故而知新    触类而旁通">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/07/05/2015-07-05总结/" itemprop="url">
-                  2015-07-05总结
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-07-05T00:00:00+08:00">
-                2015-07-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/summarry/" itemprop="url" rel="index">
-                    <span itemprop="name">summarry</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>10.7号整理的时候才发现这是最后一篇总结，而且没写什么东西，后面的话会开始继续该系列吧！不过因为刚进公司，之前的一切都是在熟悉的过程中。之前的就省略了。</p>
-<p>我知道我早晚会回到长沙的，但是没想到是这个时候。就像我没想到我会在北京一呆就是三年，如果不出意外的话还可能继续呆在北京。</p>
-<p>现在是7月5号凌晨，距离我来长沙大约一周的时间，我在公司旁边的酒店里面开始总结一下我来长沙的一周生活。</p>
-<p>刚回到家的时候温度在37左右，在北京三年过夏天没有吹过电风扇的我，坐在家里的时候竟然还流汗。以往这个时候基本上都出去了，今年却因为各种原因，好多小伙伴都在家，只是终究不是小时候可以无忧无虑的玩耍了，有了家庭加上不同的经历，有些话却不知道怎么说了。也许，这就是成长</p>
-<p>在家去了一趟县城，不记得上次去的具体时间了，好像是某个十一去了一趟学校，这次去发现小县城里面的车辆越来越多，也越来越堵了，在县人民医院门口竟然还堵了五六分钟</p>
-<p>来长沙的时候是中午，坐在出租车里也热得要死</p>
-<p>不过接下来的几天不是下雨就是阴天，穿着短袖竟然还有点冷。让我觉得好像来到了秋天</p>
-<p>公司里面是新开张的，所以加班的时间比较多，不过也许是因为住得比较近的原因，感觉还好，只是没了在地铁上看书的时间了，有点不习惯。我才换的平板除了当闹铃好像没啥用了。</p>
-<p>公司里面用的是内部框架，不过好像见识多了之后，发现基本上都差不多，不过发现基础应该重新巩固一遍了</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/06/28/2015-06-28总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuyiyou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="温故而知新    触类而旁通">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/06/28/2015-06-28总结/" itemprop="url">
-                  2015-06-28总结
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-28T00:00:00+08:00">
-                2015-06-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/summarry/" itemprop="url" rel="index">
-                    <span itemprop="name">summarry</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>我是2011年11月份来到北京，那个时候临近毕业，可是工作还没有着落。如果不能在这年把工作搞定，第二年的三月份将会更加难找工作。当然，这也是我后来才知道的，我之前还天真的以为，不都是到三月份才开始找工作的么，怎么现在就开始。直到被提醒，那个时候找工作已经比较难了，校招已经马上要开始了。</p>
-<p>于是，面试了几家，貌似都没有面试上，也是从这个时候开始，我才知道我的表达能力已经很差了。这个时候，听说北京有一份工作，于是我和我的四个小伙伴一起来到北京，不过我是临时决定，所以虽然是同一列车，他们早已经买票，而我是出发前一晚才匆匆买到。</p>
-<p>我记得那个时候，长沙天气还比较炎热。而到长沙的时候，正是下午三点多。我记得那天天气特别好，从火车看窗外阳光明媚，只是下车的时候才发现，原来这么明媚的阳光照在身上竟然会发冷</p>
-<p>那个时候，iPhone4大火，HTC是安卓的王者，然而与我们无关，都是用的非智能机。所以乘车路线是在学校的时候就在网上找好以后画在纸上的。到了地点却没有发现去公司的331路公交车，问人的时候却被告知这里没有该路公交车。当时心里一凉，以为被骗到传销里去了。</p>
-<p>不过还好，没过多久，我就找到了。是在香山路林科院里面。也是在这里，开始了我在北京的职业生涯</p>
+          <p>这个在 <a href="/2015/05/17/2015-05-17总结/">2015-05-17总结</a> 中有写过</p>
+<p>在使用Ajax返回json的时候，对于日期，并不会返回一个mysql表中的yyyy-MM-dd这样格式的日期，而是返回一个对象。如果实体类的字段是string类型还好，在后台for循环查询出来的列表，然后使用DateFormat进行将日期转换为string类型，但是如果是Date类型的话，还真不好转。</p>
+<p>我就遇到了这个问题，通过注解发现问题没有解决。最后采用如下方式解决了问题。</p>
+<p>需要注意的是，用到了类是来自json-lib.jar中</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/06/28/2015-06-28总结/#далее" rel="contents">
+            <a class="btn" href="/2015/10/27/2015-10-27-json日期转换/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1031,7 +886,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/06/25/2015-06-25-mybatis对枚举的支持/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/10/24/2015-10-24-MyBatis批量插入/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -1053,8 +908,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/06/25/2015-06-25-mybatis对枚举的支持/" itemprop="url">
-                  mybatis对枚举的支持
+                <a class="post-title-link" href="/2015/10/24/2015-10-24-MyBatis批量插入/" itemprop="url">
+                  第五篇：MyBatis插入和批量插入
                 </a>
               
             
@@ -1070,8 +925,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-25T08:00:00+08:00">
-                2015-06-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-24T00:00:00+08:00">
+                2015-10-24
               </time>
             
 
@@ -1129,16 +984,12 @@
 
       
         
-          <p>mybatis对枚举类型提供了两种类型支持：</p>
-<ul>
-<li>org.apache.ibatis.type.EnumTypeHandler</li>
-<li>org.apache.ibatis.type.EnumOrdinalTypeHandler</li>
-</ul>
-<h3 id="EnumTypeHandler">EnumTypeHandler</h3><p>EnumTypeHandler是mybatis默认的枚举类型转换器，如果pojo类中使用了枚举类型，而配置文件没有指定类型转换类，mybatis将使用EnumTypeHandler处理枚举属性。EnumTypeHandler的将把枚举类的name进行存储，枚举类的name即枚举类名。</p>
-<h3 id="EnumOrdinalTypeHandler">EnumOrdinalTypeHandler</h3><p>EnumOrdinalTypeHandler是mybatis提供的另一种转换器，顾名思义这个转换类使用了枚举类的ordinal属性作为数据库存储信息，由于ordinal属性是int类型的，按照官网的说明数据库中对应资源应该是int或double类型的，但是个人测试过程中MYSQL的varchar字段也可以存储。</p>
+          <h2 id="注意事项：">注意事项：</h2><p>批量插入的时候，需要注意动态SQL的写法：即拼接出来的SQL语句和常规的SQL语句语法一致。</p>
+<p>批量插入的时候，需要注意，在后台要写成user.name或者map.name，否则会出错 </p>
+<p>插入返回主键需要通过entity.getId()来进行返回。 </p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/06/25/2015-06-25-mybatis对枚举的支持/#далее" rel="contents">
+            <a class="btn" href="/2015/10/24/2015-10-24-MyBatis批量插入/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1184,7 +1035,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/06/21/2015-06-21总结/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/10/15/2015-10-15-Spring的一些扩展点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -1206,8 +1057,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/06/21/2015-06-21总结/" itemprop="url">
-                  2015-06-21总结
+                <a class="post-title-link" href="/2015/10/15/2015-10-15-Spring的一些扩展点/" itemprop="url">
+                  Spring的一些扩展点
                 </a>
               
             
@@ -1223,8 +1074,309 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-21T00:00:00+08:00">
-                2015-06-21
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-15T00:00:00+08:00">
+                2015-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring/" itemprop="url" rel="index">
+                    <span itemprop="name">spring</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>Spring是最常用的框架，但是在某些情况或者某些企业中并不会使用Spring的全部，比如webx或者wf等一类MVC框架中就知使用了Spring的IOC功能，所以在这些框架中要使用Spring的ioc，就需要一些扩展点</p>
+<h2 id="web环境">web环境</h2><ol>
+<li>实现ServletContextListener接口，在实现类中通过classpath或者file方式实例化Spring的ioc</li>
+</ol>
+<ol>
+<li>ApplicationContextAware </li>
+</ol>
+<p>在加载Spring配置文件时，会自动调用ApplicationContextAware 接口中的</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplicationContext</span><span class="params">(ApplicationContext context)</span> <span class="keyword">throws</span> BeansException</span></span><br></pre></td></tr></table></figure>
+<p>方法，获得ApplicationContext对象。前提必须在Spring配置文件中指定该类</p>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/10/15/2015-10-15-Java保留两位小数/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/15/2015-10-15-Java保留两位小数/" itemprop="url">
+                  Java保留两位小数
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-15T00:00:00+08:00">
+                2015-10-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>所谓的两位小数，而不是保留两个有效数字，也就是说，如果是12.3012 会显示成12.30 。但是如果是12.00121也要显示成12.00，哪怕是12也要显示成12.00</p>
+<p>好吧，这个应该是很基础的功能，然而在之前却没有用过，最近在做报表分析统计工作的时候，要加上这个功能，发现者其中的几个类都没有使用过。所以在这里记录一下，用来备忘。</p>
+<p>NumberFormat 用来格式化数字。很简单，但是容易混淆，我就混淆了。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/10/15/2015-10-15-Java保留两位小数/#далее" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/10/11/2015-10-11总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/10/11/2015-10-11总结/" itemprop="url">
+                  2015-10-11总结
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-11T00:00:00+08:00">
+                2015-10-11
               </time>
             
 
@@ -1253,150 +1405,12 @@
 
                 
                 
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>周二的时候，交接完成，原本以为会当天拿到离职证明的，后面才知道，离职证明需要一周才能拿到，所以还打算在北京呆一周左右，然后就离开北京了。</p>
-<p>周三上午看了nba总决赛，下午不知道干嘛了。</p>
-<p>周四和周五都开始整理博客，终于开始打算写Spring系列了。也许是因为一直在使用，反而不想从基础的开始写起。所以从mvc开始写起，结果发现用过和表达出来还是有点难度，所以只完成了几篇，不过接下来写什么还是有计划了，甚至地方都已经预备好了。所以这几天看了我博客的知道，很多文章只写了标题。争取尽快写完mvc系列吧，到新公司应该没什么时间再写了。</p>
-<p>也许是因为离职的原因，双休日竟然没有看书或者写代码，这种感觉很不好，好像是欠了自己一点什么，以至于这个时候（周日11点40）还是在博客上写点东西。好像从去年九月份离职开始，就已经开始习惯每个周末中的一天去看书或者写代码，不知不觉已经坚持了大半年。</p>
-<p>效果如何还不好说，因为很多时候还是在为写代码而写代码，很多东西还是写过就忘，比如数据结果和设计模式。也许实际过程中用得比较少吧！而且没有到那个一看就懂的级别，哪怕一直在用的Spring，也有很多不懂的地方</p>
-<p>一直打算看Spring源码，也断断续续的看过一段时间，可是一段时间复习又忘记了。</p>
-<p>另外，博客已经改版了，首页终于变成我想象中的样子了。不过还有一些细节需要修改。比如关于我。（2015-10-07又改版了。。。）</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/06/14/2015-06-14总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuyiyou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="温故而知新    触类而旁通">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
+                  ， 
                 
-                <a class="post-title-link" href="/2015/06/14/2015-06-14总结/" itemprop="url">
-                  2015-06-14总结
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-14T00:00:00+08:00">
-                2015-06-14
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/总结/" itemprop="url" rel="index">
-                    <span itemprop="name">总结</span>
+                  <a href="/categories/总结/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
                   </a>
                 </span>
 
@@ -1431,17 +1445,14 @@
 
       
         
-          <p>这周主要干了以下几件事：</p>
-<ul>
-<li>申请离职</li>
-<li>搜狐面试</li>
-<li>将today和teambition换成了wuderlist(奇妙清单)</li>
-<li>同学来北京了</li>
-</ul>
-<h2 id="申请离职">申请离职</h2><p>第一家公司呆了三年，而在这家公司只呆了九个月。意料之中，因为在呆的这几个月中都是以维护为主，天天就是改bug，而且还是 在对业务不熟的情况下改bug，长久下去感觉对自己的未来没有什么帮助，不过在这家公司里面学到了很多关于团队合作以及一家正规的公司做开发是如何进行的，到时候再写个文章希望下一家公司会沉下来，好好打磨一下自己（离职感言。之后补上）</p>
+          <p>好吧，其实在我写这篇总结的时候，已经是12号的晚上十点。因为上周末回去的时候，电源没有带回来，等看完天天向上和爸爸去哪儿之后电量已经明显不足，只得关机到今天才补上。</p>
+<h3 id="写sql语句">写sql语句</h3><p>其实这周还是有些收获的，这周主要是些SQL，好像从工作开始就很少写sql、第一家公司使用的是JPA，压根很少些sql、一般都通过jpa就完成了。所以那个时候我连LEFT JOIN之类的连接查询都不会写，在大学里的那点都已经差不多全部还给老师了。</p>
+<p>第二家公司的时候没有用JPA而是用的MyBatis，不过依然还是很少写sql、因为系统主要以维护为主，很少添加新功能。不过通过维护和阅读别人写的代码还是渐渐了解了sql。当然仅仅是了解，离精通还有十万八千里，sql调优之类的也只是知道一点点而已，不过连接查询还是会写了。</p>
+<p>到现在的这家公司，因为刚开始，一切都是起步，所以也有幸基本从头到尾参与到一个或者多个项目中，不过直到现在的bdp项目之后，才感觉有比较大的收获，对sql也渐渐熟悉起来了。</p>
+<p>写sql主要对业务逻辑和sql执行顺序有比较好的了解，不过两者我都不熟悉，所以开始写得比较慢，而且错误还比较多。不过一周之后也慢慢熟悉了业务和sql。相比于自己琢磨或者写demo，实际的项目更加锻炼人。而自己的项目很少会写那么复杂的sql。 所以这周收获比较大。</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/06/14/2015-06-14总结/#далее" rel="contents">
+            <a class="btn" href="/2015/10/11/2015-10-11总结/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1487,7 +1498,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/06/06/2015-06-06总结/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/10/07/2015-10-07-关于需求的一些想法/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -1509,8 +1520,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/06/06/2015-06-06总结/" itemprop="url">
-                  2015-06-06总结
+                <a class="post-title-link" href="/2015/10/07/2015-10-07-关于需求的一些想法/" itemprop="url">
+                  关于需求的一些想法
                 </a>
               
             
@@ -1526,8 +1537,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-06-06T00:00:00+08:00">
-                2015-06-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-07T00:00:00+08:00">
+                2015-10-07
               </time>
             
 
@@ -1549,8 +1560,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/总结/" itemprop="url" rel="index">
-                    <span itemprop="name">总结</span>
+                  <a href="/categories/skill/" itemprop="url" rel="index">
+                    <span itemprop="name">skill</span>
                   </a>
                 </span>
 
@@ -1585,12 +1596,14 @@
 
       
         
-          <p>之前已经有了离职的打算，最开始是打算7月份，不过考虑到现在在这家公司的状态和对未来的打算，还是在这周开始了面试之旅。不过还没有主动发起进攻，只是在拉钩上挂了自己的简历</p>
-<h2 id="第一家是考拉fm">第一家是考拉fm</h2><p>最开始以为是一家小公司，后面听同学说这是网易旗下的，而且它的fm是比较有名气的，可我只用网易云音乐，没用过考拉fm，所以难免有点不用心</p>
-<p>面试过程总共谈了一个小时左右吧，期间面试官很少问基础，一般都是问工作过程中用了哪些技术。然而实际工作过程中，架构师搭起项目的架子之后，大部分的时间都是处理业务代码，在这种情况下，用到的技术确实很少。比如数据库的主从复制，读写分离。以及分布式缓存之类。这些在前期基本上就已经定下来了。而且一般情况下，很少用到技术底层的代码，比如Memcached缓存。公司用到了，但是是已经直接配置好了的。所以只能自己装一个玩一玩，知道是怎么用。所以连我自玩自乐的用到的一些技术和框架都拿了出来。</p>
+          <h2 id="概述">概述</h2><p>在需求分析，项目架构，代码涉及中，需求总是千变万化的，这是一件很正常的事情，但是因为人与人的沟通中，非开发人员和业务人员的看待需求的眼光不一致，所以导致需求的频繁改动还是会带来不好的效果，花费了脑力，财力和资源，达到的效果可能南辕北辙，所以想写点什么</p>
+<p>在《代码大全》中，对于需求有如下说明：</p>
+<blockquote>
+<p>在大型项目中，如果在架构阶段检测到需求错误，那么修复他的成本通常是“在需求阶段检测并修复该错误”的3倍。如果在编码阶段检测到需求错误，那么修复他的成本是5倍到10倍；在系统测试阶段，成本是10倍，在发布之后，成本陡增为10倍到100倍</p>
+</blockquote>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/06/06/2015-06-06总结/#далее" rel="contents">
+            <a class="btn" href="/2015/10/07/2015-10-07-关于需求的一些想法/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1636,7 +1649,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/05/30/2015-05-30-Redis常用命令和高级应用/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/10/06/2015-10-06-SELECT语句的执行的逻辑查询处理步骤/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -1658,8 +1671,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/05/30/2015-05-30-Redis常用命令和高级应用/" itemprop="url">
-                  Redis常用命令和高级应用
+                <a class="post-title-link" href="/2015/10/06/2015-10-06-SELECT语句的执行的逻辑查询处理步骤/" itemprop="url">
+                  SELECT语句的执行的逻辑查询处理步骤
                 </a>
               
             
@@ -1675,8 +1688,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-30T08:00:00+08:00">
-                2015-05-30
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-06T08:00:00+08:00">
+                2015-10-06
               </time>
             
 
@@ -1698,8 +1711,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/redis/" itemprop="url" rel="index">
-                    <span itemprop="name">redis</span>
+                  <a href="/categories/mysql/" itemprop="url" rel="index">
+                    <span itemprop="name">mysql</span>
                   </a>
                 </span>
 
@@ -1734,26 +1747,44 @@
 
       
         
-          <p>Redis提供了丰富的命令对数据库和各种数据库类型进行操作，这些命令可以在Linux终端使用</p>
-<h3 id="键值相关命令">键值相关命令</h3><ul>
-<li>keys：返回满足给定pattern的所有key   eg:  key *</li>
-<li>exists：确认一个key是否存在   eg:  exists  name</li>
-<li>del ：删除一个key    eg: del  age</li>
-<li>expire：设置key的过期时间  eg: expire  name 10</li>
-<li>ttl  ：获取key的有效时长   eg :  ttl name</li>
-<li>move：将当前数据库中的key转移到其它数据库中  eg : move age 1</li>
-<li>persist：移除指定key过期时间   persist age </li>
-<li>randomkey：随机返回一个key</li>
-<li>rename：重命名key</li>
-<li>type：返回key的数据类型</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/05/30/2015-05-30-Redis常用命令和高级应用/#далее" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>SELECT语句的执行的逻辑查询处理步骤：</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">(8)	<span class="operator"><span class="keyword">SELECT</span> (<span class="number">9</span>)<span class="keyword">DISTINCT</span></span><br><span class="line">(<span class="number">11</span>)	&lt;TOP_specification&gt; &lt;select_list&gt;</span><br><span class="line">(<span class="number">1</span>) 	<span class="keyword">FROM</span> &lt;left_table&gt;</span><br><span class="line">(<span class="number">3</span>)	&lt;join_type&gt; <span class="keyword">JOIN</span> &lt;right_table&gt;</span><br><span class="line">(<span class="number">2</span>)	<span class="keyword">ON</span> &lt;join_condition&gt;</span><br><span class="line">(<span class="number">4</span>)	<span class="keyword">WHERE</span> &lt;where_condition&gt;</span><br><span class="line">(<span class="number">5</span>)	<span class="keyword">GROUP</span> <span class="keyword">BY</span> &lt;group_by_list&gt;</span><br><span class="line">(<span class="number">6</span>)	<span class="keyword">WITH</span> &#123;<span class="keyword">CUBE</span> | <span class="keyword">ROLLUP</span>&#125;</span><br><span class="line">(<span class="number">7</span>)	<span class="keyword">HAVING</span> &lt;having_condition&gt;</span><br><span class="line">(<span class="number">10</span>)	<span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;order_by_list&gt;</span></span><br></pre></td></tr></table></figure>
+<p>注意：</p>
+<ol>
+<li><p>如果最上层的列中包含汇总函数，则每left join 一次，汇总的函数列会乘以2</p>
+</li>
+<li><p>多个连接查询的时候，Group by 只能有一个（这个不是字面意思）</p>
+</li>
+</ol>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">select</span> <span class="keyword">sum</span>(a.click) <span class="keyword">from</span> a     #假设click为<span class="number">1</span>，则第一次leftjoin之后为<span class="number">1</span>，第二次leftjoin后为<span class="number">2</span></span><br><span class="line"><span class="keyword">left</span>  <span class="keyword">join</span> b </span><br><span class="line"><span class="keyword">on</span> a.<span class="keyword">id</span> = b.<span class="keyword">id</span></span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> <span class="keyword">c</span>  # <span class="keyword">group</span> <span class="keyword">by</span> a.<span class="keyword">id</span> 不能写在这里</span><br><span class="line"><span class="keyword">on</span> a.<span class="keyword">id</span> = <span class="keyword">c</span>.<span class="keyword">id</span></span><br><span class="line">grouop <span class="keyword">by</span> a.<span class="keyword">id</span></span></span><br></pre></td></tr></table></figure>
+<p>每个步骤产生一个虚拟表，该虚拟表被用作下一个步骤的输入。只有最后一步生成的表返回给调用者。如<br>果没有某一子句，则跳过相应的步骤。</p>
+<ol>
+<li><p>FROM:对FROM子句中的前两个表执行笛卡尔积，生成虚拟表VT1。</p>
+</li>
+<li><p>ON:对VT1应用ON筛选器。只有那些使<join_condition>为真的行才被插入VT2。</join_condition></p>
+</li>
+<li><p>OUTER(JOIN):如果指定了OUTER JOIN，保留表中未找到匹配的行将作为外部行添加到VT2，生成VT3。如果FROM子句包含两个以上的表，则对上一个联接生成的结果表和下一个表重复执行步骤1到步骤3，直到处理完所有的表为止。</p>
+</li>
+<li><p>对VT3应用WHERE筛选器。只有使<where_condition>为TRUE的行才被插入VT4。</where_condition></p>
+</li>
+<li><p>GROUP BY:按GROUP BY 子句中的列列表对VT4中的行分组，生成VT5。</p>
+</li>
+<li><p>CUBEROLLUP:把超组插入VT5，生成VT6。</p>
+</li>
+<li><p>HAVING:对VT6应用HAVING筛选器。只有使<having_condition>为TRUE的组才会被插入VT7。</having_condition></p>
+</li>
+<li><p>SELECT:处理SELECT列表，产生VT8。</p>
+</li>
+<li><p>DISTINCT:将重复的行从VT8中移除，产生VT9。</p>
+</li>
+<li><p>ORDER BY:将VT9中的行按ORDER BY子句中的列列表排序，生成一个有表(VC10)。</p>
+</li>
+<li><p>TOP:从VC10的开始处选择指定数量或比例的行，生成表VT11,并返回给调用者。</p>
+</li>
+</ol>
+
+          
         
       
     </div>
@@ -1790,7 +1821,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/5/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1835,7 +1866,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">75</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1846,7 +1877,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories.html">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1857,7 +1888,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

@@ -1,0 +1,831 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="hive," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="在添加字段后，如果分区不删除，新字段在hdfs存在，但是无法查询出来
+http://blog.csdn.net/lxpbs8851/article/details/17118841
+http://blog.csdn.net/xiao_jun_0820/article/details/45560591
+查询SELECT … WHERE …
+SELECT * FROM wdi WHERE indica">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2016-06-18-Hive总结(1)">
+<meta property="og:url" content="http://liuyiyou.cn/2016/06/18/2016-06-18-Hive总结一/index.html">
+<meta property="og:site_name" content="温故而知新    触类而旁通">
+<meta property="og:description" content="在添加字段后，如果分区不删除，新字段在hdfs存在，但是无法查询出来
+http://blog.csdn.net/lxpbs8851/article/details/17118841
+http://blog.csdn.net/xiao_jun_0820/article/details/45560591
+查询SELECT … WHERE …
+SELECT * FROM wdi WHERE indica">
+<meta property="og:updated_time" content="2017-04-26T10:10:15.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2016-06-18-Hive总结(1)">
+<meta name="twitter:description" content="在添加字段后，如果分区不删除，新字段在hdfs存在，但是无法查询出来
+http://blog.csdn.net/lxpbs8851/article/details/17118841
+http://blog.csdn.net/xiao_jun_0820/article/details/45560591
+查询SELECT … WHERE …
+SELECT * FROM wdi WHERE indica">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liuyiyou.cn/2016/06/18/2016-06-18-Hive总结一/"/>
+
+
+
+
+
+  <title> 2016-06-18-Hive总结(1) | 温故而知新    触类而旁通 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">温故而知新    触类而旁通</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">liuyiyou的个人小站</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-inbox">
+          <a href="/inbox" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
+            
+            收藏
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2016/06/18/2016-06-18-Hive总结一/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                2016-06-18-Hive总结(1)
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-06-18T08:00:00+08:00">
+                2016-06-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/大数据/" itemprop="url" rel="index">
+                    <span itemprop="name">大数据</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>在添加字段后，如果分区不删除，新字段在hdfs存在，但是无法查询出来</p>
+<p><a href="http://blog.csdn.net/lxpbs8851/article/details/17118841" target="_blank" rel="external">http://blog.csdn.net/lxpbs8851/article/details/17118841</a></p>
+<p><a href="http://blog.csdn.net/xiao_jun_0820/article/details/45560591" target="_blank" rel="external">http://blog.csdn.net/xiao_jun_0820/article/details/45560591</a></p>
+<h1 id="查询">查询</h1><p>SELECT … WHERE …</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> wdi <span class="keyword">WHERE</span> indicator_name = <span class="string">'Trade (% of GDP)'</span>;</span></span><br></pre></td></tr></table></figure>
+<p>SELECT … ORDER BY … </p>
+<p>Hive中的order by跟传统的sql语言中的order by作用是一样的，会对查询的结果做一次全局排序，所以说，只有hive的sql中制定了order by所有的数据都会到同一个reducer进行处理（不管有多少map，也不管文件有多少的block只会启动一个reducer）。但是对于大量数据这将会消耗很长的时间去执行。</p>
+<p>这里跟传统的sql还有一点区别：如果指定了hive.mapred.mode=strict（默认值是nonstrict）,这时就必须指定limit来限制输出条数，原因是：所有的数据都会在同一个reducer端进行，数据量大的情况下可能不能出结果，那么在这样的严格模式下，必须指定输出的条数。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="string">`country_name`</span>, <span class="string">`2011`</span> <span class="keyword">AS</span> trade_2011 <span class="keyword">FROM</span> wdi <span class="keyword">WHERE</span>   indicator_name = <span class="string">'Trade (% of GDP)'</span> <span class="keyword">AND</span>   <span class="string">`2011`</span> <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> trade_2011 <span class="keyword">DESC</span>;</span></span><br></pre></td></tr></table></figure>
+<p>SELECT … SORT BY … </p>
+<p>Hive中指定了sort by，那么在每个reducer端都会做排序，也就是说保证了局部有序（每个reducer出来的数据是有序的，但是不能保证所有的数据是有序的，除非只有一个reducer），好处是：执行了局部排序之后可以为接下去的全局排序提高不少的效率（其实就是做一次归并排序就可以做到全局排序了）。</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> <span class="string">`country_name`</span>, <span class="string">`2011`</span> <span class="keyword">AS</span> trade_2011 <span class="keyword">FROM</span> wdi <span class="keyword">WHERE</span>   indicator_name = <span class="string">'Trade (% of GDP)'</span> <span class="keyword">AND</span>   <span class="string">`2011`</span> <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line"><span class="keyword">SORT</span> <span class="keyword">BY</span> trade_2011 <span class="keyword">DESC</span>;</span></span><br></pre></td></tr></table></figure>
+<p>SELECT … CLUSTER BY … </p>
+<p>cluster by的功能就是distribute by和sort by相结合，如下2个语句是等价的：</p>
+<p>SELECT … DISTRIBUTE BY </p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> country_name, indicator_name, <span class="string">`2011`</span> <span class="keyword">AS</span> trade_2011 <span class="keyword">FROM</span> wdi <span class="keyword">WHERE</span>   (indicator_name = <span class="string">'Trade (% of GDP)'</span> <span class="keyword">OR</span>   indicator_name = <span class="string">'Broad money (% of GDP)'</span>) <span class="keyword">AND</span></span><br><span class="line">  <span class="string">`2011`</span> <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">  <span class="keyword">DISTRIBUTE</span> <span class="keyword">BY</span> indicator_name;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> country_name, indicator_name, <span class="string">`2011`</span> <span class="keyword">AS</span> trade_2011 <span class="keyword">FROM</span> wdi <span class="keyword">WHERE</span>   (indicator_name = <span class="string">'Trade (% of GDP)'</span> <span class="keyword">OR</span>   indicator_name = <span class="string">'Broad money (% of GDP)'</span>) <span class="keyword">AND</span></span><br><span class="line">  <span class="string">`2011`</span> <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br><span class="line">  <span class="keyword">DISTRIBUTE</span> <span class="keyword">BY</span> indicator_name   <span class="keyword">SORT</span> <span class="keyword">BY</span> indicator_name;</span></span><br><span class="line"></span><br><span class="line"> ``` </span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">JOIN</span><br><span class="line"></span><br><span class="line">```sql</span><br><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">SELECT</span> o.<span class="keyword">name</span> <span class="keyword">FROM</span> oecd_countries o <span class="keyword">JOIN</span> nato_countries <span class="keyword">n</span> <span class="keyword">ON</span> <span class="keyword">n</span>.<span class="keyword">name</span>=o.<span class="keyword">name</span>;</span></span><br></pre></td></tr></table></figure>
+<p>FULL OUTER JOIN<br>LEFT OUTER JOIN<br>RIGHT OUTER JOIN</p>
+<p>T extFile<br>SequenceFile RCFile<br>ORC<br>Parquet</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/hive/" rel="tag"># hive</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/06/14/2016-06-14-完整的wordcount运行过程/" rel="next" title="完整的wordcount运行过程">
+                <i class="fa fa-chevron-left"></i> 完整的wordcount运行过程
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/01/2017-04-01-新的开始/" rel="prev" title="新的开始">
+                新的开始 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="liuyiyou" />
+          <p class="site-author-name" itemprop="name">liuyiyou</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+           
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">75</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories.html">
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#查询"><span class="nav-number">1.</span> <span class="nav-text">查询</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liuyiyou</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+<!-- mathjax config similar to math.stackexchange -->
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+      processEscapes: true
+    }
+  });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+</body>
+</html>

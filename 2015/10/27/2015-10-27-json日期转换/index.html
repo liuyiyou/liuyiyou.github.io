@@ -97,7 +97,7 @@
 <meta property="og:description" content="这个在 2015-05-17总结 中有写过
 在使用Ajax返回json的时候，对于日期，并不会返回一个mysql表中的yyyy-MM-dd这样格式的日期，而是返回一个对象。如果实体类的字段是string类型还好，在后台for循环查询出来的列表，然后使用DateFormat进行将日期转换为string类型，但是如果是Date类型的话，还真不好转。
 我就遇到了这个问题，通过注解发现问题没有解决。最后采">
-<meta property="og:updated_time" content="2017-04-14T07:01:48.000Z">
+<meta property="og:updated_time" content="2017-05-06T07:00:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSON日期转换">
 <meta name="twitter:description" content="这个在 2015-05-17总结 中有写过
@@ -377,6 +377,9 @@
 <p>以下代码只是为了说明，实际情况并不如此。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> net.sf.json.JSONArray;</span><br><span class="line"><span class="keyword">import</span> net.sf.json.JSONObject;</span><br><span class="line"><span class="keyword">import</span> net.sf.json.JsonConfig;</span><br><span class="line"><span class="keyword">import</span> net.sf.json.processors.JsonValueProcessor;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">JsonDateTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">         List&lt;Student&gt; list =  <span class="comment">//来自数据中的列表，里面包含Date类型的字段。</span></span><br><span class="line">         JsonConfig jsonConfig =     <span class="keyword">new</span> JsonConfig();</span><br><span class="line">         jsonConfig.registerJsonValueProcessor(java.util.Date.class,<span class="keyword">new</span> JsonValueProcessor() &#123;</span><br><span class="line">            <span class="keyword">private</span> <span class="keyword">final</span> String format=<span class="string">"yyyy-MM-dd hh:mm:ss"</span>;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> Object <span class="title">processObjectValue</span><span class="params">(String key, Object value,JsonConfig arg2)</span></span>&#123;</span><br><span class="line">              <span class="keyword">if</span>(value==<span class="keyword">null</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">              <span class="keyword">if</span> (value <span class="keyword">instanceof</span> java.util.Date) &#123;</span><br><span class="line">                    String str = <span class="keyword">new</span> SimpleDateFormat(format).format((java.util.Date) value);</span><br><span class="line">                    <span class="keyword">return</span> str;</span><br><span class="line">              &#125;</span><br><span class="line">                    <span class="keyword">return</span> value.toString();</span><br><span class="line">            &#125;</span><br><span class="line">      </span><br><span class="line">            <span class="function"><span class="keyword">public</span> Object <span class="title">processArrayValue</span><span class="params">(Object value, JsonConfig arg1)</span></span>&#123;</span><br><span class="line">                       <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">         &#125;);</span><br><span class="line">         <span class="comment">//之前使用的是 JSONArray array = JSONArray.fromObject(list);</span></span><br><span class="line">        JSONArray array = JSONArray.fromObject(list,jsonConfig);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>如果后续有其他更为简单的方法，也会更新上来。</p>
+<p>@Jsonformat(parttrn=”yyyy-MM-dd”)</p>
+<p>不过这个要配合JsonUtils来使用</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="annotation">@JsonFormat</span>(pattern = <span class="string">"yyyy-MM-dd"</span>)</span><br><span class="line">  <span class="keyword">private</span> Date date;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setDate(<span class="keyword">new</span> Date());</span><br><span class="line">    user.setName(<span class="string">"liuyiyou"</span>);</span><br><span class="line">    ObjectMapper objectMapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">    System.out.println(objectMapper.writeValueAsString(user));</span><br></pre></td></tr></table></figure>
 <p>需要说明的是：不是用的SpringMVC，而是使用的内部框架。</p>
 
       
@@ -495,7 +498,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">75</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -506,7 +509,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories.html">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -517,7 +520,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>

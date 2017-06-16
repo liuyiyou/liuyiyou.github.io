@@ -270,7 +270,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/01/03/2015-01-03-选择排序/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/05/30/2015-05-30-Redis常用命令和高级应用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -292,8 +292,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/01/03/2015-01-03-选择排序/" itemprop="url">
-                  选择排序
+                <a class="post-title-link" href="/2015/05/30/2015-05-30-Redis常用命令和高级应用/" itemprop="url">
+                  Redis常用命令和高级应用
                 </a>
               
             
@@ -309,8 +309,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-03T08:00:00+08:00">
-                2015-01-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-30T08:00:00+08:00">
+                2015-05-30
               </time>
             
 
@@ -332,8 +332,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
                   </a>
                 </span>
 
@@ -368,16 +368,22 @@
 
       
         
-          <h3 id="概述">概述</h3><p>选择排序：每一趟从待排序的数据元素中选出最小（或最大）的一个元素，顺序放在已排好序的数列的最后，直到全部待排序的数据元素排完。</p>
-<h3 id="原理：">原理：</h3><p>选择排序很简单，他的步骤如下：</p>
-<ol>
-<li>从左至右遍历，找到最小(大)的元素，然后与第一个元素交换。</li>
-<li>从剩余未排序元素中继续寻找最小（大）元素，然后与第二个元素进行交换。</li>
-<li>以此类推，直到所有元素均排序完毕。</li>
-</ol>
+          <p>Redis提供了丰富的命令对数据库和各种数据库类型进行操作，这些命令可以在Linux终端使用</p>
+<h3 id="键值相关命令">键值相关命令</h3><ul>
+<li>keys：返回满足给定pattern的所有key   eg:  key *</li>
+<li>exists：确认一个key是否存在   eg:  exists  name</li>
+<li>del ：删除一个key    eg: del  age</li>
+<li>expire：设置key的过期时间  eg: expire  name 10</li>
+<li>ttl  ：获取key的有效时长   eg :  ttl name</li>
+<li>move：将当前数据库中的key转移到其它数据库中  eg : move age 1</li>
+<li>persist：移除指定key过期时间   persist age </li>
+<li>randomkey：随机返回一个key</li>
+<li>rename：重命名key</li>
+<li>type：返回key的数据类型</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/01/03/2015-01-03-选择排序/#далее" rel="contents">
+            <a class="btn" href="/2015/05/30/2015-05-30-Redis常用命令和高级应用/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -423,7 +429,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/01/02/2015-01-02-插入排序/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/05/29/2015-05-29-Redis数据类型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -445,8 +451,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/01/02/2015-01-02-插入排序/" itemprop="url">
-                  插入排序
+                <a class="post-title-link" href="/2015/05/29/2015-05-29-Redis数据类型/" itemprop="url">
+                  Redis数据类型
                 </a>
               
             
@@ -462,8 +468,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-02T08:00:00+08:00">
-                2015-01-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-29T08:00:00+08:00">
+                2015-05-29
               </time>
             
 
@@ -485,8 +491,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
                   </a>
                 </span>
 
@@ -521,19 +527,17 @@
 
       
         
-          <h2 id="概述">概述</h2><p>插入排序包括 直接插入排序和希尔排序 </p>
-<p>直接插入排序的基本操作是：假设第一个元素是有序的，每次从无序表中取出第一个元素，把它插入到有序表的合适位置，从而得到一个新的，记录数增1的有序表</p>
-<p>第一种方式：</p>
-<ol>
-<li>从第一个元素开始，该元素可以认为已经被排序</li>
-<li>取出下一个元素，在已经排序的元素序列中从后向前扫描</li>
-<li>如果该元素小于前面的元素（已排序），则依次与前面元素进行比较如果小于则交换，直到找到大于该元素的就则停止；</li>
-<li>如果该元素大于前面的元素（已排序），则重复步骤2</li>
-<li>重复步骤2~4 直到所有元素都排好序 。</li>
-</ol>
+          <p>Redis数据类型主要分为五种类型</p>
+<ul>
+<li>string</li>
+<li>hash</li>
+<li>list</li>
+<li>set</li>
+<li>zset</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2015/01/02/2015-01-02-插入排序/#далее" rel="contents">
+            <a class="btn" href="/2015/05/29/2015-05-29-Redis数据类型/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -579,7 +583,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/01/01/2015-01-01-冒泡排序/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/05/29/2015-05-29总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -601,8 +605,8 @@
             
               
                 
-                <a class="post-title-link" href="/2015/01/01/2015-01-01-冒泡排序/" itemprop="url">
-                  冒泡排序
+                <a class="post-title-link" href="/2015/05/29/2015-05-29总结/" itemprop="url">
+                  2015-05-29总结
                 </a>
               
             
@@ -618,451 +622,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-01T08:00:00+08:00">
-                2015-01-01
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/数据结构/" itemprop="url" rel="index">
-                    <span itemprop="name">数据结构</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="概述">概述</h2><p>冒泡排序：它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。</p>
-<p>这个算法的名字由来是因为越大的元素会经由交换慢慢“浮”到数列的顶端，故名</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/01/01/2015-01-01-冒泡排序/#далее" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2014/11/28/2014-11-28-isNotEmpty和isNotBlank/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuyiyou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="温故而知新    触类而旁通">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/11/28/2014-11-28-isNotEmpty和isNotBlank/" itemprop="url">
-                  isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-11-28T00:00:00+08:00">
-                2014-11-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="commons-lang-jar中isNotEmpty和isNotBlank的区别">commons-lang.jar中isNotEmpty和isNotBlank的区别</h3><p>主要是，针对空字符串的处理不同</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">  String nullStr = <span class="keyword">null</span>;</span><br><span class="line">  String emptyStr =  <span class="string">""</span>;</span><br><span class="line">  String blankStr = <span class="string">" "</span>;</span><br><span class="line">  System.out.println(StringUtils.isBlank(nullStr));  <span class="comment">//true</span></span><br><span class="line">  System.out.println(StringUtils.isBlank(emptyStr));<span class="comment">//true</span></span><br><span class="line">  System.out.println(StringUtils.isBlank(blankStr));<span class="comment">//true</span></span><br><span class="line">  System.out.println(StringUtils.isNotBlank(nullStr));  <span class="comment">//false</span></span><br><span class="line">  System.out.println(StringUtils.isNotBlank(emptyStr)); <span class="comment">//false</span></span><br><span class="line">  System.out.println(StringUtils.isNotBlank(blankStr));<span class="comment">//false</span></span><br><span class="line"> </span><br><span class="line">  System.out.println(StringUtils.isEmpty(nullStr));<span class="comment">//true</span></span><br><span class="line">  System.out.println(StringUtils.isEmpty(emptyStr));<span class="comment">//true</span></span><br><span class="line">  System.out.println(StringUtils.isEmpty(blankStr)); <span class="comment">//false</span></span><br><span class="line">  System.out.println(StringUtils.isNotEmpty(nullStr));<span class="comment">//false</span></span><br><span class="line">  System.out.println(StringUtils.isNotEmpty(emptyStr));<span class="comment">//false</span></span><br><span class="line">  System.out.println(StringUtils.isNotEmpty(blankStr));<span class="comment">//true</span></span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2014/11/28/2014-11-28-isNotEmpty和isNotBlank/#далее" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2014/11/05/2014-11-05-取两个集合的交集/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuyiyou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="温故而知新    触类而旁通">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/11/05/2014-11-05-取两个集合的交集/" itemprop="url">
-                  取两个集合的交集
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-11-05T08:00:00+08:00">
-                2014-11-05
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="概述">概述</h3><p>因为在项目中要用到这个功能，先使用一个查询，将一个外键查出来，然后在另外一个一个查询中查出外键，然后比较两个，如果第二个集合中的值在第一个中就需要做一些处理，所以就是一个求两个集合的交集，自己花了一段时间才写出来，到后面发现java framework中已经有这个方法了，但是之前一直没有使用过，所以记录一下：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2014/11/05/2014-11-05-取两个集合的交集/#далее" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2014/09/10/2014-09-10-离职感言-第一份工作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuyiyou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="温故而知新    触类而旁通">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2014/09/10/2014-09-10-离职感言-第一份工作/" itemprop="url">
-                  离职感言-第一份工作
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-09-10T00:00:00+08:00">
-                2014-09-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-29T00:00:00+08:00">
+                2015-05-29
               </time>
             
 
@@ -1120,13 +681,13 @@
 
       
         
-          <p>很久很久以前就有这个打算了，有多久，我自己也有点记不清了，所以在离职之后，有同学留言说终于换了，我问为什么还要加上一个前缀呢？她说因为我考虑了很久。然后我才想起还是五一左右的时候，同学来北京，我跟她说起我想辞职。结果一晃就晃到了九月中旬。</p>
-<p>而现在终于到了说再见的时候了，从2011年的11月到2014年的9月，差不多三年的时间都在这家公司度过，而现在却是到了说再见的时候了。</p>
-<p>这家公司是我职业生涯对我最好的公司，我想不出意外的话，以后也不会有。在这里我从一个技术一般的人到现在虽然不能说很牛逼，但是比起当初却进步了很多</p>
-<p>很多话想说，但是不知道从何说起，所以我很聪明的选择了另外一个人帮我来说，下面这篇就是和我一起来来却把我抛弃在北京的好基友的文章，也代表了我大多想法，看来我确实是个聪明人：括号内和画外音为本人所写</p>
+          <p>1、复习了一下Spring加载bean的流程。</p>
+<p>因为大多数时候都是在xml中配置或者直接使用注解，所以会用，但是具体原理只记得模模糊糊，之前也看过源代码，不过太过庞大，直接看晕了，不过看晕了也得看，这不，这周又开始看了，记忆也需要慢慢强化。</p>
+<p>2、 买了一本redis的书籍</p>
+<p>第一次买电子书，主要是看它便宜，只要7.9，本来还打算买一本《数据结构与算法分析-java语言描述》的电子书的，虽然有一本，但是是盗版的，排版质量一般，不过一看，貌似没有电子书，所以暂时搁置，等把电子书看完之后，再买一本纸质的书吧。 不过我的算法导论啥时候能看懂，啥时候能看完啊！！！</p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/09/10/2014-09-10-离职感言-第一份工作/#далее" rel="contents">
+            <a class="btn" href="/2015/05/29/2015-05-29总结/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1172,7 +733,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2014/01/02/2014-01-02-重生之大涅槃/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/05/28/2015-05-28-Redis安装与基本测试/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -1194,8 +755,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/01/02/2014-01-02-重生之大涅槃/" itemprop="url">
-                  重生之大涅槃
+                <a class="post-title-link" href="/2015/05/28/2015-05-28-Redis安装与基本测试/" itemprop="url">
+                  Redis安装与基本测试
                 </a>
               
             
@@ -1211,8 +772,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-01-02T08:00:00+08:00">
-                2014-01-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-28T08:00:00+08:00">
+                2015-05-28
               </time>
             
 
@@ -1234,8 +795,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
                   </a>
                 </span>
 
@@ -1270,12 +831,10 @@
 
       
         
-          <p>二十岁的年龄，会觉得时光匆匆是一件好事，三十岁的年龄，会发现时间不够用，四十岁的年龄会希望时间流逝得慢一点更充实一点。五十而立，六十岁甲，时光流淌如刀，雕刻在心脏上，让人疼痛</p>
-<p>也许这就是人生，看似平淡，事实上却波澜滔天的人生，因为谁也不能从现在这一刻，预知和丈量到未来究竟会发生什么。</p>
-<p>因为他们最宝贵的年华，也都在自己恨不得匆匆而过的成长中，匆匆而过的逝去了</p>
+          <h2 id="安装">安装</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="variable">$lyy</span>:<span class="built_in">cd</span>  /Users/liuyiyou/soft</span><br><span class="line"><span class="variable">$lyy</span>: wget http://download.redis.io/releases/redis-<span class="number">3.0</span>.<span class="number">1</span>.tar.gz </span><br><span class="line"><span class="variable">$lyy</span>: tar xzf redis-<span class="number">3.0</span>.<span class="number">1</span>.tar.gz </span><br><span class="line"><span class="variable">$lyy</span>: <span class="built_in">cd</span> redis-<span class="number">3.0</span>.<span class="number">1</span> </span><br><span class="line"><span class="variable">$lyy</span>: make</span><br><span class="line"><span class="variable">$lyy</span>: <span class="built_in">cd</span> src  </span><br><span class="line"><span class="variable">$lyy</span>: install</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/01/02/2014-01-02-重生之大涅槃/#далее" rel="contents">
+            <a class="btn" href="/2015/05/28/2015-05-28-Redis安装与基本测试/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1321,7 +880,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2014/01/01/2014-01-01-hexo初试/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/05/27/2015-05-27-为什么使用Redis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -1343,8 +902,8 @@
             
               
                 
-                <a class="post-title-link" href="/2014/01/01/2014-01-01-hexo初试/" itemprop="url">
-                  hexo初试
+                <a class="post-title-link" href="/2015/05/27/2015-05-27-为什么使用Redis/" itemprop="url">
+                  为什么使用Redis
                 </a>
               
             
@@ -1360,8 +919,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2014-01-01T08:00:00+08:00">
-                2014-01-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-27T00:00:00+08:00">
+                2015-05-27
               </time>
             
 
@@ -1383,8 +942,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/生活/" itemprop="url" rel="index">
-                    <span itemprop="name">生活</span>
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
                   </a>
                 </span>
 
@@ -1419,18 +978,15 @@
 
       
         
-          <hr>
-<p>本博客模板来自于<a href="https://github.com/iissnan/hexo-theme-next">NEXT</a>主题</p>
-<p>博客所在位置 /Users/liuyiyou/blog</p>
-<h1 id="常用命令">常用命令</h1><p>hexo clean  清除<br>hext s –debug  调试<br>hext g  生成<br>hext d  部署</p>
-<hr>
-<p>Welcome to <a href="http://hexo.io/">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+          <p>相比于传统的关系数据库，Redis有以下优势：</p>
+<ul>
+<li>对数据高并发读写</li>
+<li>对海量数据的高效率存储和访问</li>
+<li>对数据的高可扩展和高可用性</li>
+</ul>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2014/01/01/2014-01-01-hexo初试/#далее" rel="contents">
+            <a class="btn" href="/2015/05/27/2015-05-27-为什么使用Redis/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1476,7 +1032,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2013/02/01/2013-02-01-新的初始化对象的方法/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/05/17/2015-05-17总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -1498,8 +1054,8 @@
             
               
                 
-                <a class="post-title-link" href="/2013/02/01/2013-02-01-新的初始化对象的方法/" itemprop="url">
-                  新的初始化对象的方法
+                <a class="post-title-link" href="/2015/05/17/2015-05-17总结/" itemprop="url">
+                  2015-05-17总结
                 </a>
               
             
@@ -1515,8 +1071,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2013-02-01T08:00:00+08:00">
-                2013-02-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-17T00:00:00+08:00">
+                2015-05-17
               </time>
             
 
@@ -1538,8 +1094,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/总结/" itemprop="url" rel="index">
+                    <span itemprop="name">总结</span>
                   </a>
                 </span>
 
@@ -1574,10 +1130,610 @@
 
       
         
-          <h2 id="概述">概述</h2><p>之前我们初始化对象的时候，如果是一个接口，我们通常是实例化实现类，如果是类，我们直接通过new来实例化一个对象，但是今天看到了另外一种方法，记下来，也许很少用到，但是争取在心中留个印象</p>
+          <h2 id="本周总结">本周总结</h2><ol>
+<li>熟悉了一下Linux命令，一些常用的命令再也不需要每次用到的时候去查资料了。主要有下面的</li>
+</ol>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">mkdir  </span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line">rm -rf  file/direct</span><br><span class="line">jar -xvf  project.war</span><br><span class="line">unzip -xvf project.war</span><br><span class="line">mv  project  project1</span><br><span class="line">tail -n2000 <span class="operator">-f</span>  jboss.log </span><br><span class="line">scp <span class="number">192.168</span>.<span class="number">1.2</span>/data/jboss <span class="number">192.169</span>.<span class="number">1.3</span>/data/jboss</span><br><span class="line">ps -ef|grep jboss</span><br></pre></td></tr></table></figure>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2013/02/01/2013-02-01-新的初始化对象的方法/#далее" rel="contents">
+            <a class="btn" href="/2015/05/17/2015-05-17总结/#далее" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/05/17/2015-05-17-memcached常用命令/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/17/2015-05-17-memcached常用命令/" itemprop="url">
+                  memcached常用命令
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-17T00:00:00+08:00">
+                2015-05-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tools/" itemprop="url" rel="index">
+                    <span itemprop="name">tools</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>转载自：<a href="http://www.cnblogs.com/jeffwongishandsome/archive/2011/11/06/2238265.html">Memcached常用命令</a></p>
+<p>首先，以下的这些命令都是在连接Memcached之后才进行</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">lyy:~ liuyiyou$ /usr/<span class="built_in">local</span>/bin/memcached <span class="operator">-d</span> <span class="number">11211</span></span><br><span class="line">lyy:~ liuyiyou$ /telnet   localhost  <span class="number">11211</span></span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/05/17/2015-05-17-memcached常用命令/#далее" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/05/16/2015-05-16-memcached安装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/05/16/2015-05-16-memcached安装/" itemprop="url">
+                  memcached安装
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-16T00:00:00+08:00">
+                2015-05-16
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tools/" itemprop="url" rel="index">
+                    <span itemprop="name">tools</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在MyBatis集成第三方缓存的时候，用到了Memcached，不过自己的电脑上只有MongoDB，没有Memcached，所以装了一个Memcached，在这里记录一下</p>
+<p>使用homebrew进行安装，在安装之前可以看一下homebrew已经安装了哪些软件</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">lyy:~ liuyiyou$ brew list</span><br></pre></td></tr></table></figure>
+<p>安装了运行如下方法</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/05/16/2015-05-16-memcached安装/#далее" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/04/25/2015-04-25-mybatis通用dao/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/04/25/2015-04-25-mybatis通用dao/" itemprop="url">
+                  MyBatis通用dao和通用service
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-04-25T00:00:00+08:00">
+                2015-04-25
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/mybatis/" itemprop="url" rel="index">
+                    <span itemprop="name">mybatis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>使用通用dao和通用service可以减少代码的开发。可以将常用的增删改查放到通用dao中。对不同的or框架，基本上都有自己的实现如SpringJPA的Repository就提供了常用的增删改查方法。而MyBatis借助代码生成工具也可以生成常用方法的映射</p>
+<p>这里只针对Mybatis。如果使用代码生成工具，会有一个问题：每个Mapper里面都有一些方法（增晒改查）。维护起来的话还好。只是在写service的时候会有一个问题。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/04/25/2015-04-25-mybatis通用dao/#далее" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/01/06/2015-01-06-希尔排序/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/01/06/2015-01-06-希尔排序/" itemprop="url">
+                  希尔排序
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-01-06T08:00:00+08:00">
+                2015-01-06
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/数据结构/" itemprop="url" rel="index">
+                    <span itemprop="name">数据结构</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="概述">概述</h2><p>希尔排序和直接插入排序一样，都是插入排序，但是它改进了直接插入排序，该方法又称缩小增量排序</p>
+<h2 id="算法原理">算法原理</h2><p>希尔算法的运作如下：（从后往前）</p>
+<p>先取一个小于n的整数d1作为第一个增量，把文件的全部记录分组。所有距离为d1的倍数的记录放在同一个组中。先在各组内部进行直接插入排序，然后，取第二个增量d2&lt;d1重复上述分组和排序，直至所取的增量dt＝1，即所有记录放在同一组中进行直接插入排序为止。</p>
+<p>一般的初次取序列的一半为增量，以后每次减半，直到增量为1。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/01/06/2015-01-06-希尔排序/#далее" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -1618,7 +1774,7 @@
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span>
+    <a class="extend prev" rel="prev" href="/page/5/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/page/7/">7</a><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/7/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -1663,7 +1819,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">59</span>
+                <span class="site-state-item-count">75</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1674,7 +1830,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories.html">
-                <span class="site-state-item-count">22</span>
+                <span class="site-state-item-count">20</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1685,7 +1841,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">28</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
