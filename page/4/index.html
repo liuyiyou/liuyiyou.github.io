@@ -270,6 +270,157 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/12/01/2015-12-01-一些小技巧/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2015/12/01/2015-12-01-一些小技巧/" itemprop="url">
+                  一些小技巧
+                </a>
+              
+            
+          </h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-12-01T00:00:00+08:00">
+                2015-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/skill/" itemprop="url" rel="index">
+                    <span itemprop="name">skill</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="关于jrebel">关于jrebel</h2><p>今天在敲代码的时候，发现修改mybatis的xml映射文件之后，jrebel竟然没有重新加载这个xml，导致每修改一次就需要重启一次，原因在于，jrebel只加载类似prototype类型的java文件和xml。</p>
+<h2 id="关于mysql">关于mysql</h2><p>mysql在group by 的时候，如果某个字段有味null的时候，group by 后的结果可能就是null。但是在某些情况下，需要填充，可以使用如下方式</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="operator"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span> (<span class="keyword">select</span> <span class="number">20151201</span>, <span class="keyword">id</span>, <span class="keyword">name</span>   <span class="keyword">from</span> table2  <span class="keyword">group</span> <span class="keyword">by</span>   xx)</span></span><br></pre></td></tr></table></figure>
+<p>这样就能确保第一个值是有值的  而且是  20151201</p>
+<h2 id="关于wf">关于wf</h2><p>wf的控制层因为要继承MvcController，导致不能在该层使用注解，需要通过显示的SpringContext.getBean(Bean.class)来得到服务类的实例。当然，有其他方式解决</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2015/12/01/2015-12-01-一些小技巧/#далее" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/11/15/2015-11-15-Tomcat存放web的几种方式/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1624,168 +1775,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/10/11/2015-10-11总结/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuyiyou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="温故而知新    触类而旁通">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2015/10/11/2015-10-11总结/" itemprop="url">
-                  2015-10-11总结
-                </a>
-              
-            
-          </h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-10-11T00:00:00+08:00">
-                2015-10-11
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/总结/" itemprop="url" rel="index">
-                    <span itemprop="name">总结</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/总结/mysql/" itemprop="url" rel="index">
-                    <span itemprop="name">mysql</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>好吧，其实在我写这篇总结的时候，已经是12号的晚上十点。因为上周末回去的时候，电源没有带回来，等看完天天向上和爸爸去哪儿之后电量已经明显不足，只得关机到今天才补上。</p>
-<h3 id="写sql语句">写sql语句</h3><p>其实这周还是有些收获的，这周主要是些SQL，好像从工作开始就很少写sql、第一家公司使用的是JPA，压根很少些sql、一般都通过jpa就完成了。所以那个时候我连LEFT JOIN之类的连接查询都不会写，在大学里的那点都已经差不多全部还给老师了。</p>
-<p>第二家公司的时候没有用JPA而是用的MyBatis，不过依然还是很少写sql、因为系统主要以维护为主，很少添加新功能。不过通过维护和阅读别人写的代码还是渐渐了解了sql。当然仅仅是了解，离精通还有十万八千里，sql调优之类的也只是知道一点点而已，不过连接查询还是会写了。</p>
-<p>到现在的这家公司，因为刚开始，一切都是起步，所以也有幸基本从头到尾参与到一个或者多个项目中，不过直到现在的bdp项目之后，才感觉有比较大的收获，对sql也渐渐熟悉起来了。</p>
-<p>写sql主要对业务逻辑和sql执行顺序有比较好的了解，不过两者我都不熟悉，所以开始写得比较慢，而且错误还比较多。不过一周之后也慢慢熟悉了业务和sql。相比于自己琢磨或者写demo，实际的项目更加锻炼人。而自己的项目很少会写那么复杂的sql。 所以这周收获比较大。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/10/11/2015-10-11总结/#далее" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -1835,7 +1824,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">77</span>
+                <span class="site-state-item-count">78</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -1846,7 +1835,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories.html">
-                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-count">21</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -1857,7 +1846,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">24</span>
+                <span class="site-state-item-count">25</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
