@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,11 +10,26 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -37,38 +52,27 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
 
 
   <meta name="keywords" content="memcache," />
@@ -80,32 +84,20 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
-
-
-
-
-<meta name="description" content="在MyBatis集成第三方缓存的时候，用到了Memcached，不过自己的电脑上只有MongoDB，没有Memcached，所以装了一个Memcached，在这里记录一下
-使用homebrew进行安装，在安装之前可以看一下homebrew已经安装了哪些软件
-lyy:~ liuyiyou$ brew list
-安装了运行如下方法">
+<meta name="description" content="在MyBatis集成第三方缓存的时候，用到了Memcached，不过自己的电脑上只有MongoDB，没有Memcached，所以装了一个Memcached，在这里记录一下 使用homebrew进行安装，在安装之前可以看一下homebrew已经安装了哪些软件 lyy:~ liuyiyou$ brew list 安装了运行如下方法">
+<meta name="keywords" content="memcache">
 <meta property="og:type" content="article">
 <meta property="og:title" content="memcached安装">
 <meta property="og:url" content="http://liuyiyou.cn/2015/05/16/2015-05-16-memcached安装/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="在MyBatis集成第三方缓存的时候，用到了Memcached，不过自己的电脑上只有MongoDB，没有Memcached，所以装了一个Memcached，在这里记录一下
-使用homebrew进行安装，在安装之前可以看一下homebrew已经安装了哪些软件
-lyy:~ liuyiyou$ brew list
-安装了运行如下方法">
+<meta property="og:description" content="在MyBatis集成第三方缓存的时候，用到了Memcached，不过自己的电脑上只有MongoDB，没有Memcached，所以装了一个Memcached，在这里记录一下 使用homebrew进行安装，在安装之前可以看一下homebrew已经安装了哪些软件 lyy:~ liuyiyou$ brew list 安装了运行如下方法">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2015-10-07T12:32:08.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="memcached安装">
-<meta name="twitter:description" content="在MyBatis集成第三方缓存的时候，用到了Memcached，不过自己的电脑上只有MongoDB，没有Memcached，所以装了一个Memcached，在这里记录一下
-使用homebrew进行安装，在安装之前可以看一下homebrew已经安装了哪些软件
-lyy:~ liuyiyou$ brew list
-安装了运行如下方法">
+<meta name="twitter:description" content="在MyBatis集成第三方缓存的时候，用到了Memcached，不过自己的电脑上只有MongoDB，没有Memcached，所以装了一个Memcached，在这里记录一下 使用homebrew进行安装，在安装之前可以看一下homebrew已经安装了哪些软件 lyy:~ liuyiyou$ brew list 安装了运行如下方法">
 
 
 
@@ -114,9 +106,11 @@ lyy:~ liuyiyou$ brew list
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -139,11 +133,7 @@ lyy:~ liuyiyou$ brew list
 
 
 
-  <title> memcached安装 | 温故而知新    触类而旁通 </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>memcached安装 | 温故而知新    触类而旁通</title>
   
 
 
@@ -153,18 +143,16 @@ lyy:~ liuyiyou$ brew list
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-right page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -210,18 +198,8 @@ lyy:~ liuyiyou$ brew list
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -230,8 +208,18 @@ lyy:~ liuyiyou$ brew list
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -241,11 +229,21 @@ lyy:~ liuyiyou$ brew list
       
         
         <li class="menu-item menu-item-inbox">
-          <a href="/inbox" rel="section">
+          <a href="/inbox/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
             
-            收藏
+            inbox
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -277,7 +275,11 @@ lyy:~ liuyiyou$ brew list
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/05/16/2015-05-16-memcached安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -295,14 +297,7 @@ lyy:~ liuyiyou$ brew list
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                memcached安装
-              
-            
-          </h2>
+          <h2 class="post-title" itemprop="name headline">memcached安装</h2>
         
 
         <div class="post-meta">
@@ -365,7 +360,9 @@ lyy:~ liuyiyou$ brew list
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -374,38 +371,26 @@ lyy:~ liuyiyou$ brew list
       
         <p>在MyBatis集成第三方缓存的时候，用到了Memcached，不过自己的电脑上只有MongoDB，没有Memcached，所以装了一个Memcached，在这里记录一下</p>
 <p>使用homebrew进行安装，在安装之前可以看一下homebrew已经安装了哪些软件</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">lyy:~ liuyiyou$ brew list</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">lyy:~ liuyiyou$ brew list</div></pre></td></tr></table></figure>
 <p>安装了运行如下方法</p>
 <a id="more"></a>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">lyy:~ liuyiyou$ brew install memcached</span><br><span class="line">==&gt; Installing dependencies <span class="keyword">for</span> memcached: openssl, libevent</span><br><span class="line">==&gt; Installing memcached dependency: openssl</span><br><span class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/openssl-<span class="number">1.0</span>.<span class="number">2</span>a-<span class="number">1</span>.mavericks.bottle.tar.gz</span><br><span class="line"></span><br><span class="line">curl: (<span class="number">22</span>) The requested URL returned error: <span class="number">404</span> Not Found</span><br><span class="line">Error: Failed to download resource <span class="string">"openssl"</span></span><br><span class="line">Download failed: https://homebrew.bintray.com/bottles/openssl-<span class="number">1.0</span>.<span class="number">2</span>a-<span class="number">1</span>.mavericks.bottle.tar.gz</span><br><span class="line">Warning: Bottle installation failed: building from source.</span><br><span class="line">Error: /usr/<span class="built_in">local</span>/opt/makedepend not present or broken</span><br><span class="line">Please reinstall makedepend. Sorry :(</span><br><span class="line">lyy:~ liuyiyou$ brew install memcached</span><br></pre></td></tr></table></figure>
-<p>可见需要依赖openssl和 libevent，而前者无法<figure class="highlight"><table><tr><td class="code"><pre><span class="line">&#10;```sh&#10;&#10;lyy:~ liuyiyou$ brew install openssl&#10;==&#62; Downloading https://homebrew.bintray.com/bottles/openssl-1.0.2a-1.mavericks.bottle.tar.gz&#10;&#10;curl: (22) The requested URL returned error: 404 Not Found&#10;Error: Failed to download resource &#34;openssl&#34;&#10;Download failed: https://homebrew.bintray.com/bottles/openssl-1.0.2a-1.mavericks.bottle.tar.gz&#10;Warning: Bottle installation failed: building from source.&#10;==&#62; Installing openssl dependency: makedepend&#10;==&#62; Downloading https://homebrew.bintray.com/bottles/makedepend-1.0.5.mavericks.bottle.tar.gz&#10;######################################################################## 100.0%&#10;==&#62; Pouring makedepend-1.0.5.mavericks.bottle.tar.gz&#10;&#127866;  /usr/local/Cellar/makedepend/1.0.5: 7 files, 92K&#10;==&#62; Downloading https://www.openssl.org/source/openssl-1.0.2a.tar.gz&#10;&#10;curl: (28) Operation timed out after 5605 milliseconds with 0 out of 0 bytes received&#10;Trying a mirror...&#10;==&#62; Downloading https://raw.githubusercontent.com/DomT4/LibreMirror/master/OpenSSL/openssl-1.0.2a.ta&#10;######################################################################## 100.0%&#10;==&#62; perl ./Configure --prefix=/usr/local/Cellar/openssl/1.0.2a-1 --openssldir=/usr/local/etc/openssl&#10;==&#62; make depend&#10;==&#62; make&#10;==&#62; make test&#10;==&#62; make install MANDIR=/usr/local/Cellar/openssl/1.0.2a-1/share/man MANSUFFIX=ssl&#10;==&#62; Caveats&#10;A CA file has been bootstrapped using certificates from the system&#10;keychain. To add additional certificates, place .pem files in&#10;  /usr/local/etc/openssl/certs&#10;&#10;and run&#10;  /usr/local/opt/openssl/bin/c_rehash&#10;&#10;This formula is keg-only, which means it was not symlinked into /usr/local.&#10;&#10;Mac OS X already provides this software and installing another version in&#10;parallel can cause all kinds of trouble.&#10;&#10;Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries&#10;&#10;Generally there are no consequences of this for you. If you build your&#10;own software and it requires this formula, you&#39;ll need to add to your&#10;build variables:&#10;&#10;    LDFLAGS:  -L/usr/local/opt/openssl/lib&#10;    CPPFLAGS: -I/usr/local/opt/openssl/include&#10;&#10;==&#62; Summary&#10;&#127866;  /usr/local/Cellar/openssl/1.0.2a-1: 463 files, 18M, built in 4.7 minutes&#10;lyy:~ liuyiyou$ brew list&#10;gradle&#9; makedepend&#9;openssl&#10;lyy:~ liuyiyou$ brew install memcached&#10;==&#62; Installing memcached dependency: libevent&#10;==&#62; Downloading https://homebrew.bintray.com/bottles/libevent-2.0.22.mavericks.bottle.tar.gz&#10;######################################################################## 100.0%&#10;==&#62; Pouring libevent-2.0.22.mavericks.bottle.tar.gz&#10;&#127866;  /usr/local/Cellar/libevent/2.0.22: 48 files, 1.8M&#10;==&#62; Installing memcached&#10;==&#62; Downloading https://homebrew.bintray.com/bottles/memcached-1.4.20.mavericks.bottle.1.tar.gz&#10;######################################################################## 100.0%&#10;==&#62; Pouring memcached-1.4.20.mavericks.bottle.1.tar.gz&#10;==&#62; Caveats&#10;To have launchd start memcached at login:&#10;    ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents&#10;Then to load memcached now:&#10;    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist&#10;Or, if you don&#39;t want/need launchctl, you can just run:&#10;    /usr/local/opt/memcached/bin/memcached&#10;==&#62; Summary&#10;&#127866;  /usr/local/Cellar/memcached/1.4.20: 10 files, 184K&#10;lyy:~ liuyiyou$ brew list&#10;gradle&#9; libevent&#9;makedepend&#9;memcached&#9;openssl</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">lyy:~ liuyiyou$ brew install memcached</div><div class="line">==&gt; Installing dependencies <span class="keyword">for</span> memcached: openssl, libevent</div><div class="line">==&gt; Installing memcached dependency: openssl</div><div class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/openssl-1.0.2a-1.mavericks.bottle.tar.gz</div><div class="line"></div><div class="line">curl: (22) The requested URL returned error: 404 Not Found</div><div class="line">Error: Failed to download resource <span class="string">"openssl"</span></div><div class="line">Download failed: https://homebrew.bintray.com/bottles/openssl-1.0.2a-1.mavericks.bottle.tar.gz</div><div class="line">Warning: Bottle installation failed: building from <span class="built_in">source</span>.</div><div class="line">Error: /usr/<span class="built_in">local</span>/opt/makedepend not present or broken</div><div class="line">Please reinstall makedepend. Sorry :(</div><div class="line">lyy:~ liuyiyou$ brew install memcached</div></pre></td></tr></table></figure>
+<p>可见需要依赖openssl和 libevent，而前者无法<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">```sh</div><div class="line"></div><div class="line">lyy:~ liuyiyou$ brew install openssl</div><div class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/openssl-1.0.2a-1.mavericks.bottle.tar.gz</div><div class="line"></div><div class="line">curl: (22) The requested URL returned error: 404 Not Found</div><div class="line">Error: Failed to download resource &quot;openssl&quot;</div><div class="line">Download failed: https://homebrew.bintray.com/bottles/openssl-1.0.2a-1.mavericks.bottle.tar.gz</div><div class="line">Warning: Bottle installation failed: building from source.</div><div class="line">==&gt; Installing openssl dependency: makedepend</div><div class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/makedepend-1.0.5.mavericks.bottle.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Pouring makedepend-1.0.5.mavericks.bottle.tar.gz</div><div class="line">🍺  /usr/local/Cellar/makedepend/1.0.5: 7 files, 92K</div><div class="line">==&gt; Downloading https://www.openssl.org/source/openssl-1.0.2a.tar.gz</div><div class="line"></div><div class="line">curl: (28) Operation timed out after 5605 milliseconds with 0 out of 0 bytes received</div><div class="line">Trying a mirror...</div><div class="line">==&gt; Downloading https://raw.githubusercontent.com/DomT4/LibreMirror/master/OpenSSL/openssl-1.0.2a.ta</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; perl ./Configure --prefix=/usr/local/Cellar/openssl/1.0.2a-1 --openssldir=/usr/local/etc/openssl</div><div class="line">==&gt; make depend</div><div class="line">==&gt; make</div><div class="line">==&gt; make test</div><div class="line">==&gt; make install MANDIR=/usr/local/Cellar/openssl/1.0.2a-1/share/man MANSUFFIX=ssl</div><div class="line">==&gt; Caveats</div><div class="line">A CA file has been bootstrapped using certificates from the system</div><div class="line">keychain. To add additional certificates, place .pem files in</div><div class="line">  /usr/local/etc/openssl/certs</div><div class="line"></div><div class="line">and run</div><div class="line">  /usr/local/opt/openssl/bin/c_rehash</div><div class="line"></div><div class="line">This formula is keg-only, which means it was not symlinked into /usr/local.</div><div class="line"></div><div class="line">Mac OS X already provides this software and installing another version in</div><div class="line">parallel can cause all kinds of trouble.</div><div class="line"></div><div class="line">Apple has deprecated use of OpenSSL in favor of its own TLS and crypto libraries</div><div class="line"></div><div class="line">Generally there are no consequences of this for you. If you build your</div><div class="line">own software and it requires this formula, you&apos;ll need to add to your</div><div class="line">build variables:</div><div class="line"></div><div class="line">    LDFLAGS:  -L/usr/local/opt/openssl/lib</div><div class="line">    CPPFLAGS: -I/usr/local/opt/openssl/include</div><div class="line"></div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/openssl/1.0.2a-1: 463 files, 18M, built in 4.7 minutes</div><div class="line">lyy:~ liuyiyou$ brew list</div><div class="line">gradle	 makedepend	openssl</div><div class="line">lyy:~ liuyiyou$ brew install memcached</div><div class="line">==&gt; Installing memcached dependency: libevent</div><div class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/libevent-2.0.22.mavericks.bottle.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Pouring libevent-2.0.22.mavericks.bottle.tar.gz</div><div class="line">🍺  /usr/local/Cellar/libevent/2.0.22: 48 files, 1.8M</div><div class="line">==&gt; Installing memcached</div><div class="line">==&gt; Downloading https://homebrew.bintray.com/bottles/memcached-1.4.20.mavericks.bottle.1.tar.gz</div><div class="line">######################################################################## 100.0%</div><div class="line">==&gt; Pouring memcached-1.4.20.mavericks.bottle.1.tar.gz</div><div class="line">==&gt; Caveats</div><div class="line">To have launchd start memcached at login:</div><div class="line">    ln -sfv /usr/local/opt/memcached/*.plist ~/Library/LaunchAgents</div><div class="line">Then to load memcached now:</div><div class="line">    launchctl load ~/Library/LaunchAgents/homebrew.mxcl.memcached.plist</div><div class="line">Or, if you don&apos;t want/need launchctl, you can just run:</div><div class="line">    /usr/local/opt/memcached/bin/memcached</div><div class="line">==&gt; Summary</div><div class="line">🍺  /usr/local/Cellar/memcached/1.4.20: 10 files, 184K</div><div class="line">lyy:~ liuyiyou$ brew list</div><div class="line">gradle	 libevent	makedepend	memcached	openssl</div></pre></td></tr></table></figure></p>
 <p>启动memcached</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">lyy:~ liuyiyou$ /usr/<span class="built_in">local</span>/bin/memcached -p <span class="number">11211</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">lyy:~ liuyiyou$ /usr/<span class="built_in">local</span>/bin/memcached -p 11211</div></pre></td></tr></table></figure>
 <p>一般情况下，不会使用这个参数，因为会占用终端，而是使用一个-d参数 ，作为一个守护进程来使用，具体如何使用，可以通过<br><code>memcached -h</code>查看</p>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -417,7 +402,7 @@ lyy:~ liuyiyou$ brew list
       
 
       
-        
+      
       
 
       
@@ -445,6 +430,10 @@ lyy:~ liuyiyou$ brew list
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -460,9 +449,9 @@ lyy:~ liuyiyou$ brew list
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
+
+  
+
 
 
         </div>
@@ -478,92 +467,87 @@ lyy:~ liuyiyou$ brew list
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="liuyiyou" />
-          <p class="site-author-name" itemprop="name">liuyiyou</p>
-           
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liuyiyou</p>
               <p class="site-description motion-element" itemprop="description"></p>
-           
-        </div>
-        <nav class="site-state motion-element">
+          </div>
 
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">78</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
+          <nav class="site-state motion-element">
 
-          
             
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories.html">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
-              </span>
+              </div>
             
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  知乎
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">分类</span>
                 </a>
-              </span>
+              </div>
             
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-quora"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -580,30 +564,36 @@ lyy:~ liuyiyou$ brew list
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">liuyiyou</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -614,6 +604,8 @@ lyy:~ liuyiyou$ brew list
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -637,64 +629,6 @@ lyy:~ liuyiyou$ brew list
   
 
 
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
   
 
 
@@ -707,6 +641,97 @@ lyy:~ liuyiyou$ brew list
 
 
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
 
 
   
@@ -718,77 +743,15 @@ lyy:~ liuyiyou$ brew list
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
 
   
 
-<!-- mathjax config similar to math.stackexchange -->
+  
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
+  
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 </body>
 </html>

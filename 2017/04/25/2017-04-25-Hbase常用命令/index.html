@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,11 +10,26 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -37,38 +52,27 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
 
 
   <meta name="keywords" content="Hbase," />
@@ -80,32 +84,20 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
-
-
-
-
-<meta name="description" content="启动cd hbase-1.2.4/bin./start-hbase.sh  ./hbase shell
-创建表注意： 没有 table关键字，没有;号，有’’号
-hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row(s) in 1.6100 seconds=&amp;gt; Hbase::Table - testtable
-查看表hbase(ma">
+<meta name="description" content="启动cd hbase-1.2.4/bin./start-hbase.sh  ./hbase shell 创建表注意： 没有 table关键字，没有;号，有’’号 hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row(s) in 1.6100 seconds=&amp;gt; Hbase::Table - testtable 查看表hbase(ma">
+<meta name="keywords" content="Hbase">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hbase常用命令">
 <meta property="og:url" content="http://liuyiyou.cn/2017/04/25/2017-04-25-Hbase常用命令/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="启动cd hbase-1.2.4/bin./start-hbase.sh  ./hbase shell
-创建表注意： 没有 table关键字，没有;号，有’’号
-hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row(s) in 1.6100 seconds=&amp;gt; Hbase::Table - testtable
-查看表hbase(ma">
+<meta property="og:description" content="启动cd hbase-1.2.4/bin./start-hbase.sh  ./hbase shell 创建表注意： 没有 table关键字，没有;号，有’’号 hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row(s) in 1.6100 seconds=&amp;gt; Hbase::Table - testtable 查看表hbase(ma">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-05-05T10:12:53.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hbase常用命令">
-<meta name="twitter:description" content="启动cd hbase-1.2.4/bin./start-hbase.sh  ./hbase shell
-创建表注意： 没有 table关键字，没有;号，有’’号
-hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row(s) in 1.6100 seconds=&amp;gt; Hbase::Table - testtable
-查看表hbase(ma">
+<meta name="twitter:description" content="启动cd hbase-1.2.4/bin./start-hbase.sh  ./hbase shell 创建表注意： 没有 table关键字，没有;号，有’’号 hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row(s) in 1.6100 seconds=&amp;gt; Hbase::Table - testtable 查看表hbase(ma">
 
 
 
@@ -114,9 +106,11 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -139,11 +133,7 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
 
 
 
-  <title> Hbase常用命令 | 温故而知新    触类而旁通 </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>Hbase常用命令 | 温故而知新    触类而旁通</title>
   
 
 
@@ -153,18 +143,16 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-right page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -210,18 +198,8 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -230,8 +208,18 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -241,11 +229,21 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
       
         
         <li class="menu-item menu-item-inbox">
-          <a href="/inbox" rel="section">
+          <a href="/inbox/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
             
-            收藏
+            inbox
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -277,7 +275,11 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017/04/25/2017-04-25-Hbase常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -295,14 +297,7 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                Hbase常用命令
-              
-            
-          </h2>
+          <h2 class="post-title" itemprop="name headline">Hbase常用命令</h2>
         
 
         <div class="post-meta">
@@ -365,46 +360,36 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <h3 id="启动">启动</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">cd</span> hbase-<span class="number">1.2</span>.<span class="number">4</span>/bin</span><br><span class="line"></span><br><span class="line">./start-hbase.sh  </span><br><span class="line"></span><br><span class="line">./hbase shell</span><br></pre></td></tr></table></figure>
-<h3 id="创建表">创建表</h3><p>注意： 没有 table关键字，没有;号，有’’号</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hbase(main):<span class="number">001</span>:<span class="number">0</span>&gt; create <span class="string">'testtable'</span>, <span class="string">'colfam1'</span></span><br><span class="line"><span class="number">0</span> row(s) <span class="keyword">in</span> <span class="number">1.6100</span> seconds</span><br><span class="line"></span><br><span class="line">=&gt; Hbase::Table - testtable</span><br></pre></td></tr></table></figure>
-<h3 id="查看表">查看表</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hbase(main):<span class="number">006</span>:<span class="number">0</span>&gt; list</span><br><span class="line">TABLE </span><br><span class="line"><span class="built_in">test</span></span><br><span class="line"><span class="built_in">test</span>1</span><br><span class="line">testtable</span><br></pre></td></tr></table></figure>
+        <h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">cd</span> hbase-1.2.4/bin</div><div class="line"></div><div class="line">./start-hbase.sh  </div><div class="line"></div><div class="line">./hbase shell</div></pre></td></tr></table></figure>
+<h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><p>注意： 没有 table关键字，没有;号，有’’号</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">hbase(main):001:0&gt; create <span class="string">'testtable'</span>, <span class="string">'colfam1'</span></div><div class="line">0 row(s) <span class="keyword">in</span> 1.6100 seconds</div><div class="line"></div><div class="line">=&gt; Hbase::Table - testtable</div></pre></td></tr></table></figure>
+<h3 id="查看表"><a href="#查看表" class="headerlink" title="查看表"></a>查看表</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hbase(main):006:0&gt; list</div><div class="line">TABLE </div><div class="line"><span class="built_in">test</span></div><div class="line">test1</div><div class="line">testtable</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="增加数据">增加数据</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hbase(main):<span class="number">003</span>:<span class="number">0</span>&gt; put  <span class="string">'testtable'</span> ,<span class="string">'myrow-1'</span>,<span class="string">'colfam1:q1'</span>,<span class="string">'value-1'</span></span><br><span class="line"><span class="number">0</span> row(s) <span class="keyword">in</span> <span class="number">1.2280</span> seconds</span><br><span class="line"></span><br><span class="line">hbase(main):<span class="number">004</span>:<span class="number">0</span>&gt; put  <span class="string">'testtable'</span> ,<span class="string">'myrow-1'</span>,<span class="string">'colfam1:q2'</span>,<span class="string">'value-2'</span></span><br><span class="line"><span class="number">0</span> row(s) <span class="keyword">in</span> <span class="number">0.0080</span> seconds</span><br><span class="line"></span><br><span class="line">hbase(main):<span class="number">005</span>:<span class="number">0</span>&gt; put  <span class="string">'testtable'</span> ,<span class="string">'myrow-1'</span>,<span class="string">'colfam1:q3'</span>,<span class="string">'value-3'</span></span><br><span class="line"><span class="number">0</span> row(s) <span class="keyword">in</span> <span class="number">0.0070</span> seconds</span><br></pre></td></tr></table></figure>
-<h3 id="扫描全表">扫描全表</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hbase(main):<span class="number">008</span>:<span class="number">0</span>&gt; scan <span class="string">'testtable'</span></span><br><span class="line">ROW                     COLUMN+CELL                                                       </span><br><span class="line"> myrow-<span class="number">1</span>                column=colfam1:q1, timestamp=<span class="number">1493024796264</span>, value=value-<span class="number">1</span>         </span><br><span class="line"> myrow-<span class="number">1</span>                column=colfam1:q2, timestamp=<span class="number">1493024808400</span>, value=value-<span class="number">2</span>         </span><br><span class="line"> myrow-<span class="number">1</span>                column=colfam1:q3, timestamp=<span class="number">1493024813433</span>, value=value-<span class="number">3</span>         </span><br><span class="line"><span class="number">1</span> row(s) <span class="keyword">in</span> <span class="number">0.0260</span> seconds</span><br></pre></td></tr></table></figure>
-<h3 id="单条数据">单条数据</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hbase(main):<span class="number">010</span>:<span class="number">0</span>&gt; get <span class="string">'testtable'</span>, <span class="string">'myrow-1'</span></span><br><span class="line">COLUMN                  CELL                                                              </span><br><span class="line"> colfam1:q1             timestamp=<span class="number">1493024796264</span>, value=value-<span class="number">1</span>                            </span><br><span class="line"> colfam1:q2             timestamp=<span class="number">1493024808400</span>, value=value-<span class="number">2</span>                            </span><br><span class="line"> colfam1:q3             timestamp=<span class="number">1493024813433</span>, value=value-<span class="number">3</span>                            </span><br><span class="line"><span class="number">3</span> row(s) <span class="keyword">in</span> <span class="number">0.0840</span> seconds</span><br></pre></td></tr></table></figure>
-<h3 id="删除数据">删除数据</h3><p>```</p>
+<h3 id="增加数据"><a href="#增加数据" class="headerlink" title="增加数据"></a>增加数据</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">hbase(main):003:0&gt; put  <span class="string">'testtable'</span> ,<span class="string">'myrow-1'</span>,<span class="string">'colfam1:q1'</span>,<span class="string">'value-1'</span></div><div class="line">0 row(s) <span class="keyword">in</span> 1.2280 seconds</div><div class="line"></div><div class="line">hbase(main):004:0&gt; put  <span class="string">'testtable'</span> ,<span class="string">'myrow-1'</span>,<span class="string">'colfam1:q2'</span>,<span class="string">'value-2'</span></div><div class="line">0 row(s) <span class="keyword">in</span> 0.0080 seconds</div><div class="line"></div><div class="line">hbase(main):005:0&gt; put  <span class="string">'testtable'</span> ,<span class="string">'myrow-1'</span>,<span class="string">'colfam1:q3'</span>,<span class="string">'value-3'</span></div><div class="line">0 row(s) <span class="keyword">in</span> 0.0070 seconds</div></pre></td></tr></table></figure>
+<h3 id="扫描全表"><a href="#扫描全表" class="headerlink" title="扫描全表"></a>扫描全表</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">hbase(main):008:0&gt; scan <span class="string">'testtable'</span></div><div class="line">ROW                     COLUMN+CELL                                                       </div><div class="line"> myrow-1                column=colfam1:q1, timestamp=1493024796264, value=value-1         </div><div class="line"> myrow-1                column=colfam1:q2, timestamp=1493024808400, value=value-2         </div><div class="line"> myrow-1                column=colfam1:q3, timestamp=1493024813433, value=value-3         </div><div class="line">1 row(s) <span class="keyword">in</span> 0.0260 seconds</div></pre></td></tr></table></figure>
+<h3 id="单条数据"><a href="#单条数据" class="headerlink" title="单条数据"></a>单条数据</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">hbase(main):010:0&gt; get <span class="string">'testtable'</span>, <span class="string">'myrow-1'</span></div><div class="line">COLUMN                  CELL                                                              </div><div class="line"> colfam1:q1             timestamp=1493024796264, value=value-1                            </div><div class="line"> colfam1:q2             timestamp=1493024808400, value=value-2                            </div><div class="line"> colfam1:q3             timestamp=1493024813433, value=value-3                            </div><div class="line">3 row(s) <span class="keyword">in</span> 0.0840 seconds</div></pre></td></tr></table></figure>
+<h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><p>```</p>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -416,7 +401,7 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
       
 
       
-        
+      
       
 
       
@@ -444,6 +429,10 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -459,9 +448,9 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
+
+  
+
 
 
         </div>
@@ -477,101 +466,96 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="liuyiyou" />
-          <p class="site-author-name" itemprop="name">liuyiyou</p>
-           
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liuyiyou</p>
               <p class="site-description motion-element" itemprop="description"></p>
-           
-        </div>
-        <nav class="site-state motion-element">
+          </div>
 
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">78</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
+          <nav class="site-state motion-element">
 
-          
             
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories.html">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
-              </span>
+              </div>
             
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  知乎
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">分类</span>
                 </a>
-              </span>
+              </div>
             
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-quora"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -604,30 +588,36 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">liuyiyou</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -638,6 +628,8 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -661,64 +653,6 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
   
 
 
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
   
 
 
@@ -731,6 +665,97 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
 
 
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
 
 
   
@@ -742,77 +767,15 @@ hbase(main):001:0&amp;gt; create &apos;testtable&apos;, &apos;colfam1&apos;0 row
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
 
   
 
-<!-- mathjax config similar to math.stackexchange -->
+  
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
+  
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 </body>
 </html>

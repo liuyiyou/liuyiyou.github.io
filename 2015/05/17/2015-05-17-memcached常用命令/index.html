@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,11 +10,26 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -37,38 +52,27 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
 
 
   <meta name="keywords" content="memcache," />
@@ -80,29 +84,20 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
-
-
-
-
-<meta name="description" content="转载自：Memcached常用命令
-首先，以下的这些命令都是在连接Memcached之后才进行
-lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   localhost  11211">
+<meta name="description" content="转载自：Memcached常用命令 首先，以下的这些命令都是在连接Memcached之后才进行 lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   localhost  11211">
+<meta name="keywords" content="memcache">
 <meta property="og:type" content="article">
 <meta property="og:title" content="memcached常用命令">
 <meta property="og:url" content="http://liuyiyou.cn/2015/05/17/2015-05-17-memcached常用命令/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="转载自：Memcached常用命令
-首先，以下的这些命令都是在连接Memcached之后才进行
-lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   localhost  11211">
+<meta property="og:description" content="转载自：Memcached常用命令 首先，以下的这些命令都是在连接Memcached之后才进行 lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   localhost  11211">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2015-10-07T12:30:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="memcached常用命令">
-<meta name="twitter:description" content="转载自：Memcached常用命令
-首先，以下的这些命令都是在连接Memcached之后才进行
-lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   localhost  11211">
+<meta name="twitter:description" content="转载自：Memcached常用命令 首先，以下的这些命令都是在连接Memcached之后才进行 lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   localhost  11211">
 
 
 
@@ -111,9 +106,11 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -136,11 +133,7 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
 
 
 
-  <title> memcached常用命令 | 温故而知新    触类而旁通 </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>memcached常用命令 | 温故而知新    触类而旁通</title>
   
 
 
@@ -150,18 +143,16 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-right page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -207,18 +198,8 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -227,8 +208,18 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -238,11 +229,21 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
       
         
         <li class="menu-item menu-item-inbox">
-          <a href="/inbox" rel="section">
+          <a href="/inbox/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
             
-            收藏
+            inbox
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -274,7 +275,11 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/05/17/2015-05-17-memcached常用命令/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -292,14 +297,7 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                memcached常用命令
-              
-            
-          </h2>
+          <h2 class="post-title" itemprop="name headline">memcached常用命令</h2>
         
 
         <div class="post-meta">
@@ -362,7 +360,9 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -371,45 +371,33 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
       
         <p>转载自：<a href="http://www.cnblogs.com/jeffwongishandsome/archive/2011/11/06/2238265.html" target="_blank" rel="external">Memcached常用命令</a></p>
 <p>首先，以下的这些命令都是在连接Memcached之后才进行</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">lyy:~ liuyiyou$ /usr/<span class="built_in">local</span>/bin/memcached <span class="operator">-d</span> <span class="number">11211</span></span><br><span class="line">lyy:~ liuyiyou$ /telnet   localhost  <span class="number">11211</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">lyy:~ liuyiyou$ /usr/<span class="built_in">local</span>/bin/memcached -d 11211</div><div class="line">lyy:~ liuyiyou$ /telnet   localhost  11211</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<h3 id="存储命令">存储命令</h3><figure class="highlight apache"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;command name&gt;</span> <span class="tag">&lt;key&gt;</span> <span class="tag">&lt;flags&gt;</span> <span class="tag">&lt;exptime&gt;</span> <span class="tag">&lt;bytes&gt;</span> <span class="tag">&lt;data block&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="存储命令"><a href="#存储命令" class="headerlink" title="存储命令"></a>存储命令</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">command</span> <span class="attr">name</span>&gt;</span> <span class="tag">&lt;<span class="name">key</span>&gt;</span> <span class="tag">&lt;<span class="name">flags</span>&gt;</span> <span class="tag">&lt;<span class="name">exptime</span>&gt;</span> <span class="tag">&lt;<span class="name">bytes</span>&gt;</span> <span class="tag">&lt;<span class="name">data</span> <span class="attr">block</span>&gt;</span></div></pre></td></tr></table></figure>
 <p> ||  <em> &lt; command name&gt;</em> || <em>set/add/replace</em> ||<br> ||  &lt;key&gt; || 查找关键字 ||<br> ||  &lt;flags&gt; || 客户机使用它存储关于键值对的额外信息 ||<br> ||  &lt;exptime&gt; || 该数据的存活时间，0表示永远 ||<br> ||  &lt;bytes&gt; || 存储字节数 ||<br> ||  &lt;data block&gt; || 存储的数据块（可直接理解为key-value结构中的value） ||</p>
 <p>###刷新缓存</p>
 <p>flush_all</p>
 <p>###状态命令stats </p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">stats </span><br><span class="line">STAT pid <span class="number">674</span></span><br><span class="line">STAT uptime <span class="number">230</span></span><br><span class="line">STAT time <span class="number">1432217154</span></span><br><span class="line">STAT version <span class="number">1.4</span>.<span class="number">20</span></span><br><span class="line">STAT libevent <span class="number">2.0</span>.<span class="number">22</span>-stable</span><br><span class="line">STAT pointer_size <span class="number">64</span></span><br><span class="line">STAT rusage_user <span class="number">0.004909</span></span><br><span class="line">STAT rusage_system <span class="number">0.009993</span></span><br><span class="line">STAT curr_connections <span class="number">10</span></span><br><span class="line">STAT total_connections <span class="number">11</span></span><br><span class="line">STAT connection_structures <span class="number">11</span></span><br><span class="line">STAT reserved_fds <span class="number">20</span></span><br><span class="line">STAT cmd_get <span class="number">2</span></span><br><span class="line">STAT cmd_<span class="built_in">set</span> <span class="number">1</span></span><br><span class="line">STAT cmd_flush <span class="number">0</span></span><br><span class="line">STAT cmd_touch <span class="number">0</span></span><br><span class="line">STAT get_hits <span class="number">2</span></span><br><span class="line">STAT get_misses <span class="number">0</span></span><br><span class="line">STAT delete_misses <span class="number">1</span></span><br><span class="line">STAT delete_hits <span class="number">1</span></span><br><span class="line">STAT incr_misses <span class="number">0</span></span><br><span class="line">STAT incr_hits <span class="number">0</span></span><br><span class="line">STAT decr_misses <span class="number">0</span></span><br><span class="line">STAT decr_hits <span class="number">0</span></span><br><span class="line">STAT cas_misses <span class="number">0</span></span><br><span class="line">STAT cas_hits <span class="number">0</span></span><br><span class="line">STAT cas_badval <span class="number">0</span></span><br><span class="line">STAT touch_hits <span class="number">0</span></span><br><span class="line">STAT touch_misses <span class="number">0</span></span><br><span class="line">STAT auth_cmds <span class="number">0</span></span><br><span class="line">STAT auth_errors <span class="number">0</span></span><br><span class="line">STAT bytes_<span class="built_in">read</span> <span class="number">176</span></span><br><span class="line">STAT bytes_written <span class="number">140</span></span><br><span class="line">STAT <span class="built_in">limit</span>_maxbytes <span class="number">67108864</span></span><br><span class="line">STAT accepting_conns <span class="number">1</span></span><br><span class="line">STAT listen_disabled_num <span class="number">0</span></span><br><span class="line">STAT threads <span class="number">4</span></span><br><span class="line">STAT conn_yields <span class="number">0</span></span><br><span class="line">STAT <span class="built_in">hash</span>_power_level <span class="number">16</span></span><br><span class="line">STAT <span class="built_in">hash</span>_bytes <span class="number">524288</span></span><br><span class="line">STAT <span class="built_in">hash</span>_is_expanding <span class="number">0</span></span><br><span class="line">STAT malloc_fails <span class="number">0</span></span><br></pre></td></tr></table></figure>
-<h3 id="状态命令stats_items">状态命令stats  items</h3><p>执行stats items，可以看到STAT items行，如果memcached存储内容很多，那么这里也会列出很多的STAT items行。</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">stats </div><div class="line">STAT pid 674</div><div class="line">STAT uptime 230</div><div class="line">STAT time 1432217154</div><div class="line">STAT version 1.4.20</div><div class="line">STAT libevent 2.0.22-stable</div><div class="line">STAT pointer_size 64</div><div class="line">STAT rusage_user 0.004909</div><div class="line">STAT rusage_system 0.009993</div><div class="line">STAT curr_connections 10</div><div class="line">STAT total_connections 11</div><div class="line">STAT connection_structures 11</div><div class="line">STAT reserved_fds 20</div><div class="line">STAT cmd_get 2</div><div class="line">STAT cmd_set 1</div><div class="line">STAT cmd_flush 0</div><div class="line">STAT cmd_touch 0</div><div class="line">STAT get_hits 2</div><div class="line">STAT get_misses 0</div><div class="line">STAT delete_misses 1</div><div class="line">STAT delete_hits 1</div><div class="line">STAT incr_misses 0</div><div class="line">STAT incr_hits 0</div><div class="line">STAT decr_misses 0</div><div class="line">STAT decr_hits 0</div><div class="line">STAT cas_misses 0</div><div class="line">STAT cas_hits 0</div><div class="line">STAT cas_badval 0</div><div class="line">STAT touch_hits 0</div><div class="line">STAT touch_misses 0</div><div class="line">STAT auth_cmds 0</div><div class="line">STAT auth_errors 0</div><div class="line">STAT bytes_read 176</div><div class="line">STAT bytes_written 140</div><div class="line">STAT limit_maxbytes 67108864</div><div class="line">STAT accepting_conns 1</div><div class="line">STAT listen_disabled_num 0</div><div class="line">STAT threads 4</div><div class="line">STAT conn_yields 0</div><div class="line">STAT hash_power_level 16</div><div class="line">STAT hash_bytes 524288</div><div class="line">STAT hash_is_expanding 0</div><div class="line">STAT malloc_fails 0</div></pre></td></tr></table></figure>
+<h3 id="状态命令stats-items"><a href="#状态命令stats-items" class="headerlink" title="状态命令stats  items"></a>状态命令stats  items</h3><p>执行stats items，可以看到STAT items行，如果memcached存储内容很多，那么这里也会列出很多的STAT items行。</p>
 <p>stats items</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">//设置用户名</span><br><span class="line"><span class="built_in">set</span> username <span class="number">0</span> <span class="number">0</span> <span class="number">8</span></span><br><span class="line">liuyiyou</span><br><span class="line">STORED</span><br><span class="line"></span><br><span class="line">//得到用户名</span><br><span class="line">get username</span><br><span class="line">VALUE username <span class="number">0</span> <span class="number">8</span></span><br><span class="line">liuyiyou</span><br><span class="line"></span><br><span class="line">//删除用户名</span><br><span class="line">delete username</span><br><span class="line">DELETED</span><br><span class="line">delete username</span><br><span class="line">NOT_FOUND</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">//设置用户名</div><div class="line"><span class="built_in">set</span> username 0 0 8</div><div class="line">liuyiyou</div><div class="line">STORED</div><div class="line"></div><div class="line">//得到用户名</div><div class="line">get username</div><div class="line">VALUE username 0 8</div><div class="line">liuyiyou</div><div class="line"></div><div class="line">//删除用户名</div><div class="line">delete username</div><div class="line">DELETED</div><div class="line">delete username</div><div class="line">NOT_FOUND</div></pre></td></tr></table></figure>
 <ol>
 <li>添加（）</li>
 </ol>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">//设置用户名</span><br><span class="line"><span class="built_in">set</span> username <span class="number">0</span> <span class="number">0</span> <span class="number">8</span></span><br><span class="line">liuyiyou</span><br><span class="line">STORED</span><br><span class="line"></span><br><span class="line">//得到用户名</span><br><span class="line">get username</span><br><span class="line">VALUE username <span class="number">0</span> <span class="number">8</span></span><br><span class="line">liuyiyou</span><br><span class="line"></span><br><span class="line">//删除用户名</span><br><span class="line">delete username</span><br><span class="line">DELETED</span><br><span class="line">delete username</span><br><span class="line">NOT_FOUND</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">//设置用户名</div><div class="line"><span class="built_in">set</span> username 0 0 8</div><div class="line">liuyiyou</div><div class="line">STORED</div><div class="line"></div><div class="line">//得到用户名</div><div class="line">get username</div><div class="line">VALUE username 0 8</div><div class="line">liuyiyou</div><div class="line"></div><div class="line">//删除用户名</div><div class="line">delete username</div><div class="line">DELETED</div><div class="line">delete username</div><div class="line">NOT_FOUND</div></pre></td></tr></table></figure>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -421,7 +409,7 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
       
 
       
-        
+      
       
 
       
@@ -449,6 +437,10 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -464,9 +456,9 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
+
+  
+
 
 
         </div>
@@ -482,101 +474,96 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="liuyiyou" />
-          <p class="site-author-name" itemprop="name">liuyiyou</p>
-           
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liuyiyou</p>
               <p class="site-description motion-element" itemprop="description"></p>
-           
-        </div>
-        <nav class="site-state motion-element">
+          </div>
 
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">78</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
+          <nav class="site-state motion-element">
 
-          
             
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories.html">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
-              </span>
+              </div>
             
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  知乎
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">分类</span>
                 </a>
-              </span>
+              </div>
             
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-quora"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -589,7 +576,7 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储命令"><span class="nav-number">1.</span> <span class="nav-text">存储命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态命令stats_items"><span class="nav-number">2.</span> <span class="nav-text">状态命令stats  items</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#存储命令"><span class="nav-number">1.</span> <span class="nav-text">存储命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#状态命令stats-items"><span class="nav-number">2.</span> <span class="nav-text">状态命令stats  items</span></a></li></ol></div>
             
 
           </div>
@@ -609,30 +596,36 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">liuyiyou</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -643,6 +636,8 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -666,64 +661,6 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
   
 
 
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
   
 
 
@@ -736,6 +673,97 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
 
 
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
 
 
   
@@ -747,77 +775,15 @@ lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   local
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
 
   
 
-<!-- mathjax config similar to math.stackexchange -->
+  
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
+  
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 </body>
 </html>

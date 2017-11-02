@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,11 +10,26 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -37,38 +52,27 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
 
 
   <meta name="keywords" content="java,并发," />
@@ -80,77 +84,20 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
-
-
-
-
-<meta name="description" content="本文摘自虚极(梁飞)的某个PPT
-JVM内存模型堆：
-所有对象全部放在共享堆空间中
-对象的属性在共享堆空间内
-堆内存单字节对齐，short不变
-
-
-
-栈：
-每个线程都有独立的线程栈空间
-线程栈只存基本类型和对象地址
-栈内存4字节对齐，short变int
-对象地址4字节，引用堆空间
-
-
-方法中局部变量在线程栈空间内
-局部变量不会竞争，线程安全
-方法参数在栈顶交叉，不拷贝
-栈顶寄存，减少中间状态读取P">
+<meta name="description" content="本文摘自虚极(梁飞)的某个PPT JVM内存模型堆： 所有对象全部放在共享堆空间中 对象的属性在共享堆空间内 堆内存单字节对齐，short不变    栈： 每个线程都有独立的线程栈空间 线程栈只存基本类型和对象地址 栈内存4字节对齐，short变int 对象地址4字节，引用堆空间   方法中局部变量在线程栈空间内 局部变量不会竞争，线程安全 方法参数在栈顶交叉，不拷贝 栈顶寄存，减少中间状态读取P">
+<meta name="keywords" content="java,并发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JAVA并发编程常识">
 <meta property="og:url" content="http://liuyiyou.cn/2015/11/01/2015-11-01-JAVA并发编程常识/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="本文摘自虚极(梁飞)的某个PPT
-JVM内存模型堆：
-所有对象全部放在共享堆空间中
-对象的属性在共享堆空间内
-堆内存单字节对齐，short不变
-
-
-
-栈：
-每个线程都有独立的线程栈空间
-线程栈只存基本类型和对象地址
-栈内存4字节对齐，short变int
-对象地址4字节，引用堆空间
-
-
-方法中局部变量在线程栈空间内
-局部变量不会竞争，线程安全
-方法参数在栈顶交叉，不拷贝
-栈顶寄存，减少中间状态读取P">
+<meta property="og:description" content="本文摘自虚极(梁飞)的某个PPT JVM内存模型堆： 所有对象全部放在共享堆空间中 对象的属性在共享堆空间内 堆内存单字节对齐，short不变    栈： 每个线程都有独立的线程栈空间 线程栈只存基本类型和对象地址 栈内存4字节对齐，short变int 对象地址4字节，引用堆空间   方法中局部变量在线程栈空间内 局部变量不会竞争，线程安全 方法参数在栈顶交叉，不拷贝 栈顶寄存，减少中间状态读取P">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2015-10-28T13:56:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JAVA并发编程常识">
-<meta name="twitter:description" content="本文摘自虚极(梁飞)的某个PPT
-JVM内存模型堆：
-所有对象全部放在共享堆空间中
-对象的属性在共享堆空间内
-堆内存单字节对齐，short不变
-
-
-
-栈：
-每个线程都有独立的线程栈空间
-线程栈只存基本类型和对象地址
-栈内存4字节对齐，short变int
-对象地址4字节，引用堆空间
-
-
-方法中局部变量在线程栈空间内
-局部变量不会竞争，线程安全
-方法参数在栈顶交叉，不拷贝
-栈顶寄存，减少中间状态读取P">
+<meta name="twitter:description" content="本文摘自虚极(梁飞)的某个PPT JVM内存模型堆： 所有对象全部放在共享堆空间中 对象的属性在共享堆空间内 堆内存单字节对齐，short不变    栈： 每个线程都有独立的线程栈空间 线程栈只存基本类型和对象地址 栈内存4字节对齐，short变int 对象地址4字节，引用堆空间   方法中局部变量在线程栈空间内 局部变量不会竞争，线程安全 方法参数在栈顶交叉，不拷贝 栈顶寄存，减少中间状态读取P">
 
 
 
@@ -159,9 +106,11 @@ JVM内存模型堆：
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -184,11 +133,7 @@ JVM内存模型堆：
 
 
 
-  <title> JAVA并发编程常识 | 温故而知新    触类而旁通 </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>JAVA并发编程常识 | 温故而知新    触类而旁通</title>
   
 
 
@@ -198,18 +143,16 @@ JVM内存模型堆：
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-right page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -255,18 +198,8 @@ JVM内存模型堆：
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -275,8 +208,18 @@ JVM内存模型堆：
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -286,11 +229,21 @@ JVM内存模型堆：
       
         
         <li class="menu-item menu-item-inbox">
-          <a href="/inbox" rel="section">
+          <a href="/inbox/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
             
-            收藏
+            inbox
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -322,7 +275,11 @@ JVM内存模型堆：
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/11/01/2015-11-01-JAVA并发编程常识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -340,14 +297,7 @@ JVM内存模型堆：
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                JAVA并发编程常识
-              
-            
-          </h2>
+          <h2 class="post-title" itemprop="name headline">JAVA并发编程常识</h2>
         
 
         <div class="post-meta">
@@ -410,7 +360,9 @@ JVM内存模型堆：
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -418,14 +370,14 @@ JVM内存模型堆：
 
       
         <p>本文摘自虚极(梁飞)的某个PPT</p>
-<h2 id="JVM内存模型">JVM内存模型</h2><h3 id="堆：">堆：</h3><ul>
+<h2 id="JVM内存模型"><a href="#JVM内存模型" class="headerlink" title="JVM内存模型"></a>JVM内存模型</h2><h3 id="堆："><a href="#堆：" class="headerlink" title="堆："></a>堆：</h3><ul>
 <li>所有对象全部放在共享堆空间中</li>
 <li>对象的属性在共享堆空间内<ul>
 <li>堆内存单字节对齐，short不变</li>
 </ul>
 </li>
 </ul>
-<h3 id="栈：">栈：</h3><ul>
+<h3 id="栈："><a href="#栈：" class="headerlink" title="栈："></a>栈：</h3><ul>
 <li>每个线程都有独立的线程栈空间</li>
 <li>线程栈只存基本类型和对象地址<ul>
 <li>栈内存4字节对齐，short变int</li>
@@ -440,17 +392,17 @@ JVM内存模型堆：
 </li>
 </ul>
 <a id="more"></a>
-<h2 id="原子性">原子性</h2><h3 id="对象类型：">对象类型：</h3><ul>
+<h2 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h2><h3 id="对象类型："><a href="#对象类型：" class="headerlink" title="对象类型："></a>对象类型：</h3><ul>
 <li>对象地址原子读写，线程安全</li>
 <li>并发读不可变状态，线程安全</li>
 <li>并发读写可变状态，非线程线程</li>
 </ul>
-<h3 id="基本类型：">基本类型：</h3><ul>
+<h3 id="基本类型："><a href="#基本类型：" class="headerlink" title="基本类型："></a>基本类型：</h3><ul>
 <li>int,char数值读写，线程安全</li>
 <li>long,double高低位，非线程安全</li>
 <li>i++等组合操作，非线程安全</li>
 </ul>
-<h2 id="可见性">可见性</h2><ul>
+<h2 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h2><ul>
 <li><p>final<br>初始化final字段确保可见性</p>
 </li>
 <li><p>volatile<br>读写volatile字段确保可见性</p>
@@ -460,7 +412,7 @@ JVM内存模型堆：
 <li><p>happen before<br>遵守happen before次序可见性</p>
 </li>
 </ul>
-<h2 id="可排序性">可排序性</h2><h3 id="Happen_Before_法则">Happen Before 法则</h3><ul>
+<h2 id="可排序性"><a href="#可排序性" class="headerlink" title="可排序性"></a>可排序性</h2><h3 id="Happen-Before-法则"><a href="#Happen-Before-法则" class="headerlink" title="Happen Before 法则"></a>Happen Before 法则</h3><ul>
 <li><p>程序次序法则<br>如果A一定在B之前发生，则happen before,</p>
 </li>
 <li><p>监视器法则<br>对一个监视器的解锁一定发生在后续对同一监视器加锁之前</p>
@@ -478,7 +430,7 @@ JVM内存模型堆：
 <li><p>传递性<br>A发生在B之前，B发生在C之前，A一定发生在C之前。 </p>
 </li>
 </ul>
-<h2 id="系统内存">系统内存</h2><h3 id="MESI协议:">MESI协议:</h3><ul>
+<h2 id="系统内存"><a href="#系统内存" class="headerlink" title="系统内存"></a>系统内存</h2><h3 id="MESI协议"><a href="#MESI协议" class="headerlink" title="MESI协议:"></a>MESI协议:</h3><ul>
 <li><p>Modified</p>
 <ul>
 <li>本CPU写，则直接写到Cache，不产生总线事务；其它CPU写，则不涉及本CPU的Cache，其它CPU读，则本CPU需要把Cache line中的数据提供给它，而不是让它去读内存。 </li>
@@ -503,27 +455,15 @@ JVM内存模型堆：
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -537,7 +477,7 @@ JVM内存模型堆：
       
 
       
-        
+      
       
 
       
@@ -565,6 +505,10 @@ JVM内存模型堆：
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -580,9 +524,9 @@ JVM内存模型堆：
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
+
+  
+
 
 
         </div>
@@ -598,101 +542,96 @@ JVM内存模型堆：
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="liuyiyou" />
-          <p class="site-author-name" itemprop="name">liuyiyou</p>
-           
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liuyiyou</p>
               <p class="site-description motion-element" itemprop="description"></p>
-           
-        </div>
-        <nav class="site-state motion-element">
+          </div>
 
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">78</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
+          <nav class="site-state motion-element">
 
-          
             
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories.html">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
-              </span>
+              </div>
             
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  知乎
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">分类</span>
                 </a>
-              </span>
+              </div>
             
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-quora"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -705,7 +644,7 @@ JVM内存模型堆：
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM内存模型"><span class="nav-number">1.</span> <span class="nav-text">JVM内存模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#堆："><span class="nav-number">1.1.</span> <span class="nav-text">堆：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈："><span class="nav-number">1.2.</span> <span class="nav-text">栈：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原子性"><span class="nav-number">2.</span> <span class="nav-text">原子性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象类型："><span class="nav-number">2.1.</span> <span class="nav-text">对象类型：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型："><span class="nav-number">2.2.</span> <span class="nav-text">基本类型：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可见性"><span class="nav-number">3.</span> <span class="nav-text">可见性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可排序性"><span class="nav-number">4.</span> <span class="nav-text">可排序性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Happen_Before_法则"><span class="nav-number">4.1.</span> <span class="nav-text">Happen Before 法则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统内存"><span class="nav-number">5.</span> <span class="nav-text">系统内存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MESI协议:"><span class="nav-number">5.1.</span> <span class="nav-text">MESI协议:</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#JVM内存模型"><span class="nav-number">1.</span> <span class="nav-text">JVM内存模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#堆："><span class="nav-number">1.1.</span> <span class="nav-text">堆：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#栈："><span class="nav-number">1.2.</span> <span class="nav-text">栈：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原子性"><span class="nav-number">2.</span> <span class="nav-text">原子性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象类型："><span class="nav-number">2.1.</span> <span class="nav-text">对象类型：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本类型："><span class="nav-number">2.2.</span> <span class="nav-text">基本类型：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可见性"><span class="nav-number">3.</span> <span class="nav-text">可见性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#可排序性"><span class="nav-number">4.</span> <span class="nav-text">可排序性</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Happen-Before-法则"><span class="nav-number">4.1.</span> <span class="nav-text">Happen Before 法则</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#系统内存"><span class="nav-number">5.</span> <span class="nav-text">系统内存</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#MESI协议"><span class="nav-number">5.1.</span> <span class="nav-text">MESI协议:</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -725,30 +664,36 @@ JVM内存模型堆：
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">liuyiyou</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -759,6 +704,8 @@ JVM内存模型堆：
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -782,64 +729,6 @@ JVM内存模型堆：
   
 
 
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
   
 
 
@@ -852,6 +741,97 @@ JVM内存模型堆：
 
 
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
 
 
   
@@ -863,77 +843,15 @@ JVM内存模型堆：
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
 
   
 
-<!-- mathjax config similar to math.stackexchange -->
+  
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
+  
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 </body>
 </html>

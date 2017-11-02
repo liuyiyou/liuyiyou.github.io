@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,11 +10,26 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -37,38 +52,27 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
 
 
   <meta name="keywords" content="json," />
@@ -80,29 +84,20 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
-
-
-
-
-<meta name="description" content="这个在 2015-05-17总结 中有写过
-在使用Ajax返回json的时候，对于日期，并不会返回一个mysql表中的yyyy-MM-dd这样格式的日期，而是返回一个对象。如果实体类的字段是string类型还好，在后台for循环查询出来的列表，然后使用DateFormat进行将日期转换为string类型，但是如果是Date类型的话，还真不好转。
-我就遇到了这个问题，通过注解发现问题没有解决。最后采">
+<meta name="description" content="这个在 2015-05-17总结 中有写过 在使用Ajax返回json的时候，对于日期，并不会返回一个mysql表中的yyyy-MM-dd这样格式的日期，而是返回一个对象。如果实体类的字段是string类型还好，在后台for循环查询出来的列表，然后使用DateFormat进行将日期转换为string类型，但是如果是Date类型的话，还真不好转。 我就遇到了这个问题，通过注解发现问题没有解决。最后采">
+<meta name="keywords" content="json">
 <meta property="og:type" content="article">
 <meta property="og:title" content="JSON日期转换">
 <meta property="og:url" content="http://liuyiyou.cn/2015/10/27/2015-10-27-json日期转换/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="这个在 2015-05-17总结 中有写过
-在使用Ajax返回json的时候，对于日期，并不会返回一个mysql表中的yyyy-MM-dd这样格式的日期，而是返回一个对象。如果实体类的字段是string类型还好，在后台for循环查询出来的列表，然后使用DateFormat进行将日期转换为string类型，但是如果是Date类型的话，还真不好转。
-我就遇到了这个问题，通过注解发现问题没有解决。最后采">
+<meta property="og:description" content="这个在 2015-05-17总结 中有写过 在使用Ajax返回json的时候，对于日期，并不会返回一个mysql表中的yyyy-MM-dd这样格式的日期，而是返回一个对象。如果实体类的字段是string类型还好，在后台for循环查询出来的列表，然后使用DateFormat进行将日期转换为string类型，但是如果是Date类型的话，还真不好转。 我就遇到了这个问题，通过注解发现问题没有解决。最后采">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-05-06T07:00:52.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="JSON日期转换">
-<meta name="twitter:description" content="这个在 2015-05-17总结 中有写过
-在使用Ajax返回json的时候，对于日期，并不会返回一个mysql表中的yyyy-MM-dd这样格式的日期，而是返回一个对象。如果实体类的字段是string类型还好，在后台for循环查询出来的列表，然后使用DateFormat进行将日期转换为string类型，但是如果是Date类型的话，还真不好转。
-我就遇到了这个问题，通过注解发现问题没有解决。最后采">
+<meta name="twitter:description" content="这个在 2015-05-17总结 中有写过 在使用Ajax返回json的时候，对于日期，并不会返回一个mysql表中的yyyy-MM-dd这样格式的日期，而是返回一个对象。如果实体类的字段是string类型还好，在后台for循环查询出来的列表，然后使用DateFormat进行将日期转换为string类型，但是如果是Date类型的话，还真不好转。 我就遇到了这个问题，通过注解发现问题没有解决。最后采">
 
 
 
@@ -111,9 +106,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -136,11 +133,7 @@
 
 
 
-  <title> JSON日期转换 | 温故而知新    触类而旁通 </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>JSON日期转换 | 温故而知新    触类而旁通</title>
   
 
 
@@ -150,18 +143,16 @@
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-right page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -207,18 +198,8 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -227,8 +208,18 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -238,11 +229,21 @@
       
         
         <li class="menu-item menu-item-inbox">
-          <a href="/inbox" rel="section">
+          <a href="/inbox/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
             
-            收藏
+            inbox
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -274,7 +275,11 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/10/27/2015-10-27-json日期转换/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -292,14 +297,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                JSON日期转换
-              
-            
-          </h2>
+          <h2 class="post-title" itemprop="name headline">JSON日期转换</h2>
         
 
         <div class="post-meta">
@@ -362,7 +360,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -375,36 +375,24 @@
 <p>需要注意的是，用到了类是来自json-lib.jar中</p>
 <a id="more"></a>
 <p>以下代码只是为了说明，实际情况并不如此。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">import</span> net.sf.json.JSONArray;</span><br><span class="line"><span class="keyword">import</span> net.sf.json.JSONObject;</span><br><span class="line"><span class="keyword">import</span> net.sf.json.JsonConfig;</span><br><span class="line"><span class="keyword">import</span> net.sf.json.processors.JsonValueProcessor;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> class <span class="title">JsonDateTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</span><br><span class="line">         List&lt;Student&gt; list =  <span class="comment">//来自数据中的列表，里面包含Date类型的字段。</span></span><br><span class="line">         JsonConfig jsonConfig =     <span class="keyword">new</span> JsonConfig();</span><br><span class="line">         jsonConfig.registerJsonValueProcessor(java.util.Date.class,<span class="keyword">new</span> JsonValueProcessor() &#123;</span><br><span class="line">            <span class="keyword">private</span> <span class="keyword">final</span> String format=<span class="string">"yyyy-MM-dd hh:mm:ss"</span>;</span><br><span class="line">            <span class="function"><span class="keyword">public</span> Object <span class="title">processObjectValue</span><span class="params">(String key, Object value,JsonConfig arg2)</span></span>&#123;</span><br><span class="line">              <span class="keyword">if</span>(value==<span class="keyword">null</span>)</span><br><span class="line">                    <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">              <span class="keyword">if</span> (value <span class="keyword">instanceof</span> java.util.Date) &#123;</span><br><span class="line">                    String str = <span class="keyword">new</span> SimpleDateFormat(format).format((java.util.Date) value);</span><br><span class="line">                    <span class="keyword">return</span> str;</span><br><span class="line">              &#125;</span><br><span class="line">                    <span class="keyword">return</span> value.toString();</span><br><span class="line">            &#125;</span><br><span class="line">      </span><br><span class="line">            <span class="function"><span class="keyword">public</span> Object <span class="title">processArrayValue</span><span class="params">(Object value, JsonConfig arg1)</span></span>&#123;</span><br><span class="line">                       <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            </span><br><span class="line">         &#125;);</span><br><span class="line">         <span class="comment">//之前使用的是 JSONArray array = JSONArray.fromObject(list);</span></span><br><span class="line">        JSONArray array = JSONArray.fromObject(list,jsonConfig);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">import</span> net.sf.json.JSONArray;</div><div class="line"><span class="keyword">import</span> net.sf.json.JSONObject;</div><div class="line"><span class="keyword">import</span> net.sf.json.JsonConfig;</div><div class="line"><span class="keyword">import</span> net.sf.json.processors.JsonValueProcessor;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> class <span class="title">JsonDateTest</span><span class="params">()</span></span>&#123;</div><div class="line">     <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String args[])</span></span>&#123;</div><div class="line">         List&lt;Student&gt; list =  <span class="comment">//来自数据中的列表，里面包含Date类型的字段。</span></div><div class="line">         JsonConfig jsonConfig =     <span class="keyword">new</span> JsonConfig();</div><div class="line">         jsonConfig.registerJsonValueProcessor(java.util.Date.class,<span class="keyword">new</span> JsonValueProcessor() &#123;</div><div class="line">            <span class="keyword">private</span> <span class="keyword">final</span> String format=<span class="string">"yyyy-MM-dd hh:mm:ss"</span>;</div><div class="line">            <span class="function"><span class="keyword">public</span> Object <span class="title">processObjectValue</span><span class="params">(String key, Object value,JsonConfig arg2)</span></span>&#123;</div><div class="line">              <span class="keyword">if</span>(value==<span class="keyword">null</span>)</div><div class="line">                    <span class="keyword">return</span> <span class="string">""</span>;</div><div class="line">              <span class="keyword">if</span> (value <span class="keyword">instanceof</span> java.util.Date) &#123;</div><div class="line">                    String str = <span class="keyword">new</span> SimpleDateFormat(format).format((java.util.Date) value);</div><div class="line">                    <span class="keyword">return</span> str;</div><div class="line">              &#125;</div><div class="line">                    <span class="keyword">return</span> value.toString();</div><div class="line">            &#125;</div><div class="line">      </div><div class="line">            <span class="function"><span class="keyword">public</span> Object <span class="title">processArrayValue</span><span class="params">(Object value, JsonConfig arg1)</span></span>&#123;</div><div class="line">                       <span class="keyword">return</span> <span class="keyword">null</span>;</div><div class="line">            &#125;</div><div class="line">            </div><div class="line">         &#125;);</div><div class="line">         <span class="comment">//之前使用的是 JSONArray array = JSONArray.fromObject(list);</span></div><div class="line">        JSONArray array = JSONArray.fromObject(list,jsonConfig);</div><div class="line">   &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>如果后续有其他更为简单的方法，也会更新上来。</p>
 <p>@Jsonformat(parttrn=”yyyy-MM-dd”)</p>
 <p>不过这个要配合JsonUtils来使用</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="annotation">@JsonFormat</span>(pattern = <span class="string">"yyyy-MM-dd"</span>)</span><br><span class="line">  <span class="keyword">private</span> Date date;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  User user = <span class="keyword">new</span> User();</span><br><span class="line">    user.setDate(<span class="keyword">new</span> Date());</span><br><span class="line">    user.setName(<span class="string">"liuyiyou"</span>);</span><br><span class="line">    ObjectMapper objectMapper = <span class="keyword">new</span> ObjectMapper();</span><br><span class="line">    System.out.println(objectMapper.writeValueAsString(user));</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">@JsonFormat</span>(pattern = <span class="string">"yyyy-MM-dd"</span>)</div><div class="line">  <span class="keyword">private</span> Date date;</div><div class="line"></div><div class="line"></div><div class="line">  User user = <span class="keyword">new</span> User();</div><div class="line">    user.setDate(<span class="keyword">new</span> Date());</div><div class="line">    user.setName(<span class="string">"liuyiyou"</span>);</div><div class="line">    ObjectMapper objectMapper = <span class="keyword">new</span> ObjectMapper();</div><div class="line">    System.out.println(objectMapper.writeValueAsString(user));</div></pre></td></tr></table></figure>
 <p>需要说明的是：不是用的SpringMVC，而是使用的内部框架。</p>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -416,7 +404,7 @@
       
 
       
-        
+      
       
 
       
@@ -444,6 +432,10 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -459,9 +451,9 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
+
+  
+
 
 
         </div>
@@ -477,92 +469,87 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="liuyiyou" />
-          <p class="site-author-name" itemprop="name">liuyiyou</p>
-           
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liuyiyou</p>
               <p class="site-description motion-element" itemprop="description"></p>
-           
-        </div>
-        <nav class="site-state motion-element">
+          </div>
 
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">78</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
+          <nav class="site-state motion-element">
 
-          
             
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories.html">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
-              </span>
+              </div>
             
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  知乎
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">分类</span>
                 </a>
-              </span>
+              </div>
             
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-quora"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -579,30 +566,36 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">liuyiyou</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -613,6 +606,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -636,64 +631,6 @@
   
 
 
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
   
 
 
@@ -706,6 +643,97 @@
 
 
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
 
 
   
@@ -717,77 +745,15 @@
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
 
   
 
-<!-- mathjax config similar to math.stackexchange -->
+  
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
+  
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 </body>
 </html>

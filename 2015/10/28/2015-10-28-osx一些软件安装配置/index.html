@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,11 +10,26 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -37,38 +52,27 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
 
 
   <meta name="keywords" content="skill," />
@@ -80,26 +84,20 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
-
-
-
-
-<meta name="description" content="无论是windows还是linux，都需要进行一系列的配置，相对于windows来说，一般情况下linux都是作为服务器，而且很多新的开发框架或工具会优先适配linux，比如hadoop等。
-虽然系统中装了很多软件，比如java、MySQL、nodejs等，但是每次装的时候都是临时装的，没有记录下来。现在在这里写一个系列，并保持更新">
+<meta name="description" content="无论是windows还是linux，都需要进行一系列的配置，相对于windows来说，一般情况下linux都是作为服务器，而且很多新的开发框架或工具会优先适配linux，比如hadoop等。 虽然系统中装了很多软件，比如java、MySQL、nodejs等，但是每次装的时候都是临时装的，没有记录下来。现在在这里写一个系列，并保持更新">
+<meta name="keywords" content="skill">
 <meta property="og:type" content="article">
 <meta property="og:title" content="osx一些软件安装配置">
 <meta property="og:url" content="http://liuyiyou.cn/2015/10/28/2015-10-28-osx一些软件安装配置/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="无论是windows还是linux，都需要进行一系列的配置，相对于windows来说，一般情况下linux都是作为服务器，而且很多新的开发框架或工具会优先适配linux，比如hadoop等。
-虽然系统中装了很多软件，比如java、MySQL、nodejs等，但是每次装的时候都是临时装的，没有记录下来。现在在这里写一个系列，并保持更新">
+<meta property="og:description" content="无论是windows还是linux，都需要进行一系列的配置，相对于windows来说，一般情况下linux都是作为服务器，而且很多新的开发框架或工具会优先适配linux，比如hadoop等。 虽然系统中装了很多软件，比如java、MySQL、nodejs等，但是每次装的时候都是临时装的，没有记录下来。现在在这里写一个系列，并保持更新">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-04-25T06:21:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="osx一些软件安装配置">
-<meta name="twitter:description" content="无论是windows还是linux，都需要进行一系列的配置，相对于windows来说，一般情况下linux都是作为服务器，而且很多新的开发框架或工具会优先适配linux，比如hadoop等。
-虽然系统中装了很多软件，比如java、MySQL、nodejs等，但是每次装的时候都是临时装的，没有记录下来。现在在这里写一个系列，并保持更新">
+<meta name="twitter:description" content="无论是windows还是linux，都需要进行一系列的配置，相对于windows来说，一般情况下linux都是作为服务器，而且很多新的开发框架或工具会优先适配linux，比如hadoop等。 虽然系统中装了很多软件，比如java、MySQL、nodejs等，但是每次装的时候都是临时装的，没有记录下来。现在在这里写一个系列，并保持更新">
 
 
 
@@ -108,9 +106,11 @@
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -133,11 +133,7 @@
 
 
 
-  <title> osx一些软件安装配置 | 温故而知新    触类而旁通 </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>osx一些软件安装配置 | 温故而知新    触类而旁通</title>
   
 
 
@@ -147,18 +143,16 @@
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-right page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -204,18 +198,8 @@
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -224,8 +208,18 @@
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -235,11 +229,21 @@
       
         
         <li class="menu-item menu-item-inbox">
-          <a href="/inbox" rel="section">
+          <a href="/inbox/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
             
-            收藏
+            inbox
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -271,7 +275,11 @@
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/10/28/2015-10-28-osx一些软件安装配置/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -289,14 +297,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                osx一些软件安装配置
-              
-            
-          </h2>
+          <h2 class="post-title" itemprop="name headline">osx一些软件安装配置</h2>
         
 
         <div class="post-meta">
@@ -359,7 +360,9 @@
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
@@ -369,53 +372,41 @@
         <p>无论是windows还是linux，都需要进行一系列的配置，相对于windows来说，一般情况下linux都是作为服务器，而且很多新的开发框架或工具会优先适配linux，比如hadoop等。</p>
 <p>虽然系统中装了很多软件，比如java、MySQL、nodejs等，但是每次装的时候都是临时装的，没有记录下来。现在在这里写一个系列，并保持更新</p>
 <a id="more"></a>
-<h2 id="环境变量的配置">环境变量的配置</h2><ul>
+<h2 id="环境变量的配置"><a href="#环境变量的配置" class="headerlink" title="环境变量的配置"></a>环境变量的配置</h2><ul>
 <li>/etc/profile ：  建议不修改这个文件 </li>
 <li>/etc/bashrc :   一般在这个文件中添加系统级环境变量</li>
 <li>~/.bash_profile  一般在这个文件中添加用户级环境变量</li>
 </ul>
-<h2 id="java环境变量的配置">java环境变量的配置</h2><p>osx自动带有Java，可以通过 </p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span>  /usr/bin</span><br><span class="line">ls <span class="operator">-l</span> java</span><br></pre></td></tr></table></figure>
+<h2 id="java环境变量的配置"><a href="#java环境变量的配置" class="headerlink" title="java环境变量的配置"></a>java环境变量的配置</h2><p>osx自动带有Java，可以通过 </p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="built_in">cd</span>  /usr/bin</div><div class="line">ls -l java</div></pre></td></tr></table></figure>
 <p>看到配置的信息，不过一般在.bash_profile中进行配置</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.<span class="number">7.0</span>_65.jdk/Contents/Home <span class="comment">#jdk安装路径   </span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span> </span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="built_in">export</span> JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_65.jdk/Contents/Home <span class="comment">#jdk安装路径   </span></div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span> </div><div class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</div></pre></td></tr></table></figure>
 <p>不知道配置得是否正确</p>
-<h2 id="maven安装和环境变量配置">maven安装和环境变量配置</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">M2_HOME=/Users/liuyiyou/TechSoft/apache-maven-<span class="number">3.0</span>.<span class="number">5</span></span><br><span class="line">PATH=<span class="variable">$M2_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure>
-<h2 id="mysql">mysql</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">MYSQL_HOME=/usr/<span class="built_in">local</span>/mysql</span><br><span class="line">PATH=<span class="variable">$MYSQL_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure>
-<h2 id="memcached">memcached</h2><p>见 <a href="/2015/05/16/2015-05-16-memcached安装/">2015-05-16-memcached安装</a></p>
-<h2 id="redis">redis</h2><p>见 <a href="/2015/05/28/2015-05-28-Redis安装与基本测试/">2015-05-28-Redis安装与基本测试</a></p>
-<h2 id="hadoop">hadoop</h2><p>见 <a href="2016/01/01/2016-01-01-osx下hadoop环境搭建以及启动/">2016-01-01-osx下hadoop环境搭建以及启动</a></p>
-<h2 id="hive">hive</h2><p>见 <a href="/2016/01/02/2016-01-01-hive环境搭建以及常用命令/">2016-01-01-hive环境搭建以及常用命令</a></p>
-<h2 id="hbase">hbase</h2><p>官方文档：<br><a href="http://hbase.apache.org/book.html" target="_blank" rel="external">http://hbase.apache.org/book.html</a></p>
+<h2 id="maven安装和环境变量配置"><a href="#maven安装和环境变量配置" class="headerlink" title="maven安装和环境变量配置"></a>maven安装和环境变量配置</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">M2_HOME=/Users/liuyiyou/TechSoft/apache-maven-3.0.5</div><div class="line">PATH=<span class="variable">$M2_HOME</span>/bin:<span class="variable">$PATH</span></div><div class="line"><span class="built_in">export</span> PATH</div></pre></td></tr></table></figure>
+<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">MYSQL_HOME=/usr/<span class="built_in">local</span>/mysql</div><div class="line">PATH=<span class="variable">$MYSQL_HOME</span>/bin:<span class="variable">$PATH</span></div><div class="line"><span class="built_in">export</span> PATH</div></pre></td></tr></table></figure>
+<h2 id="memcached"><a href="#memcached" class="headerlink" title="memcached"></a>memcached</h2><p>见 <a href="/2015/05/16/2015-05-16-memcached安装/">2015-05-16-memcached安装</a></p>
+<h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2><p>见 <a href="/2015/05/28/2015-05-28-Redis安装与基本测试/">2015-05-28-Redis安装与基本测试</a></p>
+<h2 id="hadoop"><a href="#hadoop" class="headerlink" title="hadoop"></a>hadoop</h2><p>见 <a href="2016/01/01/2016-01-01-osx下hadoop环境搭建以及启动/">2016-01-01-osx下hadoop环境搭建以及启动</a></p>
+<h2 id="hive"><a href="#hive" class="headerlink" title="hive"></a>hive</h2><p>见 <a href="/2016/01/02/2016-01-01-hive环境搭建以及常用命令/">2016-01-01-hive环境搭建以及常用命令</a></p>
+<h2 id="hbase"><a href="#hbase" class="headerlink" title="hbase"></a>hbase</h2><p>官方文档：<br><a href="http://hbase.apache.org/book.html" target="_blank" rel="external">http://hbase.apache.org/book.html</a></p>
 <p>中文文档：这个比较老<br><a href="http://abloz.com/hbase/book.html#standalone_dist" target="_blank" rel="external">http://abloz.com/hbase/book.html#standalone_dist</a><br><a href="http://abloz.com/hbase/book.html" target="_blank" rel="external">http://abloz.com/hbase/book.html</a></p>
 <p>基本操作：<br><a href="http://www.uml.org.cn/sjjm/201212141.asp" target="_blank" rel="external">http://www.uml.org.cn/sjjm/201212141.asp</a></p>
 <p>1、下载hbase-1.2.4-bin.tar.gz<br>2、tar xzvf hbase-1.2.4-bin.tar.gz<br>3、cd hbase-1.2.4<br>4、配置java环境变量<br>    4.1:echo $PATH 或者 cat /etc/profile<br>    4.2:在conf/hbase-env.sh中配置：<br>    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/  </p>
 <p>5、配置hbase-site.xml<br>6、./start-hbase.sh<br>7、<a href="http://localhost:16010" target="_blank" rel="external">http://localhost:16010</a><br>8、./hbase shell</p>
-<h2 id="spark">spark</h2><h2 id="hue">hue</h2><p>见 <a href="/2017/04/26/2017-04-26-Hue安装/">2017-04-26-Hue安装</a></p>
-<h2 id="nginx">nginx</h2><p>位置：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Docroot is: /usr/<span class="built_in">local</span>/var/www</span><br><span class="line"></span><br><span class="line">The default port has been <span class="built_in">set</span> <span class="keyword">in</span> /usr/<span class="built_in">local</span>/etc/nginx/nginx.conf to <span class="number">8080</span> so that</span><br><span class="line">nginx can run without sudo.</span><br><span class="line"></span><br><span class="line">nginx will load all files <span class="keyword">in</span> /usr/<span class="built_in">local</span>/etc/nginx/servers/.</span><br><span class="line"></span><br><span class="line">To have launchd start nginx now and restart at login:</span><br><span class="line">  brew services start nginx</span><br><span class="line">Or, <span class="keyword">if</span> you don<span class="string">'t want/need a background service you can just run:</span><br><span class="line">  nginx</span><br><span class="line"></span><br><span class="line">位置：</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">配置文件在上面有提到</span><br><span class="line">日志文件在Celler上</span><br><span class="line"></span><br><span class="line">常用命令：</span><br><span class="line"></span><br><span class="line">http://my.oschina.net/psuyun/blog/113694</span><br><span class="line"></span><br><span class="line">启动：sudo nginx</span><br><span class="line">重启：sudo nginx -s reload</span><br><span class="line">关闭：sudo nginx -s stop</span></span><br></pre></td></tr></table></figure>
+<h2 id="spark"><a href="#spark" class="headerlink" title="spark"></a>spark</h2><h2 id="hue"><a href="#hue" class="headerlink" title="hue"></a>hue</h2><p>见 <a href="/2017/04/26/2017-04-26-Hue安装/">2017-04-26-Hue安装</a></p>
+<h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><p>位置：</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">Docroot is: /usr/<span class="built_in">local</span>/var/www</div><div class="line"></div><div class="line">The default port has been <span class="built_in">set</span> <span class="keyword">in</span> /usr/<span class="built_in">local</span>/etc/nginx/nginx.conf to 8080 so that</div><div class="line">nginx can run without sudo.</div><div class="line"></div><div class="line">nginx will load all files <span class="keyword">in</span> /usr/<span class="built_in">local</span>/etc/nginx/servers/.</div><div class="line"></div><div class="line">To have launchd start nginx now and restart at login:</div><div class="line">  brew services start nginx</div><div class="line">Or, <span class="keyword">if</span> you don<span class="string">'t want/need a background service you can just run:</span></div><div class="line"><span class="string">  nginx</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">位置：</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">配置文件在上面有提到</span></div><div class="line"><span class="string">日志文件在Celler上</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">常用命令：</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">http://my.oschina.net/psuyun/blog/113694</span></div><div class="line"><span class="string"></span></div><div class="line"><span class="string">启动：sudo nginx</span></div><div class="line"><span class="string">重启：sudo nginx -s reload</span></div><div class="line"><span class="string">关闭：sudo nginx -s stop</span></div></pre></td></tr></table></figure>
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -427,7 +418,7 @@
       
 
       
-        
+      
       
 
       
@@ -455,6 +446,10 @@
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -470,9 +465,9 @@
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
+
+  
+
 
 
         </div>
@@ -488,101 +483,96 @@
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="liuyiyou" />
-          <p class="site-author-name" itemprop="name">liuyiyou</p>
-           
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liuyiyou</p>
               <p class="site-description motion-element" itemprop="description"></p>
-           
-        </div>
-        <nav class="site-state motion-element">
+          </div>
 
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">78</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
+          <nav class="site-state motion-element">
 
-          
             
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories.html">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
-              </span>
+              </div>
             
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  知乎
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">分类</span>
                 </a>
-              </span>
+              </div>
             
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-quora"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -615,30 +605,36 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">liuyiyou</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -649,6 +645,8 @@
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -672,64 +670,6 @@
   
 
 
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
   
 
 
@@ -742,6 +682,97 @@
 
 
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
 
 
   
@@ -753,77 +784,15 @@
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
 
   
 
-<!-- mathjax config similar to math.stackexchange -->
+  
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
+  
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 </body>
 </html>

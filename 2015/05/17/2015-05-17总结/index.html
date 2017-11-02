@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 
 
 
@@ -10,11 +10,26 @@
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-mac-osx.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
 
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
 <meta http-equiv="Cache-Control" content="no-siteapp" />
+
 
 
 
@@ -37,38 +52,27 @@
 
 
 
-  
-  
-  
-  
-
-  
-    
-    
-  
-
-  
-
-  
-
-  
-
-  
-
-  
-    
-    
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
 
 
 
 <link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
 
 
   <meta name="keywords" content="总结," />
@@ -80,32 +84,20 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
 
 
-
-
-
-
-<meta name="description" content="本周总结
-熟悉了一下Linux命令，一些常用的命令再也不需要每次用到的时候去查资料了。主要有下面的
-
-mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  project  project1tail -n2000 -f  jboss.log scp 192.168.1.2/data/jboss 192">
+<meta name="description" content="本周总结 熟悉了一下Linux命令，一些常用的命令再也不需要每次用到的时候去查资料了。主要有下面的  mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  project  project1tail -n2000 -f  jboss.log scp 192.168.1.2/data/jboss 192">
+<meta name="keywords" content="总结">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2015-05-17总结">
 <meta property="og:url" content="http://liuyiyou.cn/2015/05/17/2015-05-17总结/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="本周总结
-熟悉了一下Linux命令，一些常用的命令再也不需要每次用到的时候去查资料了。主要有下面的
-
-mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  project  project1tail -n2000 -f  jboss.log scp 192.168.1.2/data/jboss 192">
+<meta property="og:description" content="本周总结 熟悉了一下Linux命令，一些常用的命令再也不需要每次用到的时候去查资料了。主要有下面的  mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  project  project1tail -n2000 -f  jboss.log scp 192.168.1.2/data/jboss 192">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-04-14T07:02:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2015-05-17总结">
-<meta name="twitter:description" content="本周总结
-熟悉了一下Linux命令，一些常用的命令再也不需要每次用到的时候去查资料了。主要有下面的
-
-mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  project  project1tail -n2000 -f  jboss.log scp 192.168.1.2/data/jboss 192">
+<meta name="twitter:description" content="本周总结 熟悉了一下Linux命令，一些常用的命令再也不需要每次用到的时候去查资料了。主要有下面的  mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  project  project1tail -n2000 -f  jboss.log scp 192.168.1.2/data/jboss 192">
 
 
 
@@ -114,9 +106,11 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
   var CONFIG = {
     root: '/',
     scheme: 'Pisces',
-    sidebar: {"position":"right","display":"hide","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
-    motion: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
     duoshuo: {
       userId: '0',
       author: '博主'
@@ -139,11 +133,7 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
 
 
 
-  <title> 2015-05-17总结 | 温故而知新    触类而旁通 </title>
-</head>
-
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
-
+  <title>2015-05-17总结 | 温故而知新    触类而旁通</title>
   
 
 
@@ -153,18 +143,16 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
 
 
 
+</head>
 
-
-
-
-
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
     
   
 
-  <div class="container sidebar-position-right page-post-detail ">
+  <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -210,18 +198,8 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
         </li>
       
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
-            
-            分类
-          </a>
-        </li>
-      
-        
         <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
+          <a href="/archives/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
@@ -230,8 +208,18 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
         </li>
       
         
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
         <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
+          <a href="/tags/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
@@ -241,11 +229,21 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
       
         
         <li class="menu-item menu-item-inbox">
-          <a href="/inbox" rel="section">
+          <a href="/inbox/" rel="section">
             
               <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
             
-            收藏
+            inbox
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
           </a>
         </li>
       
@@ -277,7 +275,11 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
   
   
 
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/05/17/2015-05-17总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -295,14 +297,7 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
 
         
         
-          <h2 class="post-title" itemprop="name headline">
-            
-            
-              
-                2015-05-17总结
-              
-            
-          </h2>
+          <h2 class="post-title" itemprop="name headline">2015-05-17总结</h2>
         
 
         <div class="post-meta">
@@ -365,28 +360,30 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
       </header>
     
 
-
+    
+    
+    
     <div class="post-body" itemprop="articleBody">
 
       
       
 
       
-        <h2 id="本周总结">本周总结</h2><ol>
+        <h2 id="本周总结"><a href="#本周总结" class="headerlink" title="本周总结"></a>本周总结</h2><ol>
 <li>熟悉了一下Linux命令，一些常用的命令再也不需要每次用到的时候去查资料了。主要有下面的</li>
 </ol>
-<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">mkdir  </span><br><span class="line"><span class="built_in">pwd</span></span><br><span class="line">rm -rf  file/direct</span><br><span class="line">jar -xvf  project.war</span><br><span class="line">unzip -xvf project.war</span><br><span class="line">mv  project  project1</span><br><span class="line">tail -n2000 <span class="operator">-f</span>  jboss.log </span><br><span class="line">scp <span class="number">192.168</span>.<span class="number">1.2</span>/data/jboss <span class="number">192.169</span>.<span class="number">1.3</span>/data/jboss</span><br><span class="line">ps -ef|grep jboss</span><br></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">mkdir  </div><div class="line"><span class="built_in">pwd</span></div><div class="line">rm -rf  file/direct</div><div class="line">jar -xvf  project.war</div><div class="line">unzip -xvf project.war</div><div class="line">mv  project  project1</div><div class="line">tail -n2000 -f  jboss.log </div><div class="line">scp 192.168.1.2/data/jboss 192.169.1.3/data/jboss</div><div class="line">ps -ef|grep jboss</div></pre></td></tr></table></figure>
 <a id="more"></a>
 <ol>
 <li>springmvc的json日期格式后台返回</li>
 </ol>
 <p>如果数据库类型为timestap，则默认情况下，返回到前台是long类型，在非Ajax的情况下，可以使用jstl标签库或者velocity的一些工具函数，但是直接返回json的时候，这些都不行。如何办呢？</p>
 <p>可以使用 @JsonFormat试一下</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">/**</span><br><span class="line"> * 解决SpringMVC使用<span class="doctag">@ResponseBody</span>返回json时，日期格式默认显示为时间戳的问题。需配合&lt;mvc:message-converters&gt;使用</span><br><span class="line"> * </span><br><span class="line"> */</span></span><br><span class="line"><span class="annotation">@Component</span>(<span class="string">"customObjectMapper"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomObjectMapper</span> <span class="keyword">extends</span> <span class="title">ObjectMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CustomObjectMapper</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		CustomSerializerFactory factory = <span class="keyword">new</span> CustomSerializerFactory();</span><br><span class="line">		factory.addGenericMapping(Date.class, <span class="keyword">new</span> JsonSerializer&lt;Date&gt;() &#123;</span><br><span class="line">			<span class="annotation">@Override</span></span><br><span class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">serialize</span><span class="params">(Date value, JsonGenerator jsonGenerator,</span><br><span class="line">					SerializerProvider provider)</span> <span class="keyword">throws</span> IOException, JsonProcessingException </span>&#123;</span><br><span class="line">				SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line">				jsonGenerator.writeString(sdf.format(value));</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;);</span><br><span class="line">		<span class="keyword">this</span>.setSerializerFactory(factory);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 解决SpringMVC使用<span class="doctag">@ResponseBody</span>返回json时，日期格式默认显示为时间戳的问题。需配合&lt;mvc:message-converters&gt;使用</span></div><div class="line"><span class="comment"> * </span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="meta">@Component</span>(<span class="string">"customObjectMapper"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomObjectMapper</span> <span class="keyword">extends</span> <span class="title">ObjectMapper</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">CustomObjectMapper</span><span class="params">()</span> </span>&#123;</div><div class="line">		CustomSerializerFactory factory = <span class="keyword">new</span> CustomSerializerFactory();</div><div class="line">		factory.addGenericMapping(Date.class, <span class="keyword">new</span> JsonSerializer&lt;Date&gt;() &#123;</div><div class="line">			<span class="meta">@Override</span></div><div class="line">			<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">serialize</span><span class="params">(Date value, JsonGenerator jsonGenerator,</span></span></div><div class="line"><span class="function"><span class="params">					SerializerProvider provider)</span> <span class="keyword">throws</span> IOException, JsonProcessingException </span>&#123;</div><div class="line">				SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</div><div class="line">				jsonGenerator.writeString(sdf.format(value));</div><div class="line">			&#125;</div><div class="line">		&#125;);</div><div class="line">		<span class="keyword">this</span>.setSerializerFactory(factory);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>然后在<strong>dispatch-servlet.xml</strong>中配置</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="title">mvc:annotation-driven</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="title">mvc:message-converters</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="title">bean</span> <span class="attribute">class</span>=<span class="value">"org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="title">property</span> <span class="attribute">name</span>=<span class="value">"objectMapper"</span> <span class="attribute">ref</span>=<span class="value">"customObjectMapper"</span>&gt;</span><span class="tag">&lt;/<span class="title">property</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="title">bean</span>&gt;</span></span><br><span class="line">	<span class="tag">&lt;/<span class="title">mvc:message-converters</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">mvc:annotation-driven</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">mvc:annotation-driven</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">mvc:message-converters</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"objectMapper"</span> <span class="attr">ref</span>=<span class="string">"customObjectMapper"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">mvc:message-converters</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">mvc:annotation-driven</span>&gt;</span></div></pre></td></tr></table></figure>
 <p>当然还有其他方法，到时候总结一下</p>
-<h2 id="里面有几个坑">里面有几个坑</h2><ol>
+<h2 id="里面有几个坑"><a href="#里面有几个坑" class="headerlink" title="里面有几个坑"></a>里面有几个坑</h2><ol>
 <li>jboss </li>
 </ol>
 <p>以前没用过，只用过tomcat，只要把war包放到deploy文件夹下就行，不过和tomcat不同的是，tomcat会自动解压，解压后的文件夹名称为原有名称去掉.war后缀。而他不会自动解压，而是直接以war包运行。看公司其他运行的项目都是已projectName.war（不是war包，而是一个文件夹的名称）运行，为啥不直接叫projectName呢？<br>于是在部署的时候，和运维的同事说，先解压再启动吧，这样以后局部跟新的时候比较好替换，于是理所当然的解压为项目名称，结果虽然能正常启动，但是访问路径的时候报404错误。 直到重命名为为项目吗.war之后，才能正确运行</p>
@@ -399,37 +396,25 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
 <li>js绑定</li>
 </ol>
 <p>假设点赞html是这样的</p>
-<figure class="highlight"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&lt;li  class="upvoteAdd"   &gt;点赞(&lt;span id="voteupNum_1" )0&lt;/span&gt;&lt;/li&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><div class="line"></div><div class="line">&lt;li  class="upvoteAdd"   &gt;点赞(&lt;span id="voteupNum_1" )0&lt;/span&gt;&lt;/li&gt;</div></pre></td></tr></table></figure>
 <p>上面的li是增加成功后在前台拼接而成的，然后我在js中这样写：</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&lt;script&gt;</span><br><span class="line">       $(<span class="string">".upvoteAdd"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">                <span class="comment">//拿到现在的然后+1  偷懒的方法 </span></span><br><span class="line">      &#125;);</span><br><span class="line"><span class="xml"><span class="tag">&lt;/<span class="title">script</span>&gt;</span></span></span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"></div><div class="line">&lt;script&gt;</div><div class="line">       $(<span class="string">".upvoteAdd"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="comment">//拿到现在的然后+1  偷懒的方法 </span></div><div class="line">      &#125;);</div><div class="line">&lt;<span class="regexp">/script&gt;</span></div></pre></td></tr></table></figure>
 <p>结果就是点赞不起作用，原因是js执行流程是按照先后顺序的。所以新增的li是没有绑定click事件的，所以该js代码必须写在增加评论成功后，比如这样</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">$.getJSON(<span class="string">'/path/to/file'</span>, &#123;</span><br><span class="line">	param1: <span class="string">'value1'</span></span><br><span class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">json, textStatus</span>) </span>&#123;</span><br><span class="line">	<span class="keyword">if</span> (json.suucess) &#123;</span><br><span class="line">		<span class="comment">//在这里进行绑定</span></span><br><span class="line">		$(<span class="string">".upvoteAdd"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">			<span class="comment">//拿到现在的然后+1  偷懒的方法 </span></span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"></div><div class="line">$.getJSON(<span class="string">'/path/to/file'</span>, &#123;</div><div class="line">	param1: <span class="string">'value1'</span></div><div class="line">&#125;, <span class="function"><span class="keyword">function</span>(<span class="params">json, textStatus</span>) </span>&#123;</div><div class="line">	<span class="keyword">if</span> (json.suucess) &#123;</div><div class="line">		<span class="comment">//在这里进行绑定</span></div><div class="line">		$(<span class="string">".upvoteAdd"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			<span class="comment">//拿到现在的然后+1  偷懒的方法 </span></div><div class="line">		&#125;);</div><div class="line">	&#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
 <p>这样，点赞才能起作用，不过这样还会有一个问题，连续发三次评论，然后分别点赞，第三次显示1，第二次显示2，第一次显示3.原因是因为第二次增加评论的时候，第一次发布的评论又绑定了两次，第三次发布的时候第二个评论绑定了两次，第一次发布的绑定了三次。</p>
 <p>解决办法：很多种</p>
 
       
     </div>
+    
+    
+    
 
-    <div>
-      
-        
+    
 
-      
-    </div>
+    
 
-    <div>
-      
-        
-
-      
-    </div>
-
-    <div>
-      
-        
-
-      
-    </div>
+    
 
     <footer class="post-footer">
       
@@ -441,7 +426,7 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
       
 
       
-        
+      
       
 
       
@@ -469,6 +454,10 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
       
       
     </footer>
+  </div>
+  
+  
+  
   </article>
 
 
@@ -484,9 +473,9 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
+
+  
+
 
 
         </div>
@@ -502,101 +491,96 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
   </div>
 
   <aside id="sidebar" class="sidebar">
+    
     <div class="sidebar-inner">
 
       
 
       
         <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
             文章目录
           </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
             站点概览
           </li>
         </ul>
       
 
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image"
-               src="/images/avatar.gif"
-               alt="liuyiyou" />
-          <p class="site-author-name" itemprop="name">liuyiyou</p>
-           
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liuyiyou</p>
               <p class="site-description motion-element" itemprop="description"></p>
-           
-        </div>
-        <nav class="site-state motion-element">
+          </div>
 
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">78</span>
-                <span class="site-state-item-name">日志</span>
-              </a>
-            </div>
-          
+          <nav class="site-state motion-element">
 
-          
             
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories.html">
-                <span class="site-state-item-count">21</span>
-                <span class="site-state-item-name">分类</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">25</span>
-                <span class="site-state-item-name">标签</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-
-        <div class="links-of-author motion-element">
-          
-            
-              <span class="links-of-author-item">
-                <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
-                  
-                    <i class="fa fa-fw fa-github"></i>
-                  
-                  GitHub
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">87</span>
+                  <span class="site-state-item-name">日志</span>
                 </a>
-              </span>
+              </div>
             
-              <span class="links-of-author-item">
-                <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
-                  
-                    <i class="fa fa-fw fa-globe"></i>
-                  
-                  知乎
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories.html">
+                  <span class="site-state-item-count">24</span>
+                  <span class="site-state-item-name">分类</span>
                 </a>
-              </span>
+              </div>
             
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">27</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
           
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/liuyiyou" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
+                    
+                      <i class="fa fa-fw fa-quora"></i>知乎</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
         </div>
-
-        
-        
-
-        
-        
-
-        
-
-
       </section>
 
       
@@ -629,30 +613,36 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright" >
-  
-  &copy; 
-  <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
-    <i class="fa fa-heart"></i>
+    <i class="fa fa-user"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">liuyiyou</span>
+
+  
 </div>
 
 
-<div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
-</div>
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
-<div class="theme-info">
-  主题 -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Pisces
-  </a>
-</div>
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
 
 
         
+
+
+
+
+
+
 
         
       </div>
@@ -663,6 +653,8 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
         <i class="fa fa-arrow-up"></i>
         
       </div>
+    
+
     
 
   </div>
@@ -686,64 +678,6 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
   
 
 
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
-
-
-
-  
-
-
   
 
 
@@ -756,6 +690,97 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
 
 
 
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
 
 
   
@@ -767,77 +792,15 @@ mkdir  pwdrm -rf  file/directjar -xvf  project.warunzip -xvf project.warmv  proj
   
 
   
-<script>
-(function(){
-    var bp = document.createElement('script');
-    var curProtocol = window.location.protocol.split(':')[0];
-    if (curProtocol === 'https') {
-        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
-    }
-    else {
-        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-    }
-    var s = document.getElementsByTagName("script")[0];
-    s.parentNode.insertBefore(bp, s);
-})();
-</script>
-
 
   
   
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-  
-
 
   
 
-<!-- mathjax config similar to math.stackexchange -->
+  
 
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    tex2jax: {
-      inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-      processEscapes: true
-    }
-  });
-</script>
+  
 
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-      tex2jax: {
-        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-      }
-    });
-</script>
-
-<script type="text/x-mathjax-config">
-    MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for(i=0; i < all.length; i += 1) {
-            all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-    });
-</script>
-
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
-</script>
 </body>
 </html>
