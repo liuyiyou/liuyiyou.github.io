@@ -86,18 +86,18 @@
 
 
 
-<meta name="description" content="#服务注册中心端口号server.port=1110#服务注册中心实例的主机名eureka.instance.hostname=localhost#是否向服务注册中心注册自己eureka.client.register-with-eureka=false#是否检索服务eureka.client.fetch-registry=false#服务注册中心的配置内容，指定服务注册中心的位置eureka.c">
+<meta name="description" content="Eureka是什么，SpringCloud用Eureka来干什么等等相关概念就不细说了，网上有大把大把的解释，甚至下面的文章都不需要看，因为网上也有大把大把的列子，为了省去搜索的时间，可以参考：Spring资料大全  中的SpringCloud相关文档。本文的目的只是自己记录一下 目的 Eureka服务中心搭建 其他服务注册到Eureka服务中心 Eureka服务中心高可用 Eureka服务中心相">
 <meta name="keywords" content="spring-cloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Eureka服务治理">
 <meta property="og:url" content="http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务治理/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="#服务注册中心端口号server.port=1110#服务注册中心实例的主机名eureka.instance.hostname=localhost#是否向服务注册中心注册自己eureka.client.register-with-eureka=false#是否检索服务eureka.client.fetch-registry=false#服务注册中心的配置内容，指定服务注册中心的位置eureka.c">
+<meta property="og:description" content="Eureka是什么，SpringCloud用Eureka来干什么等等相关概念就不细说了，网上有大把大把的解释，甚至下面的文章都不需要看，因为网上也有大把大把的列子，为了省去搜索的时间，可以参考：Spring资料大全  中的SpringCloud相关文档。本文的目的只是自己记录一下 目的 Eureka服务中心搭建 其他服务注册到Eureka服务中心 Eureka服务中心高可用 Eureka服务中心相">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-21T01:24:28.878Z">
+<meta property="og:updated_time" content="2017-11-25T13:55:48.261Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Eureka服务治理">
-<meta name="twitter:description" content="#服务注册中心端口号server.port=1110#服务注册中心实例的主机名eureka.instance.hostname=localhost#是否向服务注册中心注册自己eureka.client.register-with-eureka=false#是否检索服务eureka.client.fetch-registry=false#服务注册中心的配置内容，指定服务注册中心的位置eureka.c">
+<meta name="twitter:description" content="Eureka是什么，SpringCloud用Eureka来干什么等等相关概念就不细说了，网上有大把大把的解释，甚至下面的文章都不需要看，因为网上也有大把大把的列子，为了省去搜索的时间，可以参考：Spring资料大全  中的SpringCloud相关文档。本文的目的只是自己记录一下 目的 Eureka服务中心搭建 其他服务注册到Eureka服务中心 Eureka服务中心高可用 Eureka服务中心相">
 
 
 
@@ -354,6 +354,37 @@
           
 
           
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  587
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  3
+                </span>
+              
+            </div>
+          
 
           
 
@@ -370,7 +401,29 @@
       
 
       
-        <figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"></div><div class="line">#服务注册中心端口号</div><div class="line">server.port=1110</div><div class="line"></div><div class="line">#服务注册中心实例的主机名</div><div class="line">eureka.instance.hostname=localhost</div><div class="line"></div><div class="line">#是否向服务注册中心注册自己</div><div class="line">eureka.client.register-with-eureka=false</div><div class="line"></div><div class="line">#是否检索服务</div><div class="line">eureka.client.fetch-registry=false</div><div class="line"></div><div class="line">#服务注册中心的配置内容，指定服务注册中心的位置</div><div class="line">eureka.client.serviceUrl.defaultZone=http://$&#123;eureka.instance.hostname&#125;:$&#123;server.port&#125;/eureka/</div></pre></td></tr></table></figure>
+        <p>Eureka是什么，SpringCloud用Eureka来干什么等等相关概念就不细说了，网上有大把大把的解释，甚至下面的文章都不需要看，因为网上也有大把大把的列子，为了省去搜索的时间，可以参考：<br><a href="/2017/11/26/2017-11-26-Spring资料大全/#SpringCloud">Spring资料大全</a>  中的SpringCloud相关文档。本文的目的只是自己记录一下</p>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><ul>
+<li>Eureka服务中心搭建</li>
+<li>其他服务注册到Eureka服务中心</li>
+<li>Eureka服务中心高可用</li>
+<li>Eureka服务中心相关配置详解</li>
+</ul>
+<a id="more"></a>
+<h2 id="Eureka服务中心搭建"><a href="#Eureka服务中心搭建" class="headerlink" title="Eureka服务中心搭建"></a>Eureka服务中心搭建</h2><h3 id="新建项目：eureka-server"><a href="#新建项目：eureka-server" class="headerlink" title="新建项目：eureka-server"></a>新建项目：eureka-server</h3><h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-eureka-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="添加注解"><a href="#添加注解" class="headerlink" title="添加注解"></a>添加注解</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">@EnableEurekaServer</span></div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">EurekaServerApplication</span> </span>&#123;</div><div class="line"></div><div class="line">    EurekaDiscoveryClient eurekaDiscoveryClient;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line"></div><div class="line">        SpringApplication.run(EurekaServerApplication.class, args);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><p>访问 <a href="http://localhost:1111/" target="_blank" rel="external">http://localhost:1111/</a></p>
+<h2 id="其他服务注册到Eureka服务中心"><a href="#其他服务注册到Eureka服务中心" class="headerlink" title="其他服务注册到Eureka服务中心"></a>其他服务注册到Eureka服务中心</h2><h3 id="新建项目：hello-service"><a href="#新建项目：hello-service" class="headerlink" title="新建项目：hello-service"></a>新建项目：hello-service</h3><h3 id="添加依赖-1"><a href="#添加依赖-1" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-eureka<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<h3 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">#服务命名</div><div class="line">spring.application.name=hello-service</div><div class="line">#指定服务注册中心地址</div><div class="line">eureka.client.service-url.defaultZone=http://localhost:1111/eureka</div><div class="line"></div><div class="line">server.port=10000</div><div class="line"></div><div class="line">#需要启动eureka-server后启动,再看 http://localhost:1111/ 会发现hello-service已经注册到服务中心中去了</div></pre></td></tr></table></figure>
+<h3 id="添加注释"><a href="#添加注释" class="headerlink" title="添加注释"></a>添加注释</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@EnableDiscoveryClient</span></div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloServiceApplication</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        SpringApplication.run(HelloServiceApplication.class, args);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h3 id="调用服务"><a href="#调用服务" class="headerlink" title="调用服务"></a>调用服务</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Logger logger = LoggerFactory.getLogger(HelloController.class);</div><div class="line"></div><div class="line">    <span class="meta">@Autowired</span></div><div class="line">    DiscoveryClient discoveryClient;</div><div class="line"></div><div class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span> </span>&#123;</div><div class="line">        ServiceInstance instance = discoveryClient.getLocalServiceInstance();</div><div class="line">        logger.info(<span class="string">"/hello,host:"</span> + instance.getHost() + <span class="string">",service_id:"</span> + instance.getServiceId());</div><div class="line">        <span class="keyword">return</span> <span class="string">"Hello Spring Cloud"</span> + <span class="string">"/hello,host:"</span> + instance.getHost() + <span class="string">",service_id:"</span> + instance.getServiceId();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="启动-1"><a href="#启动-1" class="headerlink" title="启动"></a>启动</h3><p><a href="http://localhost:10000/hello" target="_blank" rel="external">http://localhost:10000/hello</a> </p>
+<p>打印： Hello Spring Cloud/hello,host:192.168.5.116,service_id:hello-service</p>
+<p>当然，是在服务中调用服务，应该再建立一个项目，访问hello-service的hello</p>
+<h2 id="Eureka服务中心高可用"><a href="#Eureka服务中心高可用" class="headerlink" title="Eureka服务中心高可用"></a>Eureka服务中心高可用</h2><h3 id="application-peer1-properties"><a href="#application-peer1-properties" class="headerlink" title="application-peer1.properties"></a>application-peer1.properties</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">spring.application.name=high-eureka-service</div><div class="line">server.port=1111</div><div class="line">eureka.instance.hostname=peer1</div><div class="line">eureka.client.service-url.defaultZone=http://peer2:1112/eureka/</div><div class="line">#需要在/etc/hosts中  加上 ip到host的映射  127.0.0.1 peer2</div><div class="line">#在target 中运行</div><div class="line">#java -jar high-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer1</div><div class="line">#java -jar high-eureka-server-0.0.1-SNAPSHOT.jar --spring.profiles.active=peer2</div><div class="line">#后访问 http://localhost:1112/    http://localhost:1111/ 可用看到将两个注册中心都当做服务注册到了注册中心中</div></pre></td></tr></table></figure>
+<h3 id="application-peer2-properties"><a href="#application-peer2-properties" class="headerlink" title="application-peer2.properties"></a>application-peer2.properties</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">spring.application.name=high-eureka-service</div><div class="line">server.port=1112</div><div class="line">eureka.instance.hostname=peer2</div><div class="line">eureka.client.service-url.defaultZone=http://peer1:1111/eureka/</div><div class="line">#需要在/etc/hosts中  加上 ip到host的映射  127.0.0.1 peer1</div></pre></td></tr></table></figure>
+<h3 id="启动-2"><a href="#启动-2" class="headerlink" title="启动"></a>启动</h3><p>访问 <a href="http://localhost:1111/" target="_blank" rel="external">http://localhost:1111/</a><br>访问 <a href="http://localhost:1112/" target="_blank" rel="external">http://localhost:1112/</a></p>
+<p>两者互相注册</p>
+<h2 id="Eureka服务中心相关配置详解"><a href="#Eureka服务中心相关配置详解" class="headerlink" title="Eureka服务中心相关配置详解"></a>Eureka服务中心相关配置详解</h2>
       
     </div>
     
@@ -381,6 +434,24 @@
 
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    liuyiyou
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务治理/" title="Eureka服务治理">http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务治理/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
@@ -469,8 +540,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -485,7 +565,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">95</span>
+                  <span class="site-state-item-count">96</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -496,7 +576,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -526,12 +606,6 @@
                       <i class="fa fa-fw fa-github"></i>GitHub</a>
                 </span>
               
-                <span class="links-of-author-item">
-                  <a href="http://www.zhihu.com/people/liuyiyou" target="_blank" title="知乎">
-                    
-                      <i class="fa fa-fw fa-quora"></i>知乎</a>
-                </span>
-              
             
           </div>
 
@@ -546,6 +620,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eureka服务中心搭建"><span class="nav-number">2.</span> <span class="nav-text">Eureka服务中心搭建</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建项目：eureka-server"><span class="nav-number">2.1.</span> <span class="nav-text">新建项目：eureka-server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加依赖"><span class="nav-number">2.2.</span> <span class="nav-text">添加依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加注解"><span class="nav-number">2.3.</span> <span class="nav-text">添加注解</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动"><span class="nav-number">2.4.</span> <span class="nav-text">启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#其他服务注册到Eureka服务中心"><span class="nav-number">3.</span> <span class="nav-text">其他服务注册到Eureka服务中心</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#新建项目：hello-service"><span class="nav-number">3.1.</span> <span class="nav-text">新建项目：hello-service</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加依赖-1"><span class="nav-number">3.2.</span> <span class="nav-text">添加依赖</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置文件"><span class="nav-number">3.3.</span> <span class="nav-text">配置文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加注释"><span class="nav-number">3.4.</span> <span class="nav-text">添加注释</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#调用服务"><span class="nav-number">3.5.</span> <span class="nav-text">调用服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动-1"><span class="nav-number">3.6.</span> <span class="nav-text">启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eureka服务中心高可用"><span class="nav-number">4.</span> <span class="nav-text">Eureka服务中心高可用</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#application-peer1-properties"><span class="nav-number">4.1.</span> <span class="nav-text">application-peer1.properties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#application-peer2-properties"><span class="nav-number">4.2.</span> <span class="nav-text">application-peer2.properties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#启动-2"><span class="nav-number">4.3.</span> <span class="nav-text">启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Eureka服务中心相关配置详解"><span class="nav-number">5.</span> <span class="nav-text">Eureka服务中心相关配置详解</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -566,6 +656,15 @@
   </span>
   <span class="author" itemprop="copyrightHolder">liuyiyou</span>
 
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">72.1k</span>
   
 </div>
 
