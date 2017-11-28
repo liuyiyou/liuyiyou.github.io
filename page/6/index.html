@@ -1911,7 +1911,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/10/15/2015-10-15-Java保留两位小数/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015/10/15/2015-10-15-Spring的一些扩展点/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -1930,7 +1930,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2015/10/15/2015-10-15-Java保留两位小数/" itemprop="url">Java保留两位小数</a></h2>
+                <a class="post-title-link" href="/2015/10/15/2015-10-15-Spring的一些扩展点/" itemprop="url">Spring的一些扩展点</a></h2>
         
 
         <div class="post-meta">
@@ -1965,8 +1965,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index">
-                    <span itemprop="name">java</span>
+                  <a href="/categories/spring/" itemprop="url" rel="index">
+                    <span itemprop="name">spring</span>
                   </a>
                 </span>
 
@@ -1996,7 +1996,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  255
+                  146
                 </span>
               
 
@@ -2034,16 +2034,19 @@
 
       
         
-          <p>所谓的两位小数，而不是保留两个有效数字，也就是说，如果是12.3012 会显示成12.30 。但是如果是12.00121也要显示成12.00，哪怕是12也要显示成12.00</p>
-<p>好吧，这个应该是很基础的功能，然而在之前却没有用过，最近在做报表分析统计工作的时候，要加上这个功能，发现者其中的几个类都没有使用过。所以在这里记录一下，用来备忘。</p>
-<p>NumberFormat 用来格式化数字。很简单，但是容易混淆，我就混淆了。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2015/10/15/2015-10-15-Java保留两位小数/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+          
+            <p>Spring是最常用的框架，但是在某些情况或者某些企业中并不会使用Spring的全部，比如webx或者wf等一类MVC框架中就知使用了Spring的IOC功能，所以在这些框架中要使用Spring的ioc，就需要一些扩展点</p>
+<h2 id="web环境"><a href="#web环境" class="headerlink" title="web环境"></a>web环境</h2><ol>
+<li>实现ServletContextListener接口，在实现类中通过classpath或者file方式实例化Spring的ioc</li>
+</ol>
+<ol>
+<li>ApplicationContextAware </li>
+</ol>
+<p>在加载Spring配置文件时，会自动调用ApplicationContextAware 接口中的</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setApplicationContext</span><span class="params">(ApplicationContext context)</span> <span class="keyword">throws</span> BeansException</span></div></pre></td></tr></table></figure>
+<p>方法，获得ApplicationContext对象。前提必须在Spring配置文件中指定该类</p>
+
+          
         
       
     </div>
@@ -2138,7 +2141,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
