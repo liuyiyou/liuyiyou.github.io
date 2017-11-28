@@ -86,19 +86,19 @@
 
 
 
-<meta name="description" content="目的对整个项目作出统一规范，减少各个开发人员沟通成本 项目统一命名微服务Spring-Boot版本统一选择使用1.5.8.RELEASE Spring-Cloud版本统一选择使用 Edgware.RELEASE 部署方式统一使用jar方式 项目命名 微服务统一以service-xxx进行命名 web层统一以web-xxx进行命名  服务以订单服务为例  项目名称： service-order gr">
+<meta name="description" content="目的对整个项目作出统一规范，减少各个开发人员沟通成本 项目规范微服务Spring-Boot版本统一选择使用1.5.8.RELEASE Spring-Cloud版本统一选择使用 Edgware.RELEASE 部署方式统一使用jar方式，后续可能会引入Docker 端口号由运维统一指定 部署个数暂定两个，后续重要服务可能会有多个 项目命名 微服务统一以service-xxx进行命名 web层统一以w">
 <meta name="keywords" content="架构">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微服务架构之规范">
 <meta property="og:url" content="http://liuyiyou.cn/2017/11/27/2017-11-27-微服务架构之规范/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="目的对整个项目作出统一规范，减少各个开发人员沟通成本 项目统一命名微服务Spring-Boot版本统一选择使用1.5.8.RELEASE Spring-Cloud版本统一选择使用 Edgware.RELEASE 部署方式统一使用jar方式 项目命名 微服务统一以service-xxx进行命名 web层统一以web-xxx进行命名  服务以订单服务为例  项目名称： service-order gr">
+<meta property="og:description" content="目的对整个项目作出统一规范，减少各个开发人员沟通成本 项目规范微服务Spring-Boot版本统一选择使用1.5.8.RELEASE Spring-Cloud版本统一选择使用 Edgware.RELEASE 部署方式统一使用jar方式，后续可能会引入Docker 端口号由运维统一指定 部署个数暂定两个，后续重要服务可能会有多个 项目命名 微服务统一以service-xxx进行命名 web层统一以w">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://liuyiyou.cn/images/service-product.png">
-<meta property="og:updated_time" content="2017-11-28T02:02:04.033Z">
+<meta property="og:updated_time" content="2017-11-28T02:23:06.421Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微服务架构之规范">
-<meta name="twitter:description" content="目的对整个项目作出统一规范，减少各个开发人员沟通成本 项目统一命名微服务Spring-Boot版本统一选择使用1.5.8.RELEASE Spring-Cloud版本统一选择使用 Edgware.RELEASE 部署方式统一使用jar方式 项目命名 微服务统一以service-xxx进行命名 web层统一以web-xxx进行命名  服务以订单服务为例  项目名称： service-order gr">
+<meta name="twitter:description" content="目的对整个项目作出统一规范，减少各个开发人员沟通成本 项目规范微服务Spring-Boot版本统一选择使用1.5.8.RELEASE Spring-Cloud版本统一选择使用 Edgware.RELEASE 部署方式统一使用jar方式，后续可能会引入Docker 端口号由运维统一指定 部署个数暂定两个，后续重要服务可能会有多个 项目命名 微服务统一以service-xxx进行命名 web层统一以w">
 <meta name="twitter:image" content="http://liuyiyou.cn/images/service-product.png">
 
 
@@ -366,7 +366,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  398
+                  680
                 </span>
               
 
@@ -382,7 +382,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -404,9 +404,11 @@
 
       
         <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>对整个项目作出统一规范，减少各个开发人员沟通成本</p>
-<h2 id="项目统一命名"><a href="#项目统一命名" class="headerlink" title="项目统一命名"></a>项目统一命名</h2><h3 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h3><h3 id="Spring-Boot版本"><a href="#Spring-Boot版本" class="headerlink" title="Spring-Boot版本"></a>Spring-Boot版本</h3><p>统一选择使用1.5.8.RELEASE</p>
+<h2 id="项目规范"><a href="#项目规范" class="headerlink" title="项目规范"></a>项目规范</h2><h3 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h3><h3 id="Spring-Boot版本"><a href="#Spring-Boot版本" class="headerlink" title="Spring-Boot版本"></a>Spring-Boot版本</h3><p>统一选择使用1.5.8.RELEASE</p>
 <h3 id="Spring-Cloud版本"><a href="#Spring-Cloud版本" class="headerlink" title="Spring-Cloud版本"></a>Spring-Cloud版本</h3><p>统一选择使用 Edgware.RELEASE</p>
-<h3 id="部署方式"><a href="#部署方式" class="headerlink" title="部署方式"></a>部署方式</h3><p>统一使用jar方式</p>
+<h3 id="部署方式"><a href="#部署方式" class="headerlink" title="部署方式"></a>部署方式</h3><p>统一使用jar方式，后续可能会引入Docker</p>
+<h3 id="端口号"><a href="#端口号" class="headerlink" title="端口号"></a>端口号</h3><p>由运维统一指定</p>
+<h3 id="部署个数"><a href="#部署个数" class="headerlink" title="部署个数"></a>部署个数</h3><p>暂定两个，后续重要服务可能会有多个</p>
 <h4 id="项目命名"><a href="#项目命名" class="headerlink" title="项目命名"></a>项目命名</h4><ul>
 <li>微服务统一以service-xxx进行命名</li>
 <li>web层统一以web-xxx进行命名</li>
@@ -496,7 +498,35 @@
 </ul>
 <p>依赖的时候</p>
 <figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.liuyiyou.springcloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>user-service-feigh-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><p>参考资料：<br><a href="http://www.importnew.com/27378.html" target="_blank" rel="external">一千个不用 Null 的理由</a><br><a href="http://zhuanlan.51cto.com/art/201702/531410.htm" target="_blank" rel="external">58到家数据库30条军规解读</a></p>
+<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><ol>
+<li>主键生成方式：</li>
+<li><p>数据库相关字段不能为NULL，理由如下：</p>
+<blockquote>
+<p><a href="http://www.importnew.com/27378.html" target="_blank" rel="external">一千个不用 Null 的理由</a><br><a href="http://zhuanlan.51cto.com/art/201702/531410.htm" target="_blank" rel="external">58到家数据库30条军规解读</a></p>
+</blockquote>
+</li>
+<li><p>所有表需要三个字段：create_time（创建时间）： datetime类型，  update_time（更新时间，默认为当前时间）：timestamp， del_flag（删除标志）：tinyint</p>
+</li>
+<li>不使用外键</li>
+<li>字段命名方式是否带表前缀：</li>
+</ol>
+<h2 id="关于NPE"><a href="#关于NPE" class="headerlink" title="关于NPE"></a>关于NPE</h2><ul>
+<li>MyBatis列表查询，如果没有数据，不会返回null，而是返回一个空集合，所以，不需要在上层使用<br>if(list!=null)来进行判断</li>
+</ul>
+<p>Eg:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">List&lt;User&gt; users = userService.getByProperty(<span class="keyword">new</span> User()&#123;&#123;setAccount(<span class="string">"1592055116068"</span>);&#125;&#125;);</div></pre></td></tr></table></figure>
+<p>该查询数据库是没有数据的，但是返回的是[] 而不是null</p>
+<ul>
+<li>数据库所有字段都要有默认值，否则查询对象后得到get某个字段的时候可能会产生NPE</li>
+</ul>
+<p>Eg:比如prod有一个price字段，如果默认值为NULL，则在使用该字段的时候要这样写</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span>(prod.getPrice()!=<span class="keyword">null</span>)&#123;</div><div class="line">     prod.getPrice +  <span class="number">12.23</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li><p>自定义方法的时候，注意不返回NULL</p>
+</li>
+<li><p>使用Optional来避免NPE</p>
+</li>
+</ul>
 
       
     </div>
@@ -704,7 +734,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目统一命名"><span class="nav-number">2.</span> <span class="nav-text">项目统一命名</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#微服务"><span class="nav-number">2.1.</span> <span class="nav-text">微服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot版本"><span class="nav-number">2.2.</span> <span class="nav-text">Spring-Boot版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Cloud版本"><span class="nav-number">2.3.</span> <span class="nav-text">Spring-Cloud版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署方式"><span class="nav-number">2.4.</span> <span class="nav-text">部署方式</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目命名"><span class="nav-number">2.4.1.</span> <span class="nav-text">项目命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包目录结构"><span class="nav-number">2.4.2.</span> <span class="nav-text">包目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#服务方"><span class="nav-number">2.4.2.1.</span> <span class="nav-text">服务方</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#说明"><span class="nav-number">2.4.3.</span> <span class="nav-text">说明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#调用方"><span class="nav-number">2.4.3.1.</span> <span class="nav-text">调用方</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">3.</span> <span class="nav-text">数据库</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目规范"><span class="nav-number">2.</span> <span class="nav-text">项目规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#微服务"><span class="nav-number">2.1.</span> <span class="nav-text">微服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot版本"><span class="nav-number">2.2.</span> <span class="nav-text">Spring-Boot版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Cloud版本"><span class="nav-number">2.3.</span> <span class="nav-text">Spring-Cloud版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署方式"><span class="nav-number">2.4.</span> <span class="nav-text">部署方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口号"><span class="nav-number">2.5.</span> <span class="nav-text">端口号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署个数"><span class="nav-number">2.6.</span> <span class="nav-text">部署个数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目命名"><span class="nav-number">2.6.1.</span> <span class="nav-text">项目命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包目录结构"><span class="nav-number">2.6.2.</span> <span class="nav-text">包目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#服务方"><span class="nav-number">2.6.2.1.</span> <span class="nav-text">服务方</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#说明"><span class="nav-number">2.6.3.</span> <span class="nav-text">说明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#调用方"><span class="nav-number">2.6.3.1.</span> <span class="nav-text">调用方</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">3.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于NPE"><span class="nav-number">4.</span> <span class="nav-text">关于NPE</span></a></li></ol></div>
             
 
           </div>
@@ -738,7 +768,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">74.4k</span>
+    <span title="Site words total count">74.6k</span>
   
 </div>
 
