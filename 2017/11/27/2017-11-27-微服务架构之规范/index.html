@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="架构," />
+  <meta name="keywords" content="spring-boot," />
 
 
 
@@ -86,19 +86,19 @@
 
 
 
-<meta name="description" content="目的对整个项目作出统一规范，减少各个开发人员沟通成本 项目规范微服务Spring-Boot版本统一选择使用1.5.8.RELEASE Spring-Cloud版本统一选择使用 Edgware.RELEASE 部署方式统一使用jar方式，后续可能会引入Docker 端口号由运维统一指定 部署个数暂定两个，后续重要服务可能会有多个 项目命名 微服务统一以service-xxx进行命名 web层统一以w">
-<meta name="keywords" content="架构">
+<meta name="description" content="说明在传统开发模式下的单应用架构，一般会将model层和dao层划分为一层（打包成jar）。之上是服务层（打包成jar），再之上是web层 好处：开发快速，简单坏处：只能单机部署，业务复杂后性能低下 在分布式服务的开发环境下，和单应用类似，区别在于，会将service接口和service实现打成两个包，对外提供服务的包括接口service，model以及相关类，客户端依赖service-api，且">
+<meta name="keywords" content="spring-boot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="微服务架构之规范">
 <meta property="og:url" content="http://liuyiyou.cn/2017/11/27/2017-11-27-微服务架构之规范/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="目的对整个项目作出统一规范，减少各个开发人员沟通成本 项目规范微服务Spring-Boot版本统一选择使用1.5.8.RELEASE Spring-Cloud版本统一选择使用 Edgware.RELEASE 部署方式统一使用jar方式，后续可能会引入Docker 端口号由运维统一指定 部署个数暂定两个，后续重要服务可能会有多个 项目命名 微服务统一以service-xxx进行命名 web层统一以w">
+<meta property="og:description" content="说明在传统开发模式下的单应用架构，一般会将model层和dao层划分为一层（打包成jar）。之上是服务层（打包成jar），再之上是web层 好处：开发快速，简单坏处：只能单机部署，业务复杂后性能低下 在分布式服务的开发环境下，和单应用类似，区别在于，会将service接口和service实现打成两个包，对外提供服务的包括接口service，model以及相关类，客户端依赖service-api，且">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://liuyiyou.cn/images/service-product.png">
-<meta property="og:updated_time" content="2017-11-28T02:23:06.421Z">
+<meta property="og:updated_time" content="2017-12-14T07:00:07.928Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微服务架构之规范">
-<meta name="twitter:description" content="目的对整个项目作出统一规范，减少各个开发人员沟通成本 项目规范微服务Spring-Boot版本统一选择使用1.5.8.RELEASE Spring-Cloud版本统一选择使用 Edgware.RELEASE 部署方式统一使用jar方式，后续可能会引入Docker 端口号由运维统一指定 部署个数暂定两个，后续重要服务可能会有多个 项目命名 微服务统一以service-xxx进行命名 web层统一以w">
+<meta name="twitter:description" content="说明在传统开发模式下的单应用架构，一般会将model层和dao层划分为一层（打包成jar）。之上是服务层（打包成jar），再之上是web层 好处：开发快速，简单坏处：只能单机部署，业务复杂后性能低下 在分布式服务的开发环境下，和单应用类似，区别在于，会将service接口和service实现打成两个包，对外提供服务的包括接口service，model以及相关类，客户端依赖service-api，且">
 <meta name="twitter:image" content="http://liuyiyou.cn/images/service-product.png">
 
 
@@ -171,7 +171,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description">liuyiyou的个人小站</h1>
+        <h1 class="site-subtitle" itemprop="description">In me the tiger sniffs the rose</h1>
       
   </div>
 
@@ -335,8 +335,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/架构/" itemprop="url" rel="index">
-                    <span itemprop="name">架构</span>
+                  <a href="/categories/spring-boot/" itemprop="url" rel="index">
+                    <span itemprop="name">spring-boot</span>
                   </a>
                 </span>
 
@@ -354,6 +354,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
             <div class="post-wordcount">
@@ -366,7 +371,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  680
+                  733
                 </span>
               
 
@@ -403,130 +408,47 @@
       
 
       
-        <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>对整个项目作出统一规范，减少各个开发人员沟通成本</p>
+        <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>在传统开发模式下的单应用架构，一般会将model层和dao层划分为一层（打包成jar）。之上是服务层（打包成jar），再之上是web层</p>
+<p>好处：开发快速，简单<br>坏处：只能单机部署，业务复杂后性能低下</p>
+<p>在分布式服务的开发环境下，和单应用类似，区别在于，会将service接口和service实现打成两个包，对外提供服务的包括接口service，model以及相关类，客户端依赖service-api，且客户端一般是web层或者业务层</p>
+<p>好处：能部署多台机器<br>坏处：业务升级、服务接口修改时需要各个项目进行配合</p>
+<p>在微服务架构下，则是两者的综合。<br>      和单应用相比：微服务是一个单独的应用，从model层到web层都在一个应用内，不同的是，微服务也对外提供暴露服务，而且可以分布式部署<br>      和分布式服务相比：有自己的web层，可以直接对外提供REST接口，同时提供服务API，供其他服务调用<br>好处：开发快速、简单、能实现分布式<br>坏处：模块太多，维护麻烦</p>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>对整个项目作出统一规范，减少各个开发人员沟通成本</p>
 <h2 id="项目规范"><a href="#项目规范" class="headerlink" title="项目规范"></a>项目规范</h2><h3 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h3><h3 id="Spring-Boot版本"><a href="#Spring-Boot版本" class="headerlink" title="Spring-Boot版本"></a>Spring-Boot版本</h3><p>统一选择使用1.5.8.RELEASE</p>
 <h3 id="Spring-Cloud版本"><a href="#Spring-Cloud版本" class="headerlink" title="Spring-Cloud版本"></a>Spring-Cloud版本</h3><p>统一选择使用 Edgware.RELEASE</p>
 <h3 id="部署方式"><a href="#部署方式" class="headerlink" title="部署方式"></a>部署方式</h3><p>统一使用jar方式，后续可能会引入Docker</p>
 <h3 id="端口号"><a href="#端口号" class="headerlink" title="端口号"></a>端口号</h3><p>由运维统一指定</p>
 <h3 id="部署个数"><a href="#部署个数" class="headerlink" title="部署个数"></a>部署个数</h3><p>暂定两个，后续重要服务可能会有多个</p>
 <h4 id="项目命名"><a href="#项目命名" class="headerlink" title="项目命名"></a>项目命名</h4><ul>
-<li>微服务统一以service-xxx进行命名</li>
-<li>web层统一以web-xxx进行命名</li>
+<li>基础微服务统一以xxx-server进行命名</li>
+<li>业务微服务统一以xxx-business进行命名</li>
 </ul>
 <p>服务以订单服务为例</p>
 <ul>
-<li>项目名称： service-order</li>
-<li>groupId:  com.iba.service</li>
-<li>artifactId: com.iba.service.order</li>
+<li>项目名称：product-server</li>
+<li>groupId: com.iba.server</li>
+<li>artifactId: com.iba.sever.product</li>
 </ul>
-<p>web以订单为例</p>
-<ul>
-<li>项目名称: web-order</li>
-<li>groupId: com.iba.web.order</li>
-<li>artifactId: com.iba.web.order</li>
-</ul>
+<p>只提供商品相关的增删改成，基本不包含业务逻辑<br>业务以商品服务为例<br>项目名称：product-business<br>groupId: com.iba.business</p>
 <h4 id="包目录结构"><a href="#包目录结构" class="headerlink" title="包目录结构"></a>包目录结构</h4><h5 id="服务方"><a href="#服务方" class="headerlink" title="服务方"></a>服务方</h5><p>如图所示：</p>
 <p><img src="/images/service-product.png" alt="微服务包图"></p>
-<p>打包后的jar：</p>
-<ul>
-<li>service-product-contract-0.0.1-SNAPSHOT.jar</li>
-<li>service-product-0.0.1-SNAPSHOT.jar</li>
-</ul>
-<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ul>
-<li>src/main/java<ul>
-<li>com.iba.service.order<ul>
-<li>OrderServiceApplication.java ： 启动类</li>
-<li>contract<ul>
-<li>model<ul>
-<li>Order.java  ： 实体类</li>
-</ul>
+<p>业务服务和其他服务需要调用的时候</p>
+<p>1、添加依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.iba.server<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>product-server-contract<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>2、增加注解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="meta">@EnableDiscoveryClient</span></div><div class="line"><span class="meta">@EnableFeignClients</span>(basePackages = &#123;<span class="string">"com.iba.service.*.contract"</span>&#125;)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StoreServerApplication</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">      SpringApplication.run(StoreServerApplication.class, args);</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3、调用服务</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StoreController</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Logger logger = LoggerFactory.getLogger(StoreController.class);</div><div class="line"></div><div class="line"> <span class="meta">@Autowired</span></div><div class="line"> <span class="keyword">private</span> IProductService productService;</div><div class="line"></div><div class="line"></div><div class="line"> <span class="meta">@RequestMapping</span>(<span class="string">"getStore"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getStore</span><span class="params">()</span> </span>&#123;</div><div class="line">        logger.info(<span class="string">"调用本地服务"</span>);</div><div class="line"> productService.listUser();</div><div class="line"> logger.info(<span class="string">"调用其他服务提供的服务"</span>);</div><div class="line"> &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>MyBatis列表查询，如果没有数据，不会返回null，而是返回一个空集合，所以，不需要在上层使用</p>
 </li>
-<li>service<ul>
-<li>OrderService.java   ： 服务接口</li>
-</ul>
+<li><p>数据库所有字段都要有默认值，否则查询对象后得到get某个字段的时候可能会产生NPE</p>
 </li>
-<li>xxx<ul>
-<li>需要暴露给调用方的相关类、枚举等</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>mapper<ul>
-<li>OrderMapper.java</li>
-</ul>
-</li>
-<li>service<ul>
-<li>OrderServiceImpl或者OrderService: 服务实现</li>
-</ul>
-</li>
-<li>xxx<ul>
-<li>需要暴露给调用方的相关类、枚举等</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>src/main/resources</li>
-</ul>
-<ul>
-<li>pom.xml ： 服务实现类打包，打包成  service-order.xxxx.jar</li>
-<li>deploy_pom.xml  接口类打包 , 打包成 servce-order-contract.xxxx.jar</li>
-</ul>
-<h5 id="调用方"><a href="#调用方" class="headerlink" title="调用方"></a>调用方</h5><p>如果调用方为其他服务，则采用上述方式，如果是Web层，则采用如下方式</p>
-<ul>
-<li>src/main/java<ul>
-<li>com.iba.web.order<ul>
-<li>OrderWebApplication.java ： 启动类</li>
-<li>controller<ul>
-<li>OrderController.java:  订单控制层</li>
-</ul>
-</li>
-<li>business/service<ul>
-<li>OrderBiz.java/OrderService.java</li>
-</ul>
-</li>
-<li>xxx<ul>
-<li>VO等相关类</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>src/main/resources</li>
-</ul>
-<p>依赖的时候</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.liuyiyou.springcloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>user-service-feigh-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><ol>
-<li>主键生成方式：</li>
-<li><p>数据库相关字段不能为NULL，理由如下：</p>
-<blockquote>
-<p><a href="http://www.importnew.com/27378.html" target="_blank" rel="external">一千个不用 Null 的理由</a><br><a href="http://zhuanlan.51cto.com/art/201702/531410.htm" target="_blank" rel="external">58到家数据库30条军规解读</a></p>
-</blockquote>
-</li>
-<li><p>所有表需要三个字段：create_time（创建时间）： datetime类型，  update_time（更新时间，默认为当前时间）：timestamp， del_flag（删除标志）：tinyint</p>
-</li>
-<li>不使用外键</li>
-<li>字段命名方式是否带表前缀：</li>
-</ol>
-<h2 id="关于NPE"><a href="#关于NPE" class="headerlink" title="关于NPE"></a>关于NPE</h2><ul>
-<li>MyBatis列表查询，如果没有数据，不会返回null，而是返回一个空集合，所以，不需要在上层使用<br>if(list!=null)来进行判断</li>
-</ul>
-<p>Eg:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">List&lt;User&gt; users = userService.getByProperty(<span class="keyword">new</span> User()&#123;&#123;setAccount(<span class="string">"1592055116068"</span>);&#125;&#125;);</div></pre></td></tr></table></figure>
-<p>该查询数据库是没有数据的，但是返回的是[] 而不是null</p>
-<ul>
-<li>数据库所有字段都要有默认值，否则查询对象后得到get某个字段的时候可能会产生NPE</li>
-</ul>
-<p>Eg:比如prod有一个price字段，如果默认值为NULL，则在使用该字段的时候要这样写</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span>(prod.getPrice()!=<span class="keyword">null</span>)&#123;</div><div class="line">     prod.getPrice +  <span class="number">12.23</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
 <li><p>自定义方法的时候，注意不返回NULL</p>
 </li>
 <li><p>使用Optional来避免NPE</p>
 </li>
-</ul>
+</ol>
 
       
     </div>
@@ -562,7 +484,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/架构/" rel="tag"># 架构</a>
+            <a href="/tags/spring-boot/" rel="tag"># spring-boot</a>
           
         </div>
       
@@ -585,8 +507,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/12/01/2017-12-01-SpringBoot注解一览/" rel="prev" title="SpringBoot注解一览">
-                SpringBoot注解一览 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/12/01/2017-12-01-SpringCloud注解一览/" rel="prev" title="SpringCloud注解一览">
+                SpringCloud注解一览 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -669,7 +591,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">100</span>
+                  <span class="site-state-item-count">108</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -680,7 +602,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -734,7 +656,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目规范"><span class="nav-number">2.</span> <span class="nav-text">项目规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#微服务"><span class="nav-number">2.1.</span> <span class="nav-text">微服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot版本"><span class="nav-number">2.2.</span> <span class="nav-text">Spring-Boot版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Cloud版本"><span class="nav-number">2.3.</span> <span class="nav-text">Spring-Cloud版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署方式"><span class="nav-number">2.4.</span> <span class="nav-text">部署方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口号"><span class="nav-number">2.5.</span> <span class="nav-text">端口号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署个数"><span class="nav-number">2.6.</span> <span class="nav-text">部署个数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目命名"><span class="nav-number">2.6.1.</span> <span class="nav-text">项目命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包目录结构"><span class="nav-number">2.6.2.</span> <span class="nav-text">包目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#服务方"><span class="nav-number">2.6.2.1.</span> <span class="nav-text">服务方</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#说明"><span class="nav-number">2.6.3.</span> <span class="nav-text">说明</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#调用方"><span class="nav-number">2.6.3.1.</span> <span class="nav-text">调用方</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据库"><span class="nav-number">3.</span> <span class="nav-text">数据库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#关于NPE"><span class="nav-number">4.</span> <span class="nav-text">关于NPE</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">1.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">2.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#项目规范"><span class="nav-number">3.</span> <span class="nav-text">项目规范</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#微服务"><span class="nav-number">3.1.</span> <span class="nav-text">微服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Boot版本"><span class="nav-number">3.2.</span> <span class="nav-text">Spring-Boot版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Spring-Cloud版本"><span class="nav-number">3.3.</span> <span class="nav-text">Spring-Cloud版本</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署方式"><span class="nav-number">3.4.</span> <span class="nav-text">部署方式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#端口号"><span class="nav-number">3.5.</span> <span class="nav-text">端口号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#部署个数"><span class="nav-number">3.6.</span> <span class="nav-text">部署个数</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#项目命名"><span class="nav-number">3.6.1.</span> <span class="nav-text">项目命名</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#包目录结构"><span class="nav-number">3.6.2.</span> <span class="nav-text">包目录结构</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#服务方"><span class="nav-number">3.6.2.1.</span> <span class="nav-text">服务方</span></a></li></ol></li></ol></li></ol></li></ol></div>
             
 
           </div>
@@ -768,25 +690,39 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">74.6k</span>
+    <span title="Site words total count">78.3k</span>
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
 
 
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
@@ -975,6 +911,19 @@
 
 
   
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+  </script>
+
   
 
   

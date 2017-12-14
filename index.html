@@ -168,7 +168,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description">liuyiyou的个人小站</h1>
+        <h1 class="site-subtitle" itemprop="description">In me the tiger sniffs the rose</h1>
       
   </div>
 
@@ -465,7 +465,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017/12/01/2017-12-01-SpringCloud注解一览/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017/12/02/2017-12-02-SpringBoot依赖关系一览/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -484,7 +484,7 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/12/01/2017-12-01-SpringCloud注解一览/" itemprop="url">SpringCloud注解一览</a></h2>
+                <a class="post-title-link" href="/2017/12/02/2017-12-02-SpringBoot依赖关系一览/" itemprop="url">SpringBoot依赖关系一览</a></h2>
         
 
         <div class="post-meta">
@@ -496,8 +496,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-01T00:00:00+08:00">
-                2017-12-01
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T00:00:00+08:00">
+                2017-12-02
               </time>
             
 
@@ -519,8 +519,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/spring-cloud/" itemprop="url" rel="index">
-                    <span itemprop="name">spring-cloud</span>
+                  <a href="/categories/spring-boot/" itemprop="url" rel="index">
+                    <span itemprop="name">spring-boot</span>
                   </a>
                 </span>
 
@@ -550,7 +550,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  208
+                  1,852
                 </span>
               
 
@@ -566,7 +566,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  11
                 </span>
               
             </div>
@@ -588,19 +588,16 @@
 
       
         
-          
-            <h2 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h2><p>SpringBoot和Spring相关配置请参考：<a href="/2017/12/01/2017-12-01-SpringBoot注解一览/">SpringBoot注解一览</a>  </p>
-<h2 id="SpringCloud"><a href="#SpringCloud" class="headerlink" title="SpringCloud"></a>SpringCloud</h2><p><code>@SpringCloudApplication</code>： &lt;==&gt;  <code>@SpringBootApplication</code> + <code>@EnableDiscoveryClient</code> + <code>@EnableCircuitBreaker</code></p>
-<h3 id="Eureka服务注册"><a href="#Eureka服务注册" class="headerlink" title="Eureka服务注册"></a>Eureka服务注册</h3><p><code>@EnableEurekaServer</code> ：开启注册中心服务器的功能。</p>
-<p><code>@EnableDiscoveryClient</code> : 开启发现注册中心服务器的功能。Eureka、Consul、Zookeeper、ETCD等服务都可由此来发现</p>
-<p><code>@EnableEurekaClient</code> : 开启发现注册中心服务器的功能。注解是基于spring-cloud-netflix依赖，只能为Eureka作用，如果你的classpath中添加了eureka，则它们的作用是一样的</p>
-<h3 id="Config配置中心"><a href="#Config配置中心" class="headerlink" title="Config配置中心"></a>Config配置中心</h3><p><code>@EnableConfigServer</code> ：开启Spring Cloud Config 服务端功能</p>
-<h3 id="Ribbon"><a href="#Ribbon" class="headerlink" title="Ribbon"></a>Ribbon</h3><p><code>@LoadBalanced</code>开启客户端负载均衡</p>
-<h3 id="Hystrix"><a href="#Hystrix" class="headerlink" title="Hystrix"></a>Hystrix</h3><p>EnableHystrixDashboard</p>
-<p><code>@EnableHystrix</code>表示启动断路器，断路器依赖于服务注册和发现。</p>
-<h2 id="配置一览"><a href="#配置一览" class="headerlink" title="配置一览"></a>配置一览</h2><p>spring.application.name：配置应用名称，在注册中心中显示的服务注册名称。<br>spring.cloud.client.ipAddress：获取客户端的IP地址。</p>
-
-          
+          <p>官方starter： 在spring-boot-starters中</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-activemq<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-amqp<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-aop<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-artemis<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-batch<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-cache<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-cloud-connectors<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-cassandra<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-couchbase<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-elasticsearch<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-gemfire<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-ldap<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-mongodb<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-neo4j<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-rest<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-solr<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-freemarker<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-groovy-templates<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-hateoas<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-integration<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-jdbc<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-jersey<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-jetty<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-jooq<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-jta-atomikos<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-jta-bitronix<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-jta-narayana<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-logging<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-log4j2<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-mail<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-mobile<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-mustache<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-actuator<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-security<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-social-facebook<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-social-twitter<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-social-linkedin<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-remote-shell<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-undertow<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-validation<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-websocket<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-web-services<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>所以，比如MyBatis官方是木有提供starter的，需要去MyBatis官网去查</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/02/2017-12-02-SpringBoot依赖关系一览/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -732,7 +729,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  161
+                  170
                 </span>
               
 
@@ -770,8 +767,8 @@
 
       
         
-          
-            <h2 id="SpringMVC"><a href="#SpringMVC" class="headerlink" title="SpringMVC"></a>SpringMVC</h2><p><code>@ResController</code>: &lt;==&gt;<code>@Controller</code> + <code>@ResponseBody</code></p>
+          <p>包含Spring和SpringBoot的注解</p>
+<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2><p><code>@ResController</code>: &lt;==&gt;<code>@Controller</code> + <code>@ResponseBody</code></p>
 <p><code>@Repository</code>: 一般的dao层</p>
 <p><code>@Service</code> : 业务层，一般对于接口和实现</p>
 <p><code>@Controller</code>: 控制层，里面有多个连接</p>
@@ -779,11 +776,196 @@
 <p><code>@ExceptionHandler</code>: 如果在<code>@Controller</code>方法遇到异常，就会调用含有此注解的方法。</p>
 <p><code>@Configuration</code>: 标记该class是ApplicationContext的一个bean定义，相当于原来applicationContext.xml文件中的<code>&lt;bean&gt;</code>标签。</p>
 <p><code>@ComponentScan</code>: 告知Spring去搜索其他组件，配置或者服务。其实就是原来applicationContext.xml文件中的<code>&lt;mvc:component-scan&gt;</code>标签.</p>
-<h2 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h2><p><code>@EnableAutoConfiguation</code>: 标记Spring Boot开始加载各种beans（包括自定义的，classpath中的），以及各种属性。</p>
-<p><code>@SringBootApplication</code>: &lt;==&gt; <code>@onfiguration</code> + <code>@EnableAutoConfiguation</code> + <code>@ComponentScan</code> </p>
-<h2 id="SpringColoud相关注解"><a href="#SpringColoud相关注解" class="headerlink" title="SpringColoud相关注解"></a>SpringColoud相关注解</h2><p><a href="/2017/12/01/2017-12-01-SpringCloud注解一览/">SpringCloud注解一览</a></p>
+<p><code>@ControllerAdvice</code> :</p>
+<p><code>@RestControllerAdvice</code>:</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/01/2017-12-01-SpringBoot注解一览/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017/12/01/2017-12-01-SpringCloud注解一览/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/12/01/2017-12-01-SpringCloud注解一览/" itemprop="url">SpringCloud注解一览</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-01T00:00:00+08:00">
+                2017-12-01
+              </time>
+            
+
+            
+
+            
+          </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring-cloud/" itemprop="url" rel="index">
+                    <span itemprop="name">spring-cloud</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  208
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  1
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h2 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h2><p>SpringBoot和Spring相关配置请参考：<a href="/2017/12/01/2017-12-01-SpringBoot注解一览/">SpringBoot注解一览</a>  </p>
+<h2 id="SpringCloud"><a href="#SpringCloud" class="headerlink" title="SpringCloud"></a>SpringCloud</h2><p><code>@SpringCloudApplication</code>： &lt;==&gt;  <code>@SpringBootApplication</code> + <code>@EnableDiscoveryClient</code> + <code>@EnableCircuitBreaker</code></p>
+<h3 id="Eureka服务注册"><a href="#Eureka服务注册" class="headerlink" title="Eureka服务注册"></a>Eureka服务注册</h3><p><code>@EnableEurekaServer</code> ：开启注册中心服务器的功能。</p>
+<p><code>@EnableDiscoveryClient</code> : 开启发现注册中心服务器的功能。Eureka、Consul、Zookeeper、ETCD等服务都可由此来发现</p>
+<p><code>@EnableEurekaClient</code> : 开启发现注册中心服务器的功能。注解是基于spring-cloud-netflix依赖，只能为Eureka作用，如果你的classpath中添加了eureka，则它们的作用是一样的</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/12/01/2017-12-01-SpringCloud注解一览/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -884,8 +1066,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/架构/" itemprop="url" rel="index">
-                    <span itemprop="name">架构</span>
+                  <a href="/categories/spring-boot/" itemprop="url" rel="index">
+                    <span itemprop="name">spring-boot</span>
                   </a>
                 </span>
 
@@ -915,7 +1097,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  680
+                  733
                 </span>
               
 
@@ -954,130 +1136,47 @@
       
         
           
-            <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>对整个项目作出统一规范，减少各个开发人员沟通成本</p>
+            <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>在传统开发模式下的单应用架构，一般会将model层和dao层划分为一层（打包成jar）。之上是服务层（打包成jar），再之上是web层</p>
+<p>好处：开发快速，简单<br>坏处：只能单机部署，业务复杂后性能低下</p>
+<p>在分布式服务的开发环境下，和单应用类似，区别在于，会将service接口和service实现打成两个包，对外提供服务的包括接口service，model以及相关类，客户端依赖service-api，且客户端一般是web层或者业务层</p>
+<p>好处：能部署多台机器<br>坏处：业务升级、服务接口修改时需要各个项目进行配合</p>
+<p>在微服务架构下，则是两者的综合。<br>      和单应用相比：微服务是一个单独的应用，从model层到web层都在一个应用内，不同的是，微服务也对外提供暴露服务，而且可以分布式部署<br>      和分布式服务相比：有自己的web层，可以直接对外提供REST接口，同时提供服务API，供其他服务调用<br>好处：开发快速、简单、能实现分布式<br>坏处：模块太多，维护麻烦</p>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>对整个项目作出统一规范，减少各个开发人员沟通成本</p>
 <h2 id="项目规范"><a href="#项目规范" class="headerlink" title="项目规范"></a>项目规范</h2><h3 id="微服务"><a href="#微服务" class="headerlink" title="微服务"></a>微服务</h3><h3 id="Spring-Boot版本"><a href="#Spring-Boot版本" class="headerlink" title="Spring-Boot版本"></a>Spring-Boot版本</h3><p>统一选择使用1.5.8.RELEASE</p>
 <h3 id="Spring-Cloud版本"><a href="#Spring-Cloud版本" class="headerlink" title="Spring-Cloud版本"></a>Spring-Cloud版本</h3><p>统一选择使用 Edgware.RELEASE</p>
 <h3 id="部署方式"><a href="#部署方式" class="headerlink" title="部署方式"></a>部署方式</h3><p>统一使用jar方式，后续可能会引入Docker</p>
 <h3 id="端口号"><a href="#端口号" class="headerlink" title="端口号"></a>端口号</h3><p>由运维统一指定</p>
 <h3 id="部署个数"><a href="#部署个数" class="headerlink" title="部署个数"></a>部署个数</h3><p>暂定两个，后续重要服务可能会有多个</p>
 <h4 id="项目命名"><a href="#项目命名" class="headerlink" title="项目命名"></a>项目命名</h4><ul>
-<li>微服务统一以service-xxx进行命名</li>
-<li>web层统一以web-xxx进行命名</li>
+<li>基础微服务统一以xxx-server进行命名</li>
+<li>业务微服务统一以xxx-business进行命名</li>
 </ul>
 <p>服务以订单服务为例</p>
 <ul>
-<li>项目名称： service-order</li>
-<li>groupId:  com.iba.service</li>
-<li>artifactId: com.iba.service.order</li>
+<li>项目名称：product-server</li>
+<li>groupId: com.iba.server</li>
+<li>artifactId: com.iba.sever.product</li>
 </ul>
-<p>web以订单为例</p>
-<ul>
-<li>项目名称: web-order</li>
-<li>groupId: com.iba.web.order</li>
-<li>artifactId: com.iba.web.order</li>
-</ul>
+<p>只提供商品相关的增删改成，基本不包含业务逻辑<br>业务以商品服务为例<br>项目名称：product-business<br>groupId: com.iba.business</p>
 <h4 id="包目录结构"><a href="#包目录结构" class="headerlink" title="包目录结构"></a>包目录结构</h4><h5 id="服务方"><a href="#服务方" class="headerlink" title="服务方"></a>服务方</h5><p>如图所示：</p>
 <p><img src="/images/service-product.png" alt="微服务包图"></p>
-<p>打包后的jar：</p>
-<ul>
-<li>service-product-contract-0.0.1-SNAPSHOT.jar</li>
-<li>service-product-0.0.1-SNAPSHOT.jar</li>
-</ul>
-<h4 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h4><ul>
-<li>src/main/java<ul>
-<li>com.iba.service.order<ul>
-<li>OrderServiceApplication.java ： 启动类</li>
-<li>contract<ul>
-<li>model<ul>
-<li>Order.java  ： 实体类</li>
-</ul>
+<p>业务服务和其他服务需要调用的时候</p>
+<p>1、添加依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.iba.server<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>product-server-contract<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>2、增加注解</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="meta">@EnableDiscoveryClient</span></div><div class="line"><span class="meta">@EnableFeignClients</span>(basePackages = &#123;<span class="string">"com.iba.service.*.contract"</span>&#125;)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StoreServerApplication</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">      SpringApplication.run(StoreServerApplication.class, args);</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>3、调用服务</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StoreController</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Logger logger = LoggerFactory.getLogger(StoreController.class);</div><div class="line"></div><div class="line"> <span class="meta">@Autowired</span></div><div class="line"> <span class="keyword">private</span> IProductService productService;</div><div class="line"></div><div class="line"></div><div class="line"> <span class="meta">@RequestMapping</span>(<span class="string">"getStore"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getStore</span><span class="params">()</span> </span>&#123;</div><div class="line">        logger.info(<span class="string">"调用本地服务"</span>);</div><div class="line"> productService.listUser();</div><div class="line"> logger.info(<span class="string">"调用其他服务提供的服务"</span>);</div><div class="line"> &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ol>
+<li><p>MyBatis列表查询，如果没有数据，不会返回null，而是返回一个空集合，所以，不需要在上层使用</p>
 </li>
-<li>service<ul>
-<li>OrderService.java   ： 服务接口</li>
-</ul>
+<li><p>数据库所有字段都要有默认值，否则查询对象后得到get某个字段的时候可能会产生NPE</p>
 </li>
-<li>xxx<ul>
-<li>需要暴露给调用方的相关类、枚举等</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>mapper<ul>
-<li>OrderMapper.java</li>
-</ul>
-</li>
-<li>service<ul>
-<li>OrderServiceImpl或者OrderService: 服务实现</li>
-</ul>
-</li>
-<li>xxx<ul>
-<li>需要暴露给调用方的相关类、枚举等</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>src/main/resources</li>
-</ul>
-<ul>
-<li>pom.xml ： 服务实现类打包，打包成  service-order.xxxx.jar</li>
-<li>deploy_pom.xml  接口类打包 , 打包成 servce-order-contract.xxxx.jar</li>
-</ul>
-<h5 id="调用方"><a href="#调用方" class="headerlink" title="调用方"></a>调用方</h5><p>如果调用方为其他服务，则采用上述方式，如果是Web层，则采用如下方式</p>
-<ul>
-<li>src/main/java<ul>
-<li>com.iba.web.order<ul>
-<li>OrderWebApplication.java ： 启动类</li>
-<li>controller<ul>
-<li>OrderController.java:  订单控制层</li>
-</ul>
-</li>
-<li>business/service<ul>
-<li>OrderBiz.java/OrderService.java</li>
-</ul>
-</li>
-<li>xxx<ul>
-<li>VO等相关类</li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>src/main/resources</li>
-</ul>
-<p>依赖的时候</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>cn.liuyiyou.springcloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>user-service-feigh-api<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="数据库"><a href="#数据库" class="headerlink" title="数据库"></a>数据库</h2><ol>
-<li>主键生成方式：</li>
-<li><p>数据库相关字段不能为NULL，理由如下：</p>
-<blockquote>
-<p><a href="http://www.importnew.com/27378.html" target="_blank" rel="external">一千个不用 Null 的理由</a><br><a href="http://zhuanlan.51cto.com/art/201702/531410.htm" target="_blank" rel="external">58到家数据库30条军规解读</a></p>
-</blockquote>
-</li>
-<li><p>所有表需要三个字段：create_time（创建时间）： datetime类型，  update_time（更新时间，默认为当前时间）：timestamp， del_flag（删除标志）：tinyint</p>
-</li>
-<li>不使用外键</li>
-<li>字段命名方式是否带表前缀：</li>
-</ol>
-<h2 id="关于NPE"><a href="#关于NPE" class="headerlink" title="关于NPE"></a>关于NPE</h2><ul>
-<li>MyBatis列表查询，如果没有数据，不会返回null，而是返回一个空集合，所以，不需要在上层使用<br>if(list!=null)来进行判断</li>
-</ul>
-<p>Eg:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">List&lt;User&gt; users = userService.getByProperty(<span class="keyword">new</span> User()&#123;&#123;setAccount(<span class="string">"1592055116068"</span>);&#125;&#125;);</div></pre></td></tr></table></figure>
-<p>该查询数据库是没有数据的，但是返回的是[] 而不是null</p>
-<ul>
-<li>数据库所有字段都要有默认值，否则查询对象后得到get某个字段的时候可能会产生NPE</li>
-</ul>
-<p>Eg:比如prod有一个price字段，如果默认值为NULL，则在使用该字段的时候要这样写</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span>(prod.getPrice()!=<span class="keyword">null</span>)&#123;</div><div class="line">     prod.getPrice +  <span class="number">12.23</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
 <li><p>自定义方法的时候，注意不返回NULL</p>
 </li>
 <li><p>使用Optional来避免NPE</p>
 </li>
-</ul>
+</ol>
 
           
         
@@ -1233,7 +1332,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  42
+                  48
                 </span>
               
 
@@ -1277,6 +1376,7 @@
 <h2 id="SpringBoot"><a href="#SpringBoot" class="headerlink" title="SpringBoot"></a>SpringBoot</h2><p><a href="http://blog.didispace.com/books/spring-boot-reference/I.%20Spring%20Boot%20Documentation/1.%20About%20the%20documentation.html" target="_blank" rel="external">Spring Boot参考指南有</a></p>
 <p><a href="http://blog.didispace.com/Spring-Boot%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" target="_blank" rel="external">Spring Boot基础教程</a></p>
 <h2 id="SpringCloud"><a href="#SpringCloud" class="headerlink" title="SpringCloud"></a>SpringCloud</h2><p><a href="http://blog.didispace.com/Spring-Cloud%E5%9F%BA%E7%A1%80%E6%95%99%E7%A8%8B/" target="_blank" rel="external">Spring Cloud基础教程</a></p>
+<p><a href="http://www.itmuch.com/categories/Spring-Cloud/" target="_blank" rel="external">周立的SpringCloud教程</a></p>
 
           
         
@@ -1504,192 +1604,6 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017/11/22/2017-11-22-Feigh声明式服务调用/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuyiyou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="温故而知新    触类而旁通">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/22/2017-11-22-Feigh声明式服务调用/" itemprop="url">Feigh声明式服务调用</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T00:00:00+08:00">
-                2017-11-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/spring-cloud/" itemprop="url" rel="index">
-                    <span itemprop="name">spring-cloud</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  1,289
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  6
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>在RPC框架中，服务调用一般是服务的暴露接口，并提供客户端API，客户端在添加依赖后，即可像本地方法一样调用远程服务，SpringCloud也提供了类似需求，而在此之前，使用的是RestTemplate调用，这种调用方式不是很直观</p>
-<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><ul>
-<li>学会使用Feigh声明式服务调用</li>
-</ul>
-<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>需要4个项目： eureka-server：服务注册中心 user-service-feigh-api：服务API，客户端依赖，user-service-feigh-impl：服务实现放 ，user-service-client：服务消费方</p>
-<ul>
-<li>提供一个供服务方和消费方共用的api接口 user-service-feigh-api</li>
-<li>提供一个增删改查的用户服务 user-service-feigh-impl</li>
-<li>体统一个调用user-srvice的客户端 user-service-client</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/11/22/2017-11-22-Feigh声明式服务调用/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017/11/22/2017-11-22-注册中心和配置中心集成/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1871,7 +1785,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务治理/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017/11/22/2017-11-22-Feigh声明式服务调用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -1890,7 +1804,193 @@
         
           <h2 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/11/21/2017-11-21-Eureka服务治理/" itemprop="url">Eureka服务治理</a></h2>
+                <a class="post-title-link" href="/2017/11/22/2017-11-22-Feigh声明式服务调用/" itemprop="url">Feigh声明式服务调用</a></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-22T00:00:00+08:00">
+                2017-11-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring-cloud/" itemprop="url" rel="index">
+                    <span itemprop="name">spring-cloud</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,385
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  7
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>在RPC框架中，服务调用一般是服务的暴露接口，并提供客户端API，客户端在添加依赖后，即可像本地方法一样调用远程服务，SpringCloud也提供了类似需求，而在此之前，使用的是RestTemplate调用，这种调用方式不是很直观</p>
+<h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><ul>
+<li>学会使用Feigh声明式服务调用</li>
+</ul>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>需要4个项目： eureka-server：服务注册中心 user-service-feigh-api：服务API，客户端依赖，user-service-feigh-impl：服务实现放 ，user-service-client：服务消费方</p>
+<ul>
+<li>提供一个供服务方和消费方共用的api接口 user-service-feigh-api</li>
+<li>提供一个增删改查的用户服务 user-service-feigh-impl</li>
+<li>体统一个调用user-srvice的客户端 user-service-client</li>
+</ul>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/11/22/2017-11-22-Feigh声明式服务调用/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务注册/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/11/21/2017-11-21-Eureka服务注册/" itemprop="url">Eureka服务注册</a></h2>
         
 
         <div class="post-meta">
@@ -2004,7 +2104,7 @@
 <p>需要三个项目： eureka-server：服务注册中心，base-service-producer：服务提供方，hello-service：服务调用方（也可以是另外一个服务） </p>
           <!--noindex-->
           <div class="post-button text-center">
-            <a class="btn" href="/2017/11/21/2017-11-21-Eureka服务治理/#more" rel="contents">
+            <a class="btn" href="/2017/11/21/2017-11-21-Eureka服务注册/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -2042,183 +2142,11 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017/11/10/2017-11-10-代码生成工具/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="liuyiyou">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="温故而知新    触类而旁通">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h2 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/11/10/2017-11-10-代码生成工具/" itemprop="url">代码生成工具</a></h2>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-10T00:00:00+08:00">
-                2017-11-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/mybatis/" itemprop="url" rel="index">
-                    <span itemprop="name">mybatis</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-            <div class="post-wordcount">
-              
-                
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-file-word-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">字数统计&#58;</span>
-                
-                <span title="字数统计">
-                  0
-                </span>
-              
-
-              
-                <span class="post-meta-divider">|</span>
-              
-
-              
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-clock-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
-                
-                <span title="阅读时长">
-                  1
-                </span>
-              
-            </div>
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
   <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/10/">10</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/11/">11</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
   </nav>
 
 
@@ -2264,7 +2192,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">100</span>
+                  <span class="site-state-item-count">108</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -2275,7 +2203,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -2347,25 +2275,39 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">74.6k</span>
+    <span title="Site words total count">78.3k</span>
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
 
 
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
@@ -2546,6 +2488,19 @@
 
 
   
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+  </script>
+
   
 
   

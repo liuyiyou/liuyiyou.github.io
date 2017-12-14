@@ -89,14 +89,14 @@
 <meta name="description" content="Eureka是什么，SpringCloud用Eureka来干什么等等相关概念就不细说了，网上有大把大把的解释，甚至下面的文章都不需要看，因为网上也有大把大把的列子，为了省去搜索的时间，可以参考：Spring资料大全  中的SpringCloud相关文档。本文的目的只是自己记录一下 目的 Eureka服务中心搭建 其他服务注册到Eureka服务中心 Eureka服务中心高可用 Eureka服务中心相">
 <meta name="keywords" content="spring-cloud">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Eureka服务治理">
-<meta property="og:url" content="http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务治理/index.html">
+<meta property="og:title" content="Eureka服务注册">
+<meta property="og:url" content="http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务注册/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="Eureka是什么，SpringCloud用Eureka来干什么等等相关概念就不细说了，网上有大把大把的解释，甚至下面的文章都不需要看，因为网上也有大把大把的列子，为了省去搜索的时间，可以参考：Spring资料大全  中的SpringCloud相关文档。本文的目的只是自己记录一下 目的 Eureka服务中心搭建 其他服务注册到Eureka服务中心 Eureka服务中心高可用 Eureka服务中心相">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-11-26T11:59:56.138Z">
+<meta property="og:updated_time" content="2017-12-01T11:01:00.414Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Eureka服务治理">
+<meta name="twitter:title" content="Eureka服务注册">
 <meta name="twitter:description" content="Eureka是什么，SpringCloud用Eureka来干什么等等相关概念就不细说了，网上有大把大把的解释，甚至下面的文章都不需要看，因为网上也有大把大把的列子，为了省去搜索的时间，可以参考：Spring资料大全  中的SpringCloud相关文档。本文的目的只是自己记录一下 目的 Eureka服务中心搭建 其他服务注册到Eureka服务中心 Eureka服务中心高可用 Eureka服务中心相">
 
 
@@ -127,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务治理/"/>
+  <link rel="canonical" href="http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务注册/"/>
 
 
 
 
 
-  <title>Eureka服务治理 | 温故而知新    触类而旁通</title>
+  <title>Eureka服务注册 | 温故而知新    触类而旁通</title>
   
 
 
@@ -169,7 +169,7 @@
       </a>
     </div>
       
-        <h1 class="site-subtitle" itemprop="description">liuyiyou的个人小站</h1>
+        <h1 class="site-subtitle" itemprop="description">In me the tiger sniffs the rose</h1>
       
   </div>
 
@@ -281,7 +281,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务治理/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务注册/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -298,7 +298,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">Eureka服务治理</h2>
+          <h2 class="post-title" itemprop="name headline">Eureka服务注册</h2>
         
 
         <div class="post-meta">
@@ -351,6 +351,11 @@
           
           
 
+          
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
           
 
           
@@ -448,7 +453,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务治理/" title="Eureka服务治理">http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务治理/</a>
+    <a href="http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务注册/" title="Eureka服务注册">http://liuyiyou.cn/2017/11/21/2017-11-21-Eureka服务注册/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -486,8 +491,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017/11/22/2017-11-22-注册中心和配置中心集成/" rel="prev" title="注册中心和配置中心集成">
-                注册中心和配置中心集成 <i class="fa fa-chevron-right"></i>
+              <a href="/2017/11/22/2017-11-22-Feigh声明式服务调用/" rel="prev" title="Feigh声明式服务调用">
+                Feigh声明式服务调用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -570,7 +575,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">100</span>
+                  <span class="site-state-item-count">108</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -581,7 +586,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -669,25 +674,39 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">74.6k</span>
+    <span title="Site words total count">78.3k</span>
   
 </div>
 
 
-  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
 
 
 
-  <span class="post-meta-divider">|</span>
-
-
-
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
 
 
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
@@ -876,6 +895,19 @@
 
 
   
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+  </script>
+
   
 
   
