@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="spring-boot," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="官方starter： 在spring-boot-starters中 &amp;lt;module&amp;gt;spring-boot-starter&amp;lt;/module&amp;gt;&amp;lt;module&amp;gt;spring-boot-starter-activemq&amp;lt;/module&amp;gt;&amp;lt;module&amp;gt;spring-boot-starter-amqp&amp;lt;/module&amp;gt;&amp;lt;modu">
+<meta name="keywords" content="spring-boot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="温故而知新    触类而旁通">
+<meta property="og:url" content="http://liuyiyou.cn/2017-12-02-SpringBoot依赖关系一览/index.html">
+<meta property="og:site_name" content="温故而知新    触类而旁通">
+<meta property="og:description" content="官方starter： 在spring-boot-starters中 &amp;lt;module&amp;gt;spring-boot-starter&amp;lt;/module&amp;gt;&amp;lt;module&amp;gt;spring-boot-starter-activemq&amp;lt;/module&amp;gt;&amp;lt;module&amp;gt;spring-boot-starter-amqp&amp;lt;/module&amp;gt;&amp;lt;modu">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2017-12-15T02:08:47.728Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="温故而知新    触类而旁通">
+<meta name="twitter:description" content="官方starter： 在spring-boot-starters中 &amp;lt;module&amp;gt;spring-boot-starter&amp;lt;/module&amp;gt;&amp;lt;module&amp;gt;spring-boot-starter-activemq&amp;lt;/module&amp;gt;&amp;lt;module&amp;gt;spring-boot-starter-amqp&amp;lt;/module&amp;gt;&amp;lt;modu">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liuyiyou.cn/2017-12-02-SpringBoot依赖关系一览/"/>
+
+
+
+
+
+  <title> | 温故而知新    触类而旁通</title>
+  
+
+
+
+
+
+
+
+
+  <meta name="uyan_auth" content="2d66e553da" />
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">温故而知新    触类而旁通</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">In me the tiger Sniffs the rose</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-inbox">
+          <a href="/inbox/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
+            
+            收藏
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017-12-02-SpringBoot依赖关系一览/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline"></h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-05T22:32:03+08:00">
+                2015-05-05
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/spring-boot/" itemprop="url" rel="index">
+                    <span itemprop="name">spring-boot</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,852
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>官方starter： 在spring-boot-starters中</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-activemq<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-amqp<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-aop<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-artemis<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-batch<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-cache<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-cloud-connectors<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-cassandra<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-couchbase<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-elasticsearch<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-gemfire<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-jpa<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-ldap<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-mongodb<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-neo4j<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-redis<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-rest<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-data-solr<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-freemarker<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-groovy-templates<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-hateoas<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-integration<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-jdbc<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-jersey<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-jetty<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-jooq<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-jta-atomikos<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-jta-bitronix<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-jta-narayana<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-logging<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-log4j2<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-mail<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-mobile<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-mustache<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-actuator<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-security<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-social-facebook<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-social-twitter<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-social-linkedin<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-remote-shell<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-tomcat<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-undertow<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-validation<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-websocket<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">module</span>&gt;</span>spring-boot-starter-web-services<span class="tag">&lt;/<span class="name">module</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>所以，比如MyBatis官方是木有提供starter的，需要去MyBatis官网去查</p>
+<p>依赖关系：可用用IDE自带的工具，或者运行<code>mvn dependency:tree</code></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line">+- org.springframework.cloud:spring-cloud-starter-config:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|  +- org.springframework.cloud:spring-cloud-starter:jar:<span class="number">1.3</span>.0.RELEASE:compile</div><div class="line">|  |  +- org.springframework.cloud:spring-cloud-context:jar:<span class="number">1.3</span>.0.RELEASE:compile</div><div class="line">|  |  |  \- org.springframework.security:spring-security-crypto:jar:<span class="number">4.2</span>.3.RELEASE:compile</div><div class="line">|  |  +- org.springframework.cloud:spring-cloud-commons:jar:<span class="number">1.3</span>.0.RELEASE:compile</div><div class="line">|  |  |  \- org.apache.httpcomponents:httpclient:jar:<span class="number">4.5</span>.3:compile</div><div class="line">|  |  |     +- org.apache.httpcomponents:httpcore:jar:<span class="number">4.4</span>.8:compile</div><div class="line">|  |  |     \- commons-codec:commons-codec:jar:<span class="number">1.10</span>:compile</div><div class="line">|  |  \- org.springframework.security:spring-security-rsa:jar:<span class="number">1.0</span>.3.RELEASE:compile</div><div class="line">|  |     \- org.bouncycastle:bcpkix-jdk15on:jar:<span class="number">1.55</span>:compile</div><div class="line">|  |        \- org.bouncycastle:bcprov-jdk15on:jar:<span class="number">1.55</span>:compile</div><div class="line">|  +- org.springframework.cloud:spring-cloud-config-client:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|  |  +- org.springframework:spring-web:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|  |  |  \- org.springframework:spring-context:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|  |  |     \- org.springframework:spring-expression:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:<span class="number">2.8</span>.0:compile</div><div class="line">|  \- com.fasterxml.jackson.core:jackson-databind:jar:<span class="number">2.8</span>.10:compile</div><div class="line">|     \- com.fasterxml.jackson.core:jackson-core:jar:<span class="number">2.8</span>.10:compile</div><div class="line">+- org.springframework.cloud:spring-cloud-starter-eureka:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|  \- org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|     +- org.springframework.boot:spring-boot-starter-web:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|     |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|     |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:<span class="number">8.5</span>.23:compile</div><div class="line">|     |  |  |  \- org.apache.tomcat:tomcat-annotations-api:jar:<span class="number">8.5</span>.23:compile</div><div class="line">|     |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:<span class="number">8.5</span>.23:compile</div><div class="line">|     |  \- org.springframework:spring-webmvc:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|     +- org.springframework.cloud:spring-cloud-netflix-core:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|     +- org.springframework.cloud:spring-cloud-netflix-eureka-client:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|     +- com.netflix.eureka:eureka-client:jar:<span class="number">1.7</span>.0:compile</div><div class="line">|     |  +- org.codehaus.jettison:jettison:jar:<span class="number">1.3</span>.7:runtime</div><div class="line">|     |  |  \- stax:stax-api:jar:<span class="number">1.0</span>.1:runtime</div><div class="line">|     |  +- com.netflix.netflix-commons:netflix-eventbus:jar:<span class="number">0.3</span>.0:runtime</div><div class="line">|     |  |  +- com.netflix.netflix-commons:netflix-infix:jar:<span class="number">0.3</span>.0:runtime</div><div class="line">|     |  |  |  +- commons-jxpath:commons-jxpath:jar:<span class="number">1.3</span>:runtime</div><div class="line">|     |  |  |  +- joda-time:joda-time:jar:<span class="number">2.9</span>.9:runtime</div><div class="line">|     |  |  |  +- org.antlr:antlr-runtime:jar:<span class="number">3.4</span>:runtime</div><div class="line">|     |  |  |  |  +- org.antlr:stringtemplate:jar:<span class="number">3.2</span>.1:runtime</div><div class="line">|     |  |  |  |  \- antlr:antlr:jar:<span class="number">2.7</span>.7:runtime</div><div class="line">|     |  |  |  \- com.google.code.gson:gson:jar:<span class="number">2.8</span>.2:runtime</div><div class="line">|     |  |  \- org.apache.commons:commons-math:jar:<span class="number">2.2</span>:runtime</div><div class="line">|     |  +- com.netflix.archaius:archaius-core:jar:<span class="number">0.7</span>.4:compile</div><div class="line">|     |  +- javax.ws.rs:jsr311-api:jar:<span class="number">1.1</span>.1:runtime</div><div class="line">|     |  +- com.netflix.servo:servo-core:jar:<span class="number">0.10</span>.1:runtime</div><div class="line">|     |  |  \- com.netflix.servo:servo-internal:jar:<span class="number">0.10</span>.1:runtime</div><div class="line">|     |  +- com.sun.jersey:jersey-core:jar:<span class="number">1.19</span>.1:runtime</div><div class="line">|     |  +- com.sun.jersey:jersey-client:jar:<span class="number">1.19</span>.1:runtime</div><div class="line">|     |  +- com.sun.jersey.contribs:jersey-apache-client4:jar:<span class="number">1.19</span>.1:runtime</div><div class="line">|     |  \- com.google.inject:guice:jar:<span class="number">4.1</span>.0:runtime</div><div class="line">|     |     \- aopalliance:aopalliance:jar:<span class="number">1.0</span>:runtime</div><div class="line">|     +- com.netflix.eureka:eureka-core:jar:<span class="number">1.7</span>.0:compile</div><div class="line">|     |  \- org.codehaus.woodstox:woodstox-core-asl:jar:<span class="number">4.4</span>.1:runtime</div><div class="line">|     |     +- javax.xml.stream:stax-api:jar:<span class="number">1.0</span>-<span class="number">2</span>:runtime</div><div class="line">|     |     \- org.codehaus.woodstox:stax2-api:jar:<span class="number">3.1</span>.4:runtime</div><div class="line">|     +- org.springframework.cloud:spring-cloud-starter-netflix-archaius:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|     |  +- commons-configuration:commons-configuration:jar:<span class="number">1.8</span>:compile</div><div class="line">|     |  \- com.google.guava:guava:jar:<span class="number">18.0</span>:compile</div><div class="line">|     +- com.netflix.ribbon:ribbon-eureka:jar:<span class="number">2.2</span>.4:compile</div><div class="line">|     \- com.thoughtworks.xstream:xstream:jar:<span class="number">1.4</span>.9:compile</div><div class="line">|        +- xmlpull:xmlpull:jar:<span class="number">1.1</span>.3.1:compile</div><div class="line">|        \- xpp3:xpp3_min:jar:<span class="number">1.1</span>.4c:compile</div><div class="line">+- org.springframework.cloud:spring-cloud-starter-feign:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|  \- org.springframework.cloud:spring-cloud-starter-openfeign:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|     +- io.github.openfeign:feign-core:jar:<span class="number">9.5</span>.0:compile</div><div class="line">|     |  \- org.jvnet:animal-sniffer-annotation:jar:<span class="number">1.0</span>:compile</div><div class="line">|     +- io.github.openfeign:feign-slf4j:jar:<span class="number">9.5</span>.0:compile</div><div class="line">|     \- io.github.openfeign:feign-hystrix:jar:<span class="number">9.5</span>.0:compile</div><div class="line">|        \- com.netflix.hystrix:hystrix-core:jar:<span class="number">1.5</span>.12:compile</div><div class="line">|           \- org.hdrhistogram:HdrHistogram:jar:<span class="number">2.1</span>.9:compile</div><div class="line">+- org.springframework.cloud:spring-cloud-starter-ribbon:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|  \- org.springframework.cloud:spring-cloud-starter-netflix-ribbon:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|     +- com.netflix.ribbon:ribbon:jar:<span class="number">2.2</span>.4:compile</div><div class="line">|     |  +- com.netflix.ribbon:ribbon-transport:jar:<span class="number">2.2</span>.4:runtime</div><div class="line">|     |  |  +- io.reactivex:rxnetty-contexts:jar:<span class="number">0.4</span>.9:runtime</div><div class="line">|     |  |  \- io.reactivex:rxnetty-servo:jar:<span class="number">0.4</span>.9:runtime</div><div class="line">|     |  +- javax.inject:javax.inject:jar:<span class="number">1</span>:runtime</div><div class="line">|     |  \- io.reactivex:rxnetty:jar:<span class="number">0.4</span>.9:runtime</div><div class="line">|     |     +- io.netty:netty-codec-http:jar:<span class="number">4.0</span>.27.Final:runtime</div><div class="line">|     |     |  +- io.netty:netty-codec:jar:<span class="number">4.0</span>.27.Final:runtime</div><div class="line">|     |     |  \- io.netty:netty-handler:jar:<span class="number">4.0</span>.27.Final:runtime</div><div class="line">|     |     \- io.netty:netty-transport-<span class="keyword">native</span>-epoll:jar:<span class="number">4.0</span>.27.Final:runtime</div><div class="line">|     |        +- io.netty:netty-common:jar:<span class="number">4.0</span>.27.Final:runtime</div><div class="line">|     |        +- io.netty:netty-buffer:jar:<span class="number">4.0</span>.27.Final:runtime</div><div class="line">|     |        \- io.netty:netty-transport:jar:<span class="number">4.0</span>.27.Final:runtime</div><div class="line">|     +- com.netflix.ribbon:ribbon-core:jar:<span class="number">2.2</span>.4:compile</div><div class="line">|     |  \- commons-lang:commons-lang:jar:<span class="number">2.6</span>:compile</div><div class="line">|     +- com.netflix.ribbon:ribbon-httpclient:jar:<span class="number">2.2</span>.4:compile</div><div class="line">|     |  +- commons-collections:commons-collections:jar:<span class="number">3.2</span>.2:runtime</div><div class="line">|     |  \- com.netflix.netflix-commons:netflix-commons-util:jar:<span class="number">0.1</span>.1:runtime</div><div class="line">|     +- com.netflix.ribbon:ribbon-loadbalancer:jar:<span class="number">2.2</span>.4:compile</div><div class="line">|     |  \- com.netflix.netflix-commons:netflix-statistics:jar:<span class="number">0.1</span>.1:runtime</div><div class="line">|     \- io.reactivex:rxjava:jar:<span class="number">1.2</span>.0:compile</div><div class="line">+- org.springframework.boot:spring-boot-starter-data-redis:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|  +- org.springframework.boot:spring-boot-starter:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|  |  +- org.springframework.boot:spring-boot:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|  |  +- org.springframework.boot:spring-boot-starter-logging:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|  |  |  +- ch.qos.logback:logback-classic:jar:<span class="number">1.1</span>.11:compile</div><div class="line">|  |  |  |  \- ch.qos.logback:logback-core:jar:<span class="number">1.1</span>.11:compile</div><div class="line">|  |  |  +- org.slf4j:jul-to-slf4j:jar:<span class="number">1.7</span>.25:compile</div><div class="line">|  |  |  \- org.slf4j:log4j-over-slf4j:jar:<span class="number">1.7</span>.25:compile</div><div class="line">|  |  \- org.yaml:snakeyaml:jar:<span class="number">1.17</span>:runtime</div><div class="line">|  +- org.springframework.data:spring-data-redis:jar:<span class="number">1.8</span>.8.RELEASE:compile</div><div class="line">|  |  +- org.springframework.data:spring-data-keyvalue:jar:<span class="number">1.2</span>.8.RELEASE:compile</div><div class="line">|  |  |  \- org.springframework.data:spring-data-commons:jar:<span class="number">1.13</span>.8.RELEASE:compile</div><div class="line">|  |  +- org.springframework:spring-tx:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|  |  +- org.springframework:spring-oxm:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|  |  +- org.springframework:spring-aop:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|  |  +- org.springframework:spring-context-support:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|  |  +- org.slf4j:slf4j-api:jar:<span class="number">1.7</span>.25:compile</div><div class="line">|  |  \- org.slf4j:jcl-over-slf4j:jar:<span class="number">1.7</span>.25:compile</div><div class="line">|  \- redis.clients:jedis:jar:<span class="number">2.9</span>.0:compile</div><div class="line">|     \- org.apache.commons:commons-pool2:jar:<span class="number">2.4</span>.2:compile</div><div class="line">+- org.springframework.boot:spring-boot-starter-jdbc:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|  +- org.apache.tomcat:tomcat-jdbc:jar:<span class="number">8.5</span>.23:compile</div><div class="line">|  |  \- org.apache.tomcat:tomcat-juli:jar:<span class="number">8.5</span>.23:compile</div><div class="line">|  \- org.springframework:spring-jdbc:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|     \- org.springframework:spring-beans:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">+- org.mybatis.spring.boot:mybatis-spring-boot-starter:jar:<span class="number">1.3</span>.1:compile</div><div class="line">|  +- org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:jar:<span class="number">1.3</span>.1:compile</div><div class="line">|  +- org.mybatis:mybatis:jar:<span class="number">3.4</span>.5:compile</div><div class="line">|  \- org.mybatis:mybatis-spring:jar:<span class="number">1.3</span>.1:compile</div><div class="line">+- org.springframework.boot:spring-boot-starter-validation:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|  +- org.apache.tomcat.embed:tomcat-embed-el:jar:<span class="number">8.5</span>.23:compile</div><div class="line">|  \- org.hibernate:hibernate-validator:jar:<span class="number">5.3</span>.5.Final:compile</div><div class="line">|     +- javax.validation:validation-api:jar:<span class="number">1.1</span>.0.Final:compile</div><div class="line">|     +- org.jboss.logging:jboss-logging:jar:<span class="number">3.3</span>.1.Final:compile</div><div class="line">|     \- com.fasterxml:classmate:jar:<span class="number">1.3</span>.4:compile</div><div class="line">+- mysql:mysql-connector-java:jar:<span class="number">5.1</span>.44:runtime</div><div class="line">\- org.springframework.boot:spring-boot-starter-test:jar:<span class="number">1.5</span>.8.RELEASE:test</div><div class="line">   +- org.springframework.boot:spring-boot-test:jar:<span class="number">1.5</span>.8.RELEASE:test</div><div class="line">   +- org.springframework.boot:spring-boot-test-autoconfigure:jar:<span class="number">1.5</span>.8.RELEASE:test</div><div class="line">   +- com.jayway.jsonpath:json-path:jar:<span class="number">2.2</span>.0:test</div><div class="line">   |  \- net.minidev:json-smart:jar:<span class="number">2.2</span>.1:test</div><div class="line">   |     \- net.minidev:accessors-smart:jar:<span class="number">1.1</span>:test</div><div class="line">   |        \- org.ow2.asm:asm:jar:<span class="number">5.0</span>.3:test</div><div class="line">   +- junit:junit:jar:<span class="number">4.12</span>:test</div><div class="line">   +- org.assertj:assertj-core:jar:<span class="number">2.6</span>.0:test</div><div class="line">   +- org.mockito:mockito-core:jar:<span class="number">1.10</span>.19:test</div><div class="line">   |  \- org.objenesis:objenesis:jar:<span class="number">2.1</span>:test</div><div class="line">   +- org.hamcrest:hamcrest-core:jar:<span class="number">1.3</span>:test</div><div class="line">   +- org.hamcrest:hamcrest-library:jar:<span class="number">1.3</span>:test</div><div class="line">   +- org.skyscreamer:jsonassert:jar:<span class="number">1.4</span>.0:test</div><div class="line">   |  \- com.vaadin.external.google:android-json:jar:<span class="number">0.0</span>.20131108.vaadin1:test</div><div class="line">   +- org.springframework:spring-core:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">   \- org.springframework:spring-test:jar:<span class="number">4.3</span>.12.RELEASE:test</div></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/spring-boot/" rel="tag"># spring-boot</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015-04-25-mybatis通用dao/" rel="next" title="MyBatis通用dao和通用service">
+                <i class="fa fa-chevron-left"></i> MyBatis通用dao和通用service
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015-05-16-memcached安装/" rel="prev" title="memcached安装">
+                memcached安装 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liuyiyou</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">108</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liuyiyou</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">78.2k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
