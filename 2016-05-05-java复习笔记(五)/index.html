@@ -80,20 +80,20 @@
 
 
 
-<meta name="description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 集合 Map">
+<meta name="description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 集合  Map:将键映射到值的对象。一个映射不能包含重复的键；每个键最多只能映射到一个值。此接口取代 Dictionary 类，后者完全是一个抽象类，而不是一个接口。Map 接口提供三种collection 视图，允许以键集、值集或键-值映射关系集的形式查看某个映射的内容。映射顺序 定义为迭代器在映射的 colle">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java复习笔记(五)">
+<meta property="og:title" content="java复习笔记(五):集合">
 <meta property="og:url" content="http://liuyiyou.cn/2016-05-05-java复习笔记(五)/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 集合 Map">
+<meta property="og:description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 集合  Map:将键映射到值的对象。一个映射不能包含重复的键；每个键最多只能映射到一个值。此接口取代 Dictionary 类，后者完全是一个抽象类，而不是一个接口。Map 接口提供三种collection 视图，允许以键集、值集或键-值映射关系集的形式查看某个映射的内容。映射顺序 定义为迭代器在映射的 colle">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://liuyiyou.cn/images/java/Iterable.png">
 <meta property="og:image" content="http://liuyiyou.cn/images/java/map.png">
-<meta property="og:updated_time" content="2017-12-01T07:46:46.312Z">
+<meta property="og:updated_time" content="2018-01-05T06:42:54.800Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java复习笔记(五)">
-<meta name="twitter:description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 集合 Map">
+<meta name="twitter:title" content="java复习笔记(五):集合">
+<meta name="twitter:description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 集合  Map:将键映射到值的对象。一个映射不能包含重复的键；每个键最多只能映射到一个值。此接口取代 Dictionary 类，后者完全是一个抽象类，而不是一个接口。Map 接口提供三种collection 视图，允许以键集、值集或键-值映射关系集的形式查看某个映射的内容。映射顺序 定义为迭代器在映射的 colle">
 <meta name="twitter:image" content="http://liuyiyou.cn/images/java/Iterable.png">
 
 
@@ -130,7 +130,7 @@
 
 
 
-  <title>java复习笔记(五) | 温故而知新    触类而旁通</title>
+  <title>java复习笔记(五):集合 | 温故而知新    触类而旁通</title>
   
 
 
@@ -295,7 +295,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">java复习笔记(五)</h2>
+          <h2 class="post-title" itemprop="name headline">java复习笔记(五):集合</h2>
         
 
         <div class="post-meta">
@@ -347,6 +347,17 @@
 
           
           
+             <span id="/2016-05-05-java复习笔记(五)/" class="leancloud_visitors" data-flag-title="java复习笔记(五):集合">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -361,7 +372,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  39
+                  607
                 </span>
               
 
@@ -377,7 +388,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -400,11 +411,23 @@
       
         <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾</p>
 <h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><ul>
-<li>集合</li>
-<li>Map</li>
+<li><p>集合</p>
+</li>
+<li><p>Map:将键映射到值的对象。一个映射不能包含重复的键；每个键最多只能映射到一个值。此接口取代 Dictionary 类，后者完全是一个抽象类，而不是一个接口。<br>Map 接口提供三种collection 视图，允许以键集、值集或键-值映射关系集的形式查看某个映射的内容。映射顺序 定义为迭代器在映射的 collection 视图上返回其元素的顺序。某些映射实现可明确保证其顺序，如 TreeMap 类；另一些映射实现则不保证顺序，如 HashMap 类。</p>
+</li>
 </ul>
 <p><img src="/images/java/Iterable.png" alt="集合图"></p>
 <p><img src="/images/java/map.png" alt="集合图"></p>
+<h3 id="Map实现"><a href="#Map实现" class="headerlink" title="Map实现"></a>Map实现</h3><ul>
+<li><p>HashMap：它根据键的hashCode值存储数据，大多数情况下可以直接定位到它的值，因而具有很快的访问速度，但遍历顺序却是不确定的。 HashMap最多只允许一条记录的键为null，允许多条记录的值为null。HashMap非线程安全，即任一时刻可以有多个线程同时写HashMap，可能会导致数据的不一致。如果需要满足线程安全，可以用 Collections的synchronizedMap方法使HashMap具有线程安全的能力，或者使用ConcurrentHashMap</p>
+</li>
+<li><p>Hashtable：Hashtable是遗留类，很多映射的常用功能与HashMap类似，不同的是它承自Dictionary类，并且是线程安全的，任一时间只有一个线程能写Hashtable，并发性不如ConcurrentHashMap，因为ConcurrentHashMap引入了分段锁。Hashtable不建议在新代码中使用，不需要线程安全的场合可以用HashMap替换，需要线程安全的场合可以用ConcurrentHashMap替换。</p>
+</li>
+<li><p>LinkedHashMap：LinkedHashMap是HashMap的一个子类，保存了记录的插入顺序，在用Iterator遍历LinkedHashMap时，先得到的记录肯定是先插入的，也可以在构造时带参数，按照访问次序排序。</p>
+</li>
+<li><p>TreeMap：TreeMap实现SortedMap接口，能够把它保存的记录根据键排序，默认是按键值的升序排序，也可以指定排序的比较器，当用Iterator遍历TreeMap时，得到的记录是排过序的。如果使用排序的映射，建议使用TreeMap。在使用TreeMap时，key必须实现Comparable接口或者在构造TreeMap传入自定义的Comparator，否则会在运行时抛出java.lang.ClassCastException类型的异常。</p>
+</li>
+</ul>
 
       
     </div>
@@ -524,7 +547,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">108</span>
+                  <span class="site-state-item-count">118</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -535,7 +558,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -546,7 +569,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -581,7 +604,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容"><span class="nav-number">2.</span> <span class="nav-text">内容</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容"><span class="nav-number">2.</span> <span class="nav-text">内容</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Map实现"><span class="nav-number">2.1.</span> <span class="nav-text">Map实现</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -601,7 +624,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -615,7 +638,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">78.2k</span>
+    <span title="Site words total count">85.0k</span>
   
 </div>
 
@@ -775,6 +798,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("FUPssgG7FQe5trsvf4TbpNfC-gzGzoHsz", "mRbmufFxoH0YiK3CPTPzpvS7");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

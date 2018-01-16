@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="安装$lyy:cd  /Users/liuyiyou/soft$lyy: wget http://download.redis.io/releases/redis-3.0.1.tar.gz $lyy: tar xzf redis-3.0.1.tar.gz $lyy: cd redis-3.0.1 $lyy: make$lyy: cd src  $lyy: install 安装完成之后的路径 $ly">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-15T02:06:54.091Z">
+<meta property="og:updated_time" content="2017-12-22T10:44:21.765Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis安装与基本测试">
 <meta name="twitter:description" content="安装$lyy:cd  /Users/liuyiyou/soft$lyy: wget http://download.redis.io/releases/redis-3.0.1.tar.gz $lyy: tar xzf redis-3.0.1.tar.gz $lyy: cd redis-3.0.1 $lyy: make$lyy: cd src  $lyy: install 安装完成之后的路径 $ly">
@@ -344,6 +344,17 @@
 
           
           
+             <span id="/2015-05-28-Redis安装与基本测试/" class="leancloud_visitors" data-flag-title="Redis安装与基本测试">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
           
 
@@ -358,7 +369,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  504
+                  510
                 </span>
               
 
@@ -400,6 +411,7 @@
 <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="variable">$lyy</span>: <span class="built_in">cd</span> /Users/liuyiyou/soft/redis-3.0.1</div></pre></td></tr></table></figure>
 <p>不过，为了以后方便使用，一般会将Redis的相关命令和配置文件移动到/usr/local/redis下</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">~  mkdir -p /usr/<span class="built_in">local</span>/redis/bin</div><div class="line">~  mkdir -p /usr/<span class="built_in">local</span>/redis/etc</div><div class="line">~ mv /Users/liuyiyou/soft/redis-3.0.1/redis.conf /usr/<span class="built_in">local</span>/redis/etc </div><div class="line">~  <span class="built_in">cd</span> /Users/liuyiyou/soft/redis-3.0.1/src </div><div class="line">mv mkreleasehdr.sh redis-benchmark redis-check-aof redis-check-dump </div><div class="line">redis-cli redis-server /usr/<span class="built_in">local</span>/redis/bin</div></pre></td></tr></table></figure>
+<p>配置环境变量：</p>
 <p>Redis分为服务端和客户端，默认端口为6379，当然也可以通过–port xxxx来指定端口运行服务</p>
 <h2 id="启动redis服务"><a href="#启动redis服务" class="headerlink" title="启动redis服务"></a>启动redis服务</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/redis/bin </div><div class="line">./redis-server</div><div class="line"></div><div class="line">13133:C 05 Oct 13:28:46.925 <span class="comment"># Warning: no config file specified, using the default config. </span></div><div class="line">In order to specify a config file use ./redis-server /path/to/redis.conf</div><div class="line">13133:M 05 Oct 13:28:46.926 * Increased maximum number of open files to 10032 (it was originally <span class="built_in">set</span> to 256).</div><div class="line">                _._                                                  </div><div class="line">           _.-``__ <span class="string">''</span>-._                                             </div><div class="line">      _.-``    `.  `_.  <span class="string">''</span>-._           Redis 3.0.1 (00000000/0) 64 bit</div><div class="line">  .-`` .-```.  ```\/    _.,_ <span class="string">''</span>-._                                   </div><div class="line"> (    <span class="string">'      ,       .-`  | `,    )     Running in standalone mode</span></div><div class="line"><span class="string"> |`-._`-...-` __...-.``-._|'</span>` _.-<span class="string">'|     Port: 6379</span></div><div class="line"><span class="string"> |    `-._   `._    /     _.-'</span>    |     PID: 4576</div><div class="line">  `-._    `-._  `-./  _.-<span class="string">'    _.-'</span>                                   </div><div class="line"> |`-._`-._    `-.__.-<span class="string">'    _.-'</span>_.-<span class="string">'|                                  </span></div><div class="line"><span class="string"> |    `-._`-._        _.-'</span>_.-<span class="string">'    |           http://redis.io        </span></div><div class="line"><span class="string">  `-._    `-._`-.__.-'</span>_.-<span class="string">'    _.-'</span>                                   </div><div class="line"> |`-._`-._    `-.__.-<span class="string">'    _.-'</span>_.-<span class="string">'|                                  </span></div><div class="line"><span class="string"> |    `-._`-._        _.-'</span>_.-<span class="string">'    |                                  </span></div><div class="line"><span class="string">  `-._    `-._`-.__.-'</span>_.-<span class="string">'    _.-'</span>                                   </div><div class="line">      `-._    `-.__.-<span class="string">'    _.-'</span>                                       </div><div class="line">          `-._        _.-<span class="string">'                                           </span></div><div class="line"><span class="string">              `-.__.-'</span>                                               </div><div class="line"></div><div class="line">4576:M 07 Jun 00:05:00.434 <span class="comment"># Server started, Redis version 3.0.1</span></div><div class="line">4576:M 07 Jun 00:05:00.435 * DB loaded from disk: 0.002 seconds</div><div class="line">4576:M 07 Jun 00:05:00.435 * The server is now ready to accept connections on port 6379</div></pre></td></tr></table></figure>
 <h3 id="以守护进程的方式启动并指定配置文件"><a href="#以守护进程的方式启动并指定配置文件" class="headerlink" title="以守护进程的方式启动并指定配置文件"></a>以守护进程的方式启动并指定配置文件</h3><p>将redis.conf文件中的daemonize no 改成yes</p>
@@ -528,7 +540,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">108</span>
+                  <span class="site-state-item-count">118</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -539,7 +551,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -550,7 +562,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -605,7 +617,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -619,7 +631,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">78.2k</span>
+    <span title="Site words total count">85.0k</span>
   
 </div>
 
@@ -779,6 +791,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("FUPssgG7FQe5trsvf4TbpNfC-gzGzoHsz", "mRbmufFxoH0YiK3CPTPzpvS7");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 

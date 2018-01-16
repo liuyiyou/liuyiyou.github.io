@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="eclipse,maven," />
+  <meta name="keywords" content="eclipse," />
 
 
 
@@ -81,14 +81,14 @@
 
 
 <meta name="description" content="下面是对我机器上eclipse的一些说明： eclipse使用的是最新版本neon，安装方式采用Eclipse Installer.APP方式，路径在 /User/liuyiyou/eclipse下，安装了两个eclipse，一个是javase，一个是javaee 相关插件： eclipse color themem eclipse darkest dark theme   主题插件 jreabl">
-<meta name="keywords" content="eclipse,maven">
+<meta name="keywords" content="eclipse">
 <meta property="og:type" content="article">
 <meta property="og:title" content="eclipse相关">
 <meta property="og:url" content="http://liuyiyou.cn/2017-04-20-eclipse相关/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="下面是对我机器上eclipse的一些说明： eclipse使用的是最新版本neon，安装方式采用Eclipse Installer.APP方式，路径在 /User/liuyiyou/eclipse下，安装了两个eclipse，一个是javase，一个是javaee 相关插件： eclipse color themem eclipse darkest dark theme   主题插件 jreabl">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-06-13T11:27:54.000Z">
+<meta property="og:updated_time" content="2018-01-02T02:04:54.310Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="eclipse相关">
 <meta name="twitter:description" content="下面是对我机器上eclipse的一些说明： eclipse使用的是最新版本neon，安装方式采用Eclipse Installer.APP方式，路径在 /User/liuyiyou/eclipse下，安装了两个eclipse，一个是javase，一个是javaee 相关插件： eclipse color themem eclipse darkest dark theme   主题插件 jreabl">
@@ -327,8 +327,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/工具/" itemprop="url" rel="index">
-                    <span itemprop="name">工具</span>
+                  <a href="/categories/tools/" itemprop="url" rel="index">
+                    <span itemprop="name">tools</span>
                   </a>
                 </span>
 
@@ -343,6 +343,17 @@
           
 
           
+          
+             <span id="/2017-04-20-eclipse相关/" class="leancloud_visitors" data-flag-title="eclipse相关">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
           
 
           
@@ -429,7 +440,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/eclipse-maven/" rel="tag"># eclipse,maven</a>
+            <a href="/tags/eclipse/" rel="tag"># eclipse</a>
           
         </div>
       
@@ -531,7 +542,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">108</span>
+                  <span class="site-state-item-count">118</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -542,7 +553,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -553,7 +564,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -608,7 +619,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -622,7 +633,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">78.2k</span>
+    <span title="Site words total count">85.0k</span>
   
 </div>
 
@@ -782,6 +793,113 @@
 
 
   
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("FUPssgG7FQe5trsvf4TbpNfC-gzGzoHsz", "mRbmufFxoH0YiK3CPTPzpvS7");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
 
   
 
