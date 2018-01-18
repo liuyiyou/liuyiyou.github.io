@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="内容： 安装mysql镜像 数据文件外部存放 远程连接  https://hub.docker.com/_/mysql/ 拉取mysql镜像docker pull mysqldocker images~ docker imagesREPOSITORY          TAG                 IMAGE ID            CREATED             SIZEm">
+<meta name="description" content="内容： 安装mysql镜像 数据文件外部存放 远程连接  拉取mysql镜像docker pull mysqldocker imagesdocker imagesREPOSITORY          TAG                 IMAGE ID            CREATED             SIZEmysql               latest">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker安装mysql">
 <meta property="og:url" content="http://liuyiyou.cn/2018-01-09-Docker安装mysql/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="内容： 安装mysql镜像 数据文件外部存放 远程连接  https://hub.docker.com/_/mysql/ 拉取mysql镜像docker pull mysqldocker images~ docker imagesREPOSITORY          TAG                 IMAGE ID            CREATED             SIZEm">
+<meta property="og:description" content="内容： 安装mysql镜像 数据文件外部存放 远程连接  拉取mysql镜像docker pull mysqldocker imagesdocker imagesREPOSITORY          TAG                 IMAGE ID            CREATED             SIZEmysql               latest">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-12T15:38:27.052Z">
+<meta property="og:updated_time" content="2018-01-17T02:08:50.335Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker安装mysql">
-<meta name="twitter:description" content="内容： 安装mysql镜像 数据文件外部存放 远程连接  https://hub.docker.com/_/mysql/ 拉取mysql镜像docker pull mysqldocker images~ docker imagesREPOSITORY          TAG                 IMAGE ID            CREATED             SIZEm">
+<meta name="twitter:description" content="内容： 安装mysql镜像 数据文件外部存放 远程连接  拉取mysql镜像docker pull mysqldocker imagesdocker imagesREPOSITORY          TAG                 IMAGE ID            CREATED             SIZEmysql               latest">
 
 
 
@@ -369,7 +369,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,133
+                  1,092
                 </span>
               
 
@@ -411,43 +411,38 @@
 <li>数据文件外部存放</li>
 <li>远程连接</li>
 </ul>
-<p><a href="https://hub.docker.com/_/mysql/" target="_blank" rel="external">https://hub.docker.com/_/mysql/</a></p>
-<h2 id="拉取mysql镜像"><a href="#拉取mysql镜像" class="headerlink" title="拉取mysql镜像"></a>拉取mysql镜像</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">docker pull mysql</div><div class="line"></div><div class="line">docker images</div><div class="line"></div><div class="line">~ docker images</div><div class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">mysql               latest              7d83a47ab2d2        4 weeks ago         408MB</div><div class="line">nginx               latest              40960efd7b8f        2 months ago        108MB</div><div class="line">learn/tutorial      latest              a7876479f1aa        4 years ago         128MB</div></pre></td></tr></table></figure>
-<h2 id="启动mysql镜像"><a href="#启动mysql镜像" class="headerlink" title="启动mysql镜像"></a>启动mysql镜像</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">~docker run -itd -P  mysql  bash</div><div class="line">5445a416c761201d3d5ea03888e3c1906c2dd030b1a1272c63c2d80ee7f673eb</div><div class="line"></div><div class="line">~ docker ps</div><div class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED                  STATUS              PORTS                     NAMES</div><div class="line">5445a416c761        mysql               <span class="string">"docker-entrypoint..."</span>   Less than a second ago   Up 3 seconds        0.0.0.0:32768-&gt;3306/tcp   sleepy_ride</div></pre></td></tr></table></figure>
-<h2 id="连接mysql镜像"><a href="#连接mysql镜像" class="headerlink" title="连接mysql镜像"></a>连接mysql镜像</h2><p>docker exec -it sleepy_ride bash</p>
-<h2 id="检查mysql状态"><a href="#检查mysql状态" class="headerlink" title="检查mysql状态"></a>检查mysql状态</h2><p>~ docker exec -it sleepy_ride bash<br>root@5445a416c761:/#<br>root@5445a416c761:/#<br>root@5445a416c761:/# service mysql status<br>[info] MySQL Community Server 5.7.20 is not running.<br>root@5445a416c761:/# service mysql start</p>
-<h2 id="启动mysql"><a href="#启动mysql" class="headerlink" title="启动mysql"></a>启动mysql</h2><p>root@5445a416c761:/# service mysql status<br>[info] MySQL Community Server 5.7.20 is not running.<br>root@5445a416c761:/# service mysql start<br>No directory, logging in with HOME=/<br>2018-01-09T08:38:18.232851Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use –explicit_defaults_for_timestamp server option (see documentation for more details).<br>2018-01-09T08:38:19.854808Z 0 [Warning] InnoDB: New log files created, LSN=45790<br>2018-01-09T08:38:20.038572Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.<br>2018-01-09T08:38:20.128724Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 72274778-f518-11e7-a5d1-0242ac110002.<br>2018-01-09T08:38:20.134105Z 0 [Warning] Gtid table is not ready to be used. Table ‘mysql.gtid_executed’ cannot be opened.<br>2018-01-09T08:38:20.137243Z 1 [Warning] root@localhost is created with an empty password ! Please consider switching off the –initialize-insecure option.<br>2018-01-09T08:38:21.414380Z 1 [Warning] ‘user’ entry ‘root@localhost’ ignored in –skip-name-resolve mode.<br>2018-01-09T08:38:21.415007Z 1 [Warning] ‘user’ entry ‘mysql.session@localhost’ ignored in –skip-name-resolve mode.<br>2018-01-09T08:38:21.415796Z 1 [Warning] ‘user’ entry ‘mysql.sys@localhost’ ignored in –skip-name-resolve mode.<br>2018-01-09T08:38:21.416317Z 1 [Warning] ‘db’ entry ‘performance_schema mysql.session@localhost’ ignored in –skip-name-resolve mode.<br>2018-01-09T08:38:21.416827Z 1 [Warning] ‘db’ entry ‘sys mysql.sys@localhost’ ignored in –skip-name-resolve mode.<br>2018-01-09T08:38:21.417310Z 1 [Warning] ‘proxies_priv’ entry ‘@ root@localhost’ ignored in –skip-name-resolve mode.<br>2018-01-09T08:38:21.417746Z 1 [Warning] ‘tables_priv’ entry ‘user mysql.session@localhost’ ignored in –skip-name-resolve mode.<br>2018-01-09T08:38:21.418001Z 1 [Warning] ‘tables_priv’ entry ‘sys_config mysql.sys@localhost’ ignored in –skip-name-resolve mode.<br>No directory, logging in with HOME=/<br>..<br>[info] MySQL Community Server 5.7.20 is started.</p>
+<h2 id="拉取mysql镜像"><a href="#拉取mysql镜像" class="headerlink" title="拉取mysql镜像"></a>拉取mysql镜像</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">docker pull mysql</div><div class="line">docker images</div><div class="line">docker images</div><div class="line">REPOSITORY          TAG                 IMAGE ID            CREATED             SIZE</div><div class="line">mysql               latest              7d83a47ab2d2        4 weeks ago         408MB</div><div class="line">nginx               latest              40960efd7b8f        2 months ago        108MB</div><div class="line">learn/tutorial      latest              a7876479f1aa        4 years ago         128MB</div></pre></td></tr></table></figure>
+<h2 id="启动mysql镜像"><a href="#启动mysql镜像" class="headerlink" title="启动mysql镜像"></a>启动mysql镜像</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">~docker run -itd -P  mysql  bash</div><div class="line">5445a416c761201d3d5ea03888e3c1906c2dd030b1a1272c63c2d80ee7f673eb</div><div class="line">~ docker ps</div><div class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED                  STATUS              PORTS                     NAMES</div><div class="line">5445a416c761        mysql               <span class="string">"docker-entrypoint..."</span>   Less than a second ago   Up 3 seconds        0.0.0.0:32768-&gt;3306/tcp   sleepy_ride</div></pre></td></tr></table></figure>
+<h2 id="连接mysql镜像"><a href="#连接mysql镜像" class="headerlink" title="连接mysql镜像"></a>连接mysql镜像</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">docker <span class="built_in">exec</span> -it sleepy_ride bash</div></pre></td></tr></table></figure>
+<h2 id="检查mysql状态"><a href="#检查mysql状态" class="headerlink" title="检查mysql状态"></a>检查mysql状态</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">~ docker <span class="built_in">exec</span> -it sleepy_ride bash</div><div class="line">root@5445a416c761:/<span class="comment">#</span></div><div class="line">root@5445a416c761:/<span class="comment">#</span></div><div class="line">root@5445a416c761:/<span class="comment"># service mysql status</span></div><div class="line">[info] MySQL Community Server 5.7.20 is not running.</div><div class="line">root@5445a416c761:/<span class="comment"># service mysql start</span></div></pre></td></tr></table></figure>
+<h2 id="启动mysql"><a href="#启动mysql" class="headerlink" title="启动mysql"></a>启动mysql</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">root@5445a416c761:/<span class="comment"># service mysql status</span></div><div class="line">[info] MySQL Community Server 5.7.20 is not running.</div><div class="line">root@5445a416c761:/<span class="comment"># service mysql start</span></div><div class="line">No directory, logging <span class="keyword">in</span> with HOME=/</div><div class="line">2018-01-09T08:38:18.232851Z 0 [Warning] TIMESTAMP with implicit DEFAULT value is deprecated. Please use --explicit_defaults_for_timestamp server option (see documentation <span class="keyword">for</span> more details).</div><div class="line">2018-01-09T08:38:19.854808Z 0 [Warning] InnoDB: New <span class="built_in">log</span> files created, LSN=45790</div><div class="line">2018-01-09T08:38:20.038572Z 0 [Warning] InnoDB: Creating foreign key constraint system tables.</div><div class="line">2018-01-09T08:38:20.128724Z 0 [Warning] No existing UUID has been found, so we assume that this is the first time that this server has been started. Generating a new UUID: 72274778-f518-11e7-a5d1-0242ac110002.</div><div class="line">2018-01-09T08:38:20.134105Z 0 [Warning] Gtid table is not ready to be used. Table <span class="string">'mysql.gtid_executed'</span> cannot be opened.</div><div class="line">2018-01-09T08:38:20.137243Z 1 [Warning] root@localhost is created with an empty password ! Please consider switching off the --initialize-insecure option.</div><div class="line">2018-01-09T08:38:21.414380Z 1 [Warning] <span class="string">'user'</span> entry <span class="string">'root@localhost'</span> ignored <span class="keyword">in</span> --skip-name-resolve mode.</div><div class="line">2018-01-09T08:38:21.415007Z 1 [Warning] <span class="string">'user'</span> entry <span class="string">'mysql.session@localhost'</span> ignored <span class="keyword">in</span> --skip-name-resolve mode.</div><div class="line">2018-01-09T08:38:21.415796Z 1 [Warning] <span class="string">'user'</span> entry <span class="string">'mysql.sys@localhost'</span> ignored <span class="keyword">in</span> --skip-name-resolve mode.</div><div class="line">2018-01-09T08:38:21.416317Z 1 [Warning] <span class="string">'db'</span> entry <span class="string">'performance_schema mysql.session@localhost'</span> ignored <span class="keyword">in</span> --skip-name-resolve mode.</div><div class="line">2018-01-09T08:38:21.416827Z 1 [Warning] <span class="string">'db'</span> entry <span class="string">'sys mysql.sys@localhost'</span> ignored <span class="keyword">in</span> --skip-name-resolve mode.</div><div class="line">2018-01-09T08:38:21.417310Z 1 [Warning] <span class="string">'proxies_priv'</span> entry <span class="string">'@ root@localhost'</span> ignored <span class="keyword">in</span> --skip-name-resolve mode.</div><div class="line">2018-01-09T08:38:21.417746Z 1 [Warning] <span class="string">'tables_priv'</span> entry <span class="string">'user mysql.session@localhost'</span> ignored <span class="keyword">in</span> --skip-name-resolve mode.</div><div class="line">2018-01-09T08:38:21.418001Z 1 [Warning] <span class="string">'tables_priv'</span> entry <span class="string">'sys_config mysql.sys@localhost'</span> ignored <span class="keyword">in</span> --skip-name-resolve mode.</div><div class="line">No directory, logging <span class="keyword">in</span> with HOME=/</div><div class="line">..</div><div class="line">[info] MySQL Community Server 5.7.20 is started.</div></pre></td></tr></table></figure>
 <h2 id="进入mysql命令行"><a href="#进入mysql命令行" class="headerlink" title="进入mysql命令行"></a>进入mysql命令行</h2><p>root@5445a416c761:/# mysql -u root -p</p>
-<h2 id="新建数据库、表"><a href="#新建数据库、表" class="headerlink" title="新建数据库、表"></a>新建数据库、表</h2><p>mysql&gt; create database test;</p>
-<p>mysql&gt; CREATE TABLE Persons<br>    -&gt; (<br>    -&gt; Id_P int,<br>    -&gt; LastName varchar(255),<br>    -&gt; FirstName varchar(255),<br>    -&gt; Address varchar(255),<br>    -&gt; City varchar(255)<br>    -&gt; );<br>Query OK, 0 rows affected (0.03 sec)</p>
-<h2 id="退出mysql镜像"><a href="#退出mysql镜像" class="headerlink" title="退出mysql镜像"></a>退出mysql镜像</h2><h2 id="配置远程连接"><a href="#配置远程连接" class="headerlink" title="配置远程连接"></a>配置远程连接</h2><p>grant all privileges on <em>.</em> to ‘root’@’%’ identified by ‘123456’;   这个必须有<br>update <code>mysql</code>.<code>user</code> set <code>Grant_priv</code> = ‘Y’ where <code>user</code> = ‘root’;</p>
-<p>不能用127.0.0.1来登陆，而是要使用 ip，（20170112更正）</p>
+<h2 id="新建数据库、表"><a href="#新建数据库、表" class="headerlink" title="新建数据库、表"></a>新建数据库、表</h2><figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">mysql&gt; create database test;</div><div class="line"></div><div class="line"></div><div class="line">mysql&gt; CREATE TABLE Persons</div><div class="line">    -&gt; (</div><div class="line">    -&gt; Id_P int,</div><div class="line">    -&gt; LastName varchar(255),</div><div class="line">    -&gt; FirstName varchar(255),</div><div class="line">    -&gt; Address varchar(255),</div><div class="line">    -&gt; City varchar(255)</div><div class="line">    -&gt; );</div><div class="line">Query OK, 0 rows affected (0.03 sec)</div></pre></td></tr></table></figure>
+<h2 id="退出mysql镜像"><a href="#退出mysql镜像" class="headerlink" title="退出mysql镜像"></a>退出mysql镜像</h2><h2 id="配置远程连接"><a href="#配置远程连接" class="headerlink" title="配置远程连接"></a>配置远程连接</h2><figure class="highlight sql"><table><tr><td class="code"><pre><div class="line"><span class="keyword">grant</span> all <span class="keyword">privileges</span> <span class="keyword">on</span> *.* <span class="keyword">to</span> <span class="string">'root'</span>@<span class="string">'%'</span> <span class="keyword">identified</span> <span class="keyword">by</span> <span class="string">'123456'</span>;   这个必须有</div><div class="line"><span class="keyword">update</span> <span class="string">`mysql`</span>.<span class="string">`user`</span> <span class="keyword">set</span> <span class="string">`Grant_priv`</span> = <span class="string">'Y'</span> <span class="keyword">where</span> <span class="string">`user`</span> = <span class="string">'root'</span>;</div></pre></td></tr></table></figure>
+<p>不能用127.0.0.1来登陆，而是要使用 ip，（20170112更正,可以用127.0.0.1）</p>
 <h2 id="验证数据"><a href="#验证数据" class="headerlink" title="验证数据"></a>验证数据</h2><h3 id="重启docker"><a href="#重启docker" class="headerlink" title="重启docker"></a>重启docker</h3><p>docker ps ，发现运行的mysql已经关闭<br>docker run -itd -P  mysql  bash 后再使用docker ps 发现NAME已经变化<br>检查mysql服务，发现是notrunning</p>
-<p>重启后，之前建立的数据库和表已经消失:  错误，是因为使用：~docker run -itd -P  mysql  bash的时候是新建一个容器，而不是启动原来的容器，使用docker ps -a 可以看到原来的容器还是在那里，只是状态是stop</p>
+<p>重启后，之前建立的数据库和表已经消失:  </p>
+<p><code>错误，是因为使用：~docker run -itd -P  mysql  bash的时候是新建一个容器，而不是启动原来的容器，使用docker ps -a 可以看到原来的容器还是在那里，只是状态是stop</code></p>
 <h2 id="关闭容器"><a href="#关闭容器" class="headerlink" title="关闭容器"></a>关闭容器</h2><p>在之前已经新建了一个文件夹test</p>
 <p>如果容器关闭、重启 数据文件是否还存在？</p>
 <p>angry_kepler</p>
 <h2 id="挂载外部数据到容器"><a href="#挂载外部数据到容器" class="headerlink" title="挂载外部数据到容器"></a>挂载外部数据到容器</h2><p>因为我的电脑的版本是5.6的，还不支持json查询，而公司的mysql版本是5.7，有的地方使用到了json，导致某些情况下，查询出错。升级方式如下：<br><a href="https://www.jianshu.com/p/fd3aae701db9" target="_blank" rel="external">https://www.jianshu.com/p/fd3aae701db9</a><br><a href="https://segmentfault.com/a/1190000009497926" target="_blank" rel="external">https://segmentfault.com/a/1190000009497926</a></p>
 <p>不过打算用docker  将目录挂载到docker的mysql下。</p>
 <h3 id="删除所有容器"><a href="#删除所有容器" class="headerlink" title="删除所有容器"></a>删除所有容器</h3><p>docker rm $(docker ps -a -q)</p>
-<h3 id="新建容器"><a href="#新建容器" class="headerlink" title="新建容器"></a>新建容器</h3><p>~ docker run -itd  -P  –name=”docker-mysql”  mysql  bash </p>
-<p>docker run -itd -e MYSQL_ROOT_PASSWORD=123456 –name docker-mysql -v /usr/local/mysql/data/:/var/lib/mysql -p 32774:3306 mysql </p>
+<h3 id="新建容器"><a href="#新建容器" class="headerlink" title="新建容器"></a>新建容器</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">~ docker run -itd  -P  --name=<span class="string">"docker-mysql"</span>  mysql  bash</div><div class="line"></div><div class="line">docker run -itd -e MYSQL_ROOT_PASSWORD=123456 --name docker-mysql -v /usr/<span class="built_in">local</span>/mysql/data/:/var/lib/mysql -p 32774:3306 mysql</div></pre></td></tr></table></figure>
 <p>需要-P，否则是：</p>
 <p>CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES<br>1ca62a63c956        mysql               “docker-entrypoint…”   4 minutes ago       Up 4 minutes        3306/tcp            docker-mysql</p>
 <p>加-P之后</p>
 <p>CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES<br>57bb2dbd5b7a        mysql               “docker-entrypoint…”   2 seconds ago       Up 3 seconds        0.0.0.0:32774-&gt;3306/tcp   docker-mysql</p>
-<h3 id="重启启动"><a href="#重启启动" class="headerlink" title="重启启动"></a>重启启动</h3><p>docker start    –name=”docker-mysql”  mysql  bash </p>
+<h3 id="重启启动"><a href="#重启启动" class="headerlink" title="重启启动"></a>重启启动</h3><p>docker start    –name=”docker-mysql”  mysql  bash</p>
 <p>docker run -itd -e MYSQL_ROOT_PASSWORD=123456 –name docker-mysql -v /usr/local/mysql/data:/var/lib/mysql -p 32774:3306 mysql</p>
 <p>有权限问题</p>
 <p>发现status是 Exited，  查看日志</p>
-<p>docker logs  382edb9ddf4d</p>
-<p>chown: cannot read directory ‘/var/lib/mysql/ibalife_busi’: Permission denied<br>chown: cannot read directory ‘/var/lib/mysql/TIPASK’: Permission denied<br>chown: cannot read directory ‘/var/lib/mysql/shopxx’: Permission denied<br>chown: cannot read directory ‘/var/lib/mysql/ibalife_admin’: Permission denied<br>chown: cannot read directory ‘/var/lib/mysql/ibalife_report’: Permission denied</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">docker logs  382edb9ddf4d</div><div class="line"></div><div class="line">chown: cannot <span class="built_in">read</span> directory <span class="string">'/var/lib/mysql/ibalife_busi'</span>: Permission denied</div><div class="line">chown: cannot <span class="built_in">read</span> directory <span class="string">'/var/lib/mysql/TIPASK'</span>: Permission denied</div><div class="line">chown: cannot <span class="built_in">read</span> directory <span class="string">'/var/lib/mysql/shopxx'</span>: Permission denied</div><div class="line">chown: cannot <span class="built_in">read</span> directory <span class="string">'/var/lib/mysql/ibalife_admin'</span>: Permission denied</div><div class="line">chown: cannot <span class="built_in">read</span> directory <span class="string">'/var/lib/mysql/ibalife_report'</span>: Permission denied</div></pre></td></tr></table></figure>
 <p>暂时不知道怎么解决</p>
 <p>使用另外一个地方：</p>
 <p>docker run -itd -e MYSQL_ROOT_PASSWORD=123456 –name docker-mysql -v /Users/liuyiyou/docker/mysql/data:/var/lib/mysql -p 32774:3306 mysql</p>
 <p>重命名：</p>
-<p>#alias docker-mysql-run=docker run -itd -e MYSQL_ROOT_PASSWORD=123456 –name docker-mysql -v /Users/liuyiyou/docker/mysql/data:/var/lib/mysql -p 32774:3306 mysql</p>
-<p>#alias  goto=cd /Users/liuyiyou/data</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://blog.csdn.net/minicto/article/details/73484432" target="_blank" rel="external">http://blog.csdn.net/minicto/article/details/73484432</a></p>
 <p><a href="http://xiaoqiangge.com/aritcle/1496481502190.html" target="_blank" rel="external">http://xiaoqiangge.com/aritcle/1496481502190.html</a></p>
 <p><a href="http://blog.csdn.net/jinzhencs/article/details/51546409" target="_blank" rel="external">http://blog.csdn.net/jinzhencs/article/details/51546409</a></p>
@@ -570,7 +565,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">118</span>
+                  <span class="site-state-item-count">122</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -580,7 +575,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories.html">
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -592,7 +587,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -661,7 +656,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">85.0k</span>
+    <span title="Site words total count">87.2k</span>
   
 </div>
 

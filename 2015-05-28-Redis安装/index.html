@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="spring-boot,spring-cloud," />
+  <meta name="keywords" content="redis," />
 
 
 
@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="SpringBoot教程SpringCloud教程Eureka服务注册   Feigh声明式服务调用   注册中心和配置中心集成">
-<meta name="keywords" content="spring-boot,spring-cloud">
+<meta name="description" content="内容 Mac安装Redis Docker安装Redis  Mac安装Redis下载$lyy:cd  /Users/liuyiyou/soft$lyy: wget http://download.redis.io/releases/redis-3.0.1.tar.gz$lyy: tar xzf redis-3.0.1.tar.gz$lyy: cd redis-3.0.1$lyy: make$lyy:">
+<meta name="keywords" content="redis">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot&amp;SpringCloud系列">
-<meta property="og:url" content="http://liuyiyou.cn/2017-12-14-SpringBoot&SpringCloud系列/index.html">
+<meta property="og:title" content="Redis安装">
+<meta property="og:url" content="http://liuyiyou.cn/2015-05-28-Redis安装/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="SpringBoot教程SpringCloud教程Eureka服务注册   Feigh声明式服务调用   注册中心和配置中心集成">
+<meta property="og:description" content="内容 Mac安装Redis Docker安装Redis  Mac安装Redis下载$lyy:cd  /Users/liuyiyou/soft$lyy: wget http://download.redis.io/releases/redis-3.0.1.tar.gz$lyy: tar xzf redis-3.0.1.tar.gz$lyy: cd redis-3.0.1$lyy: make$lyy:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-15T02:21:05.973Z">
+<meta property="og:updated_time" content="2018-01-18T03:52:26.029Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot&amp;SpringCloud系列">
-<meta name="twitter:description" content="SpringBoot教程SpringCloud教程Eureka服务注册   Feigh声明式服务调用   注册中心和配置中心集成">
+<meta name="twitter:title" content="Redis安装">
+<meta name="twitter:description" content="内容 Mac安装Redis Docker安装Redis  Mac安装Redis下载$lyy:cd  /Users/liuyiyou/soft$lyy: wget http://download.redis.io/releases/redis-3.0.1.tar.gz$lyy: tar xzf redis-3.0.1.tar.gz$lyy: cd redis-3.0.1$lyy: make$lyy:">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://liuyiyou.cn/2017-12-14-SpringBoot&SpringCloud系列/"/>
+  <link rel="canonical" href="http://liuyiyou.cn/2015-05-28-Redis安装/"/>
 
 
 
 
 
-  <title>SpringBoot&SpringCloud系列 | 温故而知新    触类而旁通</title>
+  <title>Redis安装 | 温故而知新    触类而旁通</title>
   
 
 
@@ -275,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017-12-14-SpringBoot&SpringCloud系列/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015-05-28-Redis安装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -292,7 +292,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">SpringBoot&SpringCloud系列</h2>
+          <h2 class="post-title" itemprop="name headline">Redis安装</h2>
         
 
         <div class="post-meta">
@@ -304,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-14T00:00:00+08:00">
-                2017-12-14
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2015-05-28T08:00:00+08:00">
+                2015-05-28
               </time>
             
 
@@ -327,19 +327,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/spring-cloud/" itemprop="url" rel="index">
-                    <span itemprop="name">spring-cloud</span>
-                  </a>
-                </span>
-
-                
-                
-                  ， 
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/spring-cloud/spring-boot/" itemprop="url" rel="index">
-                    <span itemprop="name">spring-boot</span>
+                  <a href="/categories/redis/" itemprop="url" rel="index">
+                    <span itemprop="name">redis</span>
                   </a>
                 </span>
 
@@ -355,7 +344,7 @@
 
           
           
-             <span id="/2017-12-14-SpringBoot&SpringCloud系列/" class="leancloud_visitors" data-flag-title="SpringBoot&SpringCloud系列">
+             <span id="/2015-05-28-Redis安装/" class="leancloud_visitors" data-flag-title="Redis安装">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -380,7 +369,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  30
+                  398
                 </span>
               
 
@@ -396,7 +385,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -417,9 +406,22 @@
       
 
       
-        <h2 id="SpringBoot教程"><a href="#SpringBoot教程" class="headerlink" title="SpringBoot教程"></a>SpringBoot教程</h2><h2 id="SpringCloud教程"><a href="#SpringCloud教程" class="headerlink" title="SpringCloud教程"></a>SpringCloud教程</h2><p><a href="/2017-11-21-Eureka服务注册/">Eureka服务注册</a>  </p>
-<p><a href="/2017-11-22-Feigh声明式服务调用/">Feigh声明式服务调用</a>  </p>
-<p><a href="/2017-11-22-注册中心和配置中心集成">注册中心和配置中心集成</a></p>
+        <h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><ul>
+<li>Mac安装Redis</li>
+<li>Docker安装Redis</li>
+</ul>
+<h2 id="Mac安装Redis"><a href="#Mac安装Redis" class="headerlink" title="Mac安装Redis"></a>Mac安装Redis</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="variable">$lyy</span>:<span class="built_in">cd</span>  /Users/liuyiyou/soft</div><div class="line"><span class="variable">$lyy</span>: wget http://download.redis.io/releases/redis-3.0.1.tar.gz</div><div class="line"><span class="variable">$lyy</span>: tar xzf redis-3.0.1.tar.gz</div><div class="line"><span class="variable">$lyy</span>: <span class="built_in">cd</span> redis-3.0.1</div><div class="line"><span class="variable">$lyy</span>: make</div><div class="line"><span class="variable">$lyy</span>: <span class="built_in">cd</span> src  </div><div class="line"><span class="variable">$lyy</span>: install</div></pre></td></tr></table></figure>
+<p>安装完成之后的路径</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="variable">$lyy</span>: <span class="built_in">cd</span> /Users/liuyiyou/soft/redis-3.0.1</div></pre></td></tr></table></figure>
+<h3 id="配置环境变量："><a href="#配置环境变量：" class="headerlink" title="配置环境变量："></a>配置环境变量：</h3><p>为了以后方便使用，一般会将Redis的相关命令和配置文件移动到/usr/local/redis下</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">~  mkdir -p /usr/<span class="built_in">local</span>/redis/bin</div><div class="line">~  mkdir -p /usr/<span class="built_in">local</span>/redis/etc</div><div class="line">~ mv /Users/liuyiyou/soft/redis-3.0.1/redis.conf /usr/<span class="built_in">local</span>/redis/etc</div><div class="line">~  <span class="built_in">cd</span> /Users/liuyiyou/soft/redis-3.0.1/src</div><div class="line">mv mkreleasehdr.sh redis-benchmark redis-check-aof redis-check-dump</div><div class="line">redis-cli redis-server /usr/<span class="built_in">local</span>/redis/bin</div></pre></td></tr></table></figure>
+<p>Redis分为服务端和客户端，默认端口为6379，当然也可以通过–port xxxx来指定端口运行服务</p>
+<h2 id="Docker安装Redis"><a href="#Docker安装Redis" class="headerlink" title="Docker安装Redis"></a>Docker安装Redis</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">docker search  redis</div><div class="line">docker pull redis</div></pre></td></tr></table></figure>
+<h2 id="启动redis服务"><a href="#启动redis服务" class="headerlink" title="启动redis服务"></a>启动redis服务</h2><h3 id="Mac方式启动"><a href="#Mac方式启动" class="headerlink" title="Mac方式启动"></a>Mac方式启动</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/redis/bin</div><div class="line">./redis-server</div><div class="line"><span class="comment"># 也可以直接使用  redis-server ，因为已经将命令复制到/user/local中了</span></div><div class="line"></div><div class="line">13133:C 05 Oct 13:28:46.925 <span class="comment"># Warning: no config file specified, using the default config.</span></div><div class="line">In order to specify a config file use ./redis-server /path/to/redis.conf</div><div class="line">13133:M 05 Oct 13:28:46.926 * Increased maximum number of open files to 10032 (it was originally <span class="built_in">set</span> to 256).</div></pre></td></tr></table></figure>
+<h3 id="Docker方式启动"><a href="#Docker方式启动" class="headerlink" title="Docker方式启动"></a>Docker方式启动</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="comment">## 第一次</span></div><div class="line">docker run -p 63790:6379  --name docker-redis -v /Users/liuyiyou/docker/redis/data:/data  -d redis redis-server</div><div class="line"><span class="comment">## 后续</span></div><div class="line">docker start  docker-redis</div></pre></td></tr></table></figure>
+<h2 id="以守护进程的方式启动并指定配置文件"><a href="#以守护进程的方式启动并指定配置文件" class="headerlink" title="以守护进程的方式启动并指定配置文件"></a>以守护进程的方式启动并指定配置文件</h2><p>将redis.conf文件中的daemonize no 改成yes</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">./redis-server /usr/<span class="built_in">local</span>/redis/etc/redis.conf</div><div class="line"><span class="comment"># 是否启动成功</span></div><div class="line"> ps -ef|grep redis</div><div class="line"> netstat -tunpl | grep  6379</div></pre></td></tr></table></figure>
+<p>默认数据库是0号数据库。可以通过select选择其他数据库。</p>
 
       
     </div>
@@ -437,9 +439,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/spring-boot/" rel="tag"># spring-boot</a>
-          
-            <a href="/tags/spring-cloud/" rel="tag"># spring-cloud</a>
+            <a href="/tags/redis/" rel="tag"># redis</a>
           
         </div>
       
@@ -452,8 +452,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018-01-01-SpringBoot&SpringCloud系列/" rel="next" title="SpringBoot&SpringCloud系列">
-                <i class="fa fa-chevron-left"></i> SpringBoot&SpringCloud系列
+              <a href="/2015-05-27-为什么使用Redis/" rel="next" title="为什么使用Redis">
+                <i class="fa fa-chevron-left"></i> 为什么使用Redis
               </a>
             
           </div>
@@ -462,8 +462,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017-12-15-博客更新日志/" rel="prev" title="SpringBoot&SpringCloud系列">
-                SpringBoot&SpringCloud系列 <i class="fa fa-chevron-right"></i>
+              <a href="/2015-05-29总结/" rel="prev" title="2015-05-29总结">
+                2015-05-29总结 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -541,7 +541,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">118</span>
+                  <span class="site-state-item-count">122</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -551,7 +551,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories.html">
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -563,7 +563,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -598,7 +598,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot教程"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot教程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringCloud教程"><span class="nav-number">2.</span> <span class="nav-text">SpringCloud教程</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#内容"><span class="nav-number">1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mac安装Redis"><span class="nav-number">2.</span> <span class="nav-text">Mac安装Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#下载"><span class="nav-number">2.1.</span> <span class="nav-text">下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置环境变量："><span class="nav-number">2.2.</span> <span class="nav-text">配置环境变量：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker安装Redis"><span class="nav-number">3.</span> <span class="nav-text">Docker安装Redis</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#启动redis服务"><span class="nav-number">4.</span> <span class="nav-text">启动redis服务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Mac方式启动"><span class="nav-number">4.1.</span> <span class="nav-text">Mac方式启动</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Docker方式启动"><span class="nav-number">4.2.</span> <span class="nav-text">Docker方式启动</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#以守护进程的方式启动并指定配置文件"><span class="nav-number">5.</span> <span class="nav-text">以守护进程的方式启动并指定配置文件</span></a></li></ol></div>
             
 
           </div>
@@ -632,7 +632,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">85.0k</span>
+    <span title="Site words total count">87.2k</span>
   
 </div>
 

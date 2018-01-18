@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="SpringBoot的好处就不多说了，大致有以下几点  简化依赖：不再需要在pom中增加各种依赖，不再需要因为不同框架的不同版本而导致各种NoSuchMethod的异常 简化配置：不再需要在xml中进行各种配置 独立部署：内嵌tomcat和jetty，直接通过main方法即可启动，可打包成jar进行独立部署 提供生产就绪型功能，如指标，健康检查和外部配置 和SpringCloud等能进行良好的结合">
+<meta name="description" content="在上一篇SpringBoot学习-初探中搭建了一个最简单SpringBoot程序，后续不再提供项目搭建截图，直接采用maven模式 内容 返回json 返回模板 Circular view path问题解决方案 使用fastjson代替jackson  返回json从spring4.0开始，Spring提供了@RestController注解，提供该注解是一个组合注解 @Controller &amp;a">
 <meta name="keywords" content="spring-boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot(1)-最简单的SpringBoot">
-<meta property="og:url" content="http://liuyiyou.cn/2017-09-10-SpringBoot-1-start/index.html">
+<meta property="og:title" content="SpringBoot学习-控制器">
+<meta property="og:url" content="http://liuyiyou.cn/2017-09-12-SpringBoot学习-控制器/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="SpringBoot的好处就不多说了，大致有以下几点  简化依赖：不再需要在pom中增加各种依赖，不再需要因为不同框架的不同版本而导致各种NoSuchMethod的异常 简化配置：不再需要在xml中进行各种配置 独立部署：内嵌tomcat和jetty，直接通过main方法即可启动，可打包成jar进行独立部署 提供生产就绪型功能，如指标，健康检查和外部配置 和SpringCloud等能进行良好的结合">
+<meta property="og:description" content="在上一篇SpringBoot学习-初探中搭建了一个最简单SpringBoot程序，后续不再提供项目搭建截图，直接采用maven模式 内容 返回json 返回模板 Circular view path问题解决方案 使用fastjson代替jackson  返回json从spring4.0开始，Spring提供了@RestController注解，提供该注解是一个组合注解 @Controller &amp;a">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-15T02:09:44.223Z">
+<meta property="og:updated_time" content="2018-01-17T09:00:06.713Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot(1)-最简单的SpringBoot">
-<meta name="twitter:description" content="SpringBoot的好处就不多说了，大致有以下几点  简化依赖：不再需要在pom中增加各种依赖，不再需要因为不同框架的不同版本而导致各种NoSuchMethod的异常 简化配置：不再需要在xml中进行各种配置 独立部署：内嵌tomcat和jetty，直接通过main方法即可启动，可打包成jar进行独立部署 提供生产就绪型功能，如指标，健康检查和外部配置 和SpringCloud等能进行良好的结合">
+<meta name="twitter:title" content="SpringBoot学习-控制器">
+<meta name="twitter:description" content="在上一篇SpringBoot学习-初探中搭建了一个最简单SpringBoot程序，后续不再提供项目搭建截图，直接采用maven模式 内容 返回json 返回模板 Circular view path问题解决方案 使用fastjson代替jackson  返回json从spring4.0开始，Spring提供了@RestController注解，提供该注解是一个组合注解 @Controller &amp;a">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://liuyiyou.cn/2017-09-10-SpringBoot-1-start/"/>
+  <link rel="canonical" href="http://liuyiyou.cn/2017-09-12-SpringBoot学习-控制器/"/>
 
 
 
 
 
-  <title>SpringBoot(1)-最简单的SpringBoot | 温故而知新    触类而旁通</title>
+  <title>SpringBoot学习-控制器 | 温故而知新    触类而旁通</title>
   
 
 
@@ -275,7 +275,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017-09-10-SpringBoot-1-start/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017-09-12-SpringBoot学习-控制器/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -292,7 +292,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">SpringBoot(1)-最简单的SpringBoot</h2>
+          <h2 class="post-title" itemprop="name headline">SpringBoot学习-控制器</h2>
         
 
         <div class="post-meta">
@@ -304,8 +304,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-10T00:00:00+08:00">
-                2017-09-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-12T00:00:00+08:00">
+                2017-09-12
               </time>
             
 
@@ -344,7 +344,7 @@
 
           
           
-             <span id="/2017-09-10-SpringBoot-1-start/" class="leancloud_visitors" data-flag-title="SpringBoot(1)-最简单的SpringBoot">
+             <span id="/2017-09-12-SpringBoot学习-控制器/" class="leancloud_visitors" data-flag-title="SpringBoot学习-控制器">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -369,7 +369,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  577
+                  958
                 </span>
               
 
@@ -385,7 +385,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  5
                 </span>
               
             </div>
@@ -406,69 +406,45 @@
       
 
       
-        <p>SpringBoot的好处就不多说了，大致有以下几点</p>
-<ul>
-<li>简化依赖：不再需要在pom中增加各种依赖，不再需要因为不同框架的不同版本而导致各种NoSuchMethod的异常</li>
-<li>简化配置：不再需要在xml中进行各种配置</li>
-<li>独立部署：内嵌tomcat和jetty，直接通过main方法即可启动，可打包成jar进行独立部署</li>
-<li>提供生产就绪型功能，如指标，健康检查和外部配置</li>
-<li>和SpringCloud等能进行良好的结合</li>
+        <p>在上一篇<a href="/2017-09-10-SpringBoot学习-初探/">SpringBoot学习-初探</a>中搭建了一个最简单SpringBoot程序，后续不再提供项目搭建截图，直接采用maven模式</p>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><ul>
+<li>返回json</li>
+<li>返回模板</li>
+<li>Circular view path问题解决方案</li>
+<li>使用fastjson代替jackson</li>
 </ul>
-<p>怎么个简单发，看下面的流程就能看到</p>
-<h2 id="引入pom"><a href="#引入pom" class="headerlink" title="引入pom"></a>引入pom</h2><p>在pom中进行如下配置，这些配置都不需要自己来写，甚至都不需要复制，通过idea这类ide，能直接选择后就能生成， 想想之前要搭建一个SpringMvc程序，需要找多少maven配置，日志、数据库、Spring相关包，现在都不要了</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">parent</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.5.8.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">parent</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">properties</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">project.build.sourceEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.build.sourceEncoding</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">project.reporting.outputEncoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">project.reporting.outputEncoding</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">properties</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="定义控制层"><a href="#定义控制层" class="headerlink" title="定义控制层"></a>定义控制层</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HomeController</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@RequestMapping</span>(&#123;<span class="string">"/index"</span>&#125;)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">index</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Hello SpringBoot"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="入口"><a href="#入口" class="headerlink" title="入口"></a>入口</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Application</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        SpringApplication.run(Application.class, args);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>不需要component-scan、不需要viewresolver、不需要 mvc:resource，都不需要，这上面的三个步骤中，真正需要自己写的只有 定义控制层，其余的都是自动生成的</p>
-<p>来看看之前的最简单Spring程序吧！</p>
-<p>更多的pom.xml就不贴上来了，只贴一下mvc相关的配置信息</p>
-<pre><code class="xml">
-<span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span>
-
-    <span class="tag">&lt;<span class="name">mvc:resources</span> <span class="attr">mapping</span>=<span class="string">"/static/**"</span> <span class="attr">location</span>=<span class="string">"/static/"</span>/&gt;</span>
-
-
-    <span class="tag">&lt;<span class="name">bean</span></span>
-<span class="tag">            <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"messageConverters"</span>&gt;</span>
-            <span class="tag">&lt;<span class="name">list</span>&gt;</span>
-                <span class="tag">&lt;<span class="name">bean</span></span>
-<span class="tag">                        <span class="attr">class</span>=<span class="string">"org.springframework.http.converter.StringHttpMessageConverter"</span>&gt;</span>
-                    <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"supportedMediaTypes"</span>&gt;</span>
-                        <span class="tag">&lt;<span class="name">list</span>&gt;</span>
-                            <span class="tag">&lt;<span class="name">value</span>&gt;</span>text/html;charset=UTF-8<span class="tag">&lt;/<span class="name">value</span>&gt;</span>
-                        <span class="tag">&lt;/<span class="name">list</span>&gt;</span>
-                    <span class="tag">&lt;/<span class="name">property</span>&gt;</span>
-                <span class="tag">&lt;/<span class="name">bean</span>&gt;</span>
-                <span class="tag">&lt;<span class="name">ref</span> <span class="attr">bean</span>=<span class="string">"mappingJacksonHttpMessageConverter"</span>/&gt;</span>
-                <span class="comment">&lt;!-- json转换器 --&gt;</span>
-            <span class="tag">&lt;/<span class="name">list</span>&gt;</span>
-        <span class="tag">&lt;/<span class="name">property</span>&gt;</span>
-
-    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span>
-
-    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"mappingJacksonHttpMessageConverter"</span></span>
-<span class="tag">          <span class="attr">class</span>=<span class="string">"org.springframework.http.converter.json.MappingJacksonHttpMessageConverter"</span>/&gt;</span>
-
-
-    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.github.liuyiyou.spring.web"</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">context:include-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span></span>
-<span class="tag">                                <span class="attr">expression</span>=<span class="string">"org.springframework.stereotype.Controller"</span>/&gt;</span>
-        <span class="tag">&lt;<span class="name">context:exclude-filter</span> <span class="attr">type</span>=<span class="string">"annotation"</span></span>
-<span class="tag">                                <span class="attr">expression</span>=<span class="string">"org.springframework.stereotype.Service"</span>/&gt;</span>
-    <span class="tag">&lt;/<span class="name">context:component-scan</span>&gt;</span>
-
-
-    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"jstlViewResolver"</span></span>
-<span class="tag">          <span class="attr">class</span>=<span class="string">"org.springframework.web.servlet.view.InternalResourceViewResolver"</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"viewClass"</span></span>
-<span class="tag">                  <span class="attr">value</span>=<span class="string">"org.springframework.web.servlet.view.JstlView"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"prefix"</span> <span class="attr">value</span>=<span class="string">"/WEB-INF/views/"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suffix"</span> <span class="attr">value</span>=<span class="string">".jsp"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span>
-        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"requestContextAttribute"</span> <span class="attr">value</span>=<span class="string">"rc"</span> /&gt;</span>
-        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"order"</span> <span class="attr">value</span>=<span class="string">"100"</span>/&gt;</span>
-    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span>
-</code></pre>
+<h2 id="返回json"><a href="#返回json" class="headerlink" title="返回json"></a>返回json</h2><p>从spring4.0开始，Spring提供了<code>@RestController</code>注解，提供该注解是一个组合注解 <code>@Controller</code> &amp;&amp; <code>@ResponseBody</code>。SpringBoot常见方式是使用@RestController，在控制层加上该注解之后，默认返回json，而不需要额外的配置。</p>
+<p>下面的两个方法，如果使用<code>@Controller</code>进行注解，会找对应模板下的Hello模板，但是使用<code>@RestController</code>进行注解的时候，直接返回内容<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/rest/"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloRestController</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 返回json</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span></span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"hello"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"Hello"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<h2 id="返回模板"><a href="#返回模板" class="headerlink" title="返回模板"></a>返回模板</h2><p>想要返回模板，需要加入对应的starter，以thymeleaf为例，首先需要加入如下依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>如果不加该依赖（获取其他依赖）会产生两个主要问题</p>
+<ul>
+<li>404</li>
+<li>Circular view path 异常：</li>
+</ul>
+<p>404原因：如果没有添加对应的依赖，默认使用InterResourceViewResolver和JStlView，导致模板定位不准？</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">javax.servlet.ServletException: Circular view path [hello2]: would dispatch back to the current handler URL [/controller/hello2] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)</div><div class="line">	at org.springframework.web.servlet.view.InternalResourceView.prepareForRendering(InternalResourceView.java:205) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</div><div class="line">	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:145) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</div><div class="line">	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</div><div class="line">	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</div><div class="line">	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</div><div class="line">	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</div><div class="line">	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</div><div class="line">	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</div><div class="line">	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</div></pre></td></tr></table></figure>
+<h2 id="Circular-view-path问题解决方案"><a href="#Circular-view-path问题解决方案" class="headerlink" title="Circular view path问题解决方案"></a>Circular view path问题解决方案</h2><p>Circular view path 异常引发方式：</p>
+<ol>
+<li>没有添加thymeleaf</li>
+<li>如下所示：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/controller/"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</div><div class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"hello2"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello2</span><span class="params">()</span></span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"hello2"</span>;</div><div class="line">    &#125;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<p>原因：<a href="https://stackoverflow.com/questions/18813615/how-to-avoid-the-circular-view-path-exception-with-spring-mvc-test" target="_blank" rel="external">https://stackoverflow.com/questions/18813615/how-to-avoid-the-circular-view-path-exception-with-spring-mvc-test</a>  </p>
+<p>当没有声明ViewResolver时，spring会给你注册一个默认的ViewResolver，就是JstlView的实例， 该对象继承自InternalResoureView。<br>JstlView用来封装JSP或者同一Web应用中的其他资源，它将model对象作为request请求的属性值暴露出来, 并将该请求通过javax.servlet.RequestDispatcher转发到指定的URL.<br>Spring认为， 这个view的URL是可以用来指定同一web应用中特定资源的，是可以被RequestDispatcher转发的。<br>也就是说，在页面渲染(render)之前，Spring会试图使用RequestDispatcher来继续转发该请求。如下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span> (path.startsWith(<span class="string">"/"</span>) ? uri.equals(path) : uri.equals(StringUtils.applyRelativePath(uri, path))) &#123;</div><div class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> ServletException(<span class="string">"Circular view path ["</span> + path + <span class="string">"]: would dispatch back "</span> +</div><div class="line">                        <span class="string">"to the current handler URL ["</span> + uri + <span class="string">"] again. Check your ViewResolver setup! "</span> +</div><div class="line">                        <span class="string">"(Hint: This may be the result of an unspecified view, due to default view name generation.)"</span>);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>解决方法</p>
+<ul>
+<li>添加thymeleaf</li>
+<li>使用内置的InterResourceViewResolver，这个后续在集成jsp做模板的时候使用</li>
+</ul>
+<h2 id="使用fastjson代替jackson"><a href="#使用fastjson代替jackson" class="headerlink" title="使用fastjson代替jackson"></a>使用fastjson代替jackson</h2><p>原因：</p>
+<ul>
+<li>可能引发的中文乱码：这个在SpringBoot下很少发生</li>
+<li>日期格式问题，jackson序列化的日期是long</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.35<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloApplication</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurerAdapter</span> </span>&#123;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">// 程序启动入口</span></div><div class="line">        <span class="comment">// 启动嵌入式的 Tomcat 并初始化 Spring 环境及其各 Spring 组件</span></div><div class="line">        SpringApplication.run(HelloApplication.class, args);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">static</span> String dateFormat = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configureMessageConverters</span><span class="params">(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters)</span> </span>&#123;</div><div class="line">        FastJsonHttpMessageConverter fastConverter =</div><div class="line">                <span class="keyword">new</span> FastJsonHttpMessageConverter();</div><div class="line">        FastJsonConfig fastJsonConfig = <span class="keyword">new</span> FastJsonConfig();</div><div class="line">        SerializeConfig serializeConfig = SerializeConfig.globalInstance;</div><div class="line">        serializeConfig.put(BigInteger.class, ToStringSerializer.instance);</div><div class="line">        serializeConfig.put(Long.class, ToStringSerializer.instance);</div><div class="line">        serializeConfig.put(Long.TYPE, ToStringSerializer.instance);</div><div class="line">        serializeConfig.put(Date.class, <span class="keyword">new</span> SimpleDateFormatSerializer(dateFormat));</div><div class="line">        fastJsonConfig.setSerializeConfig(serializeConfig);</div><div class="line">        fastConverter.setFastJsonConfig(fastJsonConfig);</div><div class="line">        converters.add(fastConverter);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -499,8 +475,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017-09-05-查询缓存问题/" rel="next" title="2017-09-05-查询缓存问题">
-                <i class="fa fa-chevron-left"></i> 2017-09-05-查询缓存问题
+              <a href="/2017-09-10-SpringBoot学习-初探/" rel="next" title="SpringBoot学习-初探">
+                <i class="fa fa-chevron-left"></i> SpringBoot学习-初探
               </a>
             
           </div>
@@ -509,8 +485,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017-09-12-SpringBoot-2-controller/" rel="prev" title="SpringBoot(2)-最简SpringBoot的几点说明">
-                SpringBoot(2)-最简SpringBoot的几点说明 <i class="fa fa-chevron-right"></i>
+              <a href="/2017-09-13-SpringBoot学习-异常处理/" rel="prev" title="SpringBoot学习-异常处理">
+                SpringBoot学习-异常处理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -588,7 +564,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">118</span>
+                  <span class="site-state-item-count">122</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -598,7 +574,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories.html">
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -610,7 +586,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -645,7 +621,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引入pom"><span class="nav-number">1.</span> <span class="nav-text">引入pom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定义控制层"><span class="nav-number">2.</span> <span class="nav-text">定义控制层</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#入口"><span class="nav-number">3.</span> <span class="nav-text">入口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#内容"><span class="nav-number">1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回json"><span class="nav-number">2.</span> <span class="nav-text">返回json</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回模板"><span class="nav-number">3.</span> <span class="nav-text">返回模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Circular-view-path问题解决方案"><span class="nav-number">4.</span> <span class="nav-text">Circular view path问题解决方案</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用fastjson代替jackson"><span class="nav-number">5.</span> <span class="nav-text">使用fastjson代替jackson</span></a></li></ol></div>
             
 
           </div>
@@ -679,7 +655,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">85.0k</span>
+    <span title="Site words total count">87.2k</span>
   
 </div>
 

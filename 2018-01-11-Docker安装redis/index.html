@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="内容： 安装redis镜像 数据文件外部存放 远程连接  docker run -p 63790:6379  –name docker-redis -v /Users/liuyiyou/docker/redis/data:/data  -d redis redis-server  docker run -it redis redis-cli -h 192.168.5.77 命令说明： -d  后台">
+<meta name="description" content="内容： 直接通过官方Images安装 编写Dockerfile安装 数据文件外部存放 远程连接  直接通过官方Images安装docker search redisdocker pull redis 编写Dockerfile安装待续。。。。。。 数据文件外部存放## 第一次docker run -p 63790:6379  --name docker-redis -v /Users/liuyiyo">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker安装redis">
 <meta property="og:url" content="http://liuyiyou.cn/2018-01-11-Docker安装redis/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="内容： 安装redis镜像 数据文件外部存放 远程连接  docker run -p 63790:6379  –name docker-redis -v /Users/liuyiyou/docker/redis/data:/data  -d redis redis-server  docker run -it redis redis-cli -h 192.168.5.77 命令说明： -d  后台">
+<meta property="og:description" content="内容： 直接通过官方Images安装 编写Dockerfile安装 数据文件外部存放 远程连接  直接通过官方Images安装docker search redisdocker pull redis 编写Dockerfile安装待续。。。。。。 数据文件外部存放## 第一次docker run -p 63790:6379  --name docker-redis -v /Users/liuyiyo">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-12T09:26:37.152Z">
+<meta property="og:updated_time" content="2018-01-18T04:02:22.093Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker安装redis">
-<meta name="twitter:description" content="内容： 安装redis镜像 数据文件外部存放 远程连接  docker run -p 63790:6379  –name docker-redis -v /Users/liuyiyou/docker/redis/data:/data  -d redis redis-server  docker run -it redis redis-cli -h 192.168.5.77 命令说明： -d  后台">
+<meta name="twitter:description" content="内容： 直接通过官方Images安装 编写Dockerfile安装 数据文件外部存放 远程连接  直接通过官方Images安装docker search redisdocker pull redis 编写Dockerfile安装待续。。。。。。 数据文件外部存放## 第一次docker run -p 63790:6379  --name docker-redis -v /Users/liuyiyo">
 
 
 
@@ -369,7 +369,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  122
+                  185
                 </span>
               
 
@@ -407,17 +407,15 @@
 
       
         <h2 id="内容："><a href="#内容：" class="headerlink" title="内容："></a>内容：</h2><ul>
-<li>安装redis镜像</li>
+<li>直接通过官方Images安装</li>
+<li>编写Dockerfile安装</li>
 <li>数据文件外部存放</li>
 <li>远程连接</li>
 </ul>
-<p>docker run -p 63790:6379  –name docker-redis -v /Users/liuyiyou/docker/redis/data:/data  -d redis redis-server </p>
-<p>docker run -it redis redis-cli -h 192.168.5.77</p>
-<p>命令说明：</p>
-<p>-d  后台运行</p>
-<p>-p 63790:6379 :将容器的6379端口映射到主机的63790端口</p>
-<p>-v User//data:/data :将主机中当前目录下的data挂载到容器的/data</p>
-<p>redis-server –appendonly yes :在容器执行redis-server启动命令，并打开redis持久化配置</p>
+<h2 id="直接通过官方Images安装"><a href="#直接通过官方Images安装" class="headerlink" title="直接通过官方Images安装"></a>直接通过官方Images安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">docker search redis</div><div class="line">docker pull redis</div></pre></td></tr></table></figure>
+<h2 id="编写Dockerfile安装"><a href="#编写Dockerfile安装" class="headerlink" title="编写Dockerfile安装"></a>编写Dockerfile安装</h2><p>待续。。。。。。</p>
+<h2 id="数据文件外部存放"><a href="#数据文件外部存放" class="headerlink" title="数据文件外部存放"></a>数据文件外部存放</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">## 第一次</div><div class="line">docker run -p 63790:6379  --name docker-redis -v /Users/liuyiyou/docker/redis/data:/data  -d redis redis-server</div><div class="line">docker ps</div><div class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES</div><div class="line">dbe780e50a3b        redis               &quot;docker-entrypoint.s…&quot;   5 days ago          Up 5 seconds        0.0.0.0:63790-&gt;6379/tcp   docker-redis</div><div class="line">## 后续</div><div class="line">docker start  docker-redis</div></pre></td></tr></table></figure>
+<p>命令说明：<br>-d  后台运行<br>-p 63790:6379 :将容器的6379端口映射到主机的63790端口<br>-v User/data:/data :将主机中当前目录下的data挂载到容器的/data<br>redis-server –appendonly yes :在容器执行redis-server启动命令，并打开redis持久化配置</p>
 
       
     </div>
@@ -457,6 +455,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018-01-16-String小结/" rel="prev" title="String小结.md">
+                String小结.md <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -533,7 +535,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">118</span>
+                  <span class="site-state-item-count">122</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -543,7 +545,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="/categories.html">
+                <a href="/categories/index.html">
                   <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -555,7 +557,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -590,7 +592,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#内容："><span class="nav-number">1.</span> <span class="nav-text">内容：</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#内容："><span class="nav-number">1.</span> <span class="nav-text">内容：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#直接通过官方Images安装"><span class="nav-number">2.</span> <span class="nav-text">直接通过官方Images安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#编写Dockerfile安装"><span class="nav-number">3.</span> <span class="nav-text">编写Dockerfile安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据文件外部存放"><span class="nav-number">4.</span> <span class="nav-text">数据文件外部存放</span></a></li></ol></div>
             
 
           </div>
@@ -624,7 +626,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">85.0k</span>
+    <span title="Site words total count">87.2k</span>
   
 </div>
 
