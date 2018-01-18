@@ -79,5 +79,5 @@ plugins: #插件，例如生成 RSS 和站点地图的
 deploy:
   type: git
   repo: https://github.com/liuyiyou/liuyiyou.github.io
-  branch: master
+  branch: gh-pages
   message: update
