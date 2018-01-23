@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="基于Spring1.0 依赖：  BeanDefinition   &amp;gt;  AbstractBeanDefinition">
+<meta name="description" content="基于Spring1.0 几个BeanFactory接口的意义BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的apiAutowireCapableBeanFactory：添加集成其他框架功能.如果集成WebWork则可以使用Spring对Actions等进行管理.HierarchicalBeanFac">
 <meta name="keywords" content="spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring源码分析之AbstractBeanFactroy">
 <meta property="og:url" content="http://liuyiyou.cn/2016-07-02-Spring源码分析之AbstractBeanFactroy/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="基于Spring1.0 依赖：  BeanDefinition   &amp;gt;  AbstractBeanDefinition">
+<meta property="og:description" content="基于Spring1.0 几个BeanFactory接口的意义BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的apiAutowireCapableBeanFactory：添加集成其他框架功能.如果集成WebWork则可以使用Spring对Actions等进行管理.HierarchicalBeanFac">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-21T09:04:33.763Z">
+<meta property="og:updated_time" content="2018-01-23T06:00:46.047Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring源码分析之AbstractBeanFactroy">
-<meta name="twitter:description" content="基于Spring1.0 依赖：  BeanDefinition   &amp;gt;  AbstractBeanDefinition">
+<meta name="twitter:description" content="基于Spring1.0 几个BeanFactory接口的意义BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的apiAutowireCapableBeanFactory：添加集成其他框架功能.如果集成WebWork则可以使用Spring对Actions等进行管理.HierarchicalBeanFac">
 
 
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  8
+                  445
                 </span>
               
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -406,8 +406,10 @@
 
       
         <p>基于Spring1.0</p>
-<p>依赖： </p>
-<p>BeanDefinition   &gt;  AbstractBeanDefinition</p>
+<h2 id="几个BeanFactory接口的意义"><a href="#几个BeanFactory接口的意义" class="headerlink" title="几个BeanFactory接口的意义"></a>几个BeanFactory接口的意义</h2><p>BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的api<br>AutowireCapableBeanFactory：添加集成其他框架功能.如果集成WebWork则可以使用Spring对Actions等进行管理.<br>HierarchicalBeanFactory：提供父容器的访问功能<br>ConfigurableBeanFactory：如名,提供factory的配置功能,眼花缭乱好多api<br>ConfigurableListableBeanFactory：集大成者,提供解析,修改bean定义,并与初始化单例.<br>ListableBeanFactory：提供容器内bean实例的枚举功能.这边不会考虑父容器内的实例.</p>
+<p>为什么要有这么多的BeanFactory？</p>
+<h2 id="BeanFactory"><a href="#BeanFactory" class="headerlink" title="BeanFactory"></a>BeanFactory</h2><p>ListableBeanFactory</p>
+<p>BeanFactory接口的扩展由bean工厂实现，bean工厂可以枚举它们的所有bean实例，而不是按照客户的要求一个接一个的尝试bean的名字。预加载所有bean定义的BeanFactory实现（例如基于XML的工厂）可以实现这个接口。<br>如果这是一个HierarchicalBeanFactory，则返回值不会考虑任何BeanFactory层次结构，而只会涉及当前工厂中定义的Bean。使用BeanFactoryUtils助手类也可以考虑祖先工厂中的bean。<br>这个接口中的方法只会尊重这个工厂的bean定义。他们将忽略任何单身bean已经通过其他方式注册，如org.springframework.beans.factory.config.ConfigurableBeanFactory的registerSingleton方法，除了getBeanNamesOfType和getBeansOfType将检查这种手动注册的单身。当然，BeanFactory的getBean也允许透明地访问这些特殊的bean。但是，在典型的情况下，所有的bean都将由外部bean定义来定义，所以大多数应用程序不需要担心这种差异。<br>注意：除getBeanDefinitionCount和containsBeanDefinition之外，此接口中的方法不适用于频繁调用。实现可能会很慢。</p>
 
       
     </div>
@@ -448,8 +450,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017-01-01-JVM复习笔记(一)/" rel="prev" title="JVM复习笔记(一)">
-                JVM复习笔记(一) <i class="fa fa-chevron-right"></i>
+              <a href="/2016-07-03-Spring源码分析之BeanWrapImpl/" rel="prev" title="Spring源码分析之BeanWrap">
+                Spring源码分析之BeanWrap <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -502,8 +504,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -518,7 +529,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -529,7 +540,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -540,7 +551,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -565,6 +576,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#几个BeanFactory接口的意义"><span class="nav-number">1.</span> <span class="nav-text">几个BeanFactory接口的意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BeanFactory"><span class="nav-number">2.</span> <span class="nav-text">BeanFactory</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -593,7 +620,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">87.2k</span>
+    <span title="Site words total count">92.7k</span>
   
 </div>
 

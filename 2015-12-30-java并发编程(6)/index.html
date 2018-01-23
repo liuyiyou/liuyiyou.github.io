@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="创建线程池的方式Executors提供了一系列的静态工厂方法来创建一个线程池 /** * 创建一个定长的线程池，每当提交一个任务就创建一个线程，直到达到池的最大长度，这时线程池会保持长度不再变化 * (如果一个线程由于非预期的Exception而结束，线程池会补充一个新的线程) */ExecutorService newFixedThreadPool = Executors.newFixedThr">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-02T02:08:12.062Z">
+<meta property="og:updated_time" content="2018-01-23T06:00:46.043Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java并发编程(6)">
 <meta name="twitter:description" content="创建线程池的方式Executors提供了一系列的静态工厂方法来创建一个线程池 /** * 创建一个定长的线程池，每当提交一个任务就创建一个线程，直到达到池的最大长度，这时线程池会保持长度不再变化 * (如果一个线程由于非预期的Exception而结束，线程池会补充一个新的线程) */ExecutorService newFixedThreadPool = Executors.newFixedThr">
@@ -406,7 +406,8 @@
 
       
         <h2 id="创建线程池的方式"><a href="#创建线程池的方式" class="headerlink" title="创建线程池的方式"></a>创建线程池的方式</h2><p>Executors提供了一系列的静态工厂方法来创建一个线程池</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 创建一个定长的线程池，每当提交一个任务就创建一个线程，直到达到池的最大长度，这时线程池会保持长度不再变化</span></div><div class="line"><span class="comment"> * (如果一个线程由于非预期的Exception而结束，线程池会补充一个新的线程)</span></div><div class="line"><span class="comment"> */</span></div><div class="line">ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(<span class="number">100</span>);</div><div class="line">Executor newFixedThreadPool2 = Executors.newFixedThreadPool(<span class="number">100</span>);</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 创建一个可换成的线程池，如果当前线程池的长度超过了处理需要时，它可以灵活的回收空闲的线程，当需求增加事，</span></div><div class="line"><span class="comment"> *它可以灵活的添加新的线程, 而并不会对池的长度作任何限制</span></div><div class="line"><span class="comment"> */</span></div><div class="line">ExecutorService newCachedThreadPool = Executors.newCachedThreadPool();</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 创建一个单线程化的executor，它只创建唯一的工作者线程来执行任务，如果这个线程异常结束，会有另一个取代它。</span></div><div class="line"><span class="comment"> * executor会保证任务依照任务队列所规定的顺序(FIFO,LIFO，优先级)执行</span></div><div class="line"><span class="comment"> */</span></div><div class="line">ExecutorService newSingleThreadExecutor = Executors.newSingleThreadExecutor();</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 创建一个定长的线程池，而且支持定时的以及周期性的任务，类似于Timer</span></div><div class="line"><span class="comment"> */</span></div><div class="line">ExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(<span class="number">100</span>);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 创建一个定长的线程池，每当提交一个任务就创建一个线程，直到达到池的最大长度，这时线程池会保持长度不再变化</span></div><div class="line"><span class="comment"> * (如果一个线程由于非预期的Exception而结束，线程池会补充一个新的线程)</span></div><div class="line"><span class="comment"> */</span></div><div class="line">ExecutorService newFixedThreadPool = Executors.newFixedThreadPool(<span class="number">100</span>);</div><div class="line">Executor newFixedThreadPool2 = Executors.newFixedThreadPool(<span class="number">100</span>);</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 创建一个可换成的线程池，如果当前线程池的长度超过了处理需要时，它可以灵活的回收空闲的线程，当需求增加事，</span></div><div class="line"><span class="comment"> *它可以灵活的添加新的线程, 而并不会对池的长度作任何限制</span></div><div class="line"><span class="comment"> */</span></div><div class="line">ExecutorService newCachedThreadPool = Executors.newCachedThreadPool();</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 创建一个单线程化的executor，它只创建唯一的工作者线程来执行任务，如果这个线程异常结束，会有另一个取代它。</span></div><div class="line"><span class="comment"> * executor会保证任务依照任务队列所规定的顺序(FIFO,LIFO，优先级)执行</span></div><div class="line"><span class="comment"> */</span></div><div class="line">ExecutorService newSingleThreadExecutor = Executors.newSingleThreadExecutor();</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 创建一个定长的线程池，而且支持定时的以及周期性的任务，类似于Timer</span></div><div class="line"><span class="comment"> */</span></div><div class="line">ExecutorService newScheduledThreadPool = Executors.newScheduledThreadPool(<span class="number">100</span>);</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -525,7 +526,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -536,7 +537,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -547,7 +548,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -616,7 +617,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">87.2k</span>
+    <span title="Site words total count">92.7k</span>
   
 </div>
 

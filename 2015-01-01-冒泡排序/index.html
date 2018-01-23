@@ -89,7 +89,7 @@
 <meta property="og:description" content="概述冒泡排序：它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。 这个算法的名字由来是因为越大的元素会经由交换慢慢“浮”到数列的顶端，故名 动画演示:排序过程  算法原理冒泡排序算法的运作如下：（从后往前）  比较相邻的元素。如果第一个比第二个大，就交换他们两个。 对每一对相邻元素作同样的工作">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://liuyiyou.cn/images/ds/bubbleSort.gif">
-<meta property="og:updated_time" content="2017-12-15T02:07:16.291Z">
+<meta property="og:updated_time" content="2018-01-23T06:00:46.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="冒泡排序">
 <meta name="twitter:description" content="概述冒泡排序：它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。 这个算法的名字由来是因为越大的元素会经由交换慢慢“浮”到数列的顶端，故名 动画演示:排序过程  算法原理冒泡排序算法的运作如下：（从后往前）  比较相邻的元素。如果第一个比第二个大，就交换他们两个。 对每一对相邻元素作同样的工作">
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  924
+                  922
                 </span>
               
 
@@ -410,7 +410,7 @@
         <h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><p>冒泡排序：它重复地走访过要排序的数列，一次比较两个元素，如果他们的顺序错误就把他们交换过来。走访数列的工作是重复地进行直到没有再需要交换，也就是说该数列已经排序完成。</p>
 <p>这个算法的名字由来是因为越大的元素会经由交换慢慢“浮”到数列的顶端，故名</p>
 <h3 id="动画演示"><a href="#动画演示" class="headerlink" title="动画演示:"></a>动画演示:</h3><p>排序过程</p>
-<p><img src="/images/ds/bubbleSort.gif" alt="console"></p>
+<p><img src="/images/ds/bubbleSort.gif" alt="冒泡排序"></p>
 <h2 id="算法原理"><a href="#算法原理" class="headerlink" title="算法原理"></a>算法原理</h2><p>冒泡排序算法的运作如下：（从后往前）</p>
 <ul>
 <li>比较相邻的元素。如果第一个比第二个大，就交换他们两个。</li>
@@ -423,9 +423,9 @@
 <p>$$C_{max} = \left(n(n-1)\over 2 \right) = O(n^2)$$</p>
 <p>$$M_{max} = \frac{3n(n-1)}{2} = O(n^2)$$</p>
 <p>冒泡排序的最坏时间复杂度为$$O(n^2)$$ 。</p>
-<p>综上，因此冒泡排序总的平均时间复杂度为$$O(n^2)$$ </p>
+<p>综上，因此冒泡排序总的平均时间复杂度为$$O(n^2)$$</p>
 <h3 id="算法稳定性"><a href="#算法稳定性" class="headerlink" title="算法稳定性"></a>算法稳定性</h3><p>冒泡排序就是把小的元素往前调或者把大的元素往后调。比较是相邻的两个元素比较，交换也发生在这两个元素之间。所以，如果两个元素相等，我想你是不会再无聊地把他们俩交换一下的；如果两个相等的元素没有相邻，那么即使通过前面的两两交换把两个相邻起来，这时候也不会交换，所以相同元素的前后顺序并没有改变，所以冒泡排序是一种稳定排序算法。</p>
-<h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">package</span> cn.liuyiyou.sort;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 冒泡排序：</span></div><div class="line"><span class="comment"> * User: liuyiyou</span></div><div class="line"><span class="comment"> * Date: 13-1-1</span></div><div class="line"><span class="comment"> * Time: 下午4:04</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BubbleSort</span> </span>&#123;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 这个是冒泡排序，冒泡排序是待排序的数和后面相邻的数比较大小</span></div><div class="line"><span class="comment">     * 注意内层循环中j的取值变化，之前i的初始值是1，j的临界值是array.length。</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> array</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort1</span><span class="params">(<span class="keyword">int</span>[] array)</span></span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j&lt;array.length-i-<span class="number">1</span>;j++ )&#123;</div><div class="line">                <span class="keyword">if</span> (array[j] &gt; array[j+<span class="number">1</span>])&#123;</div><div class="line">                    SortUtil.swap(array,j,j+<span class="number">1</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            SortUtil.print(array, i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> array</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort2</span><span class="params">(<span class="keyword">int</span>[] array)</span></span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j&lt; i;j++ )&#123;</div><div class="line">                <span class="keyword">if</span> (array[i]&lt;array[j])&#123;</div><div class="line">                    SortUtil.swap(array,i,j);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            SortUtil.print(array, i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort3</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123; <span class="comment">// 最多做n-1趟排序</span></div><div class="line">            <span class="comment">// 对当前无序区间score[0......length-i-1]进行排序(j的范围很关键，这个范围是在逐步缩小的)</span></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array.length - i - <span class="number">1</span>; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (array[j] &lt; array[j + <span class="number">1</span>]) &#123; <span class="comment">// 把小的值交换到后面</span></div><div class="line">                    SortUtil.swap(array, j, j + <span class="number">1</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            SortUtil.print(array, i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>&#123;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">int</span> [] array = SortUtil.array;</div><div class="line">        System.out.println(<span class="string">"原始排序结果："</span>);</div><div class="line">        SortUtil.print(array);</div><div class="line">        bubbleSort3(array);</div><div class="line">        System.out.println(<span class="string">"最终排序结果："</span>);</div><div class="line">        SortUtil.print(array);</div><div class="line"></div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="算法描述"><a href="#算法描述" class="headerlink" title="算法描述"></a>算法描述</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">package</span> cn.liuyiyou.sort;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 冒泡排序：</span></div><div class="line"><span class="comment"> * User: liuyiyou</span></div><div class="line"><span class="comment"> * Date: 13-1-1</span></div><div class="line"><span class="comment"> * Time: 下午4:04</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">BubbleSort</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 这个是冒泡排序，冒泡排序是待排序的数和后面相邻的数比较大小</span></div><div class="line"><span class="comment">     * 注意内层循环中j的取值变化，之前i的初始值是1，j的临界值是array.length。</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> array</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort1</span><span class="params">(<span class="keyword">int</span>[] array)</span></span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j&lt;array.length-i-<span class="number">1</span>;j++ )&#123;</div><div class="line">                <span class="keyword">if</span> (array[j] &gt; array[j+<span class="number">1</span>])&#123;</div><div class="line">                    SortUtil.swap(array,j,j+<span class="number">1</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            SortUtil.print(array, i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort2</span><span class="params">(<span class="keyword">int</span>[] array)</span></span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;array.length;i++)&#123;</div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j&lt; i;j++ )&#123;</div><div class="line">                <span class="keyword">if</span> (array[i]&lt;array[j])&#123;</div><div class="line">                    SortUtil.swap(array,i,j);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            SortUtil.print(array, i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">bubbleSort3</span><span class="params">(<span class="keyword">int</span>[] array)</span> </span>&#123;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length - <span class="number">1</span>; i++) &#123; <span class="comment">// 最多做n-1趟排序</span></div><div class="line">            <span class="comment">// 对当前无序区间score[0......length-i-1]进行排序(j的范围很关键，这个范围是在逐步缩小的)</span></div><div class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; array.length - i - <span class="number">1</span>; j++) &#123;</div><div class="line">                <span class="keyword">if</span> (array[j] &lt; array[j + <span class="number">1</span>]) &#123; <span class="comment">// 把小的值交换到后面</span></div><div class="line">                    SortUtil.swap(array, j, j + <span class="number">1</span>);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            SortUtil.print(array, i);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span>&#123;</div><div class="line">        <span class="keyword">int</span> [] array = SortUtil.array;</div><div class="line">        System.out.println(<span class="string">"原始排序结果："</span>);</div><div class="line">        SortUtil.print(array);</div><div class="line">        bubbleSort3(array);</div><div class="line">        System.out.println(<span class="string">"最终排序结果："</span>);</div><div class="line">        SortUtil.print(array);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -456,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014-11-28-isNotEmpty和isNotBlank/" rel="next" title="isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法">
-                <i class="fa fa-chevron-left"></i> isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法
+              <a href="/2014-11-28-isNotEmpty和isNotBlank/" rel="next" title="isNotEmpty和isNotBlank">
+                <i class="fa fa-chevron-left"></i> isNotEmpty和isNotBlank
               </a>
             
           </div>
@@ -545,7 +545,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -556,7 +556,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -567,7 +567,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -636,7 +636,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">87.2k</span>
+    <span title="Site words total count">92.7k</span>
   
 </div>
 

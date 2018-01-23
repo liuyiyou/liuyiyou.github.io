@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="Redis提供了丰富的命令对数据库和各种数据库类型进行操作，这些命令可以在Linux终端使用，命令太多，记不住，大概写一些常用的 连接Redis服务用法：redis-cli [OPTIONS] [cmd [arg [arg …]]] -h &amp;lt;主机ip&amp;gt;，默认是127.0.0.1 -p &amp;lt;端口&amp;gt;，默认是6379 -a &amp;lt;密码&amp;gt;，如果redis加锁，需要传递密码 e">
+<meta name="description" content="Redis提供了丰富的命令对数据库和各种数据库类型进行操作，这些命令可以在Linux终端使用，命令太多，记不住，大概写一些常用的 连接Redis服务用法：redis-cli [OPTIONS] [cmd [arg [arg …]]] -h &amp;lt;主机ip&amp;gt;，默认是127.0.0.1 -p &amp;lt;端口&amp;gt;，默认是6379 -a &amp;lt;密码&amp;gt;，如果redis加锁，需要传递密码eg">
 <meta name="keywords" content="redis">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Redis常用命令">
 <meta property="og:url" content="http://liuyiyou.cn/2015-05-30-Redis常用命令/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="Redis提供了丰富的命令对数据库和各种数据库类型进行操作，这些命令可以在Linux终端使用，命令太多，记不住，大概写一些常用的 连接Redis服务用法：redis-cli [OPTIONS] [cmd [arg [arg …]]] -h &amp;lt;主机ip&amp;gt;，默认是127.0.0.1 -p &amp;lt;端口&amp;gt;，默认是6379 -a &amp;lt;密码&amp;gt;，如果redis加锁，需要传递密码 e">
+<meta property="og:description" content="Redis提供了丰富的命令对数据库和各种数据库类型进行操作，这些命令可以在Linux终端使用，命令太多，记不住，大概写一些常用的 连接Redis服务用法：redis-cli [OPTIONS] [cmd [arg [arg …]]] -h &amp;lt;主机ip&amp;gt;，默认是127.0.0.1 -p &amp;lt;端口&amp;gt;，默认是6379 -a &amp;lt;密码&amp;gt;，如果redis加锁，需要传递密码eg">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-18T04:05:04.445Z">
+<meta property="og:updated_time" content="2018-01-23T06:00:46.042Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis常用命令">
-<meta name="twitter:description" content="Redis提供了丰富的命令对数据库和各种数据库类型进行操作，这些命令可以在Linux终端使用，命令太多，记不住，大概写一些常用的 连接Redis服务用法：redis-cli [OPTIONS] [cmd [arg [arg …]]] -h &amp;lt;主机ip&amp;gt;，默认是127.0.0.1 -p &amp;lt;端口&amp;gt;，默认是6379 -a &amp;lt;密码&amp;gt;，如果redis加锁，需要传递密码 e">
+<meta name="twitter:description" content="Redis提供了丰富的命令对数据库和各种数据库类型进行操作，这些命令可以在Linux终端使用，命令太多，记不住，大概写一些常用的 连接Redis服务用法：redis-cli [OPTIONS] [cmd [arg [arg …]]] -h &amp;lt;主机ip&amp;gt;，默认是127.0.0.1 -p &amp;lt;端口&amp;gt;，默认是6379 -a &amp;lt;密码&amp;gt;，如果redis加锁，需要传递密码eg">
 
 
 
@@ -409,9 +409,7 @@
 <h2 id="连接Redis服务"><a href="#连接Redis服务" class="headerlink" title="连接Redis服务"></a>连接Redis服务</h2><p>用法：redis-cli [OPTIONS] [cmd [arg [arg …]]]</p>
 <p>-h &lt;主机ip&gt;，默认是127.0.0.1</p>
 <p>-p &lt;端口&gt;，默认是6379</p>
-<p>-a &lt;密码&gt;，如果redis加锁，需要传递密码</p>
-<p>eg:</p>
-<p>redis-cli -h 192.168.0.200 -p 3682 -a pwd</p>
+<p>-a &lt;密码&gt;，如果redis加锁，需要传递密码<br>eg:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">redis-cli -h 192.168.0.200 -p 3682 -a pwd</div></pre></td></tr></table></figure></p>
 <h2 id="批量删除Key"><a href="#批量删除Key" class="headerlink" title="批量删除Key"></a>批量删除Key</h2><p>redis 没有提供批量删除key的方法，只有匹配多个key的方法</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">set key1 1</div><div class="line">set key2 2</div><div class="line">del key*  #没有</div><div class="line">get key*  #没有</div><div class="line">key key* # 2</div></pre></td></tr></table></figure>
 <p>不过我们可以借助 Linux 的 xargs 指令来完成这个动作,注意，这个是直接在终端操作，而不需要连接redis<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">## 远程</div><div class="line">./redis-cli  -h 192.168.0.200 -p 3682 -a ibalife KEYS &quot;PhysicalShopAdmin:*&quot;|xargs  ./redis-cli  -h 192.168.0.200 -p 3682 -a ibalife  DEL</div><div class="line">## 本地</div><div class="line">./redis-cli   KEYS &quot;key:*&quot;|xargs  ./redis-cli   DEL</div></pre></td></tr></table></figure></p>
@@ -549,7 +547,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -560,7 +558,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -571,7 +569,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -640,7 +638,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">87.2k</span>
+    <span title="Site words total count">92.7k</span>
   
 </div>
 

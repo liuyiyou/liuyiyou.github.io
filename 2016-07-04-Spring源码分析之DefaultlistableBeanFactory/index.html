@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="spring-boot," />
+  <meta name="keywords" content="spring," />
 
 
 
@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="最简配置pom&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boot-starter-jdbc&amp;lt;/artifactId&amp;gt;&amp;lt;/dependency&amp;gt; aplication.properties这个必须配置，不然会">
-<meta name="keywords" content="spring-boot">
+<meta name="description" content="基于Spring1.0 public interface InputStreamSource &amp;#123;    InputStream getInputStream() throws IOException;&amp;#125;public interface Resource extends InputStreamSource &amp;#123;    boolean exists();    boolea">
+<meta name="keywords" content="spring">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringBoot(4)-集成JDBC">
-<meta property="og:url" content="http://liuyiyou.cn/2017-09-15-SpringBoot-4-jdbc/index.html">
+<meta property="og:title" content="Spring源码分析之DefaultlistableBeanFactory">
+<meta property="og:url" content="http://liuyiyou.cn/2016-07-04-Spring源码分析之DefaultlistableBeanFactory/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="最简配置pom&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boot-starter-jdbc&amp;lt;/artifactId&amp;gt;&amp;lt;/dependency&amp;gt; aplication.properties这个必须配置，不然会">
+<meta property="og:description" content="基于Spring1.0 public interface InputStreamSource &amp;#123;    InputStream getInputStream() throws IOException;&amp;#125;public interface Resource extends InputStreamSource &amp;#123;    boolean exists();    boolea">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-15T02:09:35.992Z">
+<meta property="og:updated_time" content="2018-01-23T06:00:46.049Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringBoot(4)-集成JDBC">
-<meta name="twitter:description" content="最简配置pom&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boot-starter-jdbc&amp;lt;/artifactId&amp;gt;&amp;lt;/dependency&amp;gt; aplication.properties这个必须配置，不然会">
+<meta name="twitter:title" content="Spring源码分析之DefaultlistableBeanFactory">
+<meta name="twitter:description" content="基于Spring1.0 public interface InputStreamSource &amp;#123;    InputStream getInputStream() throws IOException;&amp;#125;public interface Resource extends InputStreamSource &amp;#123;    boolean exists();    boolea">
 
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://liuyiyou.cn/2017-09-15-SpringBoot-4-jdbc/"/>
+  <link rel="canonical" href="http://liuyiyou.cn/2016-07-04-Spring源码分析之DefaultlistableBeanFactory/"/>
 
 
 
 
 
-  <title>SpringBoot(4)-集成JDBC | 温故而知新    触类而旁通</title>
+  <title>Spring源码分析之DefaultlistableBeanFactory | 温故而知新    触类而旁通</title>
   
 
 
@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017-09-15-SpringBoot-4-jdbc/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2016-07-04-Spring源码分析之DefaultlistableBeanFactory/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -291,7 +291,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">SpringBoot(4)-集成JDBC</h2>
+          <h2 class="post-title" itemprop="name headline">Spring源码分析之DefaultlistableBeanFactory</h2>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-09-15T00:00:00+08:00">
-                2017-09-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-07-04T08:00:00+08:00">
+                2016-07-04
               </time>
             
 
@@ -326,8 +326,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/spring-boot/" itemprop="url" rel="index">
-                    <span itemprop="name">spring-boot</span>
+                  <a href="/categories/spring/" itemprop="url" rel="index">
+                    <span itemprop="name">spring</span>
                   </a>
                 </span>
 
@@ -343,7 +343,7 @@
 
           
           
-             <span id="/2017-09-15-SpringBoot-4-jdbc/" class="leancloud_visitors" data-flag-title="SpringBoot(4)-集成JDBC">
+             <span id="/2016-07-04-Spring源码分析之DefaultlistableBeanFactory/" class="leancloud_visitors" data-flag-title="Spring源码分析之DefaultlistableBeanFactory">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  519
+                  520
                 </span>
               
 
@@ -405,96 +405,11 @@
       
 
       
-        <h2 id="最简配置"><a href="#最简配置" class="headerlink" title="最简配置"></a>最简配置</h2><h2 id="pom"><a href="#pom" class="headerlink" title="pom"></a>pom</h2><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="aplication-properties"><a href="#aplication-properties" class="headerlink" title="aplication.properties"></a>aplication.properties</h2><p>这个必须配置，不然会报错</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">spring.datasource.url=jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull</div><div class="line">spring.datasource.username=root</div><div class="line">spring.datasource.password=123456</div><div class="line">spring.datasource.driverClassName=com.mysql.jdbc.Driver</div></pre></td></tr></table></figure>
-<h2 id="分布式事务"><a href="#分布式事务" class="headerlink" title="分布式事务"></a>分布式事务</h2><h3 id="application-properties"><a href="#application-properties" class="headerlink" title="application.properties"></a>application.properties</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"></div><div class="line">spring.jta.enabled=true</div><div class="line">spring.jta.atomikos.service=com.atomikos.icatch.standalone.UserTransactionServiceFactory</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">spring.jta.atomikos.datasource.one.xa-data-source-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</div><div class="line">spring.jta.atomikos.datasource.one.unique-resource-name=dataSourceOne</div><div class="line">spring.jta.atomikos.datasource.one.max-pool-size=5</div><div class="line">spring.jta.atomikos.datasource.one.xa-properties.user=root</div><div class="line">spring.jta.atomikos.datasource.one.xa-properties.password=123456</div><div class="line">spring.jta.atomikos.datasource.one.xa-properties.url=jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull</div><div class="line"></div><div class="line"></div><div class="line">spring.jta.atomikos.datasource.two.unique-resource-name=dataSourceTwo</div><div class="line">spring.jta.atomikos.datasource.two.max-pool-size=5</div><div class="line">spring.jta.atomikos.datasource.two.xa-properties.user=root</div><div class="line">spring.jta.atomikos.datasource.two.xa-properties.password=123456</div><div class="line">spring.jta.atomikos.datasource.two.xa-properties.url=jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull</div><div class="line">spring.jta.atomikos.datasource.two.xa-data-source-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</div><div class="line"></div><div class="line"></div><div class="line">spring.jta.atomikos.datasource.three.unique-resource-name=dataSourceThree</div><div class="line">spring.jta.atomikos.datasource.three.max-pool-size=5</div><div class="line">spring.jta.atomikos.datasource.three.xa-properties.user=ibalife</div><div class="line">spring.jta.atomikos.datasource.three.xa-properties.password=ibalife</div><div class="line">spring.jta.atomikos.datasource.three.xa-properties.url=jdbc:mysql://192.168.0.200:3306/ibalife_user?useUnicode=true&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull</div><div class="line">spring.jta.atomikos.datasource.three.xa-data-source-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</div></pre></td></tr></table></figure>
-<h3 id="java"><a href="#java" class="headerlink" title="java"></a>java</h3><pre><code class="java">
-<span class="comment">/**</span>
-<span class="comment">     * 数据源1 ,这样写是为了每个DataSource能依赖他自己的sqlsessionFactory</span>
-<span class="comment">     */</span>
-    <span class="meta">@Configuration</span>
-    <span class="meta">@MapperScan</span>(basePackages = BlogDataSourceConfig.PACKAGE, sqlSessionFactoryRef = <span class="string">"blogSqlSessionFactory"</span>)
-    <span class="class"><span class="keyword">class</span> <span class="title">BlogDataSourceConfig</span> </span>{
-        <span class="keyword">static</span> <span class="keyword">final</span> String PACKAGE = <span class="string">"com.ibalife.message.mapper.blog"</span>;
-
-        <span class="meta">@Bean</span>
-        <span class="meta">@Primary</span>
-        <span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"spring.jta.atomikos.datasource.one"</span>)
-        <span class="function"><span class="keyword">public</span> DataSource <span class="title">dataSourceOne</span><span class="params">()</span> </span>{
-            <span class="keyword">return</span> <span class="keyword">new</span> AtomikosDataSourceBean();
-        }
-
-        <span class="meta">@Bean</span>(name = <span class="string">"blogSqlSessionFactory"</span>)
-        <span class="meta">@Primary</span>
-        <span class="function"><span class="keyword">public</span> SqlSessionFactory <span class="title">clusterSqlSessionFactory</span><span class="params">(@Qualifier(<span class="string">"dataSourceOne"</span>)</span> DataSource clusterDataSource)</span>
-<span class="function">                <span class="keyword">throws</span> Exception </span>{
-            <span class="keyword">final</span> SqlSessionFactoryBean sessionFactory = <span class="keyword">new</span> SqlSessionFactoryBean();
-            sessionFactory.setDataSource(clusterDataSource);
-            sessionFactory.setMapperLocations(<span class="keyword">new</span> PathMatchingResourcePatternResolver()
-                    .getResources(<span class="string">"classpath:mapper/blog/*.xml"</span>));
-            <span class="keyword">return</span> sessionFactory.getObject();
-        }
-
-    }
-
-    <span class="comment">/**</span>
-<span class="comment">     * 数据源2</span>
-<span class="comment">     */</span>
-    <span class="meta">@Configuration</span>
-    <span class="meta">@MapperScan</span>(basePackages = TestDataSourceConfig.PACKAGE, sqlSessionFactoryRef = <span class="string">"testSqlSessionFactory"</span>)
-    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestDataSourceConfig</span> </span>{
-
-        <span class="keyword">static</span> <span class="keyword">final</span> String PACKAGE = <span class="string">"com.ibalife.message.mapper.test"</span>;
-
-        <span class="meta">@Bean</span>
-        <span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"spring.jta.atomikos.datasource.two"</span>)
-        <span class="function"><span class="keyword">public</span> DataSource <span class="title">dataSourceTwo</span><span class="params">()</span> </span>{
-            <span class="keyword">return</span> <span class="keyword">new</span> AtomikosDataSourceBean();
-        }
-
-
-        <span class="meta">@Bean</span>(name = <span class="string">"testSqlSessionFactory"</span>)
-        <span class="function"><span class="keyword">public</span> SqlSessionFactory <span class="title">testSqlSessionFactory</span><span class="params">(@Qualifier(<span class="string">"dataSourceTwo"</span>)</span> DataSource clusterDataSource)</span>
-<span class="function">                <span class="keyword">throws</span> Exception </span>{
-            <span class="keyword">final</span> SqlSessionFactoryBean sessionFactory = <span class="keyword">new</span> SqlSessionFactoryBean();
-            sessionFactory.setDataSource(clusterDataSource);
-            sessionFactory.setMapperLocations(<span class="keyword">new</span> PathMatchingResourcePatternResolver()
-                    .getResources(<span class="string">"classpath:mapper/test/*.xml"</span>));
-            <span class="keyword">return</span> sessionFactory.getObject();
-        }
-
-    }
-
-
-    <span class="comment">/**</span>
-<span class="comment">     * 数据源3 ,在另外一台机器上</span>
-<span class="comment">     */</span>
-    <span class="meta">@Configuration</span>
-    <span class="meta">@MapperScan</span>(basePackages = IbaDataSourceConfig.PACKAGE, sqlSessionFactoryRef = <span class="string">"ibaSqlSessionFactory"</span>)
-    <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">IbaDataSourceConfig</span> </span>{
-
-        <span class="keyword">static</span> <span class="keyword">final</span> String PACKAGE = <span class="string">"com.ibalife.message.mapper.iba"</span>;
-
-        <span class="meta">@Bean</span>
-        <span class="meta">@ConfigurationProperties</span>(prefix = <span class="string">"spring.jta.atomikos.datasource.three"</span>)
-        <span class="function"><span class="keyword">public</span> DataSource <span class="title">dataSourceThree</span><span class="params">()</span> </span>{
-            <span class="keyword">return</span> <span class="keyword">new</span> AtomikosDataSourceBean();
-        }
-
-
-        <span class="meta">@Bean</span>(name = <span class="string">"ibaSqlSessionFactory"</span>)
-        <span class="function"><span class="keyword">public</span> SqlSessionFactory <span class="title">testSqlSessionFactory</span><span class="params">(@Qualifier(<span class="string">"dataSourceThree"</span>)</span> DataSource clusterDataSource)</span>
-<span class="function">                <span class="keyword">throws</span> Exception </span>{
-            <span class="keyword">final</span> SqlSessionFactoryBean sessionFactory = <span class="keyword">new</span> SqlSessionFactoryBean();
-            sessionFactory.setDataSource(clusterDataSource);
-            sessionFactory.setMapperLocations(<span class="keyword">new</span> PathMatchingResourcePatternResolver()
-                    .getResources(<span class="string">"classpath:mapper/ibalife/*.xml"</span>));
-            <span class="keyword">return</span> sessionFactory.getObject();
-        }
-
-    }
-</code></pre>
+        <p>基于Spring1.0</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">InputStreamSource</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function">InputStream <span class="title">getInputStream</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">Resource</span> <span class="keyword">extends</span> <span class="title">InputStreamSource</span> </span>&#123;</div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">exists</span><span class="params">()</span></span>;</div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isOpen</span><span class="params">()</span></span>;</div><div class="line">    <span class="function">URL <span class="title">getURL</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>;</div><div class="line">    <span class="function">File <span class="title">getFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException</span>;</div><div class="line">    <span class="function">String <span class="title">getDescription</span><span class="params">()</span></span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">AbstractResource</span> <span class="keyword">implements</span> <span class="title">Resource</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">protected</span> <span class="keyword">static</span> <span class="keyword">final</span> String URL_PROTOCOL_FILE = <span class="string">"file"</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">exists</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="keyword">return</span> getFile().exists();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">catch</span> (IOException ex) &#123;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                InputStream is = getInputStream();</div><div class="line">                is.close();</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">catch</span> (IOException ex2) &#123;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isOpen</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">    * 如果实现类重写该方法,则使用子类,如果没有重写,则表示子类不支持该方法,抛出异常</span></div><div class="line"><span class="comment">    */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> URL <span class="title">getURL</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> FileNotFoundException(getDescription() + <span class="string">" cannot be resolved to URL"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">    * 如果实现类重写该方法,则使用子类,如果没有重写,则表示子类不支持该方法,抛出异常</span></div><div class="line"><span class="comment">    */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> File <span class="title">getFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> FileNotFoundException(getDescription() + <span class="string">" cannot be resolved to absolute file path"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> getDescription();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (obj <span class="keyword">instanceof</span> Resource &amp;&amp; ((Resource) obj).getDescription().equals(getDescription()));</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">hashCode</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> getDescription().hashCode();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ClassPathResource</span> <span class="keyword">extends</span> <span class="title">AbstractResource</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String path;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Class clazz;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ClassPathResource</span><span class="params">(String path)</span> </span>&#123;</div><div class="line">        <span class="comment">// /开头表示绝对路径</span></div><div class="line">        <span class="keyword">if</span> (path.startsWith(<span class="string">"/"</span>)) &#123;</div><div class="line">            path = path.substring(<span class="number">1</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">this</span>.path = path;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ClassPathResource</span><span class="params">(String path, Class clazz)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.path = path;</div><div class="line">        <span class="keyword">this</span>.clazz = clazz;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> InputStream <span class="title">getInputStream</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        InputStream is = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.clazz != <span class="keyword">null</span>) &#123;</div><div class="line">            is = <span class="keyword">this</span>.clazz.getResourceAsStream(<span class="keyword">this</span>.path);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            ClassLoader ccl = Thread.currentThread().getContextClassLoader();</div><div class="line">            is = ccl.getResourceAsStream(<span class="keyword">this</span>.path);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (is == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> FileNotFoundException(<span class="string">"Could not open "</span> + getDescription());</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> is;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> URL <span class="title">getURL</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        URL url = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">if</span> (<span class="keyword">this</span>.clazz != <span class="keyword">null</span>) &#123;</div><div class="line">            url = <span class="keyword">this</span>.clazz.getResource(<span class="keyword">this</span>.path);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            ClassLoader ccl = Thread.currentThread().getContextClassLoader();</div><div class="line">            url = ccl.getResource(<span class="keyword">this</span>.path);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (url == <span class="keyword">null</span>) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> FileNotFoundException(getDescription() + <span class="string">" cannot be resolved to URL "</span> +</div><div class="line">                    <span class="string">"because it does not exist"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> url;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> File <span class="title">getFile</span><span class="params">()</span> <span class="keyword">throws</span> IOException </span>&#123;</div><div class="line">        URL url = getURL();</div><div class="line">        <span class="keyword">if</span> (!URL_PROTOCOL_FILE.equals(url.getProtocol())) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> FileNotFoundException(getDescription() + <span class="string">" cannot be resolved to absolute file path "</span> +</div><div class="line">                    <span class="string">"because it does not reside in the file system: URL=["</span> + url + <span class="string">"]"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> File(URLDecoder.decode(url.getFile()));</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getDescription</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"class path resource ["</span> + <span class="keyword">this</span>.path + <span class="string">"]"</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>AbstractResource主要实现了两个方法，exists()和 isOpen()，   exists方法先通过文件判断资源是否存在，然后根据InputStream进行判断。isOpen()返回false</p>
+<p>getURL() ,getFile() 在这里不是抽象方法的原因是因为： 如果实现类重写该方法,则使用子类,如果没有重写,则表示子类不支持该方法,直接抛出异常，避免在实现类中，命名和该方法没关联，还需要抛出异常</p>
+<p>比如ClassPathResource重写， InputStreamReSource</p>
 
       
     </div>
@@ -512,7 +427,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/spring-boot/" rel="tag"># spring-boot</a>
+            <a href="/tags/spring/" rel="tag"># spring</a>
           
         </div>
       
@@ -525,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017-09-15-SpringBoot-4/" rel="next" title="SpringBoot(4)-集成JDBC">
-                <i class="fa fa-chevron-left"></i> SpringBoot(4)-集成JDBC
+              <a href="/2016-07-03-Spring源码分析之BeanWrapImpl/" rel="next" title="Spring源码分析之BeanWrap">
+                <i class="fa fa-chevron-left"></i> Spring源码分析之BeanWrap
               </a>
             
           </div>
@@ -535,8 +450,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017-09-16-SpringBoot-5-mybatis/" rel="prev" title="SpringBoot(5)-集成MyBatis">
-                SpringBoot(5)-集成MyBatis <i class="fa fa-chevron-right"></i>
+              <a href="/2017-01-01-JVM复习笔记(一)-运行时数据区域/" rel="prev" title="JVM复习笔记(一)- 运行时数据区域">
+                JVM复习笔记(一)- 运行时数据区域 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -589,17 +504,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -614,7 +520,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -625,7 +531,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -636,7 +542,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -661,22 +567,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#最简配置"><span class="nav-number">1.</span> <span class="nav-text">最简配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pom"><span class="nav-number">2.</span> <span class="nav-text">pom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aplication-properties"><span class="nav-number">3.</span> <span class="nav-text">aplication.properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分布式事务"><span class="nav-number">4.</span> <span class="nav-text">分布式事务</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#application-properties"><span class="nav-number">4.1.</span> <span class="nav-text">application.properties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#java"><span class="nav-number">4.2.</span> <span class="nav-text">java</span></a></li></ol></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -705,7 +595,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">87.2k</span>
+    <span title="Site words total count">92.7k</span>
   
 </div>
 

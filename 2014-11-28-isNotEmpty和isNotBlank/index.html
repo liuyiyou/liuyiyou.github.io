@@ -83,14 +83,14 @@
 <meta name="description" content="commons-lang.jar中isNotEmpty和isNotBlank的区别主要是，针对空字符串的处理不同 public static void main(String[] args) &amp;#123;  String nullStr = null;  String emptyStr =  &quot;&quot;;  String blankStr = &quot; &quot;;  System.out.println(Strin">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法">
+<meta property="og:title" content="isNotEmpty和isNotBlank">
 <meta property="og:url" content="http://liuyiyou.cn/2014-11-28-isNotEmpty和isNotBlank/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="commons-lang.jar中isNotEmpty和isNotBlank的区别主要是，针对空字符串的处理不同 public static void main(String[] args) &amp;#123;  String nullStr = null;  String emptyStr =  &quot;&quot;;  String blankStr = &quot; &quot;;  System.out.println(Strin">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-15T02:03:43.462Z">
+<meta property="og:updated_time" content="2018-01-23T06:00:46.039Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法">
+<meta name="twitter:title" content="isNotEmpty和isNotBlank">
 <meta name="twitter:description" content="commons-lang.jar中isNotEmpty和isNotBlank的区别主要是，针对空字符串的处理不同 public static void main(String[] args) &amp;#123;  String nullStr = null;  String emptyStr =  &quot;&quot;;  String blankStr = &quot; &quot;;  System.out.println(Strin">
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title>isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法 | 温故而知新    触类而旁通</title>
+  <title>isNotEmpty和isNotBlank | 温故而知新    触类而旁通</title>
   
 
 
@@ -291,7 +291,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法</h2>
+          <h2 class="post-title" itemprop="name headline">isNotEmpty和isNotBlank</h2>
         
 
         <div class="post-meta">
@@ -343,7 +343,7 @@
 
           
           
-             <span id="/2014-11-28-isNotEmpty和isNotBlank/" class="leancloud_visitors" data-flag-title="isNotEmpty和isNotBlank的区别以及Map和JSONObject的toString方法">
+             <span id="/2014-11-28-isNotEmpty和isNotBlank/" class="leancloud_visitors" data-flag-title="isNotEmpty和isNotBlank">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -406,7 +406,7 @@
 
       
         <h3 id="commons-lang-jar中isNotEmpty和isNotBlank的区别"><a href="#commons-lang-jar中isNotEmpty和isNotBlank的区别" class="headerlink" title="commons-lang.jar中isNotEmpty和isNotBlank的区别"></a>commons-lang.jar中isNotEmpty和isNotBlank的区别</h3><p>主要是，针对空字符串的处理不同</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">  String nullStr = <span class="keyword">null</span>;</div><div class="line">  String emptyStr =  <span class="string">""</span>;</div><div class="line">  String blankStr = <span class="string">" "</span>;</div><div class="line">  System.out.println(StringUtils.isBlank(nullStr));  <span class="comment">//true</span></div><div class="line">  System.out.println(StringUtils.isBlank(emptyStr));<span class="comment">//true</span></div><div class="line">  System.out.println(StringUtils.isBlank(blankStr));<span class="comment">//true</span></div><div class="line">  System.out.println(StringUtils.isNotBlank(nullStr));  <span class="comment">//false</span></div><div class="line">  System.out.println(StringUtils.isNotBlank(emptyStr)); <span class="comment">//false</span></div><div class="line">  System.out.println(StringUtils.isNotBlank(blankStr));<span class="comment">//false</span></div><div class="line"> </div><div class="line">  System.out.println(StringUtils.isEmpty(nullStr));<span class="comment">//true</span></div><div class="line">  System.out.println(StringUtils.isEmpty(emptyStr));<span class="comment">//true</span></div><div class="line">  System.out.println(StringUtils.isEmpty(blankStr)); <span class="comment">//false</span></div><div class="line">  System.out.println(StringUtils.isNotEmpty(nullStr));<span class="comment">//false</span></div><div class="line">  System.out.println(StringUtils.isNotEmpty(emptyStr));<span class="comment">//false</span></div><div class="line">  System.out.println(StringUtils.isNotEmpty(blankStr));<span class="comment">//true</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">  String nullStr = <span class="keyword">null</span>;</div><div class="line">  String emptyStr =  <span class="string">""</span>;</div><div class="line">  String blankStr = <span class="string">" "</span>;</div><div class="line">  System.out.println(StringUtils.isBlank(nullStr));  <span class="comment">//true</span></div><div class="line">  System.out.println(StringUtils.isBlank(emptyStr));<span class="comment">//true</span></div><div class="line">  System.out.println(StringUtils.isBlank(blankStr));<span class="comment">//true</span></div><div class="line">  System.out.println(StringUtils.isNotBlank(nullStr));  <span class="comment">//false</span></div><div class="line">  System.out.println(StringUtils.isNotBlank(emptyStr)); <span class="comment">//false</span></div><div class="line">  System.out.println(StringUtils.isNotBlank(blankStr));<span class="comment">//false</span></div><div class="line"></div><div class="line">  System.out.println(StringUtils.isEmpty(nullStr));<span class="comment">//true</span></div><div class="line">  System.out.println(StringUtils.isEmpty(emptyStr));<span class="comment">//true</span></div><div class="line">  System.out.println(StringUtils.isEmpty(blankStr)); <span class="comment">//false</span></div><div class="line">  System.out.println(StringUtils.isNotEmpty(nullStr));<span class="comment">//false</span></div><div class="line">  System.out.println(StringUtils.isNotEmpty(emptyStr));<span class="comment">//false</span></div><div class="line">  System.out.println(StringUtils.isNotEmpty(blankStr));<span class="comment">//true</span></div><div class="line"> &#125;</div></pre></td></tr></table></figure>
 <h3 id="Map和JSONObject的toString方法"><a href="#Map和JSONObject的toString方法" class="headerlink" title="Map和JSONObject的toString方法"></a>Map和JSONObject的toString方法</h3><p>前者的toString方法，只是单纯的返回数据，而后者返回的数据是json格式的</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        Map&lt;String,Object&gt; map1 =<span class="keyword">new</span> HashMap&lt;String, Object&gt;();</div><div class="line">        map1.put(<span class="string">"result"</span>,<span class="string">"success"</span>);</div><div class="line">        map1.put(<span class="string">"message"</span>,<span class="string">"这是使用Map封装的数据"</span>);</div><div class="line">        System.out.println(map1.toString());</div><div class="line"></div><div class="line">        JSONObject map2 = <span class="keyword">new</span> JSONObject();</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            map2.put(<span class="string">"result"</span>,<span class="string">"success"</span>);</div><div class="line">            map2.put(<span class="string">"message"</span>,<span class="string">"这是使用Map封装的数据"</span>);</div><div class="line">        &#125; <span class="keyword">catch</span> (JSONException e) &#123;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        System.out.println(map2.toString());</div><div class="line"></div><div class="line"></div><div class="line">        <span class="comment">/**</span></div><div class="line"><span class="comment">         * &#123;message=这是使用Map封装的数据, result=success&#125;</span></div><div class="line"><span class="comment">         *&#123;"message":"这是使用Map封装的数据","result":"success"&#125;</span></div><div class="line"><span class="comment">         * */</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 <p>顺便说一句，有了JSONObect并不是在以下包中：</p>
@@ -533,7 +533,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">123</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -544,7 +544,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -555,7 +555,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">29</span>
+                  <span class="site-state-item-count">30</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -624,7 +624,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">87.2k</span>
+    <span title="Site words total count">92.7k</span>
   
 </div>
 
