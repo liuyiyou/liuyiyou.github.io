@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="设计模式," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="介绍模板设计模式是一种行为模式，顾名思义，它提供了用户使用的模板或算法结构。 用户提供自己的实现而不改变算法的结构。 在问题的帮助下理解这种模式更容易。 我们将理解本节中的场景，并将在后面的章节中使用Template模式实现解决方案。 你有没有使用Java应用程序连接到关系数据库？ 让我们回顾一下连接和插入数据到数据库所需的一些重要步骤。 首先，我们需要一个根据我们要连接的数据库的驱动程序。 然后">
+<meta name="keywords" content="设计模式">
+<meta property="og:type" content="article">
+<meta property="og:title" content="模板设计模式">
+<meta property="og:url" content="http://liuyiyou.cn/2016-03-03-模板设计模式/index.html">
+<meta property="og:site_name" content="温故而知新    触类而旁通">
+<meta property="og:description" content="介绍模板设计模式是一种行为模式，顾名思义，它提供了用户使用的模板或算法结构。 用户提供自己的实现而不改变算法的结构。 在问题的帮助下理解这种模式更容易。 我们将理解本节中的场景，并将在后面的章节中使用Template模式实现解决方案。 你有没有使用Java应用程序连接到关系数据库？ 让我们回顾一下连接和插入数据到数据库所需的一些重要步骤。 首先，我们需要一个根据我们要连接的数据库的驱动程序。 然后">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://liuyiyou.cn/images/TemplatePatternclass_diagram_13.jpg">
+<meta property="og:updated_time" content="2018-01-24T14:10:01.215Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="模板设计模式">
+<meta name="twitter:description" content="介绍模板设计模式是一种行为模式，顾名思义，它提供了用户使用的模板或算法结构。 用户提供自己的实现而不改变算法的结构。 在问题的帮助下理解这种模式更容易。 我们将理解本节中的场景，并将在后面的章节中使用Template模式实现解决方案。 你有没有使用Java应用程序连接到关系数据库？ 让我们回顾一下连接和插入数据到数据库所需的一些重要步骤。 首先，我们需要一个根据我们要连接的数据库的驱动程序。 然后">
+<meta name="twitter:image" content="http://liuyiyou.cn/images/TemplatePatternclass_diagram_13.jpg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liuyiyou.cn/2016-03-03-模板设计模式/"/>
+
+
+
+
+
+  <title>模板设计模式 | 温故而知新    触类而旁通</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">温故而知新    触类而旁通</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">In me the tiger Sniffs the rose</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-inbox">
+          <a href="/inbox/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
+            
+            收藏
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2016-03-03-模板设计模式/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">模板设计模式</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-03T00:00:00+08:00">
+                2016-03-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/设计模式/" itemprop="url" rel="index">
+                    <span itemprop="name">设计模式</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016-03-03-模板设计模式/" class="leancloud_visitors" data-flag-title="模板设计模式">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,374
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  10
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="介绍"><a href="#介绍" class="headerlink" title="介绍"></a>介绍</h2><p>模板设计模式是一种行为模式，顾名思义，它提供了用户使用的模板或算法结构。 用户提供自己的实现而不改变算法的结构。</p>
+<p>在问题的帮助下理解这种模式更容易。 我们将理解本节中的场景，并将在后面的章节中使用Template模式实现解决方案。</p>
+<p>你有没有使用Java应用程序连接到关系数据库？ 让我们回顾一下连接和插入数据到数据库所需的一些重要步骤。 首先，我们需要一个根据我们要连接的数据库的驱动程序。 然后，我们将一些凭证传递给数据库，然后我们准备一个语句，将数据设置到insert语句中，并使用insert命令插入它。 之后，我们关闭所有连接，并可以选择销毁所有的连接对象。</p>
+<p>无论任何供应商的关系数据库，您都需要编写所有这些步骤。 考虑一个问题，你需要插入一些数据到不同的数据库。 您需要从CSV文件中获取一些数据，并将其插入到MySQL数据库中。 有些数据来自文本文件，应该插入到Oracle数据库中。 唯一的区别是驱动程序和数据，其余步骤应该是相同的，因为JDBC提供了一组通用的接口来与任何供应商的特定关系数据库进行通信。</p>
+<p>我们可以创建一个模板，它将为客户端执行一些步骤，我们将留下一些步骤让客户端以自己的方式实现它们。 可选地，客户端可以覆盖一些已经定义的步骤的默认行为。</p>
+<p>现在，在实现代码之前，让我们更多地了解模板设计模式。</p>
+<h2 id="什么是模板设计模式"><a href="#什么是模板设计模式" class="headerlink" title="什么是模板设计模式"></a>什么是模板设计模式</h2><p>模板模式定义了操作中算法的骨架，将一些步骤推迟到子类。通过Template Method，子类可以在不改变算法结构的情况下重新定义算法的某些步骤。</p>
+<p>模板方法模式可用于存在算法的情况下，其中的一些步骤可以以多种不同的方式实现。在这种情况下，模板方法模式建议将算法的轮廓保持在被称为模板方法的单独方法中，该模板方法可以被称为模板类，省略了变体部分的特定实现（步骤这可以以多种不同的方式实现）算法到这个类的不同子类。</p>
+<p>Template类不一定要将实现留给整个子类。相反，作为提供算法大纲的一部分，Template类还可以提供一些可以在不同的实现中被认为是不变的实现。它甚至可以提供变体部分的默认实现。只有具体的细节将在不同的子类中实现。这种类型的实现消除了重复代码的需要，这意味着要写入最少量的代码。</p>
+<p><img src="/images/TemplatePatternclass_diagram_13.jpg" alt="模板设计模式"></p>
+<h3 id="AbstractClass"><a href="#AbstractClass" class="headerlink" title="AbstractClass"></a>AbstractClass</h3><ul>
+<li>定义具体子类定义的抽象原语操作，以实现算法的步骤。</li>
+<li>实现一个定义算法框架的模板方法。 模板方法调用基本操作以及在AbstractClass或其他对象中定义的操作。</li>
+</ul>
+<h3 id="ConcreteClass"><a href="#ConcreteClass" class="headerlink" title="ConcreteClass"></a>ConcreteClass</h3><ul>
+<li>实现原始操作。</li>
+</ul>
+<h2 id="实现模板设计模式"><a href="#实现模板设计模式" class="headerlink" title="实现模板设计模式"></a>实现模板设计模式</h2><p>下面我们可以看到连接模板类用来为客户端提供一个模板来连接各种数据库并与之通信。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">ConnectionTemplate</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">        setDBDriver();</div><div class="line">        setCredentials();</div><div class="line">        connect();</div><div class="line">        prepareStatement();</div><div class="line">        setData();</div><div class="line">        insert();</div><div class="line">        close();</div><div class="line">        destroy();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setDBDriver</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setCredentials</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connect</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Setting connection..."</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">prepareStatement</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Preparing insert statement..."</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Inserting data..."</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Closing connections..."</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Destroying connection objects..."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>抽象类提供连接，通信和稍后关闭连接的步骤。 所有这些步骤都是为了完成工作所必需的。 该类为一些常见步骤提供了默认实现，并将具体步骤作为抽象来强制客户端向其提供实现。</p>
+<p>setDBDriver方法应由用户实现以提供数据库特定的驱动程序。 对于不同的数据库，证书可能不同。 因此，setCredentials也保留为抽象，以便用户实现它。</p>
+<p>同样，使用JDBC API连接到数据库并准备语句也很常见。 但是，数据将是特定的，所以用户将提供它，而其他步骤（如运行插入语句，关闭连接和销毁对象）与任何数据库类似，因此它们的实现在模板中保持通用。</p>
+<p>上述类的关键方法是运行方法。 运行方法用于按顺序运行这些步骤。 该方法设置为final，因为步骤应该保持安全，不应该由任何用户更改。</p>
+<p>下面的两个类扩展了模板类，并为某些方法提供了具体的实现。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySqLCSVCon</span> <span class="keyword">extends</span> <span class="title">ConnectionTemplate</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDBDriver</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Setting MySQL DB drivers..."</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCredentials</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Setting credentials for MySQL DB..."</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Setting up data from csv file...."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">OracleTxtCon</span> <span class="keyword">extends</span> <span class="title">ConnectionTemplate</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDBDriver</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Setting Oracle DB drivers..."</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCredentials</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Setting credentials for Oracle DB..."</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Setting up data from txt file...."</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>测试类：<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestTemplatePattern</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"For MYSQL...."</span>);</div><div class="line">        ConnectionTemplate template = <span class="keyword">new</span> MySqLCSVCon();</div><div class="line">        template.run();</div><div class="line">        System.out.println(<span class="string">"For Oracle..."</span>);</div><div class="line">        template = <span class="keyword">new</span> OracleTxtCon();</div><div class="line">        template.run();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>运行结果:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">For MYSQL....</div><div class="line">Setting MySQL DB drivers...</div><div class="line">Setting credentials for MySQL DB...</div><div class="line">Setting connection...</div><div class="line">Preparing insert statement...</div><div class="line">Setting up data from csv file....</div><div class="line">Inserting data...</div><div class="line">Closing connections...</div><div class="line">Destroying connection objects...</div><div class="line">For Oracle...</div><div class="line">Setting Oracle DB drivers...</div><div class="line">Setting credentials for Oracle DB...</div><div class="line">Setting connection...</div><div class="line">Preparing insert statement...</div><div class="line">Setting up data from txt file....</div><div class="line">Inserting data...</div><div class="line">Closing connections...</div><div class="line">Destroying connection objects...</div></pre></td></tr></table></figure>
+<p>上面的输出清楚地显示了模板模式如何工作，以类似的方式与不同的数据库进行连接和通信。 该模式将通用代码保存在一个类中，并提高代码的可重用性。 它为用户设置框架并对其进行控制，并允许用户扩展该模板，以便为某些步骤提供具体的实现。</p>
+<p>现在，如果我们通过添加一个日志记录机制来增强上面的例子。 但是一些代码的用户不想添加这个设施，为了实现这个我们可以使用一个钩子。 钩子是一个模板类中的一个简单方法，具有默认行为; 这种行为可以用来改变一些可选的步骤。 用户应该实现这个方法，它可以挂钩模板类来改变算法的可选步骤。</p>
+<h2 id="在模板中引入一个钩子"><a href="#在模板中引入一个钩子" class="headerlink" title="在模板中引入一个钩子"></a>在模板中引入一个钩子</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">import</span> java.util.Date;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">ConnectionTemplate</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> isLoggingEnable = <span class="keyword">true</span>;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ConnectionTemplate</span><span class="params">()</span> </span>&#123;</div><div class="line">		isLoggingEnable = disableLogging();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">		setDBDriver();</div><div class="line">		logging(<span class="string">"Drivers set ["</span> + <span class="keyword">new</span> Date() + <span class="string">"]"</span>);</div><div class="line">		setCredentials();</div><div class="line">		logging(<span class="string">"Credentails set ["</span> + <span class="keyword">new</span> Date() + <span class="string">"]"</span>);</div><div class="line">		connect();</div><div class="line">		logging(<span class="string">"Conencted"</span>);</div><div class="line">		prepareStatement();</div><div class="line">		logging(<span class="string">"Statement prepared ["</span> + <span class="keyword">new</span> Date() + <span class="string">"]"</span>);</div><div class="line">		setData();</div><div class="line">		logging(<span class="string">"Data set ["</span> + <span class="keyword">new</span> Date() + <span class="string">"]"</span>);</div><div class="line">		insert();</div><div class="line">		logging(<span class="string">"Inserted ["</span> + <span class="keyword">new</span> Date() + <span class="string">"]"</span>);</div><div class="line">		close();</div><div class="line">		logging(<span class="string">"Conenctions closed ["</span> + <span class="keyword">new</span> Date() + <span class="string">"]"</span>);</div><div class="line">		destroy();</div><div class="line">		logging(<span class="string">"Object destoryed ["</span> + <span class="keyword">new</span> Date() + <span class="string">"]"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setDBDriver</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setCredentials</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">connect</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"Setting connection..."</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">prepareStatement</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"Preparing insert statement..."</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">abstract</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">insert</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"Inserting data..."</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">close</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"Closing connections..."</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroy</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"Destroying connection objects..."</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">disableLogging</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">logging</span><span class="params">(String msg)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (isLoggingEnable) &#123;</div><div class="line">			System.out.println(<span class="string">"Logging....: "</span> + msg);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>我们在上面的模板类中引入了两个新的方法。 disableLogging是返回一个布尔值的钩子。 默认情况下，布尔isLoggingEnable，启用日志记录，是true。 如果用户的代码被禁用，用户可以重写这个方法。 另一个是用于记录消息的私有方法。</p>
+<p>下面的类实现了钩子方法并返回false，这些关闭了这个特定工作的日志记录机制。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MySqLCSVCon</span> <span class="keyword">extends</span> <span class="title">ConnectionTemplate</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setDBDriver</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"Setting MySQL DB drivers..."</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setCredentials</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"Setting credentials for MySQL DB..."</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setData</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"Setting up data from csv file...."</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">disableLogging</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>运行测试：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestTemplatePattern</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"For MYSQL...."</span>);</div><div class="line">		ConnectionTemplate template = <span class="keyword">new</span> MySqLCSVCon();</div><div class="line">		template.run();</div><div class="line">		System.out.println(<span class="string">"For Oracle..."</span>);</div><div class="line">		template = <span class="keyword">new</span> OracleTxtCon();</div><div class="line">		template.run();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>您可以在输出中清楚地看到，对于MySQL实现，日志记录已关闭，而对于Oracle实现，则是关闭的。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">For MYSQL....</div><div class="line">Setting MySQL DB drivers...</div><div class="line">Setting credentials for MySQL DB...</div><div class="line">Setting connection...</div><div class="line">Preparing insert statement...</div><div class="line">Setting up data from csv file....</div><div class="line">Inserting data...</div><div class="line">Closing connections...</div><div class="line">Destroying connection objects...</div><div class="line"></div><div class="line">For Oracle...</div><div class="line">Setting Oracle DB drivers...</div><div class="line">Logging....: Drivers set [Sat Nov 08 23:53:47 IST 2014]</div><div class="line">Setting credentials for Oracle DB...</div><div class="line">Logging....: Credentails set [Sat Nov 08 23:53:47 IST 2014]</div><div class="line">Setting connection...</div><div class="line">Logging....: Conencted</div><div class="line">Preparing insert statement...</div><div class="line">Logging....: Statement prepared [Sat Nov 08 23:53:47 IST 2014]</div><div class="line">Setting up data from txt file....</div><div class="line">Logging....: Data set [Sat Nov 08 23:53:47 IST 2014]</div><div class="line">Inserting data...</div><div class="line">Logging....: Inserted [Sat Nov 08 23:53:47 IST 2014]</div><div class="line">Closing connections...</div><div class="line">Logging....: Conenctions closed [Sat Nov 08 23:53:47 IST 2014]</div><div class="line">Destroying connection objects...</div><div class="line">Logging....: Object destoryed [Sat Nov 08 23:53:47 IST 2014]</div></pre></td></tr></table></figure>
+<h2 id="何时使用模板设计模式"><a href="#何时使用模板设计模式" class="headerlink" title="何时使用模板设计模式"></a>何时使用模板设计模式</h2><p>在以下情况下应该使用模板方法模式：</p>
+<ul>
+<li>要实现一个算法的不变部分，并将其留给子类来实现可以改变的行为。</li>
+<li>当在子类之间的共同行为应该被分解和本地化在一个共同的类别中以避免代码重复。 您首先找出现有代码中的差异，然后将差异分解为新操作。 最后，用一个调用这些新操作之一的模板方法替换不同的代码。</li>
+<li>控制子类扩展。 您可以定义一个模板方法，在特定点处调用“钩子”操作（请参见后果），从而只允许在这些点上进行扩展。</li>
+</ul>
+<h2 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h2><p><a href="https://www.javacodegeeks.com/2015/09/template-design-pattern.html" target="_blank" rel="external">原文地址</a></p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/设计模式/" rel="tag"># 设计模式</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-03-02-适配器设计模式/" rel="next" title="适配器设计模式">
+                <i class="fa fa-chevron-left"></i> 适配器设计模式
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016-04-01-MyBatis学习-概述/" rel="prev" title="MyBatis学习-概述">
+                MyBatis学习-概述 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liuyiyou</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是模板设计模式"><span class="nav-number">2.</span> <span class="nav-text">什么是模板设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AbstractClass"><span class="nav-number">2.1.</span> <span class="nav-text">AbstractClass</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConcreteClass"><span class="nav-number">2.2.</span> <span class="nav-text">ConcreteClass</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现模板设计模式"><span class="nav-number">3.</span> <span class="nav-text">实现模板设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在模板中引入一个钩子"><span class="nav-number">4.</span> <span class="nav-text">在模板中引入一个钩子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#何时使用模板设计模式"><span class="nav-number">5.</span> <span class="nav-text">何时使用模板设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码地址"><span class="nav-number">6.</span> <span class="nav-text">源码地址</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liuyiyou.cn</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">网站字数总数&#58;</span>
+    
+    <span title="网站字数总数">100.3k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("FUPssgG7FQe5trsvf4TbpNfC-gzGzoHsz", "mRbmufFxoH0YiK3CPTPzpvS7");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
