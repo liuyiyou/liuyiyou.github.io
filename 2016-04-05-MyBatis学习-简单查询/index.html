@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="查询分为返回单个结果和返回一个结果集。而结果集分为List，Map，其中List，且两者都是泛型，根据映射文件中配置的reusltMap，mybatis会对查询的结果进行封装概述 通过SqlSession可以看出，查询可分为以下几组：   T selectOne(…):返回给定类型的单个结果集  List selectList(…):返回给定类型的多个结果集  Map selectMap(…):返">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-24T09:15:06.695Z">
+<meta property="og:updated_time" content="2018-01-26T09:28:55.018Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis学习-简单查询">
 <meta name="twitter:description" content="查询分为返回单个结果和返回一个结果集。而结果集分为List，Map，其中List，且两者都是泛型，根据映射文件中配置的reusltMap，mybatis会对查询的结果进行封装概述 通过SqlSession可以看出，查询可分为以下几组：   T selectOne(…):返回给定类型的单个结果集  List selectList(…):返回给定类型的多个结果集  Map selectMap(…):返">
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,008
+                  894
                 </span>
               
 
@@ -413,8 +413,6 @@
 <li><k, v=""> Map<k, v=""> selectMap(…):返回指定列为key的map集合或对象</k,></k,></li>
 <li>void select(…) : 检索来自该语句映射的一个单列</li>
 </ul>
-<h2 id="前提准备"><a href="#前提准备" class="headerlink" title="前提准备"></a>前提准备</h2><p>为了避免session的open和close，写一个简单的模板方法</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueryTemplate</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SqlSessionFactory sqlSessionFactory;</div><div class="line"></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> &lt;T&gt; <span class="function">T <span class="title">templae</span><span class="params">(QueryCallBack&lt;T&gt; queryCallBack)</span> </span>&#123;</div><div class="line">        T result = <span class="keyword">null</span>;</div><div class="line">        SqlSession session = <span class="keyword">null</span>;</div><div class="line">        InputStream inputStream = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            String resource = <span class="string">"mybatis-mysql-config.xml"</span>;</div><div class="line">            inputStream = Resources.getResourceAsStream(resource);</div><div class="line">            sqlSessionFactory = <span class="keyword">new</span> SqlSessionFactoryBuilder().build(inputStream);</div><div class="line">            session = sqlSessionFactory.openSession();</div><div class="line">            <span class="comment">//具体调用靠其子类实现</span></div><div class="line">            result = queryCallBack.doQuery(session);</div><div class="line">            session.commit();</div><div class="line">            <span class="keyword">return</span> result;</div><div class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">finally</span> &#123;</div><div class="line">            <span class="keyword">if</span> (session != <span class="keyword">null</span>) &#123;</div><div class="line">                session.close();</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                <span class="keyword">if</span> (inputStream != <span class="keyword">null</span>) &#123;</div><div class="line">                    inputStream.close();</div><div class="line">                &#125;</div><div class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</div><div class="line">                e.printStackTrace();</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">QueryCallBack</span>&lt;<span class="title">T</span>&gt; </span>&#123;</div><div class="line">    <span class="function">T <span class="title">doQuery</span><span class="params">(SqlSession sqlSession)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <h2 id="返回单条结果集"><a href="#返回单条结果集" class="headerlink" title="返回单条结果集"></a>返回单条结果集</h2><ul>
 <li><t> T selectOne(String statement);</t></li>
 <li><t> T selectOne(String statement,Object paramter);</t></li>
@@ -567,7 +565,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -589,7 +587,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -624,7 +622,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#前提准备"><span class="nav-number">1.</span> <span class="nav-text">前提准备</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回单条结果集"><span class="nav-number">2.</span> <span class="nav-text">返回单条结果集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回列表结果集"><span class="nav-number">3.</span> <span class="nav-text">返回列表结果集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回Map结果集"><span class="nav-number">4.</span> <span class="nav-text">返回Map结果集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无返回值结果集"><span class="nav-number">5.</span> <span class="nav-text">无返回值结果集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">6.</span> <span class="nav-text">注意事项</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#返回单条结果集"><span class="nav-number">1.</span> <span class="nav-text">返回单条结果集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回列表结果集"><span class="nav-number">2.</span> <span class="nav-text">返回列表结果集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#返回Map结果集"><span class="nav-number">3.</span> <span class="nav-text">返回Map结果集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#无返回值结果集"><span class="nav-number">4.</span> <span class="nav-text">无返回值结果集</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#注意事项"><span class="nav-number">5.</span> <span class="nav-text">注意事项</span></a></li></ol></div>
             
 
           </div>
@@ -658,7 +656,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">100.3k</span>
+    <span title="网站字数总数">95.9k</span>
   
 </div>
 

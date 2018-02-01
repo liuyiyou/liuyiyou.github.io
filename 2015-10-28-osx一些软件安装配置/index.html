@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="skill," />
+  <meta name="keywords" content="tools," />
 
 
 
@@ -81,14 +81,14 @@
 
 
 <meta name="description" content="无论是windows还是linux，都需要进行一系列的配置，相对于windows来说，一般情况下linux都是作为服务器，而且很多新的开发框架或工具会优先适配linux，比如hadoop等。 虽然系统中装了很多软件，比如java、MySQL、nodejs等，但是每次装的时候都是临时装的，没有记录下来。现在在这里写一个系列，并保持更新 环境变量的配置 /etc/profile ：  建议不修改这个文">
-<meta name="keywords" content="skill">
+<meta name="keywords" content="tools">
 <meta property="og:type" content="article">
 <meta property="og:title" content="osx一些软件安装配置">
 <meta property="og:url" content="http://liuyiyou.cn/2015-10-28-osx一些软件安装配置/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="无论是windows还是linux，都需要进行一系列的配置，相对于windows来说，一般情况下linux都是作为服务器，而且很多新的开发框架或工具会优先适配linux，比如hadoop等。 虽然系统中装了很多软件，比如java、MySQL、nodejs等，但是每次装的时候都是临时装的，没有记录下来。现在在这里写一个系列，并保持更新 环境变量的配置 /etc/profile ：  建议不修改这个文">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-19T04:00:02.923Z">
+<meta property="og:updated_time" content="2018-01-24T14:21:06.709Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="osx一些软件安装配置">
 <meta name="twitter:description" content="无论是windows还是linux，都需要进行一系列的配置，相对于windows来说，一般情况下linux都是作为服务器，而且很多新的开发框架或工具会优先适配linux，比如hadoop等。 虽然系统中装了很多软件，比如java、MySQL、nodejs等，但是每次装的时候都是临时装的，没有记录下来。现在在这里写一个系列，并保持更新 环境变量的配置 /etc/profile ：  建议不修改这个文">
@@ -326,8 +326,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/skill/" itemprop="url" rel="index">
-                    <span itemprop="name">skill</span>
+                  <a href="/categories/tools/" itemprop="url" rel="index">
+                    <span itemprop="name">tools</span>
                   </a>
                 </span>
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  579
+                  578
                 </span>
               
 
@@ -408,14 +408,14 @@
         <p>无论是windows还是linux，都需要进行一系列的配置，相对于windows来说，一般情况下linux都是作为服务器，而且很多新的开发框架或工具会优先适配linux，比如hadoop等。</p>
 <p>虽然系统中装了很多软件，比如java、MySQL、nodejs等，但是每次装的时候都是临时装的，没有记录下来。现在在这里写一个系列，并保持更新</p>
 <h2 id="环境变量的配置"><a href="#环境变量的配置" class="headerlink" title="环境变量的配置"></a>环境变量的配置</h2><ul>
-<li>/etc/profile ：  建议不修改这个文件 </li>
+<li>/etc/profile ：  建议不修改这个文件</li>
 <li>/etc/bashrc :   一般在这个文件中添加系统级环境变量</li>
 <li>~/.bash_profile  一般在这个文件中添加用户级环境变量</li>
 </ul>
-<h2 id="java环境变量的配置"><a href="#java环境变量的配置" class="headerlink" title="java环境变量的配置"></a>java环境变量的配置</h2><p>osx自动带有Java，可以通过 </p>
+<h2 id="java环境变量的配置"><a href="#java环境变量的配置" class="headerlink" title="java环境变量的配置"></a>java环境变量的配置</h2><p>osx自动带有Java，可以通过</p>
 <figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="built_in">cd</span>  /usr/bin</div><div class="line">ls -l java</div></pre></td></tr></table></figure>
 <p>看到配置的信息，不过一般在.bash_profile中进行配置</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="built_in">export</span> JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_65.jdk/Contents/Home <span class="comment">#jdk安装路径   </span></div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span> </div><div class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="built_in">export</span> JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_65.jdk/Contents/Home <span class="comment">#jdk安装路径   </span></div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></div><div class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</div></pre></td></tr></table></figure>
 <p>不知道配置得是否正确</p>
 <h2 id="maven安装和环境变量配置"><a href="#maven安装和环境变量配置" class="headerlink" title="maven安装和环境变量配置"></a>maven安装和环境变量配置</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">M2_HOME=/Users/liuyiyou/TechSoft/apache-maven-3.0.5</div><div class="line">PATH=<span class="variable">$M2_HOME</span>/bin:<span class="variable">$PATH</span></div><div class="line"><span class="built_in">export</span> PATH</div></pre></td></tr></table></figure>
 <h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">MYSQL_HOME=/usr/<span class="built_in">local</span>/mysql</div><div class="line">PATH=<span class="variable">$MYSQL_HOME</span>/bin:<span class="variable">$PATH</span></div><div class="line"><span class="built_in">export</span> PATH</div></pre></td></tr></table></figure>
@@ -454,7 +454,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/skill/" rel="tag"># skill</a>
+            <a href="/tags/tools/" rel="tag"># tools</a>
           
         </div>
       
@@ -556,7 +556,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -578,7 +578,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -647,7 +647,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">100.3k</span>
+    <span title="网站字数总数">95.9k</span>
   
 </div>
 

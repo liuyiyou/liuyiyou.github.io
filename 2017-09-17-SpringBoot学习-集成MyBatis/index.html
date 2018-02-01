@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="之前在Spring集成MyBatis的时候需要将相关依赖加到pom中，然后在spring-config.xml中配置SqlSessionFactoryBean， 里面需要指定mybatis配置文件位置等，还需要配置扫描接口MapperScannerConfigurer现在只需要一行代码搞定 @MapperScan(&amp;quot;cn.liuyiyou.sprongboot.mapper&amp;quot;)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-23T06:39:15.334Z">
+<meta property="og:updated_time" content="2018-01-23T06:39:58.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot学习-集成MyBatis">
 <meta name="twitter:description" content="之前在Spring集成MyBatis的时候需要将相关依赖加到pom中，然后在spring-config.xml中配置SqlSessionFactoryBean， 里面需要指定mybatis配置文件位置等，还需要配置扫描接口MapperScannerConfigurer现在只需要一行代码搞定 @MapperScan(&amp;quot;cn.liuyiyou.sprongboot.mapper&amp;quot;)">
@@ -413,7 +413,7 @@
 <p>需要注意的是，该注释并不是<code>mybatis-spring-boot-starter</code>提供的，而是mybatis-spring来提供的，也就是说，哪怕不用springboot，也是有该功能的，只是在spring-boot之前，一般都是基于xml配置的。</p>
 <p>另外，如果不是基于spring-boot，需要定义数据源、事务管理器等，而集成spring-boot之后，不在需要自己管理这些，而是由<code>MybatisAutoConfiguration</code> 来进行自动配置</p>
 <h2 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h2><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis.spring.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.3.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="java代码"><a href="#java代码" class="headerlink" title="java代码"></a>java代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">  <span class="meta">@Configuration</span></div><div class="line">   <span class="meta">@MapperScan</span>(<span class="string">"org.mybatis.spring.sample.mapper"</span>)</div><div class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppConfig</span> </span>&#123;</div><div class="line"></div><div class="line">     <span class="meta">@Bean</span></div><div class="line">     <span class="function"><span class="keyword">public</span> DataSource <span class="title">dataSource</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">new</span> EmbeddedDatabaseBuilder()</div><div class="line">                .addScript(<span class="string">"schema.sql"</span>)</div><div class="line">                .build();</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="meta">@Bean</span></div><div class="line">     <span class="function"><span class="keyword">public</span> DataSourceTransactionManager <span class="title">transactionManager</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">new</span> DataSourceTransactionManager(dataSource());</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="meta">@Bean</span></div><div class="line">     <span class="function"><span class="keyword">public</span> SqlSessionFactory <span class="title">sqlSessionFactory</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">       SqlSessionFactoryBean sessionFactory = <span class="keyword">new</span> SqlSessionFactoryBean();</div><div class="line">       sessionFactory.setDataSource(dataSource());</div><div class="line">       <span class="keyword">return</span> sessionFactory.getObject();</div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">```   </div><div class="line"></div><div class="line">## aplication.properties</div><div class="line"></div><div class="line">这个虽然与mybatis无关，但是不能去掉，毕竟mybatis就是一个orm框架</div></pre></td></tr></table></figure>
+<h2 id="java代码"><a href="#java代码" class="headerlink" title="java代码"></a>java代码</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">  <span class="meta">@Configuration</span></div><div class="line">   <span class="meta">@MapperScan</span>(<span class="string">"org.mybatis.spring.sample.mapper"</span>)</div><div class="line">   <span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppConfig</span> </span>&#123;</div><div class="line"></div><div class="line">     <span class="meta">@Bean</span></div><div class="line">     <span class="function"><span class="keyword">public</span> DataSource <span class="title">dataSource</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">new</span> EmbeddedDatabaseBuilder()</div><div class="line">                .addScript(<span class="string">"schema.sql"</span>)</div><div class="line">                .build();</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="meta">@Bean</span></div><div class="line">     <span class="function"><span class="keyword">public</span> DataSourceTransactionManager <span class="title">transactionManager</span><span class="params">()</span> </span>&#123;</div><div class="line">       <span class="keyword">return</span> <span class="keyword">new</span> DataSourceTransactionManager(dataSource());</div><div class="line">     &#125;</div><div class="line"></div><div class="line">     <span class="meta">@Bean</span></div><div class="line">     <span class="function"><span class="keyword">public</span> SqlSessionFactory <span class="title">sqlSessionFactory</span><span class="params">()</span> <span class="keyword">throws</span> Exception </span>&#123;</div><div class="line">       SqlSessionFactoryBean sessionFactory = <span class="keyword">new</span> SqlSessionFactoryBean();</div><div class="line">       sessionFactory.setDataSource(dataSource());</div><div class="line">       <span class="keyword">return</span> sessionFactory.getObject();</div><div class="line">     &#125;</div><div class="line">   &#125;</div><div class="line"></div><div class="line">```   </div><div class="line"></div><div class="line">## aplication.properties</div><div class="line"></div><div class="line"></div><div class="line">这个虽然与mybatis无关，但是不能去掉，毕竟mybatis就是一个orm框架</div></pre></td></tr></table></figure>
 <p>spring.datasource.url=jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull<br>spring.datasource.username=root<br>spring.datasource.password=123456<br>spring.datasource.driverClassName=com.mysql.jdbc.Driver</p>
 <p>```</p>
 
@@ -535,7 +535,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -557,7 +557,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -626,7 +626,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">100.3k</span>
+    <span title="网站字数总数">95.9k</span>
   
 </div>
 

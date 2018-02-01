@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="1、如果是使用在idea中，在默认配置下，如果xml映射文件放在和Mapper同级下可能会出现错误，报找不到资源文件错误，这是idea编辑决定的，通过看编译后的文件会发现，编译的时候只编译resources中的xml文件，所以最好放到resources下，如果不可以，则在resources下建立与Mapper同名目录，再放入必须有session.commit()。而且最好写在Assert之后。因为">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-23T14:06:24.996Z">
+<meta property="og:updated_time" content="2018-01-24T08:11:58.872Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MyBatis学习-总结">
 <meta name="twitter:description" content="1、如果是使用在idea中，在默认配置下，如果xml映射文件放在和Mapper同级下可能会出现错误，报找不到资源文件错误，这是idea编辑决定的，通过看编译后的文件会发现，编译的时候只编译resources中的xml文件，所以最好放到resources下，如果不可以，则在resources下建立与Mapper同名目录，再放入必须有session.commit()。而且最好写在Assert之后。因为">
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  415
+                  442
                 </span>
               
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -408,6 +408,8 @@
         <p>1、如果是使用在idea中，在默认配置下，如果xml映射文件放在和Mapper同级下可能会出现错误，报找不到资源文件错误，这是idea编辑决定的，通过看编译后的文件会发现，编译的时候只编译resources中的xml文件，所以最好放到resources下，如果不可以，则在resources下建立与Mapper同名目录，再放入<br>必须有session.commit()。而且最好写在Assert之后。因为如果不这句。事务不会提交。写在后面的话，如果和预期结果不同的话，也会提交事务</p>
 <p>2、在UserMapper中需要注意：parameterType可以不写，MyBatis会自动判断。如果写了的话，对于基本类型，则要写对。比如需要int，传递过来的却是string。则会报错。而对于非基本类型，则没关系。比如在id=deleteByEntity中，如果传递过来一个Map。也能进行正常的删除<br>如果传递一个null过来。则需要注意，因为这个时候的sql语句是where age = null 。而在mysql中，只有where age is null 才会被识别的。所以如果要根据null来查询的是，需要注意</p>
 <p>3、批量插入的时候，需要注意动态SQL的写法：即拼接出来的SQL语句和常规的SQL语句语法一致。<br>批量插入的时候，需要注意，在后台要写成user.name或者map.name，否则会出错。<br>插入方法返回的都是受影响的条数，如果想得到返回来的主键，可再查询中加入generKey，然后通过obj.getId得到插入后的主键</p>
+<p>4、如果后台返回多个结果，而前台是使用selectOne来接受的话，会报错。</p>
+<p>5、</p>
 
       
     </div>
@@ -518,7 +520,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -540,7 +542,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -593,7 +595,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">100.3k</span>
+    <span title="网站字数总数">95.9k</span>
   
 </div>
 

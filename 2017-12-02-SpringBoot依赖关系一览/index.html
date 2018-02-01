@@ -83,14 +83,14 @@
 <meta name="description" content="官方starter： 在spring-boot-starters中 &amp;lt;module&amp;gt;spring-boot-starter&amp;lt;/module&amp;gt;&amp;lt;module&amp;gt;spring-boot-starter-activemq&amp;lt;/module&amp;gt;&amp;lt;module&amp;gt;spring-boot-starter-amqp&amp;lt;/module&amp;gt;&amp;lt;modu">
 <meta name="keywords" content="spring-boot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="SpringCloud依赖关系一览">
+<meta property="og:title" content="SpringBoot依赖关系一览">
 <meta property="og:url" content="http://liuyiyou.cn/2017-12-02-SpringBoot依赖关系一览/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="官方starter： 在spring-boot-starters中 &amp;lt;module&amp;gt;spring-boot-starter&amp;lt;/module&amp;gt;&amp;lt;module&amp;gt;spring-boot-starter-activemq&amp;lt;/module&amp;gt;&amp;lt;module&amp;gt;spring-boot-starter-amqp&amp;lt;/module&amp;gt;&amp;lt;modu">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-23T06:31:40.222Z">
+<meta property="og:updated_time" content="2018-01-23T06:16:10.325Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="SpringCloud依赖关系一览">
+<meta name="twitter:title" content="SpringBoot依赖关系一览">
 <meta name="twitter:description" content="官方starter： 在spring-boot-starters中 &amp;lt;module&amp;gt;spring-boot-starter&amp;lt;/module&amp;gt;&amp;lt;module&amp;gt;spring-boot-starter-activemq&amp;lt;/module&amp;gt;&amp;lt;module&amp;gt;spring-boot-starter-amqp&amp;lt;/module&amp;gt;&amp;lt;modu">
 
 
@@ -127,7 +127,7 @@
 
 
 
-  <title>SpringCloud依赖关系一览 | 温故而知新    触类而旁通</title>
+  <title>SpringBoot依赖关系一览 | 温故而知新    触类而旁通</title>
   
 
 
@@ -291,7 +291,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">SpringCloud依赖关系一览</h2>
+          <h2 class="post-title" itemprop="name headline">SpringBoot依赖关系一览</h2>
         
 
         <div class="post-meta">
@@ -303,8 +303,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-12-02T00:00:00+08:00">
-                2017-12-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-19T12:00:02+08:00">
+                2018-01-19
               </time>
             
 
@@ -343,7 +343,7 @@
 
           
           
-             <span id="/2017-12-02-SpringBoot依赖关系一览/" class="leancloud_visitors" data-flag-title="SpringCloud依赖关系一览">
+             <span id="/2017-12-02-SpringBoot依赖关系一览/" class="leancloud_visitors" data-flag-title="SpringBoot依赖关系一览">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -410,6 +410,7 @@
 <p>所以，比如MyBatis官方是木有提供starter的，需要去MyBatis官网去查</p>
 <p>依赖关系：可用用IDE自带的工具，或者运行<code>mvn dependency:tree</code></p>
 <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line">+- org.springframework.cloud:spring-cloud-starter-config:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|  +- org.springframework.cloud:spring-cloud-starter:jar:<span class="number">1.3</span>.0.RELEASE:compile</div><div class="line">|  |  +- org.springframework.cloud:spring-cloud-context:jar:<span class="number">1.3</span>.0.RELEASE:compile</div><div class="line">|  |  |  \- org.springframework.security:spring-security-crypto:jar:<span class="number">4.2</span>.3.RELEASE:compile</div><div class="line">|  |  +- org.springframework.cloud:spring-cloud-commons:jar:<span class="number">1.3</span>.0.RELEASE:compile</div><div class="line">|  |  |  \- org.apache.httpcomponents:httpclient:jar:<span class="number">4.5</span>.3:compile</div><div class="line">|  |  |     +- org.apache.httpcomponents:httpcore:jar:<span class="number">4.4</span>.8:compile</div><div class="line">|  |  |     \- commons-codec:commons-codec:jar:<span class="number">1.10</span>:compile</div><div class="line">|  |  \- org.springframework.security:spring-security-rsa:jar:<span class="number">1.0</span>.3.RELEASE:compile</div><div class="line">|  |     \- org.bouncycastle:bcpkix-jdk15on:jar:<span class="number">1.55</span>:compile</div><div class="line">|  |        \- org.bouncycastle:bcprov-jdk15on:jar:<span class="number">1.55</span>:compile</div><div class="line">|  +- org.springframework.cloud:spring-cloud-config-client:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|  |  +- org.springframework.boot:spring-boot-autoconfigure:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|  |  +- org.springframework:spring-web:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|  |  |  \- org.springframework:spring-context:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|  |  |     \- org.springframework:spring-expression:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|  |  \- com.fasterxml.jackson.core:jackson-annotations:jar:<span class="number">2.8</span>.0:compile</div><div class="line">|  \- com.fasterxml.jackson.core:jackson-databind:jar:<span class="number">2.8</span>.10:compile</div><div class="line">|     \- com.fasterxml.jackson.core:jackson-core:jar:<span class="number">2.8</span>.10:compile</div><div class="line">+- org.springframework.cloud:spring-cloud-starter-eureka:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|  \- org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|     +- org.springframework.boot:spring-boot-starter-web:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|     |  +- org.springframework.boot:spring-boot-starter-tomcat:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|     |  |  +- org.apache.tomcat.embed:tomcat-embed-core:jar:<span class="number">8.5</span>.23:compile</div><div class="line">|     |  |  |  \- org.apache.tomcat:tomcat-annotations-api:jar:<span class="number">8.5</span>.23:compile</div><div class="line">|     |  |  \- org.apache.tomcat.embed:tomcat-embed-websocket:jar:<span class="number">8.5</span>.23:compile</div><div class="line">|     |  \- org.springframework:spring-webmvc:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|     +- org.springframework.cloud:spring-cloud-netflix-core:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|     +- org.springframework.cloud:spring-cloud-netflix-eureka-client:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|     +- com.netflix.eureka:eureka-client:jar:<span class="number">1.7</span>.0:compile</div><div class="line">|     |  +- org.codehaus.jettison:jettison:jar:<span class="number">1.3</span>.7:runtime</div><div class="line">|     |  |  \- stax:stax-api:jar:<span class="number">1.0</span>.1:runtime</div><div class="line">|     |  +- com.netflix.netflix-commons:netflix-eventbus:jar:<span class="number">0.3</span>.0:runtime</div><div class="line">|     |  |  +- com.netflix.netflix-commons:netflix-infix:jar:<span class="number">0.3</span>.0:runtime</div><div class="line">|     |  |  |  +- commons-jxpath:commons-jxpath:jar:<span class="number">1.3</span>:runtime</div><div class="line">|     |  |  |  +- joda-time:joda-time:jar:<span class="number">2.9</span>.9:runtime</div><div class="line">|     |  |  |  +- org.antlr:antlr-runtime:jar:<span class="number">3.4</span>:runtime</div><div class="line">|     |  |  |  |  +- org.antlr:stringtemplate:jar:<span class="number">3.2</span>.1:runtime</div><div class="line">|     |  |  |  |  \- antlr:antlr:jar:<span class="number">2.7</span>.7:runtime</div><div class="line">|     |  |  |  \- com.google.code.gson:gson:jar:<span class="number">2.8</span>.2:runtime</div><div class="line">|     |  |  \- org.apache.commons:commons-math:jar:<span class="number">2.2</span>:runtime</div><div class="line">|     |  +- com.netflix.archaius:archaius-core:jar:<span class="number">0.7</span>.4:compile</div><div class="line">|     |  +- javax.ws.rs:jsr311-api:jar:<span class="number">1.1</span>.1:runtime</div><div class="line">|     |  +- com.netflix.servo:servo-core:jar:<span class="number">0.10</span>.1:runtime</div><div class="line">|     |  |  \- com.netflix.servo:servo-internal:jar:<span class="number">0.10</span>.1:runtime</div><div class="line">|     |  +- com.sun.jersey:jersey-core:jar:<span class="number">1.19</span>.1:runtime</div><div class="line">|     |  +- com.sun.jersey:jersey-client:jar:<span class="number">1.19</span>.1:runtime</div><div class="line">|     |  +- com.sun.jersey.contribs:jersey-apache-client4:jar:<span class="number">1.19</span>.1:runtime</div><div class="line">|     |  \- com.google.inject:guice:jar:<span class="number">4.1</span>.0:runtime</div><div class="line">|     |     \- aopalliance:aopalliance:jar:<span class="number">1.0</span>:runtime</div><div class="line">|     +- com.netflix.eureka:eureka-core:jar:<span class="number">1.7</span>.0:compile</div><div class="line">|     |  \- org.codehaus.woodstox:woodstox-core-asl:jar:<span class="number">4.4</span>.1:runtime</div><div class="line">|     |     +- javax.xml.stream:stax-api:jar:<span class="number">1.0</span>-<span class="number">2</span>:runtime</div><div class="line">|     |     \- org.codehaus.woodstox:stax2-api:jar:<span class="number">3.1</span>.4:runtime</div><div class="line">|     +- org.springframework.cloud:spring-cloud-starter-netflix-archaius:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|     |  +- commons-configuration:commons-configuration:jar:<span class="number">1.8</span>:compile</div><div class="line">|     |  \- com.google.guava:guava:jar:<span class="number">18.0</span>:compile</div><div class="line">|     +- com.netflix.ribbon:ribbon-eureka:jar:<span class="number">2.2</span>.4:compile</div><div class="line">|     \- com.thoughtworks.xstream:xstream:jar:<span class="number">1.4</span>.9:compile</div><div class="line">|        +- xmlpull:xmlpull:jar:<span class="number">1.1</span>.3.1:compile</div><div class="line">|        \- xpp3:xpp3_min:jar:<span class="number">1.1</span>.4c:compile</div><div class="line">+- org.springframework.cloud:spring-cloud-starter-feign:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|  \- org.springframework.cloud:spring-cloud-starter-openfeign:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|     +- io.github.openfeign:feign-core:jar:<span class="number">9.5</span>.0:compile</div><div class="line">|     |  \- org.jvnet:animal-sniffer-annotation:jar:<span class="number">1.0</span>:compile</div><div class="line">|     +- io.github.openfeign:feign-slf4j:jar:<span class="number">9.5</span>.0:compile</div><div class="line">|     \- io.github.openfeign:feign-hystrix:jar:<span class="number">9.5</span>.0:compile</div><div class="line">|        \- com.netflix.hystrix:hystrix-core:jar:<span class="number">1.5</span>.12:compile</div><div class="line">|           \- org.hdrhistogram:HdrHistogram:jar:<span class="number">2.1</span>.9:compile</div><div class="line">+- org.springframework.cloud:spring-cloud-starter-ribbon:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|  \- org.springframework.cloud:spring-cloud-starter-netflix-ribbon:jar:<span class="number">1.4</span>.0.RELEASE:compile</div><div class="line">|     +- com.netflix.ribbon:ribbon:jar:<span class="number">2.2</span>.4:compile</div><div class="line">|     |  +- com.netflix.ribbon:ribbon-transport:jar:<span class="number">2.2</span>.4:runtime</div><div class="line">|     |  |  +- io.reactivex:rxnetty-contexts:jar:<span class="number">0.4</span>.9:runtime</div><div class="line">|     |  |  \- io.reactivex:rxnetty-servo:jar:<span class="number">0.4</span>.9:runtime</div><div class="line">|     |  +- javax.inject:javax.inject:jar:<span class="number">1</span>:runtime</div><div class="line">|     |  \- io.reactivex:rxnetty:jar:<span class="number">0.4</span>.9:runtime</div><div class="line">|     |     +- io.netty:netty-codec-http:jar:<span class="number">4.0</span>.27.Final:runtime</div><div class="line">|     |     |  +- io.netty:netty-codec:jar:<span class="number">4.0</span>.27.Final:runtime</div><div class="line">|     |     |  \- io.netty:netty-handler:jar:<span class="number">4.0</span>.27.Final:runtime</div><div class="line">|     |     \- io.netty:netty-transport-<span class="keyword">native</span>-epoll:jar:<span class="number">4.0</span>.27.Final:runtime</div><div class="line">|     |        +- io.netty:netty-common:jar:<span class="number">4.0</span>.27.Final:runtime</div><div class="line">|     |        +- io.netty:netty-buffer:jar:<span class="number">4.0</span>.27.Final:runtime</div><div class="line">|     |        \- io.netty:netty-transport:jar:<span class="number">4.0</span>.27.Final:runtime</div><div class="line">|     +- com.netflix.ribbon:ribbon-core:jar:<span class="number">2.2</span>.4:compile</div><div class="line">|     |  \- commons-lang:commons-lang:jar:<span class="number">2.6</span>:compile</div><div class="line">|     +- com.netflix.ribbon:ribbon-httpclient:jar:<span class="number">2.2</span>.4:compile</div><div class="line">|     |  +- commons-collections:commons-collections:jar:<span class="number">3.2</span>.2:runtime</div><div class="line">|     |  \- com.netflix.netflix-commons:netflix-commons-util:jar:<span class="number">0.1</span>.1:runtime</div><div class="line">|     +- com.netflix.ribbon:ribbon-loadbalancer:jar:<span class="number">2.2</span>.4:compile</div><div class="line">|     |  \- com.netflix.netflix-commons:netflix-statistics:jar:<span class="number">0.1</span>.1:runtime</div><div class="line">|     \- io.reactivex:rxjava:jar:<span class="number">1.2</span>.0:compile</div><div class="line">+- org.springframework.boot:spring-boot-starter-data-redis:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|  +- org.springframework.boot:spring-boot-starter:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|  |  +- org.springframework.boot:spring-boot:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|  |  +- org.springframework.boot:spring-boot-starter-logging:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|  |  |  +- ch.qos.logback:logback-classic:jar:<span class="number">1.1</span>.11:compile</div><div class="line">|  |  |  |  \- ch.qos.logback:logback-core:jar:<span class="number">1.1</span>.11:compile</div><div class="line">|  |  |  +- org.slf4j:jul-to-slf4j:jar:<span class="number">1.7</span>.25:compile</div><div class="line">|  |  |  \- org.slf4j:log4j-over-slf4j:jar:<span class="number">1.7</span>.25:compile</div><div class="line">|  |  \- org.yaml:snakeyaml:jar:<span class="number">1.17</span>:runtime</div><div class="line">|  +- org.springframework.data:spring-data-redis:jar:<span class="number">1.8</span>.8.RELEASE:compile</div><div class="line">|  |  +- org.springframework.data:spring-data-keyvalue:jar:<span class="number">1.2</span>.8.RELEASE:compile</div><div class="line">|  |  |  \- org.springframework.data:spring-data-commons:jar:<span class="number">1.13</span>.8.RELEASE:compile</div><div class="line">|  |  +- org.springframework:spring-tx:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|  |  +- org.springframework:spring-oxm:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|  |  +- org.springframework:spring-aop:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|  |  +- org.springframework:spring-context-support:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|  |  +- org.slf4j:slf4j-api:jar:<span class="number">1.7</span>.25:compile</div><div class="line">|  |  \- org.slf4j:jcl-over-slf4j:jar:<span class="number">1.7</span>.25:compile</div><div class="line">|  \- redis.clients:jedis:jar:<span class="number">2.9</span>.0:compile</div><div class="line">|     \- org.apache.commons:commons-pool2:jar:<span class="number">2.4</span>.2:compile</div><div class="line">+- org.springframework.boot:spring-boot-starter-jdbc:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|  +- org.apache.tomcat:tomcat-jdbc:jar:<span class="number">8.5</span>.23:compile</div><div class="line">|  |  \- org.apache.tomcat:tomcat-juli:jar:<span class="number">8.5</span>.23:compile</div><div class="line">|  \- org.springframework:spring-jdbc:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">|     \- org.springframework:spring-beans:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">+- org.mybatis.spring.boot:mybatis-spring-boot-starter:jar:<span class="number">1.3</span>.1:compile</div><div class="line">|  +- org.mybatis.spring.boot:mybatis-spring-boot-autoconfigure:jar:<span class="number">1.3</span>.1:compile</div><div class="line">|  +- org.mybatis:mybatis:jar:<span class="number">3.4</span>.5:compile</div><div class="line">|  \- org.mybatis:mybatis-spring:jar:<span class="number">1.3</span>.1:compile</div><div class="line">+- org.springframework.boot:spring-boot-starter-validation:jar:<span class="number">1.5</span>.8.RELEASE:compile</div><div class="line">|  +- org.apache.tomcat.embed:tomcat-embed-el:jar:<span class="number">8.5</span>.23:compile</div><div class="line">|  \- org.hibernate:hibernate-validator:jar:<span class="number">5.3</span>.5.Final:compile</div><div class="line">|     +- javax.validation:validation-api:jar:<span class="number">1.1</span>.0.Final:compile</div><div class="line">|     +- org.jboss.logging:jboss-logging:jar:<span class="number">3.3</span>.1.Final:compile</div><div class="line">|     \- com.fasterxml:classmate:jar:<span class="number">1.3</span>.4:compile</div><div class="line">+- mysql:mysql-connector-java:jar:<span class="number">5.1</span>.44:runtime</div><div class="line">\- org.springframework.boot:spring-boot-starter-test:jar:<span class="number">1.5</span>.8.RELEASE:test</div><div class="line">   +- org.springframework.boot:spring-boot-test:jar:<span class="number">1.5</span>.8.RELEASE:test</div><div class="line">   +- org.springframework.boot:spring-boot-test-autoconfigure:jar:<span class="number">1.5</span>.8.RELEASE:test</div><div class="line">   +- com.jayway.jsonpath:json-path:jar:<span class="number">2.2</span>.0:test</div><div class="line">   |  \- net.minidev:json-smart:jar:<span class="number">2.2</span>.1:test</div><div class="line">   |     \- net.minidev:accessors-smart:jar:<span class="number">1.1</span>:test</div><div class="line">   |        \- org.ow2.asm:asm:jar:<span class="number">5.0</span>.3:test</div><div class="line">   +- junit:junit:jar:<span class="number">4.12</span>:test</div><div class="line">   +- org.assertj:assertj-core:jar:<span class="number">2.6</span>.0:test</div><div class="line">   +- org.mockito:mockito-core:jar:<span class="number">1.10</span>.19:test</div><div class="line">   |  \- org.objenesis:objenesis:jar:<span class="number">2.1</span>:test</div><div class="line">   +- org.hamcrest:hamcrest-core:jar:<span class="number">1.3</span>:test</div><div class="line">   +- org.hamcrest:hamcrest-library:jar:<span class="number">1.3</span>:test</div><div class="line">   +- org.skyscreamer:jsonassert:jar:<span class="number">1.4</span>.0:test</div><div class="line">   |  \- com.vaadin.external.google:android-json:jar:<span class="number">0.0</span>.20131108.vaadin1:test</div><div class="line">   +- org.springframework:spring-core:jar:<span class="number">4.3</span>.12.RELEASE:compile</div><div class="line">   \- org.springframework:spring-test:jar:<span class="number">4.3</span>.12.RELEASE:test</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -439,8 +440,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017-12-01-SpringCloud注解一览/" rel="next" title="SpringCloud注解一览">
-                <i class="fa fa-chevron-left"></i> SpringCloud注解一览
+              <a href="/2018-01-19-hexo安装/" rel="next" title="hexo安装">
+                <i class="fa fa-chevron-left"></i> hexo安装
               </a>
             
           </div>
@@ -449,8 +450,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017-12-14-SpringCloud学习目录/" rel="prev" title="SpringCloud系列学习目录">
-                SpringCloud系列学习目录 <i class="fa fa-chevron-right"></i>
+              <a href="/2018-01-22-Idea快捷键/" rel="prev" title="Idea快捷键">
+                Idea快捷键 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -519,7 +520,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">131</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -541,7 +542,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -594,7 +595,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">100.3k</span>
+    <span title="网站字数总数">95.9k</span>
   
 </div>
 
