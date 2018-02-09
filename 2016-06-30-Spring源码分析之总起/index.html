@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="到2017年12月份为止，Spring已经到5.x版本，模块也从之前简单的几个发展到几十个，而功能也增加了千千万万，对于之前没有或者很少开源框架源码解读的人来说，想要搞清楚Spring的整体体系，从5.x开始分析是非常麻烦的。 而Spring发展得如此迅速，和他最初始的架构离不开的，哪怕是到现在，常用的功能也是ioc、aop、mvc这一套，而这些在最早的时候就已经提供，只是现在提供的方式更多，代码">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-23T06:00:46.046Z">
+<meta property="og:updated_time" content="2018-02-09T15:36:25.111Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring源码分析之总起">
 <meta name="twitter:description" content="到2017年12月份为止，Spring已经到5.x版本，模块也从之前简单的几个发展到几十个，而功能也增加了千千万万，对于之前没有或者很少开源框架源码解读的人来说，想要搞清楚Spring的整体体系，从5.x开始分析是非常麻烦的。 而Spring发展得如此迅速，和他最初始的架构离不开的，哪怕是到现在，常用的功能也是ioc、aop、mvc这一套，而这些在最早的时候就已经提供，只是现在提供的方式更多，代码">
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  336
+                  331
                 </span>
               
 
@@ -409,8 +409,9 @@
 <p>而Spring发展得如此迅速，和他最初始的架构离不开的，哪怕是到现在，常用的功能也是ioc、aop、mvc这一套，而这些在最早的时候就已经提供，只是现在提供的方式更多，代码越来越严谨，但是理论还是和最开始的时候差不多。</p>
 <p>基于此，打算从Spring1.0开始，研究Spring的源码，了解后，再研究更高版本。这样，不但可以了解Spring的原理，也可以看到Spring是如何从一个容器发展成为企业级Java的事实标准的。</p>
 <p>另外，心中的想法是，做一个精简的Spring，将那些各个解决方案只保留一个，比如Bean装配，就提供了属性文件、xml、注解。那就只保留注解等等，从而使之成为一个精简的Spring框架</p>
-<p>和大牛一样，也分为如下几个，这些都是用接口来进行分析</p>
-<h2 id="IOC"><a href="#IOC" class="headerlink" title="IOC"></a>IOC</h2><h2 id="AOP"><a href="#AOP" class="headerlink" title="AOP"></a>AOP</h2><h2 id="MVC"><a href="#MVC" class="headerlink" title="MVC"></a>MVC</h2>
+<p>包含如下目录：</p>
+<p><a href="/2016-07-01-Spring源码分析之Bean组件一览">Spring源码分析之Bean组件一览</a><br><a href="/2016-07-02-Spring源码分析之BeanDefinition">Spring源码分析之BeanDefinition</a></p>
+
       
     </div>
     
@@ -450,8 +451,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016-07-01-Spring源码分析之Resource/" rel="prev" title="Spring源码分析之Resource">
-                Spring源码分析之Resource <i class="fa fa-chevron-right"></i>
+              <a href="/2016-07-11-Spring源码分析之BeanWrapImpl/" rel="prev" title="Spring源码分析之BeanWrap">
+                Spring源码分析之BeanWrap <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -504,17 +505,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -529,7 +521,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">131</span>
+                  <span class="site-state-item-count">137</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -577,22 +569,6 @@
       </section>
 
       
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#IOC"><span class="nav-number">1.</span> <span class="nav-text">IOC</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AOP"><span class="nav-number">2.</span> <span class="nav-text">AOP</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC"><span class="nav-number">3.</span> <span class="nav-text">MVC</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
 
       
 
@@ -620,7 +596,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">95.9k</span>
+    <span title="网站字数总数">98.5k</span>
   
 </div>
 
