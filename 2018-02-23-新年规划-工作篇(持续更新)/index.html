@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="work," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Redis序列化现有Redis序列化采用的是默认的JdkSerializationRedisSerializer， 序列化的对象是这个样子 \xac\xed\x00\x05sr\x00 com.iba.busi.entity.busi.SubsAct\x00\x00\x00\x00\x00\x00\x00\x01\x02\x00\x19L\x00\x05actIdt\x00\x10Ljava/la">
+<meta name="keywords" content="work">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2018-02-23-新年规划-工作篇(持续更新)">
+<meta property="og:url" content="http://liuyiyou.cn/2018-02-23-新年规划-工作篇(持续更新)/index.html">
+<meta property="og:site_name" content="温故而知新    触类而旁通">
+<meta property="og:description" content="Redis序列化现有Redis序列化采用的是默认的JdkSerializationRedisSerializer， 序列化的对象是这个样子 \xac\xed\x00\x05sr\x00 com.iba.busi.entity.busi.SubsAct\x00\x00\x00\x00\x00\x00\x00\x01\x02\x00\x19L\x00\x05actIdt\x00\x10Ljava/la">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-02-07T08:26:27.128Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2018-02-23-新年规划-工作篇(持续更新)">
+<meta name="twitter:description" content="Redis序列化现有Redis序列化采用的是默认的JdkSerializationRedisSerializer， 序列化的对象是这个样子 \xac\xed\x00\x05sr\x00 com.iba.busi.entity.busi.SubsAct\x00\x00\x00\x00\x00\x00\x00\x01\x02\x00\x19L\x00\x05actIdt\x00\x10Ljava/la">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liuyiyou.cn/2018-02-23-新年规划-工作篇(持续更新)/"/>
+
+
+
+
+
+  <title>2018-02-23-新年规划-工作篇(持续更新) | 温故而知新    触类而旁通</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">温故而知新    触类而旁通</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">In me the tiger Sniffs the rose</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-inbox">
+          <a href="/inbox/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
+            
+            收藏
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2018-02-23-新年规划-工作篇(持续更新)/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">2018-02-23-新年规划-工作篇(持续更新)</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-23T00:00:00+08:00">
+                2018-02-23
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/work/" itemprop="url" rel="index">
+                    <span itemprop="name">work</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018-02-23-新年规划-工作篇(持续更新)/" class="leancloud_visitors" data-flag-title="2018-02-23-新年规划-工作篇(持续更新)">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  747
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="Redis序列化"><a href="#Redis序列化" class="headerlink" title="Redis序列化"></a>Redis序列化</h2><p>现有Redis序列化采用的是默认的<code>JdkSerializationRedisSerializer</code>， 序列化的对象是这个样子</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">\xac\xed\x00\x05sr\x00 com.iba.busi.entity.busi.SubsAct\x00\x00\x00\x00\x00\x00\x00\x01\x02\x00\x19L\x00\x05actIdt\x00\x10Ljava/lang/Long;L\x00\x0eactIdListNotInt\x00\x13Ljava/lang/Boolean;L\x00\aactRelst\x00\x12Ljava/lang/String;L\x00\x0cactRelsEqualq\x00~\x00\x02L\x00\aactTypet\x00\x10Ljava/lang/Byte;L\x00\x0bactualPricet\x00\x11Ljava/lang/Float;L\x00\ncreateTimet\x00\x10Ljava/util/Date;L\x00\rcreateTimeEndq\x00~\x00\x06L\x00\x0fcreateTimeStartq\x00~\x00\x06L\x00\x0fcreateTimestampq\x00~\x00\x01L\x00\x0bdeductPriceq\x00~\x00\x05L\x00\x02idt\x00\x13Ljava/lang/Integer;L\x00\x0bidListNotInq\x00~\x00\x02L\x00\x0boriginPriceq\x00~\x00\x05L\x00\x06statusq\x00~\x00\x04L\x00\nstatusTimeq\x00~\x00\x06L\x00\rstatusTimeEndq\x00~\x00\x06L\x00\x0fstatusTimeStartq\x00~\x00\x06L\x00\x06subsIdq\x00~\x00\x01L\x00\x0fsubsIdListNotInq\x00~\x00\x02L\x00\x03uidq\x00~\x00\aL\x00\x0cuidListNotInq\x00~\x00\x02L\x00\avoucherq\x00~\x00\aL\x00\x10voucherListNotInq\x00~\x00\x02L\x00\x06weightq\x00~\x00\axpsr\x00\x0ejava.lang.Long;\x8b\xe4\x90\xcc\x8f#\xdf\x02\x00\x01J\x00\x05valuexr\x00\x10java.lang.Number\x86\xac\x95\x1d\x0b\x94\xe0\x8b\x02\x00\x00xp\x00\x00\x00\x00\x00\x0fHApppsr\x00\x0ejava.lang.Byte\x9cN`\x84\xeeP\xf5\x1c\x02\x00\x01B\x00\x05valuexq\x00~\x00\n\nsr\x00\x0fjava.lang.Float\xda\xed\xc9\xa2\xdb&lt;\xf0\xec\x02\x00\x01F\x00\x05valuexq\x00~\x00\n?\x80\x00\x00sr\x00\x0ejava.util.Datehj\x81\x01KYt\x19\x03\x00\x00xpw\b\x00\x00\x01[\x13\xa3\xe9\xa8xppsq\x00~\x00\t\x00\x00\x00\x00\b\x94\x0f&#125;sq\x00~\x00\x0e\x00\x00\x00\x00sr\x00\x11java.lang.Integer\x12\xe2\xa0\xa4\xf7\x81\x878\x02\x00\x01I\x00\x05valuexq\x00~\x00\n\x00\x00\x13\xe2psq\x00~\x00\x0e?\x80\x00\x00sq\x00~\x00\x0c\x01sq\x00~\x00\x10w\b\x00\x00\x01[\x13\xa3\xe9\xa8xppsq\x00~\x00\t\x00\x00\x00\x00\x00\x0fS\xa7psq\x00~\x00\x14;\x9c\xbczpsq\x00~\x00\x14\x00\x00\x00\x00pp</div></pre></td></tr></table></figure>
+<p>在排查问题的时候，很麻烦</p>
+<p>经过修改后，是这个样子：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">&quot;&#123;\&quot;account\&quot;:\&quot;neo\&quot;,\&quot;createTime\&quot;:1476242931000,\&quot;email\&quot;:\&quot;neo@qq.com\&quot;,\&quot;lastLogin\&quot;:1495509056000,\&quot;loginIp\&quot;:\&quot;192.168.0.253\&quot;,\&quot;nickName\&quot;:\&quot;\xe6\xac\xa7\xe9\x98\xb3\&quot;,\&quot;orgId\&quot;:615,\&quot;password\&quot;:\&quot;12bc4d1788ce2418b8160d155922ae7a5f4951af\&quot;,\&quot;phone\&quot;:\&quot;15102063659\&quot;,\&quot;roleIds\&quot;:\&quot;59\&quot;,\&quot;skin\&quot;:\&quot;default\&quot;,\&quot;status\&quot;:1,\&quot;statusTime\&quot;:1477388849000,\&quot;suid\&quot;:92&#125;&quot;</div></pre></td></tr></table></figure>
+<p>好处</p>
+<ol>
+<li>排查问题方便</li>
+<li>占用少，减少内存占用</li>
+</ol>
+<h2 id="Maven依赖修改"><a href="#Maven依赖修改" class="headerlink" title="Maven依赖修改"></a>Maven依赖修改</h2><h2 id="定时任务抽"><a href="#定时任务抽" class="headerlink" title="定时任务抽"></a>定时任务抽</h2><p>现在的定时任务和常规任务是放在一起的。这样引起几个问题</p>
+<ol>
+<li>日志打印太过频繁，对于开发观察任务很麻烦，定时任务和常规任务的日志打印，通过日志观察非常不方便</li>
+<li>定时任务测试非常麻烦，因为测试和开发都是部署，需要部署后，将配置文件修改，再重启</li>
+</ol>
+<p>修改后的效果：</p>
+<ol>
+<li>定时任务单独出来，启动时间可自己定义</li>
+<li>测试非常简单，只要跑一下定时任务即可</li>
+</ol>
+<p>定时任务分几种类型：</p>
+<ol>
+<li>某个操作触发。 比如添加活动的时候，会添加活动开始的定时任务</li>
+<li>某个时间点触发。 比如 晚上x点执行统计任务</li>
+</ol>
+<p>对于第二种： 迁移比较简单，对于第一种，迁移比较麻烦</p>
+<p>先迁移第二种。</p>
+<p>为了减少开发， 直接使用xxx-service中已经写好的业务逻辑，  但是某些service中依赖了一些 调度中的代码， 导致初始化的时候，比较麻烦</p>
+<h2 id="分页缓存问题"><a href="#分页缓存问题" class="headerlink" title="分页缓存问题"></a>分页缓存问题</h2>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/work/" rel="tag"># work</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018-02-22-新年规划-学习篇(持续更新)/" rel="next" title="2018-02-22-新年规划(持续更新)">
+                <i class="fa fa-chevron-left"></i> 2018-02-22-新年规划(持续更新)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liuyiyou</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis序列化"><span class="nav-number">1.</span> <span class="nav-text">Redis序列化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Maven依赖修改"><span class="nav-number">2.</span> <span class="nav-text">Maven依赖修改</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#定时任务抽"><span class="nav-number">3.</span> <span class="nav-text">定时任务抽</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#分页缓存问题"><span class="nav-number">4.</span> <span class="nav-text">分页缓存问题</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liuyiyou.cn</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">网站字数总数&#58;</span>
+    
+    <span title="网站字数总数">99.3k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("FUPssgG7FQe5trsvf4TbpNfC-gzGzoHsz", "mRbmufFxoH0YiK3CPTPzpvS7");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
