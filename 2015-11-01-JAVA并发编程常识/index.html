@@ -83,14 +83,14 @@
 <meta name="description" content="本文摘自虚极(梁飞)的某个PPT JVM内存模型堆： 所有对象全部放在共享堆空间中 对象的属性在共享堆空间内 堆内存单字节对齐，short不变    栈： 每个线程都有独立的线程栈空间 线程栈只存基本类型和对象地址 栈内存4字节对齐，short变int 对象地址4字节，引用堆空间   方法中局部变量在线程栈空间内 局部变量不会竞争，线程安全 方法参数在栈顶交叉，不拷贝 栈顶寄存，减少中间状态读取P">
 <meta name="keywords" content="java,并发">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JAVA并发编程常识">
-<meta property="og:url" content="http://liuyiyou.cn/2015-11-01-JAVA并发编程常识/index.html">
+<meta property="og:title" content="Java并发编程常识">
+<meta property="og:url" content="http://liuyiyou.cn/2015-11-01-Java并发编程常识/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="本文摘自虚极(梁飞)的某个PPT JVM内存模型堆： 所有对象全部放在共享堆空间中 对象的属性在共享堆空间内 堆内存单字节对齐，short不变    栈： 每个线程都有独立的线程栈空间 线程栈只存基本类型和对象地址 栈内存4字节对齐，short变int 对象地址4字节，引用堆空间   方法中局部变量在线程栈空间内 局部变量不会竞争，线程安全 方法参数在栈顶交叉，不拷贝 栈顶寄存，减少中间状态读取P">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-19T04:00:02.923Z">
+<meta property="og:updated_time" content="2018-02-26T01:56:02.951Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JAVA并发编程常识">
+<meta name="twitter:title" content="Java并发编程常识">
 <meta name="twitter:description" content="本文摘自虚极(梁飞)的某个PPT JVM内存模型堆： 所有对象全部放在共享堆空间中 对象的属性在共享堆空间内 堆内存单字节对齐，short不变    栈： 每个线程都有独立的线程栈空间 线程栈只存基本类型和对象地址 栈内存4字节对齐，short变int 对象地址4字节，引用堆空间   方法中局部变量在线程栈空间内 局部变量不会竞争，线程安全 方法参数在栈顶交叉，不拷贝 栈顶寄存，减少中间状态读取P">
 
 
@@ -121,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://liuyiyou.cn/2015-11-01-JAVA并发编程常识/"/>
+  <link rel="canonical" href="http://liuyiyou.cn/2015-11-01-Java并发编程常识/"/>
 
 
 
 
 
-  <title>JAVA并发编程常识 | 温故而知新    触类而旁通</title>
+  <title>Java并发编程常识 | 温故而知新    触类而旁通</title>
   
 
 
@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015-11-01-JAVA并发编程常识/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2015-11-01-Java并发编程常识/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -291,7 +291,7 @@
 
         
         
-          <h2 class="post-title" itemprop="name headline">JAVA并发编程常识</h2>
+          <h2 class="post-title" itemprop="name headline">Java并发编程常识</h2>
         
 
         <div class="post-meta">
@@ -343,7 +343,7 @@
 
           
           
-             <span id="/2015-11-01-JAVA并发编程常识/" class="leancloud_visitors" data-flag-title="JAVA并发编程常识">
+             <span id="/2015-11-01-Java并发编程常识/" class="leancloud_visitors" data-flag-title="Java并发编程常识">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -462,28 +462,28 @@
 </li>
 <li><p>终结法则<br>一个对象的构造函数结束一定发生在对象的finalizer之前</p>
 </li>
-<li><p>传递性<br>A发生在B之前，B发生在C之前，A一定发生在C之前。 </p>
+<li><p>传递性<br>A发生在B之前，B发生在C之前，A一定发生在C之前。</p>
 </li>
 </ul>
 <h2 id="系统内存"><a href="#系统内存" class="headerlink" title="系统内存"></a>系统内存</h2><h3 id="MESI协议"><a href="#MESI协议" class="headerlink" title="MESI协议:"></a>MESI协议:</h3><ul>
 <li><p>Modified</p>
 <ul>
-<li>本CPU写，则直接写到Cache，不产生总线事务；其它CPU写，则不涉及本CPU的Cache，其它CPU读，则本CPU需要把Cache line中的数据提供给它，而不是让它去读内存。 </li>
+<li>本CPU写，则直接写到Cache，不产生总线事务；其它CPU写，则不涉及本CPU的Cache，其它CPU读，则本CPU需要把Cache line中的数据提供给它，而不是让它去读内存。</li>
 </ul>
 </li>
 <li><p>Exclusive</p>
 <ul>
-<li>只有本CPU有该内存的Cache，而且和内存一致。 本CPU的写操作会导致转到Modified状态。 </li>
+<li>只有本CPU有该内存的Cache，而且和内存一致。 本CPU的写操作会导致转到Modified状态。</li>
 </ul>
 </li>
 <li><p>Shared</p>
 <ul>
-<li>多个CPU都对该内存有Cache，而且内容一致。任何一个CPU写自己的这个Cache都必须通知其它的CPU。 </li>
+<li>多个CPU都对该内存有Cache，而且内容一致。任何一个CPU写自己的这个Cache都必须通知其它的CPU。</li>
 </ul>
 </li>
 <li><p>Invalid</p>
 <ul>
-<li>一旦Cache line进入这个状态，CPU读数据就必须发出总线事务，从内存读。 </li>
+<li>一旦Cache line进入这个状态，CPU读数据就必须发出总线事务，从内存读。</li>
 </ul>
 </li>
 </ul>
@@ -608,7 +608,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">163</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -619,7 +619,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -630,7 +630,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -699,7 +699,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">99.3k</span>
+    <span title="网站字数总数">122.2k</span>
   
 </div>
 

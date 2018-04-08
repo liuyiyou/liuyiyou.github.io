@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+
+
+
+
+<html class="theme-next pisces" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="java," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 数据类型 变量和常量 运算符 字符串  数据类型字节占比// 1System.out.println(Byte.BYTES);// 2System.out.println(Character.BYTES);String cnWorldStr = &quot;中&quot;;// 3 ： utf-8System.out.println(">
+<meta name="keywords" content="java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java复习笔记(一)-数据类型">
+<meta property="og:url" content="http://liuyiyou.cn/2016-05-01-Java复习笔记(一)-数据类型/index.html">
+<meta property="og:site_name" content="温故而知新    触类而旁通">
+<meta property="og:description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 数据类型 变量和常量 运算符 字符串  数据类型字节占比// 1System.out.println(Byte.BYTES);// 2System.out.println(Character.BYTES);String cnWorldStr = &quot;中&quot;;// 3 ： utf-8System.out.println(">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-03-27T16:22:22.448Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java复习笔记(一)-数据类型">
+<meta name="twitter:description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 数据类型 变量和常量 运算符 字符串  数据类型字节占比// 1System.out.println(Byte.BYTES);// 2System.out.println(Character.BYTES);String cnWorldStr = &quot;中&quot;;// 3 ： utf-8System.out.println(">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"right","display":"always","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: false,
+    tabs: true,
+    motion: {"enable":false,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://liuyiyou.cn/2016-05-01-Java复习笔记(一)-数据类型/"/>
+
+
+
+
+
+  <title>Java复习笔记(一)-数据类型 | 温故而知新    触类而旁通</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-right page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">温故而知新    触类而旁通</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <h1 class="site-subtitle" itemprop="description">In me the tiger Sniffs the rose</h1>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-inbox">
+          <a href="/inbox/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
+            
+            收藏
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2016-05-01-Java复习笔记(一)-数据类型/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="liuyiyou">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="温故而知新    触类而旁通">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h2 class="post-title" itemprop="name headline">Java复习笔记(一)-数据类型</h2>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-05-01T08:00:00+08:00">
+                2016-05-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/java/" itemprop="url" rel="index">
+                    <span itemprop="name">java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2016-05-01-Java复习笔记(一)-数据类型/" class="leancloud_visitors" data-flag-title="Java复习笔记(一)-数据类型">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1,054
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  4
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h2><p>工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾</p>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><ul>
+<li>数据类型</li>
+<li>变量和常量</li>
+<li>运算符</li>
+<li>字符串</li>
+</ul>
+<h2 id="数据类型"><a href="#数据类型" class="headerlink" title="数据类型"></a>数据类型</h2><h3 id="字节占比"><a href="#字节占比" class="headerlink" title="字节占比"></a>字节占比</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">// 1</span></div><div class="line">System.out.println(Byte.BYTES);</div><div class="line"><span class="comment">// 2</span></div><div class="line">System.out.println(Character.BYTES);</div><div class="line">String cnWorldStr = <span class="string">"中"</span>;</div><div class="line"><span class="comment">// 3 ： utf-8</span></div><div class="line">System.out.println(cnWorldStr.getBytes().length);</div><div class="line"><span class="comment">// 4</span></div><div class="line">System.out.println(Integer.BYTES);</div><div class="line"><span class="comment">// 4</span></div><div class="line">System.out.println(Float.BYTES);</div><div class="line"><span class="comment">// 8</span></div><div class="line">System.out.println(Double.BYTES);</div></pre></td></tr></table></figure>
+<h3 id="取值范围"><a href="#取值范围" class="headerlink" title="取值范围"></a>取值范围</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">//-2的7次方到2的7次方-1</span></div><div class="line">System.out.println(Byte.MIN_VALUE + <span class="string">"-"</span> + Byte.MAX_VALUE);</div><div class="line">System.out.println(Character.MIN_VALUE + <span class="string">"-"</span> + Character.MAX_VALUE);</div><div class="line"><span class="comment">//-2的31次方到2的31次方-1</span></div><div class="line">System.out.println(Integer.MIN_VALUE + <span class="string">"-"</span> + Integer.MAX_VALUE);</div><div class="line"><span class="comment">//-2的149到2的149次方-1</span></div><div class="line">System.out.println(Float.MIN_VALUE + <span class="string">"-"</span> + Float.MAX_VALUE);</div><div class="line"><span class="comment">//-2的1074次方到2的1074方-1</span></div><div class="line">System.out.println(Double.MIN_VALUE + <span class="string">"-"</span> + Double.MAX_VALUE);</div></pre></td></tr></table></figure>
+<h3 id="缓存"><a href="#缓存" class="headerlink" title="缓存"></a>缓存</h3><p>Integer、Long 在parse的时候缓存 -127到128的值，而Float和Double没有</p>
+<h2 id="变量和常量"><a href="#变量和常量" class="headerlink" title="变量和常量"></a>变量和常量</h2><p>变量一般需要显示初始化</p>
+<h3 id="局部变量"><a href="#局部变量" class="headerlink" title="局部变量"></a>局部变量</h3><p>在方法或语句块中申明的变量，生命周期只在定义的{}之中，不能跨方法或语句块使用。</p>
+<p>在一个嵌套块中，一个变量只能定义一次</p>
+<h3 id="类变量（静态变量）"><a href="#类变量（静态变量）" class="headerlink" title="类变量（静态变量）"></a>类变量（静态变量）</h3><p>静态变量也称作类变量，是在类之中，方法之外，以static关键字申明的变量，其独立在对象之外，有许多对象共享的变量。静态变量在对象产生之前产生，并长驻于内存，其在JVM关闭时销毁。</p>
+<h3 id="成员变量（非静态变量）"><a href="#成员变量（非静态变量）" class="headerlink" title="成员变量（非静态变量）"></a>成员变量（非静态变量）</h3><p>成员变量也称作实例变量、属性， 申明在类之中，方法之外的变量，随对象销毁而销毁。</p>
+<h3 id="常量"><a href="#常量" class="headerlink" title="常量"></a>常量</h3><p>通过<code>final</code>关键字进行声明，不能修改</p>
+<h3 id="类常量"><a href="#类常量" class="headerlink" title="类常量"></a>类常量</h3><p>使用 static final 设置一个类常量</p>
+<p>下面的方法运行：静态变量与对象实例无关，会一直累加。类变量与对象实例有关。第一个for循环因为只有一个实例，该对象的成员变量会累加。第二个for循环是多个实例，每次都是该实例调用，所以每次都是打印1 。 局部变量生命周期只是在方法体中</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">VarTest</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">// 静态变量</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> Integer GLOBAL_VAR = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="keyword">final</span> Integer CONST_VAR = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="comment">// 成员变量</span></div><div class="line">    <span class="keyword">private</span> Integer CLASS_VAR = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">varTest</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">// 局部变量</span></div><div class="line">        Integer methodVar = <span class="number">0</span>;</div><div class="line">        <span class="comment">// CONST_VAR++;// 常量不能变化</span></div><div class="line">        GLOBAL_VAR++;</div><div class="line">        CLASS_VAR++;</div><div class="line">        methodVar++;</div><div class="line">        System.out.println(<span class="string">"静态变量："</span> + GLOBAL_VAR + <span class="string">"\t成员变量:"</span> + CLASS_VAR + <span class="string">"\t"</span> + <span class="string">"局部变量"</span> + methodVar);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        VarTest varTest = <span class="keyword">new</span> VarTest();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">            varTest.varTest();</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">            VarTest varTest2 = <span class="keyword">new</span> VarTest();</div><div class="line">            varTest2.varTest();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="运算符"><a href="#运算符" class="headerlink" title="运算符"></a>运算符</h2><p>这个不需要记忆运算符的优先级，在编码的时候，注意用括号就行</p>
+<p>注意一些几点：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;&amp; 逻辑与 </div><div class="line">|| 逻辑或</div><div class="line">两者都是短路（）方式求值的，如果第一个已经确定，就不再进行第二个操作了</div></pre></td></tr></table></figure>
+<ol>
+<li>1/2=0 （两个数都是整数，得到的结果也是证书）</li>
+</ol>
+<h3 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h3><p>精度丢失问题</p>
+<h3 id="位运算符"><a href="#位运算符" class="headerlink" title="位运算符"></a>位运算符</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line">&amp;(与)</div><div class="line">|（或）</div><div class="line">~（非）</div><div class="line">&gt;&gt; 运算符用符号位填充左侧的位</div></pre></td></tr></table></figure>
+<h3 id="字符串"><a href="#字符串" class="headerlink" title="字符串"></a>字符串</h3><p>可以参考：<a href="http://developer.51cto.com/art/200711/60242.htm" target="_blank" rel="external">Java常量字符串String理解</a></p>
+<p>注意以下几点</p>
+<ol>
+<li>str.getBytes() 多次运行结果不一样</li>
+<li>str.getBytes() 一般需要带上字符集，否则可能出现结果不一致，特别是在对字符串进行加密的时候</li>
+<li>字符串拼接一般使用StringBuilder(非线程安全)</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StringTest</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="comment">// 创建一个对象</span></div><div class="line">        String s1 = <span class="string">"Hello"</span>;</div><div class="line">        <span class="comment">// 因为创建了一个对象，直接从常量池中取，所以 s1==s2</span></div><div class="line">        String s2 = <span class="string">"Hello"</span>;</div><div class="line">        <span class="comment">// 创建一个对象，因为Hello已经存在，所以不会在常量池中创建，如果没有，则该语句创建两个对象</span></div><div class="line">        String s3 = <span class="keyword">new</span> String(<span class="string">"Hello"</span>);</div><div class="line">        String s4 = <span class="keyword">new</span> String(<span class="string">"Hello"</span>);</div><div class="line">        System.out.println(s1 == s2); <span class="comment">// true 从常量池中直接取出</span></div><div class="line">        System.out.println(s1.equals(s2)); <span class="comment">// true</span></div><div class="line">        System.out.println(s2 == s3); <span class="comment">// false</span></div><div class="line">        System.out.println(s2.equals(s3)); <span class="comment">// true</span></div><div class="line">        System.out.println(s3 == s4);</div><div class="line">        System.out.println(s3.equals(s4)); <span class="comment">// true</span></div><div class="line"></div><div class="line">        System.out.println(X.strX == Y.strY); <span class="comment">// true</span></div><div class="line">        System.out.println(X.strX == Z.strZ); <span class="comment">// true</span></div><div class="line">        String s5 = <span class="string">"hel"</span>;</div><div class="line">        String s6 = <span class="string">"lo"</span>;</div><div class="line">        System.out.println(X.strX == (s5 + s6)); <span class="comment">// false</span></div><div class="line">        System.out.println(X.strX == (s5 + s6).intern()); <span class="comment">// true</span></div><div class="line"></div><div class="line">        System.out.println(<span class="keyword">new</span> M().strX == <span class="keyword">new</span> N().strY); <span class="comment">// true</span></div><div class="line">        System.out.println(<span class="keyword">new</span> M().strX == <span class="keyword">new</span> O().strZ); <span class="comment">// true</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">X</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String strX = <span class="string">"hello"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Y</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String strY = <span class="string">"hello"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Z</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String strZ = <span class="string">"hell"</span> + <span class="string">"o"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">M</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> String strX = <span class="string">"hello"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">N</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> String strY = <span class="string">"hello"</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">O</span> </span>&#123;</div><div class="line">    <span class="keyword">public</span> String strZ = <span class="string">"hell"</span> + <span class="string">"o"</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/java/" rel="tag"># java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016-04-30-MyBatis学习-总结/" rel="next" title="MyBatis学习-总结">
+                <i class="fa fa-chevron-left"></i> MyBatis学习-总结
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016-05-01-Java复习笔记(一)/" rel="prev" title="java复习笔记(一)">
+                java复习笔记(一) <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">liuyiyou</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容"><span class="nav-number">2.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#数据类型"><span class="nav-number">3.</span> <span class="nav-text">数据类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#字节占比"><span class="nav-number">3.1.</span> <span class="nav-text">字节占比</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#取值范围"><span class="nav-number">3.2.</span> <span class="nav-text">取值范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缓存"><span class="nav-number">3.3.</span> <span class="nav-text">缓存</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#变量和常量"><span class="nav-number">4.</span> <span class="nav-text">变量和常量</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#局部变量"><span class="nav-number">4.1.</span> <span class="nav-text">局部变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类变量（静态变量）"><span class="nav-number">4.2.</span> <span class="nav-text">类变量（静态变量）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#成员变量（非静态变量）"><span class="nav-number">4.3.</span> <span class="nav-text">成员变量（非静态变量）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常量"><span class="nav-number">4.4.</span> <span class="nav-text">常量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#类常量"><span class="nav-number">4.5.</span> <span class="nav-text">类常量</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运算符"><span class="nav-number">5.</span> <span class="nav-text">运算符</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#类型转换"><span class="nav-number">5.1.</span> <span class="nav-text">类型转换</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位运算符"><span class="nav-number">5.2.</span> <span class="nav-text">位运算符</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串"><span class="nav-number">5.3.</span> <span class="nav-text">字符串</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">liuyiyou.cn</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">网站字数总数&#58;</span>
+    
+    <span title="网站字数总数">122.2k</span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+  <script src="https://cdn1.lncld.net/static/js/av-core-mini-0.6.4.js"></script>
+  <script>AV.initialize("FUPssgG7FQe5trsvf4TbpNfC-gzGzoHsz", "mRbmufFxoH0YiK3CPTPzpvS7");</script>
+  <script>
+    function showTime(Counter) {
+      var query = new AV.Query(Counter);
+      var entries = [];
+      var $visitors = $(".leancloud_visitors");
+
+      $visitors.each(function () {
+        entries.push( $(this).attr("id").trim() );
+      });
+
+      query.containedIn('url', entries);
+      query.find()
+        .done(function (results) {
+          var COUNT_CONTAINER_REF = '.leancloud-visitors-count';
+
+          if (results.length === 0) {
+            $visitors.find(COUNT_CONTAINER_REF).text(0);
+            return;
+          }
+
+          for (var i = 0; i < results.length; i++) {
+            var item = results[i];
+            var url = item.get('url');
+            var time = item.get('time');
+            var element = document.getElementById(url);
+
+            $(element).find(COUNT_CONTAINER_REF).text(time);
+          }
+          for(var i = 0; i < entries.length; i++) {
+            var url = entries[i];
+            var element = document.getElementById(url);
+            var countSpan = $(element).find(COUNT_CONTAINER_REF);
+            if( countSpan.text() == '') {
+              countSpan.text(0);
+            }
+          }
+        })
+        .fail(function (object, error) {
+          console.log("Error: " + error.code + " " + error.message);
+        });
+    }
+
+    function addCount(Counter) {
+      var $visitors = $(".leancloud_visitors");
+      var url = $visitors.attr('id').trim();
+      var title = $visitors.attr('data-flag-title').trim();
+      var query = new AV.Query(Counter);
+
+      query.equalTo("url", url);
+      query.find({
+        success: function(results) {
+          if (results.length > 0) {
+            var counter = results[0];
+            counter.fetchWhenSave(true);
+            counter.increment("time");
+            counter.save(null, {
+              success: function(counter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(counter.get('time'));
+              },
+              error: function(counter, error) {
+                console.log('Failed to save Visitor num, with error message: ' + error.message);
+              }
+            });
+          } else {
+            var newcounter = new Counter();
+            /* Set ACL */
+            var acl = new AV.ACL();
+            acl.setPublicReadAccess(true);
+            acl.setPublicWriteAccess(true);
+            newcounter.setACL(acl);
+            /* End Set ACL */
+            newcounter.set("title", title);
+            newcounter.set("url", url);
+            newcounter.set("time", 1);
+            newcounter.save(null, {
+              success: function(newcounter) {
+                var $element = $(document.getElementById(url));
+                $element.find('.leancloud-visitors-count').text(newcounter.get('time'));
+              },
+              error: function(newcounter, error) {
+                console.log('Failed to create');
+              }
+            });
+          }
+        },
+        error: function(error) {
+          console.log('Error:' + error.code + " " + error.message);
+        }
+      });
+    }
+
+    $(function() {
+      var Counter = AV.Object.extend("Counter");
+      if ($('.leancloud_visitors').length == 1) {
+        addCount(Counter);
+      } else if ($('.post-title-link').length > 1) {
+        showTime(Counter);
+      }
+    });
+  </script>
+
+
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/needsharebutton/needsharebutton.css">
+
+  
+  
+  <script src="/lib/needsharebutton/needsharebutton.js"></script>
+
+  <script>
+    
+    
+  </script>
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>

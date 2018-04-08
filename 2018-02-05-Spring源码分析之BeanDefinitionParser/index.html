@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="待续。。。。。">
+<meta name="description" content="/** * 解析和注册BeanDefinition */public interface BeanDefinitionParser &amp;#123;    /**     * 将Bean注册到BeanFactory的子类中     *     * @param reader   : BeanDefinitionReader  读取bean定义     * @param doc      :  读取的地">
 <meta name="keywords" content="spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring源码分析之BeanDefinitionParser">
 <meta property="og:url" content="http://liuyiyou.cn/2018-02-05-Spring源码分析之BeanDefinitionParser/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="待续。。。。。">
+<meta property="og:description" content="/** * 解析和注册BeanDefinition */public interface BeanDefinitionParser &amp;#123;    /**     * 将Bean注册到BeanFactory的子类中     *     * @param reader   : BeanDefinitionReader  读取bean定义     * @param doc      :  读取的地">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-09T16:44:07.841Z">
+<meta property="og:updated_time" content="2018-02-24T03:12:11.937Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring源码分析之BeanDefinitionParser">
-<meta name="twitter:description" content="待续。。。。。">
+<meta name="twitter:description" content="/** * 解析和注册BeanDefinition */public interface BeanDefinitionParser &amp;#123;    /**     * 将Bean注册到BeanFactory的子类中     *     * @param reader   : BeanDefinitionReader  读取bean定义     * @param doc      :  读取的地">
 
 
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2
+                  319
                 </span>
               
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -405,7 +405,11 @@
       
 
       
-        <p>待续。。。。。</p>
+        <figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 解析和注册BeanDefinition</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BeanDefinitionParser</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 将Bean注册到BeanFactory的子类中</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> reader   : BeanDefinitionReader  读取bean定义</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> doc      :  读取的地方</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> resource</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span> Bean的个数</span></div><div class="line"><span class="comment">     * <span class="doctag">@throws</span> BeansException</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">registerBeanDefinitions</span><span class="params">(BeanDefinitionReader reader, Document doc, Resource resource)</span></span></div><div class="line"><span class="function">            <span class="keyword">throws</span> BeansException</span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 加载BeanDefinition</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> ele</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">loadBeanDefinition</span><span class="params">(Element ele)</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 解析BeanDefinition</span></div><div class="line"><span class="comment">     *</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> ele</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> beanName</span></div><div class="line"><span class="comment">     * <span class="doctag">@return</span></span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="function">AbstractBeanDefinition <span class="title">parseBeanDefinition</span><span class="params">(Element ele, String beanName)</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在registerBeanDefinitions方法中调用loadBeanDefinition<br>DefaultXmlBeanDefinitionParser:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">registerBeanDefinitions</span><span class="params">(BeanDefinitionReader beanDefinitionReader,</span></span></div><div class="line"><span class="function"><span class="params">                                   Document doc, Resource resource)</span> </span>&#123;</div><div class="line">    <span class="keyword">this</span>.beanDefinitionReader = beanDefinitionReader;</div><div class="line">    <span class="keyword">this</span>.resource = resource;</div><div class="line">    Element root = doc.getDocumentElement();</div><div class="line">    <span class="keyword">this</span>.defaultLazyInit = root.getAttribute(DEFAULT_LAZY_INIT_ATTRIBUTE);</div><div class="line">    <span class="keyword">this</span>.defaultDependencyCheck = root.getAttribute(DEFAULT_DEPENDENCY_CHECK_ATTRIBUTE);</div><div class="line">    <span class="keyword">this</span>.defaultAutowire = root.getAttribute(DEFAULT_AUTOWIRE_ATTRIBUTE);</div><div class="line">    NodeList nl = root.getChildNodes();</div><div class="line">    <span class="keyword">int</span> beanDefinitionCounter = <span class="number">0</span>;</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nl.getLength(); i++) &#123;</div><div class="line">        Node node = nl.item(i);</div><div class="line">        <span class="keyword">if</span> (node <span class="keyword">instanceof</span> Element &amp;&amp; BEAN_ELEMENT.equals(node.getNodeName())) &#123;</div><div class="line">            beanDefinitionCounter++;</div><div class="line">            <span class="comment">//加载BeanDefinition</span></div><div class="line">            loadBeanDefinition((Element) node);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> beanDefinitionCounter;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在loadBeanDefinition方法中调用调用子类的解析和注册DefaultXmlBeanDefinitionParser:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">loadBeanDefinition</span><span class="params">(Element ele)</span> </span>&#123;</div><div class="line">        String id = ele.getAttribute(ID_ATTRIBUTE);</div><div class="line">        String nameAttr = ele.getAttribute(NAME_ATTRIBUTE);</div><div class="line">        List aliases = <span class="keyword">new</span> ArrayList();</div><div class="line">        <span class="keyword">if</span> (nameAttr != <span class="keyword">null</span> &amp;&amp; !<span class="string">""</span>.equals(nameAttr)) &#123;</div><div class="line">            String[] nameArr = StringUtils.tokenizeToStringArray(nameAttr, BEAN_NAME_DELIMITERS, <span class="keyword">true</span>, <span class="keyword">true</span>);</div><div class="line">            aliases.addAll(Arrays.asList(nameArr));</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">if</span> (id == <span class="keyword">null</span> || <span class="string">""</span>.equals(id) &amp;&amp; !aliases.isEmpty()) &#123;</div><div class="line">            id = (String) aliases.remove(<span class="number">0</span>);</div><div class="line">            logger.debug(<span class="string">"No XML 'id' specified - using '"</span> + id + <span class="string">"' as ID and "</span> + aliases + <span class="string">" as aliases"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//解析Bean</span></div><div class="line">        AbstractBeanDefinition beanDefinition = parseBeanDefinition(ele, id);</div><div class="line">        <span class="keyword">if</span> (id == <span class="keyword">null</span> || <span class="string">""</span>.equals(id)) &#123;</div><div class="line">            <span class="keyword">if</span> (beanDefinition <span class="keyword">instanceof</span> RootBeanDefinition) &#123;</div><div class="line">                id = ((RootBeanDefinition) beanDefinition).getBeanClassName();</div><div class="line">                logger.debug(<span class="string">"Neither XML 'id' nor 'name' specified - using bean class name ["</span> + id + <span class="string">"] as ID"</span>);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                <span class="keyword">throw</span> <span class="keyword">new</span> BeanDefinitionStoreException(<span class="keyword">this</span>.resource, <span class="string">""</span>,</div><div class="line">                        <span class="string">"Child bean definition has neither 'id' nor 'name'"</span>);</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        logger.debug(<span class="string">"Registering bean definition with id '"</span> + id + <span class="string">"'"</span>);</div><div class="line">        <span class="comment">//将BeanDefinition注册到BeanFactory</span></div><div class="line">        <span class="keyword">this</span>.beanDefinitionReader.getBeanFactory().registerBeanDefinition(id, beanDefinition);</div><div class="line">        <span class="keyword">for</span> (Iterator it = aliases.iterator(); it.hasNext(); ) &#123;</div><div class="line">            <span class="keyword">this</span>.beanDefinitionReader.getBeanFactory().registerAlias(id, (String) it.next());</div><div class="line">        &#125;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -446,8 +450,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018-02-06-Spring源码分析之BeanFactroy接口/" rel="prev" title="Spring源码分析之BeanFactroy接口">
-                Spring源码分析之BeanFactroy接口 <i class="fa fa-chevron-right"></i>
+              <a href="/2018-02-06-Azkaban安装/" rel="prev" title="2018-02-06-Azkaban安装">
+                2018-02-06-Azkaban安装 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -516,7 +520,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">163</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -527,7 +531,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -538,7 +542,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -591,7 +595,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">99.3k</span>
+    <span title="网站字数总数">122.2k</span>
   
 </div>
 

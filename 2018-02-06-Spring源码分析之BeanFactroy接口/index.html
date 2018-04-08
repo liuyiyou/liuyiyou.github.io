@@ -80,19 +80,19 @@
 
 
 
-<meta name="description" content="本文只讲接口，主要是为了方便记忆。具体的抽象类和实现类，在后文中进行讲解，而且具体实现类过长，可能还要分为几篇  几个BeanFactory接口的意义BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的apiAutowireCapableBeanFactory：添加集成其他框架功能.如果集成WebWor">
+<meta name="description" content="本文只讲接口，主要是为了方便记忆。具体的抽象类和实现类，在后文中进行讲解，而且具体实现类过长，可能还要分为几篇  几个BeanFactory接口的意义 BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的api AutowireCapableBeanFactory：扩展BeanFactory接口，由能够">
 <meta name="keywords" content="spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring源码分析之BeanFactroy接口">
 <meta property="og:url" content="http://liuyiyou.cn/2018-02-06-Spring源码分析之BeanFactroy接口/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="本文只讲接口，主要是为了方便记忆。具体的抽象类和实现类，在后文中进行讲解，而且具体实现类过长，可能还要分为几篇  几个BeanFactory接口的意义BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的apiAutowireCapableBeanFactory：添加集成其他框架功能.如果集成WebWor">
+<meta property="og:description" content="本文只讲接口，主要是为了方便记忆。具体的抽象类和实现类，在后文中进行讲解，而且具体实现类过长，可能还要分为几篇  几个BeanFactory接口的意义 BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的api AutowireCapableBeanFactory：扩展BeanFactory接口，由能够">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://liuyiyou.cn/images/spring/BeanFactory.png">
-<meta property="og:updated_time" content="2018-02-09T16:44:40.040Z">
+<meta property="og:updated_time" content="2018-02-12T03:24:59.194Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring源码分析之BeanFactroy接口">
-<meta name="twitter:description" content="本文只讲接口，主要是为了方便记忆。具体的抽象类和实现类，在后文中进行讲解，而且具体实现类过长，可能还要分为几篇  几个BeanFactory接口的意义BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的apiAutowireCapableBeanFactory：添加集成其他框架功能.如果集成WebWor">
+<meta name="twitter:description" content="本文只讲接口，主要是为了方便记忆。具体的抽象类和实现类，在后文中进行讲解，而且具体实现类过长，可能还要分为几篇  几个BeanFactory接口的意义 BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的api AutowireCapableBeanFactory：扩展BeanFactory接口，由能够">
 <meta name="twitter:image" content="http://liuyiyou.cn/images/spring/BeanFactory.png">
 
 
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  491
+                  905
                 </span>
               
 
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -409,10 +409,24 @@
       
         <p>本文只讲接口，主要是为了方便记忆。具体的抽象类和实现类，在后文中进行讲解，而且具体实现类过长，可能还要分为几篇</p>
 <p><img src="/images/spring/BeanFactory.png" alt="冒泡排序"></p>
-<h2 id="几个BeanFactory接口的意义"><a href="#几个BeanFactory接口的意义" class="headerlink" title="几个BeanFactory接口的意义"></a>几个BeanFactory接口的意义</h2><p>BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的api<br>AutowireCapableBeanFactory：添加集成其他框架功能.如果集成WebWork则可以使用Spring对Actions等进行管理.<br>HierarchicalBeanFactory：提供父容器的访问功能<br>ConfigurableBeanFactory：如名,提供factory的配置功能,眼花缭乱好多api<br>ConfigurableListableBeanFactory：集大成者,提供解析,修改bean定义,并与初始化单例.<br>ListableBeanFactory：提供容器内bean实例的枚举功能.这边不会考虑父容器内的实例.</p>
+<h2 id="几个BeanFactory接口的意义"><a href="#几个BeanFactory接口的意义" class="headerlink" title="几个BeanFactory接口的意义"></a>几个BeanFactory接口的意义</h2><ul>
+<li>BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的api</li>
+<li>AutowireCapableBeanFactory：扩展BeanFactory接口，由能够自动装配的bean工厂实现，并为现有的bean实例公开这个功能。</li>
+<li>HierarchicalBeanFactory：提供父容器的访问功能</li>
+<li>ConfigurableBeanFactory：如名,提供factory的配置功能,眼花缭乱好多api</li>
+<li>ListableBeanFactory：提供容器内bean实例的枚举功能.这边不会考虑父容器内的实例.</li>
+<li>ConfigurableListableBeanFactory：集大成者,提供解析,修改bean定义,并与初始化单例.</li>
+</ul>
 <p>为什么要有这么多的BeanFactory？</p>
-<h2 id="BeanFactory"><a href="#BeanFactory" class="headerlink" title="BeanFactory"></a>BeanFactory</h2><p>ListableBeanFactory</p>
-<p>BeanFactory接口的扩展由bean工厂实现，bean工厂可以枚举它们的所有bean实例，而不是按照客户的要求一个接一个的尝试bean的名字。预加载所有bean定义的BeanFactory实现（例如基于XML的工厂）可以实现这个接口。<br>如果这是一个HierarchicalBeanFactory，则返回值不会考虑任何BeanFactory层次结构，而只会涉及当前工厂中定义的Bean。使用BeanFactoryUtils助手类也可以考虑祖先工厂中的bean。<br>这个接口中的方法只会尊重这个工厂的bean定义。他们将忽略任何单身bean已经通过其他方式注册，如org.springframework.beans.factory.config.ConfigurableBeanFactory的registerSingleton方法，除了getBeanNamesOfType和getBeansOfType将检查这种手动注册的单身。当然，BeanFactory的getBean也允许透明地访问这些特殊的bean。但是，在典型的情况下，所有的bean都将由外部bean定义来定义，所以大多数应用程序不需要担心这种差异。<br>注意：除getBeanDefinitionCount和containsBeanDefinition之外，此接口中的方法不适用于频繁调用。实现可能会很慢。</p>
+<h2 id="BeanFactory"><a href="#BeanFactory" class="headerlink" title="BeanFactory"></a>BeanFactory</h2><p>接口由持有多个bean定义的对象实现，每个定义由一个String名称唯一标识。可以获得任何这些对象的独立实例（Prototype设计模式），或者可以获得单个共享实例（Singleton设计模式的上级替代方案）。将返回哪种类型的实例取决于bean工厂配置 - API是相同的。 Singleton方法在实践中更加有用，也更为常见。</p>
+<p>这种方法的重点在于，BeanFactory是应用程序组件的中央注册表，集中配置应用程序,通常，BeanFactory将加载存储在配置源（例如XML文档）中的bean定义，并使用org.springframework.beans包来配置bean。但是，实现可以直接在Java代码中直接返回它创建的Java对象。对于如何存储定义没有限制：LDAP，RDBMS，XML，属性文件等。鼓励实现支持bean之间的引用，不管是单例还是原型。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BeanFactory</span> </span>&#123;</div><div class="line"></div><div class="line"></div><div class="line">    String FACTORY_BEAN_PREFIX = <span class="string">"&amp;"</span>;</div><div class="line"></div><div class="line">    <span class="function">Object <span class="title">getBean</span><span class="params">(String name)</span> <span class="keyword">throws</span> BeansException</span>;</div><div class="line"></div><div class="line">    <span class="function">Object <span class="title">getBean</span><span class="params">(String name, Class requiredType)</span> <span class="keyword">throws</span> BeansException</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">containsBean</span><span class="params">(String name)</span></span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isSingleton</span><span class="params">(String name)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</div><div class="line"></div><div class="line">    String[] getAliases(String name) <span class="keyword">throws</span> NoSuchBeanDefinitionException;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="ListableBeanFactory"><a href="#ListableBeanFactory" class="headerlink" title="ListableBeanFactory"></a>ListableBeanFactory</h2><p>BeanFactory接口的扩展由bean工厂实现，bean工厂可以枚举它们的所有bean实例，而不是按照客户的要求一个接一个的尝试bean的名字。预加载所有bean定义的BeanFactory实现（例如基于XML的工厂）可以实现这个接口。<br>如果这是一个HierarchicalBeanFactory，则返回值不会考虑任何BeanFactory层次结构，而只会涉及当前工厂中定义的Bean。使用BeanFactoryUtils助手类也可以考虑祖先工厂中的bean。<br>这个接口中的方法只会尊重这个工厂的bean定义。他们将忽略任何单身bean已经通过其他方式注册，如org.springframework.beans.factory.config.ConfigurableBeanFactory的registerSingleton方法，除了getBeanNamesOfType和getBeansOfType将检查这种手动注册的单身。当然，BeanFactory的getBean也允许透明地访问这些特殊的bean。但是，在典型的情况下，所有的bean都将由外部bean定义来定义，所以大多数应用程序不需要担心这种差异。<br>注意：除getBeanDefinitionCount和containsBeanDefinition之外，此接口中的方法不适用于频繁调用。实现可能会很慢。</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ListableBeanFactory</span> <span class="keyword">extends</span> <span class="title">BeanFactory</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getBeanDefinitionCount</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    String[] getBeanDefinitionNames();</div><div class="line"></div><div class="line">    String[] getBeanDefinitionNames(Class type);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">containsBeanDefinition</span><span class="params">(String name)</span></span>;</div><div class="line"></div><div class="line">    <span class="function">Map <span class="title">getBeansOfType</span><span class="params">(Class type, <span class="keyword">boolean</span> includePrototypes, <span class="keyword">boolean</span> includeFactoryBeans)</span></span></div><div class="line"><span class="function">            <span class="keyword">throws</span> BeansException</span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="AutowireCapableBeanFactory"><a href="#AutowireCapableBeanFactory" class="headerlink" title="AutowireCapableBeanFactory"></a>AutowireCapableBeanFactory</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="function">Object <span class="title">autowire</span><span class="params">(Class beanClass, <span class="keyword">int</span> autowireMode, <span class="keyword">boolean</span> dependencyCheck)</span></span></div><div class="line"><span class="function">        <span class="keyword">throws</span> BeansException</span>;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">autowireBeanProperties</span><span class="params">(Object existingBean, <span class="keyword">int</span> autowireMode, <span class="keyword">boolean</span> dependencyCheck)</span></span></div><div class="line"><span class="function">        <span class="keyword">throws</span> BeansException</span>;</div><div class="line"><span class="function">Object <span class="title">applyBeanPostProcessorsBeforeInitialization</span><span class="params">(Object existingBean, String name)</span></span></div><div class="line"><span class="function">        <span class="keyword">throws</span> BeansException</span>;</div><div class="line"><span class="function">Object <span class="title">applyBeanPostProcessorsAfterInitialization</span><span class="params">(Object existingBean, String name)</span></span></div><div class="line"><span class="function">        <span class="keyword">throws</span> BeansException</span>;</div></pre></td></tr></table></figure>
+<h2 id="HierarchicalBeanFactory"><a href="#HierarchicalBeanFactory" class="headerlink" title="HierarchicalBeanFactory"></a>HierarchicalBeanFactory</h2><p>提供父子上下文</p>
+<h2 id="二级继承"><a href="#二级继承" class="headerlink" title="二级继承"></a>二级继承</h2><h2 id="ConfigurableBeanFactory"><a href="#ConfigurableBeanFactory" class="headerlink" title="ConfigurableBeanFactory"></a>ConfigurableBeanFactory</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ConfigurableBeanFactory</span> <span class="keyword">extends</span> <span class="title">HierarchicalBeanFactory</span> </span>&#123;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">setParentBeanFactory</span><span class="params">(BeanFactory parentBeanFactory)</span></span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerCustomEditor</span><span class="params">(Class requiredType, PropertyEditor propertyEditor)</span></span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">ignoreDependencyType</span><span class="params">(Class type)</span></span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">addBeanPostProcessor</span><span class="params">(BeanPostProcessor beanPostProcessor)</span></span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function">BeanDefinition <span class="title">getBeanDefinition</span><span class="params">(String beanName)</span> <span class="keyword">throws</span> BeansException</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerAlias</span><span class="params">(String beanName, String alias)</span> <span class="keyword">throws</span> BeansException</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">registerSingleton</span><span class="params">(String beanName, Object singletonObject)</span> <span class="keyword">throws</span> BeansException</span>;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">destroySingletons</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="ConfigurableListableBeanFactory"><a href="#ConfigurableListableBeanFactory" class="headerlink" title="ConfigurableListableBeanFactory"></a>ConfigurableListableBeanFactory</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ConfigurableListableBeanFactory</span></span></div><div class="line"><span class="class">        <span class="keyword">extends</span> <span class="title">ListableBeanFactory</span>, <span class="title">ConfigurableBeanFactory</span>, <span class="title">AutowireCapableBeanFactory</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">void</span> <span class="title">preInstantiateSingletons</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -443,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018-02-05-Spring源码分析之BeanDefinitionParser/" rel="next" title="Spring源码分析之BeanDefinitionParser">
-                <i class="fa fa-chevron-left"></i> Spring源码分析之BeanDefinitionParser
+              <a href="/2018-02-06-mysql相关命令小结/" rel="next" title="mysql相关命令小结">
+                <i class="fa fa-chevron-left"></i> mysql相关命令小结
               </a>
             
           </div>
@@ -453,8 +467,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018-02-07-Spring源码分析之BeanFactroy抽象实现/" rel="prev" title="Spring源码分析之BeanFactroy抽象实现">
-                Spring源码分析之BeanFactroy抽象实现 <i class="fa fa-chevron-right"></i>
+              <a href="/2018-02-07-Spring异常汇总/" rel="prev" title="Spring异常汇总">
+                Spring异常汇总 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -532,7 +546,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">163</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -543,7 +557,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -554,7 +568,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -589,7 +603,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#几个BeanFactory接口的意义"><span class="nav-number">1.</span> <span class="nav-text">几个BeanFactory接口的意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BeanFactory"><span class="nav-number">2.</span> <span class="nav-text">BeanFactory</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#几个BeanFactory接口的意义"><span class="nav-number">1.</span> <span class="nav-text">几个BeanFactory接口的意义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#BeanFactory"><span class="nav-number">2.</span> <span class="nav-text">BeanFactory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ListableBeanFactory"><span class="nav-number">3.</span> <span class="nav-text">ListableBeanFactory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AutowireCapableBeanFactory"><span class="nav-number">4.</span> <span class="nav-text">AutowireCapableBeanFactory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#HierarchicalBeanFactory"><span class="nav-number">5.</span> <span class="nav-text">HierarchicalBeanFactory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#二级继承"><span class="nav-number">6.</span> <span class="nav-text">二级继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConfigurableBeanFactory"><span class="nav-number">7.</span> <span class="nav-text">ConfigurableBeanFactory</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ConfigurableListableBeanFactory"><span class="nav-number">8.</span> <span class="nav-text">ConfigurableListableBeanFactory</span></a></li></ol></div>
             
 
           </div>
@@ -623,7 +637,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">99.3k</span>
+    <span title="网站字数总数">122.2k</span>
   
 </div>
 

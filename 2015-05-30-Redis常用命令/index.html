@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="Redis提供了丰富的命令对数据库和各种数据库类型进行操作，这些命令可以在Linux终端使用，命令太多，记不住，大概写一些常用的 连接Redis服务用法：redis-cli [OPTIONS] [cmd [arg [arg …]]] -h &amp;lt;主机ip&amp;gt;，默认是127.0.0.1 -p &amp;lt;端口&amp;gt;，默认是6379 -a &amp;lt;密码&amp;gt;，如果redis加锁，需要传递密码eg">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-23T06:00:46.042Z">
+<meta property="og:updated_time" content="2018-03-12T07:57:07.183Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Redis常用命令">
 <meta name="twitter:description" content="Redis提供了丰富的命令对数据库和各种数据库类型进行操作，这些命令可以在Linux终端使用，命令太多，记不住，大概写一些常用的 连接Redis服务用法：redis-cli [OPTIONS] [cmd [arg [arg …]]] -h &amp;lt;主机ip&amp;gt;，默认是127.0.0.1 -p &amp;lt;端口&amp;gt;，默认是6379 -a &amp;lt;密码&amp;gt;，如果redis加锁，需要传递密码eg">
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  368
+                  418
                 </span>
               
 
@@ -424,6 +424,14 @@
 <li>randomkey：随机返回一个key</li>
 <li>rename：重命名key</li>
 <li>type：返回key的数据类型</li>
+</ul>
+<h3 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h3><ol>
+<li>赋值与取值</li>
+</ol>
+<ul>
+<li>set key value  设置键值</li>
+<li>get key   当键值不在时，返回空值</li>
+<li>incr key  如果键是整形，则递增，是字符串，则返回错误</li>
 </ul>
 <h3 id="服务器相关命令"><a href="#服务器相关命令" class="headerlink" title="服务器相关命令"></a>服务器相关命令</h3><ul>
 <li>select：选择数据库  eg：select 0</li>
@@ -547,7 +555,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">163</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -558,7 +566,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -569,7 +577,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -604,7 +612,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#连接Redis服务"><span class="nav-number">1.</span> <span class="nav-text">连接Redis服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#批量删除Key"><span class="nav-number">2.</span> <span class="nav-text">批量删除Key</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#键值相关命令"><span class="nav-number">2.1.</span> <span class="nav-text">键值相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器相关命令"><span class="nav-number">2.2.</span> <span class="nav-text">服务器相关命令</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#连接Redis服务"><span class="nav-number">1.</span> <span class="nav-text">连接Redis服务</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#批量删除Key"><span class="nav-number">2.</span> <span class="nav-text">批量删除Key</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#键值相关命令"><span class="nav-number">2.1.</span> <span class="nav-text">键值相关命令</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#字符串类型"><span class="nav-number">2.2.</span> <span class="nav-text">字符串类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#服务器相关命令"><span class="nav-number">2.3.</span> <span class="nav-text">服务器相关命令</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -638,7 +646,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">99.3k</span>
+    <span title="网站字数总数">122.2k</span>
   
 </div>
 

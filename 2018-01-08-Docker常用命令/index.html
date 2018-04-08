@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="docker psdocker ps -a为查看所有的容器，包括已经停止的。 docker images 列出本地主机上的镜像 docker pull 拉取镜像，   docker pull name[:TAG]，如果不显示指定tag，默认为latest标签 docker  inspect  ID: 获取镜像详细信息，如果只要其中一项内容，可以使用-f参数指定 docker inspet -f .">
+<meta name="description" content="下面是Docker常用到的命令 搜索篇这部分主要是一些常规命令 docker search mysql // 搜索镜像：curl -s -S &amp;apos;https://registry.hub.docker.com/v2/repositories/library/memcached/tags/&amp;apos; | jq &amp;apos;.&amp;quot;results&amp;quot;[][&amp;quot;name&amp;">
 <meta name="keywords" content="docker">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Docker常用命令">
 <meta property="og:url" content="http://liuyiyou.cn/2018-01-08-Docker常用命令/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="docker psdocker ps -a为查看所有的容器，包括已经停止的。 docker images 列出本地主机上的镜像 docker pull 拉取镜像，   docker pull name[:TAG]，如果不显示指定tag，默认为latest标签 docker  inspect  ID: 获取镜像详细信息，如果只要其中一项内容，可以使用-f参数指定 docker inspet -f .">
+<meta property="og:description" content="下面是Docker常用到的命令 搜索篇这部分主要是一些常规命令 docker search mysql // 搜索镜像：curl -s -S &amp;apos;https://registry.hub.docker.com/v2/repositories/library/memcached/tags/&amp;apos; | jq &amp;apos;.&amp;quot;results&amp;quot;[][&amp;quot;name&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-19T04:00:02.941Z">
+<meta property="og:updated_time" content="2018-02-08T02:16:38.197Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker常用命令">
-<meta name="twitter:description" content="docker psdocker ps -a为查看所有的容器，包括已经停止的。 docker images 列出本地主机上的镜像 docker pull 拉取镜像，   docker pull name[:TAG]，如果不显示指定tag，默认为latest标签 docker  inspect  ID: 获取镜像详细信息，如果只要其中一项内容，可以使用-f参数指定 docker inspet -f .">
+<meta name="twitter:description" content="下面是Docker常用到的命令 搜索篇这部分主要是一些常规命令 docker search mysql // 搜索镜像：curl -s -S &amp;apos;https://registry.hub.docker.com/v2/repositories/library/memcached/tags/&amp;apos; | jq &amp;apos;.&amp;quot;results&amp;quot;[][&amp;quot;name&amp;">
 
 
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  784
+                  554
                 </span>
               
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  2
                 </span>
               
             </div>
@@ -405,49 +405,16 @@
       
 
       
-        <p>docker ps<br>docker ps -a为查看所有的容器，包括已经停止的。</p>
-<p>docker images 列出本地主机上的镜像</p>
-<p>docker pull 拉取镜像，   docker pull name[:TAG]，如果不显示指定tag，默认为latest标签</p>
-<p>docker  inspect  ID: 获取镜像详细信息，如果只要其中一项内容，可以使用-f参数指定 docker inspet -f .Architecure  550</p>
-<p>docker search mysql 搜索镜像： </p>
-<p>docker rmi IMAGE[IMAGE …] ，删除镜像，其中Image可以为标签或者ID，强制删除 加 -f参数</p>
-<p>删除所有容器</p>
-<p>docker rm $(docker ps -a -q)</p>
-<p>删除单个容器</p>
-<p>docker rm &lt;容器名orID&gt;</p>
-<p>停止、启动、杀死一个容器</p>
-<p>docker stop &lt;容器名orID&gt;<br>docker start &lt;容器名orID&gt;<br>docker kill &lt;容器名orID&gt;</p>
-<p>删除所有镜像<br>docker rmi $(docker images | grep none | awk ‘{print $3}’ | sort -r)</p>
-<p>docker commit [OPTIONS]  CONTAINER [REPOSITORY[:TAG]]<br>-a  , –author = “”  作者信息<br>-m , –message =”” 提交信息<br>基于已有镜像的容器创建</p>
-<p>连接到镜像<br>docker exec  -it NAME  bash   </p>
-<p>运行一个新容器，同时为它命名、端口映射、文件夹映射。以redmine镜像为例</p>
-<p>docker run –name redmine -p 9003:80 -p 9023:22 -d -v /var/redmine/files:/redmine/files -v /var/redmine/mysql:/var/lib/mysql sameersbn/redmine</p>
-<p>一个容器连接到另一个容器</p>
-<p>docker run -i -t –name sonar -d -link mmysql:db   tpires/sonar-server<br>sonar</p>
-<p>容器连接到mmysql容器，并将mmysql容器重命名为db。这样，sonar容器就可以使用db的相关的环境变量了。</p>
-<p>拉取镜像</p>
-<p>docker pull &lt;镜像名:tag&gt;</p>
-<p>当需要把一台机器上的镜像迁移到另一台机器的时候，需要保存镜像与加载镜像。</p>
-<p>机器a</p>
-<p>docker save busybox-1 &gt; /home/save.tar</p>
-<p>使用scp将save.tar拷到机器b上，然后：</p>
-<p>docker load &lt; /home/save.tar</p>
-<p>构建自己的镜像</p>
-<p>docker build -t &lt;镜像名&gt; <dockerfile路径></dockerfile路径></p>
-<p>如Dockerfile在当前路径：</p>
-<p>docker build -t xx/gitlab .<br>重新查看container的stdout</p>
-<h1 id="启动top命令，后台运行"><a href="#启动top命令，后台运行" class="headerlink" title="启动top命令，后台运行"></a>启动top命令，后台运行</h1><p>$ ID=$(sudo docker run -d ubuntu /usr/bin/top -b)</p>
-<h1 id="获取正在running的container的输出"><a href="#获取正在running的container的输出" class="headerlink" title="获取正在running的container的输出"></a>获取正在running的container的输出</h1><p>$ sudo docker attach $ID<br>top - 02:05:52 up  3:05,  0 users,  load average: 0.01, 0.02, 0.05<br>Tasks:   1 total,   1 running,   0 sleeping,   0 stopped,   0 zombie<br>Cpu(s):  0.1%us,  0.2%sy,  0.0%ni, 99.7%id,  0.0%wa,  0.0%hi,  0.0%si,  0.0%st<br>Mem:    373572k total,   355560k used,    18012k free,    27872k buffers<br>Swap:   786428k total,        0k used,   786428k free,   221740k cached<br>^C$<br>$ sudo docker stop $ID</p>
-<p>后台运行(-d)、并暴露端口(-p)</p>
-<p>docker run -d -p 127.0.0.1:33301:22 centos6-ssh</p>
-<p>从container中拷贝文件出来</p>
-<p>sudo docker cp 7bb0e258aefe:/etc/debian_version .</p>
-<p>拷贝7bb0e258aefe中的/etc/debian_version到当前目录下。<br>注意：只要7bb0e258aefe没有被删除，文件命名空间就还在，可以放心的把exit状态的container的文件拷贝出来</p>
-<p>docker run</p>
-<p>-d 标识是让 docker 容器在后台运行。<br>-p 标识通知 Docker 将容器内部使用的网络端口映射到我们使用的主机上。</p>
-<p>–name 定义一个容器的名字，如果在执行docker run时没有指定Name，那么deamon会自动生成一个随机数字符串当做UUID。</p>
-<p>docker run –name mysql -p 6033:3306 -e MYSQL_ROOT_PASSWORD=123456 -dmysql/mysql-server:latest<br>容器的名字为mysql，将容器的3306端口映射到本机的3306端口，mysql数据库的密码为password ，运行的镜像为mysql/mysql-server:latest</p>
-
+        <p>下面是Docker常用到的命令</p>
+<h2 id="搜索篇"><a href="#搜索篇" class="headerlink" title="搜索篇"></a>搜索篇</h2><p>这部分主要是一些常规命令</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">docker search mysql // 搜索镜像：</div><div class="line">curl -s -S &apos;https://registry.hub.docker.com/v2/repositories/library/memcached/tags/&apos; | jq &apos;.&quot;results&quot;[][&quot;name&quot;]&apos; |sort   //搜索tags</div><div class="line">docker ps -a    //为查看所有的容器，包括已经停止的。</div><div class="line">docker images  //列出本地主机上的镜像</div><div class="line">docker pull &lt;镜像名:tag&gt; //拉取镜像，   docker pull name[:TAG]，如果不显示指定tag，默认为latest标签</div><div class="line">docker  inspect  ID: //获取镜像详细信息，如果只要其中一项内容，可以使用-f参数指定 docker inspet -f &#123;&#123;&quot;.Architecure&quot;&#125;&#125;  550</div><div class="line">docker rmi IMAGE[IMAGE ...] ，删除镜像，其中Image可以为标签或者ID，强制删除 加 -f参数</div><div class="line">docker rmi $(docker images | grep none | awk &apos;&#123;print $3&#125;&apos; | sort -r)  //删除所有镜像</div><div class="line">docker rm $(docker ps -a -q) //删除所有容器</div><div class="line">docker rm &lt;容器名orID&gt;  //删除单个容器</div><div class="line">docker stop &lt;容器名orID&gt;  //停止容器</div><div class="line">docker start &lt;容器名orID&gt; //启动容器</div><div class="line">docker kill &lt;容器名orID&gt;  //杀死容器</div><div class="line">docker build -t &lt;镜像名&gt; &lt;Dockerfile路径&gt; //构建自己的镜像</div><div class="line">docker commit [OPTIONS]  CONTAINER [REPOSITORY[:TAG]] //基于已有镜像的容器创建</div><div class="line">-a  , --author = &quot;&quot;  作者信息</div><div class="line">-m , --message =&quot;&quot; 提交信息</div><div class="line">docker exec  -it NAME  bash   //连接到镜像</div><div class="line">#一个容器连接到另一个容器</div><div class="line">docker run -i -t --name sonar -d -link mmysql:db   tpires/sonar-server</div><div class="line">sonar</div><div class="line"></div><div class="line">容器连接到mmysql容器，并将mmysql容器重命名为db。这样，sonar容器就可以使用db的相关的环境变量了。</div></pre></td></tr></table></figure>
+<h2 id="运行篇"><a href="#运行篇" class="headerlink" title="运行篇"></a>运行篇</h2><p>主要是一些运行、挂载、提交等</p>
+<h3 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h3><p>-d 标识是让 docker 容器在后台运行,并返回容器ID。<br>-p 标识通知 Docker 将容器内部使用的网络端口映射到我们使用的主机上。<br>–name 定义一个容器的名字，如果在执行docker run时没有指定Name，那么deamon会自动生成一个随机数字符串当做UUID。<br>-m :设置容器使用内存最大值；</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">docker run --name mysql -p 6033:3306 -e MYSQL_ROOT_PASSWORD=123456 -dmysql/mysql-server:latest</div></pre></td></tr></table></figure>
+<p>容器的名字为mysql，将容器的3306端口映射到本机的6033端口，mysql数据库的密码为password ，运行的镜像为mysql/mysql-server:latest</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">docker run --name redmine -p 9003:80 -p 9023:22 -d -v /var/redmine/files:/redmine/files -v /var/redmine/mysql:/var/lib/mysql sameersbn/redmine</div></pre></td></tr></table></figure>
+<p>挂载</p>
+<h3 id="docker-save"><a href="#docker-save" class="headerlink" title="docker save"></a>docker save</h3>
       
     </div>
     
@@ -566,7 +533,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">163</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -577,7 +544,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -588,7 +555,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -623,7 +590,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#启动top命令，后台运行"><span class="nav-number">1.</span> <span class="nav-text">启动top命令，后台运行</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#获取正在running的container的输出"><span class="nav-number">2.</span> <span class="nav-text">获取正在running的container的输出</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#搜索篇"><span class="nav-number">1.</span> <span class="nav-text">搜索篇</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行篇"><span class="nav-number">2.</span> <span class="nav-text">运行篇</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-run"><span class="nav-number">2.1.</span> <span class="nav-text">docker run</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#docker-save"><span class="nav-number">2.2.</span> <span class="nav-text">docker save</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -657,7 +624,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">99.3k</span>
+    <span title="网站字数总数">122.2k</span>
   
 </div>
 

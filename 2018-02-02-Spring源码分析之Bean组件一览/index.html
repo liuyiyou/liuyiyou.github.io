@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="使用过SpringMVC的人都知道，SpringMVC的五大组件一样，SpringBean也一样有几大组件，通过各个组件将Bean装配起来并由BeanFactory容器进行管理 Spring是基于接口编程的，一般都是一个核心接口，一个对核心接口的抽象，以及多个抽象实现类来描述来进行编码，掌握了核心接口，对Spring的理解就会深刻许多，Spring的Bean加载也是几大组件组合起来的  BeanD">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-09T16:43:12.730Z">
+<meta property="og:updated_time" content="2018-02-24T01:59:54.123Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring源码分析之Bean组件一览">
 <meta name="twitter:description" content="使用过SpringMVC的人都知道，SpringMVC的五大组件一样，SpringBean也一样有几大组件，通过各个组件将Bean装配起来并由BeanFactory容器进行管理 Spring是基于接口编程的，一般都是一个核心接口，一个对核心接口的抽象，以及多个抽象实现类来描述来进行编码，掌握了核心接口，对Spring的理解就会深刻许多，Spring的Bean加载也是几大组件组合起来的  BeanD">
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,067
+                  1,052
                 </span>
               
 
@@ -415,7 +415,7 @@
 <li>BeanWrapper：包装Bean以便于BeanFactory使用</li>
 <li>BeanFactory：获取和实例化Bean</li>
 </ul>
-<h2 id="BeanDefinition"><a href="#BeanDefinition" class="headerlink" title="BeanDefinition"></a>BeanDefinition</h2><p>BeanDefinition描述了一个bean实例，该实例具有属性值，构造函数参数值以及由具体实现提供的更多信息。<br>这只是一个最小的接口：主要目的是允许BeanFactoryPostProcessors（如PropertyPlaceholderConfigurer）访问和修改属性值。</p>
+<h2 id="BeanDefinition"><a href="#BeanDefinition" class="headerlink" title="BeanDefinition"></a>BeanDefinition</h2><p>BeanDefinition描述了一个bean实例，该实例具有属性值，构造函数参数值以及由具体实现提供的更多信息。<br>允许BeanFactoryPostProcessors（如PropertyPlaceholderConfigurer）访问和修改属性值。</p>
 <p>也就是里面只有对象的属性值和构造函数参数信息</p>
 <p>抽象实现类：AbstractBeanDefinition，AbstractBeanDefinition实现了BeanDefinition</p>
 <p>使用实际类：ChildBeanDefinition、RootBeanDefinition</p>
@@ -561,7 +561,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">163</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -572,7 +572,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -583,7 +583,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -652,7 +652,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">99.3k</span>
+    <span title="网站字数总数">122.2k</span>
   
 </div>
 

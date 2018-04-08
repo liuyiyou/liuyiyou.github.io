@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="温故而知新、触类而旁通">
+<meta name="description" content="AbstractBeanFactory：BeanFactory的抽象实现，包含单例Bean的缓存、别名、FactoryBean处理，BeanDefinition合并。另外，也提供管理Bean父子关系，由子类实现的方法主要是getBeanDefinition和createBean AbstractAutowireCapableBeanFactory:抽象BeanFactory超类，它实现了默认的be">
 <meta name="keywords" content="spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring源码分析之BeanFactroy抽象实现">
 <meta property="og:url" content="http://liuyiyou.cn/2018-02-07-Spring源码分析之BeanFactroy抽象实现/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="温故而知新、触类而旁通">
+<meta property="og:description" content="AbstractBeanFactory：BeanFactory的抽象实现，包含单例Bean的缓存、别名、FactoryBean处理，BeanDefinition合并。另外，也提供管理Bean父子关系，由子类实现的方法主要是getBeanDefinition和createBean AbstractAutowireCapableBeanFactory:抽象BeanFactory超类，它实现了默认的be">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-09T16:45:01.287Z">
+<meta property="og:updated_time" content="2018-02-24T03:26:07.994Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring源码分析之BeanFactroy抽象实现">
-<meta name="twitter:description" content="温故而知新、触类而旁通">
+<meta name="twitter:description" content="AbstractBeanFactory：BeanFactory的抽象实现，包含单例Bean的缓存、别名、FactoryBean处理，BeanDefinition合并。另外，也提供管理Bean父子关系，由子类实现的方法主要是getBeanDefinition和createBean AbstractAutowireCapableBeanFactory:抽象BeanFactory超类，它实现了默认的be">
 
 
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  0
+                  440
                 </span>
               
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -405,7 +405,14 @@
       
 
       
-        
+        <p>AbstractBeanFactory：BeanFactory的抽象实现，包含单例Bean的缓存、别名、FactoryBean处理，BeanDefinition合并。另外，也提供管理Bean父子关系，由子类实现的方法主要是getBeanDefinition和createBean</p>
+<p>AbstractAutowireCapableBeanFactory:抽象BeanFactory超类，它实现了默认的bean创建。 实现AutowireCapableBeanFactory接口。提供bean创建，初始化和接线，支持自动装配和构造器解析。 处理运行时bean引用，托管集合和bean销毁。子类实现的主要模板方法是findMatchingBeans，用于按类型自动装配。 请注意，这个类不实现bean定义注册表功能（DefaultListableBeanFactory）。</p>
+<p>AbstractBeanFactory中主要完成:</p>
+<p>获取Bean::AbstractBeanFactory#getBean(….)<br>是否包含Bean::AbstractBeanFactory#containsBean(…)<br>是否是单例::AbstractBeanFactory#isSingleton(…)<br>得到Bean别名::AbstractBeanFactory#getAliases(…)<br>得到父类Bean::AbstractBeanFactory#getParentBeanFactory(…)<br>注册属性编辑器::AbstractBeanFactory#registerCustomEditor(…)<br>新增Bean后置处理器::AbstractBeanFactory#addBeanPostProcessor(…)</p>
+<p>在AbstractAutowireCapableBeanFactory中主要完成：</p>
+<p>创建Bean::AbstractAutowireCapableBeanFactory##createBean(…)<br>自动装配::AbstractAutowireCapableBeanFactory##autowire(…)<br>新增Bean后置处理器::AbstractAutowireCapableBeanFactory#addBeanPostProcessor(…)<br>处理后置处理器::AbstractAutowireCapableBeanFactory##applyBeanPostProcessorsBeforeInitialization(…),<br>AbstractAutowireCapableBeanFactory::applyBeanPostProcessorsAfterInitialization(…)</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">getBean</span><span class="params">(String name)</span> <span class="keyword">throws</span> BeansException </span>&#123;</div><div class="line">    <span class="comment">//返回bean名称，必要时剥离工厂解引用前缀，并将别名解析为规范名称。</span></div><div class="line">    String beanName = transformedBeanName(name);</div><div class="line">    <span class="comment">// eagerly check singleton cache for manually registered singletons</span></div><div class="line">    <span class="comment">//优先从缓存中获取单例bean</span></div><div class="line">    Object sharedInstance = <span class="keyword">this</span>.singletonCache.get(beanName);</div><div class="line">    <span class="keyword">if</span> (sharedInstance != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (logger.isDebugEnabled()) &#123;</div><div class="line">            logger.debug(<span class="string">"Returning cached instance of singleton bean '"</span> + beanName + <span class="string">"'"</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="comment">//从缓存中获取</span></div><div class="line">        <span class="keyword">return</span> getObjectForSharedInstance(name, sharedInstance);</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="comment">// check if bean definition exists</span></div><div class="line">        <span class="comment">//检查bean定义是否存在</span></div><div class="line">        RootBeanDefinition mergedBeanDefinition = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            mergedBeanDefinition = getMergedBeanDefinition(beanName, <span class="keyword">false</span>);</div><div class="line">        &#125; <span class="keyword">catch</span> (NoSuchBeanDefinitionException ex) &#123;</div><div class="line">            <span class="comment">// not found -&gt; check parent</span></div><div class="line">            <span class="keyword">if</span> (<span class="keyword">this</span>.parentBeanFactory != <span class="keyword">null</span>) &#123;</div><div class="line">                <span class="comment">//从上级BeanFactory获取</span></div><div class="line">                <span class="keyword">return</span> <span class="keyword">this</span>.parentBeanFactory.getBean(name);</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">throw</span> ex;</div><div class="line">        &#125;</div><div class="line">        <span class="comment">// create bean instance</span></div><div class="line">        <span class="comment">//如果是单例，则实例化bean</span></div><div class="line">        <span class="keyword">if</span> (mergedBeanDefinition.isSingleton()) &#123;</div><div class="line">            <span class="keyword">synchronized</span> (<span class="keyword">this</span>.singletonCache) &#123;</div><div class="line">                <span class="comment">// re-check singleton cache within synchronized block</span></div><div class="line">                sharedInstance = <span class="keyword">this</span>.singletonCache.get(beanName);</div><div class="line">                <span class="keyword">if</span> (sharedInstance == <span class="keyword">null</span>) &#123;</div><div class="line">                    logger.info(<span class="string">"Creating shared instance of singleton bean '"</span> + beanName + <span class="string">"'"</span>);</div><div class="line">                    sharedInstance = createBean(beanName, mergedBeanDefinition);</div><div class="line">                    addSingleton(beanName, sharedInstance);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            <span class="keyword">return</span> getObjectForSharedInstance(name, sharedInstance);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            <span class="keyword">return</span> createBean(name, mergedBeanDefinition);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
       
     </div>
     
@@ -435,8 +442,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018-02-06-Spring源码分析之BeanFactroy接口/" rel="next" title="Spring源码分析之BeanFactroy接口">
-                <i class="fa fa-chevron-left"></i> Spring源码分析之BeanFactroy接口
+              <a href="/2018-02-07-Spring异常汇总/" rel="next" title="Spring异常汇总">
+                <i class="fa fa-chevron-left"></i> Spring异常汇总
               </a>
             
           </div>
@@ -445,8 +452,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018-02-08-Spring源码分析之BeanFactory具体实现/" rel="prev" title="Spring源码分析之BeanFactory具体实现">
-                Spring源码分析之BeanFactory具体实现 <i class="fa fa-chevron-right"></i>
+              <a href="/2018-01-23-工作相关/" rel="prev" title="">
+                 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -515,7 +522,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">163</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -526,7 +533,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -537,7 +544,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -590,7 +597,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">99.3k</span>
+    <span title="网站字数总数">122.2k</span>
   
 </div>
 

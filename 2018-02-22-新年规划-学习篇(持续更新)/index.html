@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="SpringBoot和SpringCloud学习博客自己写一个博客，包括前后台 代码生成工具基于MBG，集成Redis，生成Service MyBatis源码解析基于2.3.5，实用性不高，只是相比3.x来说，代码精简不少，另外，不同之处在于xml文件解析 Spring源码解析基于 1.0.0,之前也看过很多次源码，但是没有很好的看，而且也没有进行系统性的总结 框架中的设计模式上面两个框架分析过程">
+<meta name="description" content="SpringBoot和SpringCloud学习SpringBoot倒是没啥好学的，就是一些配置而已，但是也要系列化的总结一下。 SpringCloud倒是要好好学习，期间也有可能会学习Dubbo Spring源码解析使用Spring时候的版本是3.0.5，当时什么都不知道，看了好多次，要不是看不下去，要不是看了就忘记了，而且也没有进行系统性的总结。在58的时候，因为使用的是内部的框架，而且开发的">
 <meta name="keywords" content="life">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2018-新年规划-学习篇(持续更新)">
 <meta property="og:url" content="http://liuyiyou.cn/2018-02-22-新年规划-学习篇(持续更新)/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="SpringBoot和SpringCloud学习博客自己写一个博客，包括前后台 代码生成工具基于MBG，集成Redis，生成Service MyBatis源码解析基于2.3.5，实用性不高，只是相比3.x来说，代码精简不少，另外，不同之处在于xml文件解析 Spring源码解析基于 1.0.0,之前也看过很多次源码，但是没有很好的看，而且也没有进行系统性的总结 框架中的设计模式上面两个框架分析过程">
+<meta property="og:description" content="SpringBoot和SpringCloud学习SpringBoot倒是没啥好学的，就是一些配置而已，但是也要系列化的总结一下。 SpringCloud倒是要好好学习，期间也有可能会学习Dubbo Spring源码解析使用Spring时候的版本是3.0.5，当时什么都不知道，看了好多次，要不是看不下去，要不是看了就忘记了，而且也没有进行系统性的总结。在58的时候，因为使用的是内部的框架，而且开发的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-09T16:57:31.061Z">
+<meta property="og:updated_time" content="2018-02-11T15:19:17.822Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2018-新年规划-学习篇(持续更新)">
-<meta name="twitter:description" content="SpringBoot和SpringCloud学习博客自己写一个博客，包括前后台 代码生成工具基于MBG，集成Redis，生成Service MyBatis源码解析基于2.3.5，实用性不高，只是相比3.x来说，代码精简不少，另外，不同之处在于xml文件解析 Spring源码解析基于 1.0.0,之前也看过很多次源码，但是没有很好的看，而且也没有进行系统性的总结 框架中的设计模式上面两个框架分析过程">
+<meta name="twitter:description" content="SpringBoot和SpringCloud学习SpringBoot倒是没啥好学的，就是一些配置而已，但是也要系列化的总结一下。 SpringCloud倒是要好好学习，期间也有可能会学习Dubbo Spring源码解析使用Spring时候的版本是3.0.5，当时什么都不知道，看了好多次，要不是看不下去，要不是看了就忘记了，而且也没有进行系统性的总结。在58的时候，因为使用的是内部的框架，而且开发的">
 
 
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  154
+                  470
                 </span>
               
 
@@ -384,7 +384,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -405,12 +405,16 @@
       
 
       
-        <h2 id="SpringBoot和SpringCloud学习"><a href="#SpringBoot和SpringCloud学习" class="headerlink" title="SpringBoot和SpringCloud学习"></a>SpringBoot和SpringCloud学习</h2><h2 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h2><p>自己写一个博客，包括前后台</p>
+        <h2 id="SpringBoot和SpringCloud学习"><a href="#SpringBoot和SpringCloud学习" class="headerlink" title="SpringBoot和SpringCloud学习"></a>SpringBoot和SpringCloud学习</h2><p>SpringBoot倒是没啥好学的，就是一些配置而已，但是也要系列化的总结一下。</p>
+<p>SpringCloud倒是要好好学习，期间也有可能会学习Dubbo</p>
+<h2 id="Spring源码解析"><a href="#Spring源码解析" class="headerlink" title="Spring源码解析"></a>Spring源码解析</h2><p>使用Spring时候的版本是3.0.5，当时什么都不知道，看了好多次，要不是看不下去，要不是看了就忘记了，而且也没有进行系统性的总结。在58的时候，因为使用的是内部的框架，而且开发的时候偏重业务，没有很好的看（当然，自己那个时候天天玩LOL是主要原因）。而且3.0.5的版本对当时的我来说已经有点看不懂了，各种设计模式以及很多我们用不到的类掺杂其中。</p>
+<p>今年打算重新看，而且版本是基于1.0.0 这个版本是Spring从interface21改成springframework后的第一个稳定版本，功能精简，但是思想还是很重要的。很多类现在还是主要的。 看1.0.0的源码，能学习到Spring的思想</p>
+<p>这次看源码不仅仅是看，还要进行记录、总结以及记忆，吸取框架中涉及的一些思想。后续会在此版本的基础上进行级深入，争取看到4.x版本</p>
+<p>另外，打算在深入了解1.x版本的基础上，借鉴后续版本，写一个极简的Spring，暂时命名叫simple-spring。虽然不能用于生产环境，但是对于自己的能力提高很有帮助</p>
+<p>到2.11为止，bean和context相关源码已经看完，相比起3.x版本，比较容易理解</p>
+<h2 id="博客"><a href="#博客" class="headerlink" title="博客"></a>博客</h2><p>自己写一个博客，包括前后台，暂定是使用SpringBoot</p>
 <h2 id="代码生成工具"><a href="#代码生成工具" class="headerlink" title="代码生成工具"></a>代码生成工具</h2><p>基于MBG，集成Redis，生成Service</p>
-<h2 id="MyBatis源码解析"><a href="#MyBatis源码解析" class="headerlink" title="MyBatis源码解析"></a>MyBatis源码解析</h2><p>基于2.3.5，实用性不高，只是相比3.x来说，代码精简不少，另外，不同之处在于xml文件解析</p>
-<h2 id="Spring源码解析"><a href="#Spring源码解析" class="headerlink" title="Spring源码解析"></a>Spring源码解析</h2><p>基于 1.0.0,之前也看过很多次源码，但是没有很好的看，而且也没有进行系统性的总结</p>
-<h2 id="框架中的设计模式"><a href="#框架中的设计模式" class="headerlink" title="框架中的设计模式"></a>框架中的设计模式</h2><p>上面两个框架分析过程中涉及到的射击魔神</p>
-<h2 id="学习一门新语言"><a href="#学习一门新语言" class="headerlink" title="学习一门新语言"></a>学习一门新语言</h2><p>暂定是Python</p>
+<h2 id="MyBatis源码解析"><a href="#MyBatis源码解析" class="headerlink" title="MyBatis源码解析"></a>MyBatis源码解析</h2><p>基于3.x版本</p>
 
       
     </div>
@@ -530,7 +534,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">163</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -541,7 +545,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -552,7 +556,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -587,7 +591,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot和SpringCloud学习"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot和SpringCloud学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客"><span class="nav-number">2.</span> <span class="nav-text">博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码生成工具"><span class="nav-number">3.</span> <span class="nav-text">代码生成工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MyBatis源码解析"><span class="nav-number">4.</span> <span class="nav-text">MyBatis源码解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring源码解析"><span class="nav-number">5.</span> <span class="nav-text">Spring源码解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#框架中的设计模式"><span class="nav-number">6.</span> <span class="nav-text">框架中的设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#学习一门新语言"><span class="nav-number">7.</span> <span class="nav-text">学习一门新语言</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SpringBoot和SpringCloud学习"><span class="nav-number">1.</span> <span class="nav-text">SpringBoot和SpringCloud学习</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Spring源码解析"><span class="nav-number">2.</span> <span class="nav-text">Spring源码解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#博客"><span class="nav-number">3.</span> <span class="nav-text">博客</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码生成工具"><span class="nav-number">4.</span> <span class="nav-text">代码生成工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MyBatis源码解析"><span class="nav-number">5.</span> <span class="nav-text">MyBatis源码解析</span></a></li></ol></div>
             
 
           </div>
@@ -621,7 +625,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">99.3k</span>
+    <span title="网站字数总数">122.2k</span>
   
 </div>
 

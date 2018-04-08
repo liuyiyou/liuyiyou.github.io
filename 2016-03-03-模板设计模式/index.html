@@ -89,7 +89,7 @@
 <meta property="og:description" content="介绍模板设计模式是一种行为模式，顾名思义，它提供了用户使用的模板或算法结构。 用户提供自己的实现而不改变算法的结构。 在问题的帮助下理解这种模式更容易。 我们将理解本节中的场景，并将在后面的章节中使用Template模式实现解决方案。 你有没有使用Java应用程序连接到关系数据库？ 让我们回顾一下连接和插入数据到数据库所需的一些重要步骤。 首先，我们需要一个根据我们要连接的数据库的驱动程序。 然后">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://liuyiyou.cn/images/TemplatePatternclass_diagram_13.jpg">
-<meta property="og:updated_time" content="2018-01-26T09:35:51.677Z">
+<meta property="og:updated_time" content="2018-02-26T02:01:36.652Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模板设计模式">
 <meta name="twitter:description" content="介绍模板设计模式是一种行为模式，顾名思义，它提供了用户使用的模板或算法结构。 用户提供自己的实现而不改变算法的结构。 在问题的帮助下理解这种模式更容易。 我们将理解本节中的场景，并将在后面的章节中使用Template模式实现解决方案。 你有没有使用Java应用程序连接到关系数据库？ 让我们回顾一下连接和插入数据到数据库所需的一些重要步骤。 首先，我们需要一个根据我们要连接的数据库的驱动程序。 然后">
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,374
+                  2,473
                 </span>
               
 
@@ -453,6 +453,8 @@
 <li>控制子类扩展。 您可以定义一个模板方法，在特定点处调用“钩子”操作（请参见后果），从而只允许在这些点上进行扩展。</li>
 </ul>
 <h2 id="源码地址"><a href="#源码地址" class="headerlink" title="源码地址"></a>源码地址</h2><p><a href="https://www.javacodegeeks.com/2015/09/template-design-pattern.html" target="_blank" rel="external">原文地址</a></p>
+<h2 id="生产环境下的一个模板"><a href="#生产环境下的一个模板" class="headerlink" title="生产环境下的一个模板"></a>生产环境下的一个模板</h2><p>```java<br>public class QueryTemplate {<br>    private static SqlSessionFactory sqlSessionFactory;<br>    public static <t> T templae(QueryCallBack<t> queryCallBack) {<br>        T result = null;<br>        SqlSession session = null;<br>        InputStream inputStream = null;<br>        try {<br>            String resource = “mybatis-mysql-config.xml”;<br>            inputStream = Resources.getResourceAsStream(resource);<br>            sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);<br>            session = sqlSessionFactory.openSession();<br>            //具体调用靠其子类实现<br>            result = queryCallBack.doQuery(session);<br>            session.commit();<br>            return result;<br>        } catch (IOException e) {<br>            e.printStackTrace();<br>        } finally {<br>            if (session != null) {<br>                session.close();<br>            }<br>            try {<br>                if (inputStream != null) {<br>                    inputStream.close();<br>                }<br>            } catch (IOException e) {<br>                //<br>            }<br>        }<br>        return result;<br>    }<br>}</t></t></p>
+<p>public interface QueryCallBack<t> {<br>    T doQuery(SqlSession sqlSession);<br>}</t></p>
 
       
     </div>
@@ -572,7 +574,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">163</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -583,7 +585,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -594,7 +596,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -629,7 +631,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是模板设计模式"><span class="nav-number">2.</span> <span class="nav-text">什么是模板设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AbstractClass"><span class="nav-number">2.1.</span> <span class="nav-text">AbstractClass</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConcreteClass"><span class="nav-number">2.2.</span> <span class="nav-text">ConcreteClass</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现模板设计模式"><span class="nav-number">3.</span> <span class="nav-text">实现模板设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在模板中引入一个钩子"><span class="nav-number">4.</span> <span class="nav-text">在模板中引入一个钩子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#何时使用模板设计模式"><span class="nav-number">5.</span> <span class="nav-text">何时使用模板设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码地址"><span class="nav-number">6.</span> <span class="nav-text">源码地址</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#介绍"><span class="nav-number">1.</span> <span class="nav-text">介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#什么是模板设计模式"><span class="nav-number">2.</span> <span class="nav-text">什么是模板设计模式</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#AbstractClass"><span class="nav-number">2.1.</span> <span class="nav-text">AbstractClass</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ConcreteClass"><span class="nav-number">2.2.</span> <span class="nav-text">ConcreteClass</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#实现模板设计模式"><span class="nav-number">3.</span> <span class="nav-text">实现模板设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#在模板中引入一个钩子"><span class="nav-number">4.</span> <span class="nav-text">在模板中引入一个钩子</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#何时使用模板设计模式"><span class="nav-number">5.</span> <span class="nav-text">何时使用模板设计模式</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#源码地址"><span class="nav-number">6.</span> <span class="nav-text">源码地址</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#生产环境下的一个模板"><span class="nav-number">7.</span> <span class="nav-text">生产环境下的一个模板</span></a></li></ol></div>
             
 
           </div>
@@ -663,7 +665,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">99.3k</span>
+    <span title="网站字数总数">122.2k</span>
   
 </div>
 

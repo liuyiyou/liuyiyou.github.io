@@ -84,11 +84,11 @@
 <meta name="keywords" content="spring-boot">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot学习-集成JDBC">
-<meta property="og:url" content="http://liuyiyou.cn/2017-09-15-SpringBoot学习-集成jdbc/index.html">
+<meta property="og:url" content="http://liuyiyou.cn/2017-09-15-SpringBoot学习-集成JDBC/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="内容 默认配置 自定义配置 集成第三方数据源  最简配置pom&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boot-starter-jdbc&amp;lt;/artifactId&amp;gt;&amp;lt;/dependency&amp;gt; aplicat">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-29T02:47:37.013Z">
+<meta property="og:updated_time" content="2018-02-05T06:24:36.916Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot学习-集成JDBC">
 <meta name="twitter:description" content="内容 默认配置 自定义配置 集成第三方数据源  最简配置pom&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.boot&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-boot-starter-jdbc&amp;lt;/artifactId&amp;gt;&amp;lt;/dependency&amp;gt; aplicat">
@@ -121,7 +121,7 @@
 
 
 
-  <link rel="canonical" href="http://liuyiyou.cn/2017-09-15-SpringBoot学习-集成jdbc/"/>
+  <link rel="canonical" href="http://liuyiyou.cn/2017-09-15-SpringBoot学习-集成JDBC/"/>
 
 
 
@@ -274,7 +274,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017-09-15-SpringBoot学习-集成jdbc/">
+    <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2017-09-15-SpringBoot学习-集成JDBC/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
@@ -343,7 +343,7 @@
 
           
           
-             <span id="/2017-09-15-SpringBoot学习-集成jdbc/" class="leancloud_visitors" data-flag-title="SpringBoot学习-集成JDBC">
+             <span id="/2017-09-15-SpringBoot学习-集成JDBC/" class="leancloud_visitors" data-flag-title="SpringBoot学习-集成JDBC">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  79
+                  178
                 </span>
               
 
@@ -413,6 +413,10 @@
 <h2 id="最简配置"><a href="#最简配置" class="headerlink" title="最简配置"></a>最简配置</h2><h2 id="pom"><a href="#pom" class="headerlink" title="pom"></a>pom</h2><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
 <h2 id="aplication-properties"><a href="#aplication-properties" class="headerlink" title="aplication.properties"></a>aplication.properties</h2><p>这个必须配置，不然会报错</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">spring.datasource.url=jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull</div><div class="line">spring.datasource.username=root</div><div class="line">spring.datasource.password=123456</div><div class="line">spring.datasource.driverClassName=com.mysql.jdbc.Driver</div></pre></td></tr></table></figure>
+<h2 id="Druid"><a href="#Druid" class="headerlink" title="Druid"></a>Druid</h2><p><a href="https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter" target="_blank" rel="external">https://github.com/alibaba/druid/tree/master/druid-spring-boot-starter</a></p>
+<h2 id="自定义数据源"><a href="#自定义数据源" class="headerlink" title="自定义数据源"></a>自定义数据源</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DataSourceConfig</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.datasource.url&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String url;</div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.datasource.username&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String username;</div><div class="line">    <span class="meta">@Value</span>(<span class="string">"$&#123;spring.datasource.password&#125;"</span>)</div><div class="line">    <span class="keyword">private</span> String password;</div><div class="line">    <span class="comment">//.....</span></div><div class="line"></div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">dataSource</span><span class="params">()</span> </span>&#123;</div><div class="line">        DruidDataSource druidDataSource = <span class="keyword">new</span> DruidDataSource();</div><div class="line">        druidDataSource.setUrl(url);</div><div class="line">        druidDataSource.setUsername(username);</div><div class="line">        druidDataSource.setPassword(password);</div><div class="line">        <span class="comment">//....</span></div><div class="line">        <span class="keyword">return</span> druidDataSource;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>也可以使用这种</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SimpleDataSourceConfig</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Bean</span></div><div class="line">    <span class="function"><span class="keyword">public</span> DataSource <span class="title">dataSource</span><span class="params">(DataSourceProperties properties)</span></span>&#123;</div><div class="line">        DruidDataSource druidDataSource = <span class="keyword">new</span> DruidDataSource();</div><div class="line">        druidDataSource.setPassword(properties.getPassword());</div><div class="line">        druidDataSource.setUsername(properties.getUsername());</div><div class="line">        druidDataSource.setUrl(properties.getUrl());</div><div class="line">        druidDataSource.setDriverClassName(properties.getDriverClassName());</div><div class="line">        <span class="keyword">return</span> druidDataSource;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -532,7 +536,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">163</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -543,7 +547,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -554,7 +558,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -589,7 +593,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#内容"><span class="nav-number">1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最简配置"><span class="nav-number">2.</span> <span class="nav-text">最简配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pom"><span class="nav-number">3.</span> <span class="nav-text">pom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aplication-properties"><span class="nav-number">4.</span> <span class="nav-text">aplication.properties</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#内容"><span class="nav-number">1.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#最简配置"><span class="nav-number">2.</span> <span class="nav-text">最简配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#pom"><span class="nav-number">3.</span> <span class="nav-text">pom</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#aplication-properties"><span class="nav-number">4.</span> <span class="nav-text">aplication.properties</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Druid"><span class="nav-number">5.</span> <span class="nav-text">Druid</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#自定义数据源"><span class="nav-number">6.</span> <span class="nav-text">自定义数据源</span></a></li></ol></div>
             
 
           </div>
@@ -623,7 +627,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">99.3k</span>
+    <span title="网站字数总数">122.2k</span>
   
 </div>
 

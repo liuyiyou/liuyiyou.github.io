@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="分析基于 基于Spring1.0Bean定义BeanDefinition： Bean定义抽象实现类：AbstractBeanDefinition使用实际类：ChildBeanDefinition、RootBeanDefinition Bean定义之后，需要被读取才可以使用，读取的类呢？ Bean读取1.0 版本中是没有BeanDefinitionReader接口的,1.1才有该接口 只有抽象类：">
+<meta name="description" content="AbstractBeanFactory和AbstractAutowireCapableBeanFactory中完成了装配、获取Bean的大部分方法，所以DefaultListableBeanFactory要做的工作就很少了，主要实现BeanDefinitionRegistry和ConfigurableListableBeanFactory接口 实现BeanDefinitionRegistry的re">
 <meta name="keywords" content="spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring源码分析之BeanFactory具体实现">
 <meta property="og:url" content="http://liuyiyou.cn/2018-02-08-Spring源码分析之BeanFactory具体实现/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="分析基于 基于Spring1.0Bean定义BeanDefinition： Bean定义抽象实现类：AbstractBeanDefinition使用实际类：ChildBeanDefinition、RootBeanDefinition Bean定义之后，需要被读取才可以使用，读取的类呢？ Bean读取1.0 版本中是没有BeanDefinitionReader接口的,1.1才有该接口 只有抽象类：">
+<meta property="og:description" content="AbstractBeanFactory和AbstractAutowireCapableBeanFactory中完成了装配、获取Bean的大部分方法，所以DefaultListableBeanFactory要做的工作就很少了，主要实现BeanDefinitionRegistry和ConfigurableListableBeanFactory接口 实现BeanDefinitionRegistry的re">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-09T16:45:14.033Z">
+<meta property="og:updated_time" content="2018-02-24T03:29:57.260Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring源码分析之BeanFactory具体实现">
-<meta name="twitter:description" content="分析基于 基于Spring1.0Bean定义BeanDefinition： Bean定义抽象实现类：AbstractBeanDefinition使用实际类：ChildBeanDefinition、RootBeanDefinition Bean定义之后，需要被读取才可以使用，读取的类呢？ Bean读取1.0 版本中是没有BeanDefinitionReader接口的,1.1才有该接口 只有抽象类：">
+<meta name="twitter:description" content="AbstractBeanFactory和AbstractAutowireCapableBeanFactory中完成了装配、获取Bean的大部分方法，所以DefaultListableBeanFactory要做的工作就很少了，主要实现BeanDefinitionRegistry和ConfigurableListableBeanFactory接口 实现BeanDefinitionRegistry的re">
 
 
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  274
+                  128
                 </span>
               
 
@@ -405,28 +405,9 @@
       
 
       
-        <p>分析基于</p>
-<h2 id="基于Spring1-0"><a href="#基于Spring1-0" class="headerlink" title="基于Spring1.0"></a>基于Spring1.0</h2><h2 id="Bean定义"><a href="#Bean定义" class="headerlink" title="Bean定义"></a>Bean定义</h2><p>BeanDefinition： Bean定义<br>抽象实现类：AbstractBeanDefinition<br>使用实际类：ChildBeanDefinition、RootBeanDefinition</p>
-<p>Bean定义之后，需要被读取才可以使用，读取的类呢？</p>
-<h2 id="Bean读取"><a href="#Bean读取" class="headerlink" title="Bean读取"></a>Bean读取</h2><p>1.0 版本中是没有BeanDefinitionReader接口的,1.1才有该接口</p>
-<p>只有抽象类：</p>
-<p>提供两种方式：<br>PropertiesBeanDefinitionReader：针对Properties<br>XmlBeanDefinitionReader： 针对xml</p>
-<p>主要是 ：loadBeanDefinitions</p>
-<p>读取完之后，需要进行解析</p>
-<h2 id="Bean解析"><a href="#Bean解析" class="headerlink" title="Bean解析"></a>Bean解析</h2><p>接口：BeanDefinitionParser  2.0才有</p>
-<p>不过有一个：XmlBeanDefinitionParser接口，用来解析xmlbean定义，同时<br>而对于property的bean，PropertiesBeanDefinitionReader直接在读取的时候就进行解析了  </p>
-<p>都实现了 registerBeanDefinitions方法</p>
-<p>在DefaultXmlBeanDefinitionParser#loadBeanDefinition()方法中有这样一句：this.beanFactory.registerBeanDefinition(id, beanDefinition);</p>
-<h2 id="Bean注册"><a href="#Bean注册" class="headerlink" title="Bean注册"></a>Bean注册</h2><p>接口：BeanDefinitionRegistry<br>实现类：DefaultListableBeanFactory、XmlBeanFactory</p>
-<p>其中有这个方法：#registerBeanDefinition有这样一句：</p>
-<p>this.beanDefinitionMap.put(name, beanDefinition);  把注册的Bean定义放到一个缓存中</p>
-<p>注册后，Bean已经被BeanFactory管理起来</p>
-<h2 id="Bean包装"><a href="#Bean包装" class="headerlink" title="Bean包装"></a>Bean包装</h2><p>BeanWrapper</p>
-<h2 id="Bean使用"><a href="#Bean使用" class="headerlink" title="Bean使用"></a>Bean使用</h2><p>BeanFactory</p>
-<p>抽象类：</p>
-<p>AbstractBeanFactory#getBean</p>
-<p>真正创建Bean的类是：AbstractAutowireCapableBeanFactory#createBean 中使用了BeanWrapper</p>
-<p>Spring BeanFactory与FactoryBean的区别及其各自的详细介绍于用法</p>
+        <p>AbstractBeanFactory和AbstractAutowireCapableBeanFactory中完成了装配、获取Bean的大部分方法，所以DefaultListableBeanFactory要做的工作就很少了，主要实现BeanDefinitionRegistry和ConfigurableListableBeanFactory接口</p>
+<p>实现BeanDefinitionRegistry的registerBeanDefinition方法</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">registerBeanDefinition</span><span class="params">(String name, BeanDefinition beanDefinition)</span></span></div><div class="line"><span class="function">        <span class="keyword">throws</span> BeanDefinitionStoreException </span>&#123;</div><div class="line">    <span class="keyword">if</span> (beanDefinition <span class="keyword">instanceof</span> AbstractBeanDefinition) &#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            ((AbstractBeanDefinition) beanDefinition).validate();</div><div class="line">        &#125; <span class="keyword">catch</span> (BeanDefinitionValidationException ex) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> BeanDefinitionStoreException(beanDefinition.getResourceDescription(), name,</div><div class="line">                    <span class="string">"Validation of bean definition with name failed"</span>, ex);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    Object oldBeanDefinition = <span class="keyword">this</span>.beanDefinitionMap.get(name);</div><div class="line">    <span class="keyword">if</span> (oldBeanDefinition != <span class="keyword">null</span>) &#123;</div><div class="line">        <span class="keyword">if</span> (!<span class="keyword">this</span>.allowBeanDefinitionOverriding) &#123;</div><div class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> BeanDefinitionStoreException(<span class="string">"Cannot register bean definition ["</span> + beanDefinition + <span class="string">"] for bean '"</span> +</div><div class="line">                    name + <span class="string">"': there's already ["</span> + oldBeanDefinition + <span class="string">"] bound"</span>);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            logger.info(<span class="string">"Overriding bean definition for bean '"</span> + name +</div><div class="line">                    <span class="string">"': replacing ["</span> + oldBeanDefinition + <span class="string">"] with ["</span> + beanDefinition + <span class="string">"]"</span>);</div><div class="line">        &#125;</div><div class="line">    &#125; <span class="keyword">else</span> &#123;</div><div class="line">        <span class="keyword">this</span>.beanDefinitionNames.add(name);</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">this</span>.beanDefinitionMap.put(name, beanDefinition);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -457,8 +438,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018-02-07-Spring源码分析之BeanFactroy抽象实现/" rel="next" title="Spring源码分析之BeanFactroy抽象实现">
-                <i class="fa fa-chevron-left"></i> Spring源码分析之BeanFactroy抽象实现
+              <a href="/2018-01-23-工作相关/" rel="next" title="">
+                <i class="fa fa-chevron-left"></i> 
               </a>
             
           </div>
@@ -467,8 +448,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018-02-09-Spring源码分析之DefaultlistableBeanFactory/" rel="prev" title="Spring源码分析之DefaultlistableBeanFactory">
-                Spring源码分析之DefaultlistableBeanFactory <i class="fa fa-chevron-right"></i>
+              <a href="/2018-02-09-Spring之ComponetScan和Autowired/" rel="prev" title="Spring之ComponetScan和Autowired">
+                Spring之ComponetScan和Autowired <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -521,17 +502,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -546,7 +518,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">163</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -557,7 +529,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -568,7 +540,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -593,22 +565,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#基于Spring1-0"><span class="nav-number">1.</span> <span class="nav-text">基于Spring1.0</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bean定义"><span class="nav-number">2.</span> <span class="nav-text">Bean定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bean读取"><span class="nav-number">3.</span> <span class="nav-text">Bean读取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bean解析"><span class="nav-number">4.</span> <span class="nav-text">Bean解析</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bean注册"><span class="nav-number">5.</span> <span class="nav-text">Bean注册</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bean包装"><span class="nav-number">6.</span> <span class="nav-text">Bean包装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Bean使用"><span class="nav-number">7.</span> <span class="nav-text">Bean使用</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -637,7 +593,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">99.3k</span>
+    <span title="网站字数总数">122.2k</span>
   
 </div>
 

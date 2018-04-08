@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="内容： 安装mysql镜像 数据文件外部存放 远程连接  拉取mysql镜像docker pull mysqldocker imagesdocker imagesREPOSITORY          TAG                 IMAGE ID            CREATED             SIZEmysql               latest">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-19T04:00:02.941Z">
+<meta property="og:updated_time" content="2018-02-05T03:49:08.642Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker安装mysql">
 <meta name="twitter:description" content="内容： 安装mysql镜像 数据文件外部存放 远程连接  拉取mysql镜像docker pull mysqldocker imagesdocker imagesREPOSITORY          TAG                 IMAGE ID            CREATED             SIZEmysql               latest">
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1,092
+                  1,088
                 </span>
               
 
@@ -424,23 +424,18 @@
 <p><code>错误，是因为使用：~docker run -itd -P  mysql  bash的时候是新建一个容器，而不是启动原来的容器，使用docker ps -a 可以看到原来的容器还是在那里，只是状态是stop</code></p>
 <h2 id="关闭容器"><a href="#关闭容器" class="headerlink" title="关闭容器"></a>关闭容器</h2><p>在之前已经新建了一个文件夹test</p>
 <p>如果容器关闭、重启 数据文件是否还存在？</p>
-<p>angry_kepler</p>
 <h2 id="挂载外部数据到容器"><a href="#挂载外部数据到容器" class="headerlink" title="挂载外部数据到容器"></a>挂载外部数据到容器</h2><p>因为我的电脑的版本是5.6的，还不支持json查询，而公司的mysql版本是5.7，有的地方使用到了json，导致某些情况下，查询出错。升级方式如下：<br><a href="https://www.jianshu.com/p/fd3aae701db9" target="_blank" rel="external">https://www.jianshu.com/p/fd3aae701db9</a><br><a href="https://segmentfault.com/a/1190000009497926" target="_blank" rel="external">https://segmentfault.com/a/1190000009497926</a></p>
 <p>不过打算用docker  将目录挂载到docker的mysql下。</p>
 <h3 id="删除所有容器"><a href="#删除所有容器" class="headerlink" title="删除所有容器"></a>删除所有容器</h3><p>docker rm $(docker ps -a -q)</p>
 <h3 id="新建容器"><a href="#新建容器" class="headerlink" title="新建容器"></a>新建容器</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">~ docker run -itd  -P  --name=<span class="string">"docker-mysql"</span>  mysql  bash</div><div class="line"></div><div class="line">docker run -itd -e MYSQL_ROOT_PASSWORD=123456 --name docker-mysql -v /usr/<span class="built_in">local</span>/mysql/data/:/var/lib/mysql -p 32774:3306 mysql</div></pre></td></tr></table></figure>
 <p>需要-P，否则是：</p>
-<p>CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES<br>1ca62a63c956        mysql               “docker-entrypoint…”   4 minutes ago       Up 4 minutes        3306/tcp            docker-mysql</p>
-<p>加-P之后</p>
-<p>CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES<br>57bb2dbd5b7a        mysql               “docker-entrypoint…”   2 seconds ago       Up 3 seconds        0.0.0.0:32774-&gt;3306/tcp   docker-mysql</p>
-<h3 id="重启启动"><a href="#重启启动" class="headerlink" title="重启启动"></a>重启启动</h3><p>docker start    –name=”docker-mysql”  mysql  bash</p>
-<p>docker run -itd -e MYSQL_ROOT_PASSWORD=123456 –name docker-mysql -v /usr/local/mysql/data:/var/lib/mysql -p 32774:3306 mysql</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS               NAMES</div><div class="line">1ca62a63c956        mysql               &quot;docker-entrypoint...&quot;   4 minutes ago       Up 4 minutes        3306/tcp            docker-mysql</div></pre></td></tr></table></figure>
+<p>加-P之后<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES</div><div class="line">57bb2dbd5b7a        mysql               &quot;docker-entrypoint...&quot;   2 seconds ago       Up 3 seconds        0.0.0.0:32774-&gt;3306/tcp   docker-mysql</div></pre></td></tr></table></figure></p>
+<h3 id="重启启动"><a href="#重启启动" class="headerlink" title="重启启动"></a>重启启动</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">docker start    --name=&quot;docker-mysql&quot;  mysql  bash</div><div class="line">docker run -itd -e MYSQL_ROOT_PASSWORD=123456 --name docker-mysql -v /usr/local/mysql/data:/var/lib/mysql -p 32774:3306 mysql</div></pre></td></tr></table></figure>
 <p>有权限问题</p>
 <p>发现status是 Exited，  查看日志</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">docker logs  382edb9ddf4d</div><div class="line"></div><div class="line">chown: cannot <span class="built_in">read</span> directory <span class="string">'/var/lib/mysql/ibalife_busi'</span>: Permission denied</div><div class="line">chown: cannot <span class="built_in">read</span> directory <span class="string">'/var/lib/mysql/TIPASK'</span>: Permission denied</div><div class="line">chown: cannot <span class="built_in">read</span> directory <span class="string">'/var/lib/mysql/shopxx'</span>: Permission denied</div><div class="line">chown: cannot <span class="built_in">read</span> directory <span class="string">'/var/lib/mysql/ibalife_admin'</span>: Permission denied</div><div class="line">chown: cannot <span class="built_in">read</span> directory <span class="string">'/var/lib/mysql/ibalife_report'</span>: Permission denied</div></pre></td></tr></table></figure>
-<p>暂时不知道怎么解决</p>
-<p>使用另外一个地方：</p>
-<p>docker run -itd -e MYSQL_ROOT_PASSWORD=123456 –name docker-mysql -v /Users/liuyiyou/docker/mysql/data:/var/lib/mysql -p 32774:3306 mysql</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">docker logs  382edb9ddf4d</div><div class="line">chown: cannot read directory &apos;/var/lib/mysql/ibalife_busi&apos;: Permission denied</div><div class="line">chown: cannot read directory &apos;/var/lib/mysql/TIPASK&apos;: Permission denied</div><div class="line">chown: cannot read directory &apos;/var/lib/mysql/shopxx&apos;: Permission denied</div><div class="line">chown: cannot read directory &apos;/var/lib/mysql/ibalife_admin&apos;: Permission denied</div><div class="line">chown: cannot read directory &apos;/var/lib/mysql/ibalife_report&apos;: Permission denied</div></pre></td></tr></table></figure>
+<p>暂时不知道怎么解决,使用另外一个地方：<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">docker run -itd -e MYSQL_ROOT_PASSWORD=123456 --name docker-mysql -v /Users/liuyiyou/docker/mysql/data:/var/lib/mysql -p 32774:3306 mysql</div></pre></td></tr></table></figure></p>
 <p>重命名：</p>
 <h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><p><a href="http://blog.csdn.net/minicto/article/details/73484432" target="_blank" rel="external">http://blog.csdn.net/minicto/article/details/73484432</a></p>
 <p><a href="http://xiaoqiangge.com/aritcle/1496481502190.html" target="_blank" rel="external">http://xiaoqiangge.com/aritcle/1496481502190.html</a></p>
@@ -564,7 +559,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">163</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -575,7 +570,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -586,7 +581,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -655,7 +650,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">99.3k</span>
+    <span title="网站字数总数">122.2k</span>
   
 </div>
 

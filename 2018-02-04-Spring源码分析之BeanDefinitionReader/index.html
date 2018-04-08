@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="BeanDefinitionReader主要包含两个功能：加载BeanDefinition和注册BeanDefinition 他们的抽象类中有一个BeanDefinitionRegistry引用，该引用的实现类是BeanFactory接口的子类，在加载解析后，通过该属性将BeanDefinition注册到BeanFactory中 loadBeanDefinitions registerBeanDe">
+<meta name="description" content="BeanDefinitionReader是1.1版本加入的。 他们的抽象类中持有一个BeanDefinitionRegistry引用，该引用的实现类是BeanFactory接口的子类，在加载解析后，通过该属性将BeanDefinition注册到BeanFactory中 public interface BeanDefinitionReader &amp;#123;    //得到Bean注册实现的Bean">
 <meta name="keywords" content="spring">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring源码分析之BeanDefinitionReader">
 <meta property="og:url" content="http://liuyiyou.cn/2018-02-04-Spring源码分析之BeanDefinitionReader/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="BeanDefinitionReader主要包含两个功能：加载BeanDefinition和注册BeanDefinition 他们的抽象类中有一个BeanDefinitionRegistry引用，该引用的实现类是BeanFactory接口的子类，在加载解析后，通过该属性将BeanDefinition注册到BeanFactory中 loadBeanDefinitions registerBeanDe">
+<meta property="og:description" content="BeanDefinitionReader是1.1版本加入的。 他们的抽象类中持有一个BeanDefinitionRegistry引用，该引用的实现类是BeanFactory接口的子类，在加载解析后，通过该属性将BeanDefinition注册到BeanFactory中 public interface BeanDefinitionReader &amp;#123;    //得到Bean注册实现的Bean">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-09T16:43:52.349Z">
+<meta property="og:updated_time" content="2018-02-24T03:13:36.029Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring源码分析之BeanDefinitionReader">
-<meta name="twitter:description" content="BeanDefinitionReader主要包含两个功能：加载BeanDefinition和注册BeanDefinition 他们的抽象类中有一个BeanDefinitionRegistry引用，该引用的实现类是BeanFactory接口的子类，在加载解析后，通过该属性将BeanDefinition注册到BeanFactory中 loadBeanDefinitions registerBeanDe">
+<meta name="twitter:description" content="BeanDefinitionReader是1.1版本加入的。 他们的抽象类中持有一个BeanDefinitionRegistry引用，该引用的实现类是BeanFactory接口的子类，在加载解析后，通过该属性将BeanDefinition注册到BeanFactory中 public interface BeanDefinitionReader &amp;#123;    //得到Bean注册实现的Bean">
 
 
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  61
+                  221
                 </span>
               
 
@@ -405,10 +405,15 @@
       
 
       
-        <p>BeanDefinitionReader主要包含两个功能：加载BeanDefinition和注册BeanDefinition</p>
-<p>他们的抽象类中有一个BeanDefinitionRegistry引用，该引用的实现类是BeanFactory接口的子类，在加载解析后，通过该属性将BeanDefinition注册到BeanFactory中</p>
-<p>loadBeanDefinitions</p>
-<p>registerBeanDefinitions</p>
+        <p>BeanDefinitionReader是1.1版本加入的。</p>
+<p>他们的抽象类中持有一个BeanDefinitionRegistry引用，该引用的实现类是BeanFactory接口的子类，在加载解析后，通过该属性将BeanDefinition注册到BeanFactory中</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BeanDefinitionReader</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="comment">//得到Bean注册实现的BeanFactory</span></div><div class="line">    <span class="function">BeanDefinitionRegistry <span class="title">getBeanFactory</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//这个不知道</span></div><div class="line">    <span class="function">ClassLoader <span class="title">getBeanClassLoader</span><span class="params">()</span></span>;</div><div class="line"></div><div class="line">    <span class="comment">//通过资源加载BeanDefinition</span></div><div class="line">    <span class="function"><span class="keyword">int</span> <span class="title">loadBeanDefinitions</span><span class="params">(Resource resource)</span> <span class="keyword">throws</span> BeansException</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>AbstractBeanDefinitionReader没有什么好描述的。</p>
+<p>BeanDefinitionReader并不是直接读取资源文件解析，而是委托给BeanDefinitionParser来进行解析</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">registerBeanDefinitions</span><span class="params">(Document doc, Resource resource)</span> <span class="keyword">throws</span> BeansException </span>&#123;</div><div class="line">    XmlBeanDefinitionParser parser = (XmlBeanDefinitionParser) BeanUtils.instantiateClass(<span class="keyword">this</span>.parserClass);</div><div class="line">    <span class="keyword">return</span> parser.registerBeanDefinitions(<span class="keyword">this</span>, doc, resource);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>有两个主要的实现类：<br>XmlBeanDefinitionReader 用来解析用xml定义的Bean<br>PropertiesBeanDefinitionReader: 用来解析用属性定义的Bean</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line">DefaultListableBeanFactory lbf = <span class="keyword">new</span> DefaultListableBeanFactory();</div><div class="line">Properties p = <span class="keyword">new</span> Properties();</div><div class="line">p.setProperty(<span class="string">"x1.class"</span>, KnowsIfInstantiated.class.getName());</div><div class="line">p.setProperty(<span class="string">"x1.(lazy-init)"</span>, <span class="string">"true"</span>);</div><div class="line">(<span class="keyword">new</span> PropertiesBeanDefinitionReader(lbf)).registerBeanDefinitions(p);</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">registerBeanDefinitions</span><span class="params">(Document doc, Resource resource)</span> <span class="keyword">throws</span> BeansException </span>&#123;</div><div class="line">    XmlBeanDefinitionParser parser = (XmlBeanDefinitionParser) BeanUtils.instantiateClass(<span class="keyword">this</span>.parserClass);</div><div class="line">    <span class="keyword">return</span> parser.registerBeanDefinitions(<span class="keyword">this</span>, doc, resource);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -439,8 +444,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018-02-03-Spring源码分析之BeanDefinition/" rel="next" title="Spring源码分析之BeanDefinitionReader">
-                <i class="fa fa-chevron-left"></i> Spring源码分析之BeanDefinitionReader
+              <a href="/2018-02-04-总结/" rel="next" title="2018-02-04-总结">
+                <i class="fa fa-chevron-left"></i> 2018-02-04-总结
               </a>
             
           </div>
@@ -519,7 +524,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">138</span>
+                  <span class="site-state-item-count">163</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -530,7 +535,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -541,7 +546,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">32</span>
+                  <span class="site-state-item-count">34</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -594,7 +599,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">99.3k</span>
+    <span title="网站字数总数">122.2k</span>
   
 </div>
 
