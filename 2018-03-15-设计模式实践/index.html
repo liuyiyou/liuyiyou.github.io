@@ -80,18 +80,18 @@
 
 
 
-<meta name="description" content="今天与第三方进行对接的时候，发现对方只需要一个接口，通过里面的接口名称，调用不同的方法，比如有如下接口 method=order.list.getmethod=order.detail.getmethod=prod.list.getmethod=prod.detail.get 最简单方法： if(method.equals(“order.list.get”)){    getOrderList(p">
+<meta name="description" content="今天与第三方进行对接的时候，发现对方只需要一个接口，通过里面的接口名称，调用不同的方法，比如有如下接口 method=order.list.getmethod=order.detail.getmethod=prod.list.getmethod=prod.detail.get 最简单方法： if(method.equals(&quot;order.list.get&quot;))&amp;#123;    getOrderL">
 <meta name="keywords" content="dp">
 <meta property="og:type" content="article">
 <meta property="og:title" content="设计模式实践">
 <meta property="og:url" content="http://liuyiyou.cn/2018-03-15-设计模式实践/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="今天与第三方进行对接的时候，发现对方只需要一个接口，通过里面的接口名称，调用不同的方法，比如有如下接口 method=order.list.getmethod=order.detail.getmethod=prod.list.getmethod=prod.detail.get 最简单方法： if(method.equals(“order.list.get”)){    getOrderList(p">
+<meta property="og:description" content="今天与第三方进行对接的时候，发现对方只需要一个接口，通过里面的接口名称，调用不同的方法，比如有如下接口 method=order.list.getmethod=order.detail.getmethod=prod.list.getmethod=prod.detail.get 最简单方法： if(method.equals(&quot;order.list.get&quot;))&amp;#123;    getOrderL">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-30T09:29:22.896Z">
+<meta property="og:updated_time" content="2018-04-08T06:18:36.760Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="设计模式实践">
-<meta name="twitter:description" content="今天与第三方进行对接的时候，发现对方只需要一个接口，通过里面的接口名称，调用不同的方法，比如有如下接口 method=order.list.getmethod=order.detail.getmethod=prod.list.getmethod=prod.detail.get 最简单方法： if(method.equals(“order.list.get”)){    getOrderList(p">
+<meta name="twitter:description" content="今天与第三方进行对接的时候，发现对方只需要一个接口，通过里面的接口名称，调用不同的方法，比如有如下接口 method=order.list.getmethod=order.detail.getmethod=prod.list.getmethod=prod.detail.get 最简单方法： if(method.equals(&quot;order.list.get&quot;))&amp;#123;    getOrderL">
 
 
 
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  270
+                  266
                 </span>
               
 
@@ -406,14 +406,12 @@
 
       
         <p>今天与第三方进行对接的时候，发现对方只需要一个接口，通过里面的接口名称，调用不同的方法，比如有如下接口</p>
-<p>method=order.list.get<br>method=order.detail.get<br>method=prod.list.get<br>method=prod.detail.get</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">method=order.list.get</div><div class="line">method=order.detail.get</div><div class="line">method=prod.list.get</div><div class="line">method=prod.detail.get</div></pre></td></tr></table></figure>
 <p>最简单方法：</p>
-<p>if(method.equals(“order.list.get”)){<br>    getOrderList(params);<br>}else if(method.equals(“order.detail.get”)){<br>    getOrderDetail(params);<br>}else if(method.equal(“prod.list.get”)){<br>    getProdList(params)<br>}else if(“prod.detail.get”.equals(method)){<br>    getProdDetail(params)<br>}</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span>(method.equals(<span class="string">"order.list.get"</span>))&#123;</div><div class="line">    getOrderList(params);</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(method.equals(<span class="string">"order.detail.get"</span>))&#123;</div><div class="line">    getOrderDetail(params);</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(method.equal(<span class="string">"prod.list.get"</span>))&#123;</div><div class="line">    getProdList(params)</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"prod.detail.get"</span>.equals(method))&#123;</div><div class="line">    getProdDetail(params)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>后续还要增加其他的接口</p>
 <h2 id="使用策略模式"><a href="#使用策略模式" class="headerlink" title="使用策略模式"></a>使用策略模式</h2><p>使用设计模式：命令模式</p>
-<p>@Service(“orderdetailget”)<br>public class GetOrderDetail implements ErpExecute {<br>    @Override<br>    public String execute(String params) {<br>        return “得到订单详情”;<br>    }<br>}</p>
-<p>@Service(“orderlistget”)<br>public class GetOrderList implements ErpExecute{<br>    @Override<br>    public String execute(String params) {<br>        return “得到订单列表”;<br>    }<br>}</p>
-<p>@Test<br>public void test() {<br>    String method = “orderlistget”;<br>    ErpExecute erpExecute = SpringBeanUtil.getBeanByName(method);<br>    System.out.println(erpExecute.execute(“请求订单列表”));<br>    method = “orderdetailget”;<br>    erpExecute = SpringBeanUtil.getBeanByName(method);<br>    System.out.println(erpExecute.execute(“请求订单详情”));<br>}</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Service</span>(<span class="string">"orderdetailget"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetOrderDetail</span> <span class="keyword">implements</span> <span class="title">ErpExecute</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">(String params)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"得到订单详情"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Service</span>(<span class="string">"orderlistget"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetOrderList</span> <span class="keyword">implements</span> <span class="title">ErpExecute</span></span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">(String params)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"得到订单列表"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">    String method = <span class="string">"orderlistget"</span>;</div><div class="line">    ErpExecute erpExecute = SpringBeanUtil.getBeanByName(method);</div><div class="line">    System.out.println(erpExecute.execute(<span class="string">"请求订单列表"</span>));</div><div class="line">    method = <span class="string">"orderdetailget"</span>;</div><div class="line">    erpExecute = SpringBeanUtil.getBeanByName(method);</div><div class="line">    System.out.println(erpExecute.execute(<span class="string">"请求订单详情"</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这样是可以，但是有一个问题，比如订单列表和订单详情应该是在一个类中，而这种方式，需要每个接口有一个实现类</p>
 <p>现在想要的是，动态方法调用</p>
 
@@ -446,8 +444,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018-03-14-Java8新特性/" rel="next" title="Java8新特性">
-                <i class="fa fa-chevron-left"></i> Java8新特性
+              <a href="/2018-03-13-Autowired的一些解惑/" rel="next" title="Autowired的一些解惑">
+                <i class="fa fa-chevron-left"></i> Autowired的一些解惑
               </a>
             
           </div>
@@ -456,8 +454,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018-04-08-Redis小记忆点/" rel="prev" title="2018-04-08-Redis小记忆点">
-                2018-04-08-Redis小记忆点 <i class="fa fa-chevron-right"></i>
+              <a href="/2018-04-08-Kafka安装/" rel="prev" title="Kafka安装">
+                Kafka安装 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -535,7 +533,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">163</span>
+                  <span class="site-state-item-count">165</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -546,7 +544,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">28</span>
+                  <span class="site-state-item-count">29</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -557,7 +555,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">34</span>
+                  <span class="site-state-item-count">35</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -626,7 +624,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">122.2k</span>
+    <span title="网站字数总数">120.3k</span>
   
 </div>
 
