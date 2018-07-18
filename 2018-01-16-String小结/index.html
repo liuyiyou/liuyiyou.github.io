@@ -407,9 +407,9 @@
       
         <h2 id="总起"><a href="#总起" class="headerlink" title="总起"></a>总起</h2><p>String应该是用得最多的一个类型，不管是之前使用了无数次也好，又不管是看过源码也好，还是有些坑要注意</p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><h3 id="String-getBytes"><a href="#String-getBytes" class="headerlink" title="String#getBytes()"></a>String#getBytes()</h3><p>getBytes得到的是地址，所以对同一个Stirng调用getBytes得到的内容是不同的</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getBytesTest</span><span class="params">()</span></span>&#123;</div><div class="line">        String s = <span class="string">"123456"</span>;</div><div class="line">        System.out.println(s.getBytes()); <span class="comment">//[B@61e717c2</span></div><div class="line">        System.out.println(s.getBytes());  <span class="comment">//[B@66cd51c3</span></div><div class="line">        System.out.println(s.getBytes()); <span class="comment">//[B@4dcbadb4</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getBytesTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">        String s = <span class="string">"123456"</span>;</span><br><span class="line">        System.out.println(s.getBytes()); <span class="comment">//[B@61e717c2</span></span><br><span class="line">        System.out.println(s.getBytes());  <span class="comment">//[B@66cd51c3</span></span><br><span class="line">        System.out.println(s.getBytes()); <span class="comment">//[B@4dcbadb4</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="String-equals"><a href="#String-equals" class="headerlink" title="String#equals()"></a>String#equals()</h3><p>虽然String的equals()接受的是Object对象，但是如果想要返回true，传入的也必须是equals对象，同理，Integer之类也有类似情况</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">equalsTest</span><span class="params">()</span></span>&#123;</div><div class="line">       String str = <span class="string">"1234"</span>;</div><div class="line">       Integer integer  = <span class="number">1234</span>;</div><div class="line">       System.out.println(str.equals(integer));<span class="comment">//false</span></div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Test</span></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">equalsTest</span><span class="params">()</span></span>&#123;</span><br><span class="line">       String str = <span class="string">"1234"</span>;</span><br><span class="line">       Integer integer  = <span class="number">1234</span>;</span><br><span class="line">       System.out.println(str.equals(integer));<span class="comment">//false</span></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -620,7 +620,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -934,5 +934,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

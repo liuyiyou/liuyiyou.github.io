@@ -410,7 +410,7 @@
 <p>试了一下，能登陆，能进行hive、hbase、hdfs查询，但是超级用户密码忘记了。所以重新安装一遍</p>
 <h2 id="下载版本"><a href="#下载版本" class="headerlink" title="下载版本"></a>下载版本</h2><p>hue-3.11.0</p>
 <h2 id="存放路径"><a href="#存放路径" class="headerlink" title="存放路径"></a>存放路径</h2><p>/Users/liuyiyou/soft/hue</p>
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="http://gethue.com/start-developing-hue-on-a-mac-in-a-few-minutes/" target="_blank" rel="external">http://gethue.com/start-developing-hue-on-a-mac-in-a-few-minutes/</a></p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="http://gethue.com/start-developing-hue-on-a-mac-in-a-few-minutes/" target="_blank" rel="noopener">http://gethue.com/start-developing-hue-on-a-mac-in-a-few-minutes/</a></p>
 <p>file:///Users/liuyiyou/soft/hue-3.11.0/docs/manual.html#_install_hue</p>
 <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>需要注意，因为之前已经安装过，所以requirement都已经安装完成。否则需要参看文档，将其他依赖加上。 如果是高版本的osx则要：<br>export LDFLAGS=-L/usr/local/opt/openssl/lib &amp;&amp; export CPPFLAGS=-I/usr/local/opt/openssl/include</p>
 <p>cd soft/hue<br>make apps</p>
@@ -420,17 +420,17 @@
 <p>/Users/liuyiyou/hbase-1.2.4/bin/hbase-daemon.sh start thrift</p>
 <h2 id="启动方式"><a href="#启动方式" class="headerlink" title="启动方式"></a>启动方式</h2><p>hue-3.11.0 build/env/bin/supervisor &amp;</p>
 <p>./build/env/bin/hue runserver</p>
-<h2 id="访问地址"><a href="#访问地址" class="headerlink" title="访问地址"></a>访问地址</h2><p><a href="http://localhost:8000/" target="_blank" rel="external">http://localhost:8000/</a></p>
+<h2 id="访问地址"><a href="#访问地址" class="headerlink" title="访问地址"></a>访问地址</h2><p><a href="http://localhost:8000/" target="_blank" rel="noopener">http://localhost:8000/</a></p>
 <h2 id="用户名密码"><a href="#用户名密码" class="headerlink" title="用户名密码"></a>用户名密码</h2><p>hue/admin<br>hive/hive<br>liuyiyou/liuyiyou</p>
 <p>为了使用mysql作为hue的数据源，前面两个废了，只有最后一个</p>
 <h2 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h2><p>非超级用户只有第一次登陆的时候，才会有配置。</p>
 <h2 id="连接远程hvie"><a href="#连接远程hvie" class="headerlink" title="连接远程hvie"></a>连接远程hvie</h2><p>hive_server_host=xxxx<br>auth_username=<br>auth_password=</p>
 <h2 id="一些问题"><a href="#一些问题" class="headerlink" title="一些问题"></a>一些问题</h2><p>database is locked</p>
-<p><a href="https://www.cloudera.com/documentation/enterprise/latest/topics/hue_dbs_mysql.html#concept_vjx_lrl_ww" target="_blank" rel="external">https://www.cloudera.com/documentation/enterprise/latest/topics/hue_dbs_mysql.html#concept_vjx_lrl_ww</a></p>
-<p><a href="http://www.cnblogs.com/ivanny/p/hue_mysql_meta_dabatase.html" target="_blank" rel="external">http://www.cnblogs.com/ivanny/p/hue_mysql_meta_dabatase.html</a></p>
-<p><a href="http://stackoverflow.com/questions/6383310/python-mysqldb-library-not-loaded-libmysqlclient-18-dylib" target="_blank" rel="external">http://stackoverflow.com/questions/6383310/python-mysqldb-library-not-loaded-libmysqlclient-18-dylib</a></p>
+<p><a href="https://www.cloudera.com/documentation/enterprise/latest/topics/hue_dbs_mysql.html#concept_vjx_lrl_ww" target="_blank" rel="noopener">https://www.cloudera.com/documentation/enterprise/latest/topics/hue_dbs_mysql.html#concept_vjx_lrl_ww</a></p>
+<p><a href="http://www.cnblogs.com/ivanny/p/hue_mysql_meta_dabatase.html" target="_blank" rel="noopener">http://www.cnblogs.com/ivanny/p/hue_mysql_meta_dabatase.html</a></p>
+<p><a href="http://stackoverflow.com/questions/6383310/python-mysqldb-library-not-loaded-libmysqlclient-18-dylib" target="_blank" rel="noopener">http://stackoverflow.com/questions/6383310/python-mysqldb-library-not-loaded-libmysqlclient-18-dylib</a></p>
 <p>Table ‘hue.south_migrationhistory’ doesn’t exist</p>
-<p><a href="http://blog.sina.com.cn/s/blog_7c5a82970102vn35.html" target="_blank" rel="external">http://blog.sina.com.cn/s/blog_7c5a82970102vn35.html</a></p>
+<p><a href="http://blog.sina.com.cn/s/blog_7c5a82970102vn35.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_7c5a82970102vn35.html</a></p>
 <p>/hue/hue/build/env/bin/hue syncdb<br>/hue/hue/build/env/bin/hue migrate</p>
 <p>You just installed Django’s auth system, which means you don’t have any superusers defined.<br>Would you like to create one now? (yes/no): y<br>Please enter either “yes” or “no”: yes<br>Username (leave blank to use ‘liuyiyou’):<br>Email address: 137515110@qq.com<br>Password:<br>Password (again): liuyiyou<br>Superuser created successfully.<br>Installing custom SQL …<br>Installing indexes …<br>Installed 0 object(s) from 0 fixture(s)</p>
 
@@ -643,7 +643,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -957,5 +957,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

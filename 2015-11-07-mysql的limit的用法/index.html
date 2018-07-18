@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  137
+                  138
                 </span>
               
 
@@ -407,7 +407,7 @@
       
         <p>limit主要用在mysql的分页查询中，不过现在很多时候都不会主动写sql了。比如在JPA中提供了Page方法，而Mybatis也有分页插件</p>
 <h3 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h3><p>limit后面可以跟两个数字参数</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><div class="line"></div><div class="line">#从表中取出5条记录</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">TABLE</span> <span class="keyword">LIMIT</span> <span class="number">5</span></div><div class="line"></div><div class="line">#从第<span class="number">5</span>+<span class="number">1</span>个开始，选取<span class="number">6</span>条记录(<span class="number">6</span>到<span class="number">12</span>行)</div><div class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> TBALE <span class="keyword">LIMIT</span> <span class="number">5</span>,  <span class="number">6</span></div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#从表中取出5条记录</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> <span class="keyword">TABLE</span> <span class="keyword">LIMIT</span> <span class="number">5</span></span><br><span class="line"></span><br><span class="line">#从第<span class="number">5</span>+<span class="number">1</span>个开始，选取<span class="number">6</span>条记录(<span class="number">6</span>到<span class="number">12</span>行)</span><br><span class="line"><span class="keyword">SELECT</span> * <span class="keyword">FROM</span> TBALE <span class="keyword">LIMIT</span> <span class="number">5</span>,  <span class="number">6</span></span><br></pre></td></tr></table></figure>
 <p>分页的时候就可以这样传：<br>假设每页显示50条记录</p>
 <p>第一页： 0,50</p>
 <p>第二页： 50,10</p>
@@ -623,7 +623,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -937,5 +937,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

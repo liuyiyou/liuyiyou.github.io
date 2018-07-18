@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  185
+                  189
                 </span>
               
 
@@ -411,9 +411,9 @@
 <li>数据文件外部存放</li>
 <li>远程连接</li>
 </ul>
-<h2 id="直接通过官方Images安装"><a href="#直接通过官方Images安装" class="headerlink" title="直接通过官方Images安装"></a>直接通过官方Images安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">docker search redis</div><div class="line">docker pull redis</div></pre></td></tr></table></figure>
+<h2 id="直接通过官方Images安装"><a href="#直接通过官方Images安装" class="headerlink" title="直接通过官方Images安装"></a>直接通过官方Images安装</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker search redis</span><br><span class="line">docker pull redis</span><br></pre></td></tr></table></figure>
 <h2 id="编写Dockerfile安装"><a href="#编写Dockerfile安装" class="headerlink" title="编写Dockerfile安装"></a>编写Dockerfile安装</h2><p>待续。。。。。。</p>
-<h2 id="数据文件外部存放"><a href="#数据文件外部存放" class="headerlink" title="数据文件外部存放"></a>数据文件外部存放</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">## 第一次</div><div class="line">docker run -p 63790:6379  --name docker-redis -v /Users/liuyiyou/docker/redis/data:/data  -d redis redis-server</div><div class="line">docker ps</div><div class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES</div><div class="line">dbe780e50a3b        redis               &quot;docker-entrypoint.s…&quot;   5 days ago          Up 5 seconds        0.0.0.0:63790-&gt;6379/tcp   docker-redis</div><div class="line">## 后续</div><div class="line">docker start  docker-redis</div></pre></td></tr></table></figure>
+<h2 id="数据文件外部存放"><a href="#数据文件外部存放" class="headerlink" title="数据文件外部存放"></a>数据文件外部存放</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">## 第一次</span><br><span class="line">docker run -p 63790:6379  --name docker-redis -v /Users/liuyiyou/docker/redis/data:/data  -d redis redis-server</span><br><span class="line">docker ps</span><br><span class="line">CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                     NAMES</span><br><span class="line">dbe780e50a3b        redis               &quot;docker-entrypoint.s…&quot;   5 days ago          Up 5 seconds        0.0.0.0:63790-&gt;6379/tcp   docker-redis</span><br><span class="line">## 后续</span><br><span class="line">docker start  docker-redis</span><br></pre></td></tr></table></figure>
 <p>命令说明：<br>-d  后台运行<br>-p 63790:6379 :将容器的6379端口映射到主机的63790端口<br>-v User/data:/data :将主机中当前目录下的data挂载到容器的/data<br>redis-server –appendonly yes :在容器执行redis-server启动命令，并打开redis持久化配置</p>
 
       
@@ -445,8 +445,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018-01-09-照片保存方案/" rel="next" title="照片保存方案">
-                <i class="fa fa-chevron-left"></i> 照片保存方案
+              <a href="/2018-01-09-Docker安装mysql/" rel="next" title="Docker安装mysql">
+                <i class="fa fa-chevron-left"></i> Docker安装mysql
               </a>
             
           </div>
@@ -625,7 +625,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -939,5 +939,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

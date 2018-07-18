@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="转载自：Memcached常用命令 首先，以下的这些命令都是在连接Memcached之后才进行 lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   localhost  11211 存储命令&amp;lt;command name&amp;gt; &amp;lt;key&amp;gt; &amp;lt;flags&amp;gt; &amp;lt;expti">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-19T04:00:02.916Z">
+<meta property="og:updated_time" content="2018-01-19T04:00:02.917Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="memcached常用命令">
 <meta name="twitter:description" content="转载自：Memcached常用命令 首先，以下的这些命令都是在连接Memcached之后才进行 lyy:~ liuyiyou$ /usr/local/bin/memcached -d 11211lyy:~ liuyiyou$ /telnet   localhost  11211 存储命令&amp;lt;command name&amp;gt; &amp;lt;key&amp;gt; &amp;lt;flags&amp;gt; &amp;lt;expti">
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  326
+                  382
                 </span>
               
 
@@ -405,22 +405,22 @@
       
 
       
-        <p>转载自：<a href="http://www.cnblogs.com/jeffwongishandsome/archive/2011/11/06/2238265.html" target="_blank" rel="external">Memcached常用命令</a></p>
+        <p>转载自：<a href="http://www.cnblogs.com/jeffwongishandsome/archive/2011/11/06/2238265.html" target="_blank" rel="noopener">Memcached常用命令</a></p>
 <p>首先，以下的这些命令都是在连接Memcached之后才进行</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">lyy:~ liuyiyou$ /usr/<span class="built_in">local</span>/bin/memcached -d 11211</div><div class="line">lyy:~ liuyiyou$ /telnet   localhost  11211</div></pre></td></tr></table></figure>
-<h3 id="存储命令"><a href="#存储命令" class="headerlink" title="存储命令"></a>存储命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line"></div><div class="line">&lt;command name&gt; &lt;key&gt; &lt;flags&gt; &lt;exptime&gt; &lt;bytes&gt; &lt;data block&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">lyy:~ liuyiyou$ /usr/<span class="built_in">local</span>/bin/memcached -d 11211</span><br><span class="line">lyy:~ liuyiyou$ /telnet   localhost  11211</span><br></pre></td></tr></table></figure>
+<h3 id="存储命令"><a href="#存储命令" class="headerlink" title="存储命令"></a>存储命令</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">&lt;command name&gt; &lt;key&gt; &lt;flags&gt; &lt;exptime&gt; &lt;bytes&gt; &lt;data block&gt;</span><br></pre></td></tr></table></figure>
 <p> ||  <em> &lt; command name&gt;</em> || <em>set/add/replace</em> ||<br> ||  &lt;key&gt; || 查找关键字 ||<br> ||  &lt;flags&gt; || 客户机使用它存储关于键值对的额外信息 ||<br> ||  &lt;exptime&gt; || 该数据的存活时间，0表示永远 ||<br> ||  &lt;bytes&gt; || 存储字节数 ||<br> ||  &lt;data block&gt; || 存储的数据块（可直接理解为key-value结构中的value） ||</p>
 <p>###刷新缓存</p>
 <p>flush_all</p>
 <p>###状态命令stats </p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">stats </div><div class="line">STAT pid 674</div><div class="line">STAT uptime 230</div><div class="line">STAT time 1432217154</div><div class="line">STAT version 1.4.20</div><div class="line">STAT libevent 2.0.22-stable</div><div class="line">STAT pointer_size 64</div><div class="line">STAT rusage_user 0.004909</div><div class="line">STAT rusage_system 0.009993</div><div class="line">STAT curr_connections 10</div><div class="line">STAT total_connections 11</div><div class="line">STAT connection_structures 11</div><div class="line">STAT reserved_fds 20</div><div class="line">STAT cmd_get 2</div><div class="line">STAT cmd_set 1</div><div class="line">STAT cmd_flush 0</div><div class="line">STAT cmd_touch 0</div><div class="line">STAT get_hits 2</div><div class="line">STAT get_misses 0</div><div class="line">STAT delete_misses 1</div><div class="line">STAT delete_hits 1</div><div class="line">STAT incr_misses 0</div><div class="line">STAT incr_hits 0</div><div class="line">STAT decr_misses 0</div><div class="line">STAT decr_hits 0</div><div class="line">STAT cas_misses 0</div><div class="line">STAT cas_hits 0</div><div class="line">STAT cas_badval 0</div><div class="line">STAT touch_hits 0</div><div class="line">STAT touch_misses 0</div><div class="line">STAT auth_cmds 0</div><div class="line">STAT auth_errors 0</div><div class="line">STAT bytes_read 176</div><div class="line">STAT bytes_written 140</div><div class="line">STAT limit_maxbytes 67108864</div><div class="line">STAT accepting_conns 1</div><div class="line">STAT listen_disabled_num 0</div><div class="line">STAT threads 4</div><div class="line">STAT conn_yields 0</div><div class="line">STAT hash_power_level 16</div><div class="line">STAT hash_bytes 524288</div><div class="line">STAT hash_is_expanding 0</div><div class="line">STAT malloc_fails 0</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">stats </span><br><span class="line">STAT pid 674</span><br><span class="line">STAT uptime 230</span><br><span class="line">STAT time 1432217154</span><br><span class="line">STAT version 1.4.20</span><br><span class="line">STAT libevent 2.0.22-stable</span><br><span class="line">STAT pointer_size 64</span><br><span class="line">STAT rusage_user 0.004909</span><br><span class="line">STAT rusage_system 0.009993</span><br><span class="line">STAT curr_connections 10</span><br><span class="line">STAT total_connections 11</span><br><span class="line">STAT connection_structures 11</span><br><span class="line">STAT reserved_fds 20</span><br><span class="line">STAT cmd_get 2</span><br><span class="line">STAT cmd_set 1</span><br><span class="line">STAT cmd_flush 0</span><br><span class="line">STAT cmd_touch 0</span><br><span class="line">STAT get_hits 2</span><br><span class="line">STAT get_misses 0</span><br><span class="line">STAT delete_misses 1</span><br><span class="line">STAT delete_hits 1</span><br><span class="line">STAT incr_misses 0</span><br><span class="line">STAT incr_hits 0</span><br><span class="line">STAT decr_misses 0</span><br><span class="line">STAT decr_hits 0</span><br><span class="line">STAT cas_misses 0</span><br><span class="line">STAT cas_hits 0</span><br><span class="line">STAT cas_badval 0</span><br><span class="line">STAT touch_hits 0</span><br><span class="line">STAT touch_misses 0</span><br><span class="line">STAT auth_cmds 0</span><br><span class="line">STAT auth_errors 0</span><br><span class="line">STAT bytes_read 176</span><br><span class="line">STAT bytes_written 140</span><br><span class="line">STAT limit_maxbytes 67108864</span><br><span class="line">STAT accepting_conns 1</span><br><span class="line">STAT listen_disabled_num 0</span><br><span class="line">STAT threads 4</span><br><span class="line">STAT conn_yields 0</span><br><span class="line">STAT hash_power_level 16</span><br><span class="line">STAT hash_bytes 524288</span><br><span class="line">STAT hash_is_expanding 0</span><br><span class="line">STAT malloc_fails 0</span><br></pre></td></tr></table></figure>
 <h3 id="状态命令stats-items"><a href="#状态命令stats-items" class="headerlink" title="状态命令stats  items"></a>状态命令stats  items</h3><p>执行stats items，可以看到STAT items行，如果memcached存储内容很多，那么这里也会列出很多的STAT items行。</p>
 <p>stats items</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">//设置用户名</div><div class="line"><span class="built_in">set</span> username 0 0 8</div><div class="line">liuyiyou</div><div class="line">STORED</div><div class="line"></div><div class="line">//得到用户名</div><div class="line">get username</div><div class="line">VALUE username 0 8</div><div class="line">liuyiyou</div><div class="line"></div><div class="line">//删除用户名</div><div class="line">delete username</div><div class="line">DELETED</div><div class="line">delete username</div><div class="line">NOT_FOUND</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">//设置用户名</span><br><span class="line"><span class="built_in">set</span> username 0 0 8</span><br><span class="line">liuyiyou</span><br><span class="line">STORED</span><br><span class="line"></span><br><span class="line">//得到用户名</span><br><span class="line">get username</span><br><span class="line">VALUE username 0 8</span><br><span class="line">liuyiyou</span><br><span class="line"></span><br><span class="line">//删除用户名</span><br><span class="line">delete username</span><br><span class="line">DELETED</span><br><span class="line">delete username</span><br><span class="line">NOT_FOUND</span><br></pre></td></tr></table></figure>
 <ol>
 <li>添加（）</li>
 </ol>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">//设置用户名</div><div class="line"><span class="built_in">set</span> username 0 0 8</div><div class="line">liuyiyou</div><div class="line">STORED</div><div class="line"></div><div class="line">//得到用户名</div><div class="line">get username</div><div class="line">VALUE username 0 8</div><div class="line">liuyiyou</div><div class="line"></div><div class="line">//删除用户名</div><div class="line">delete username</div><div class="line">DELETED</div><div class="line">delete username</div><div class="line">NOT_FOUND</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">//设置用户名</span><br><span class="line"><span class="built_in">set</span> username 0 0 8</span><br><span class="line">liuyiyou</span><br><span class="line">STORED</span><br><span class="line"></span><br><span class="line">//得到用户名</span><br><span class="line">get username</span><br><span class="line">VALUE username 0 8</span><br><span class="line">liuyiyou</span><br><span class="line"></span><br><span class="line">//删除用户名</span><br><span class="line">delete username</span><br><span class="line">DELETED</span><br><span class="line">delete username</span><br><span class="line">NOT_FOUND</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -451,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015-05-16-memcached安装/" rel="next" title="memcached安装">
-                <i class="fa fa-chevron-left"></i> memcached安装
+              <a href="/2015-05-17-总结/" rel="next" title="2015-05-17-总结">
+                <i class="fa fa-chevron-left"></i> 2015-05-17-总结
               </a>
             
           </div>
@@ -461,8 +461,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015-05-17-总结/" rel="prev" title="2015-05-17-总结">
-                2015-05-17-总结 <i class="fa fa-chevron-right"></i>
+              <a href="/2015-05-27-为什么使用Redis/" rel="prev" title="为什么使用Redis">
+                为什么使用Redis <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -631,7 +631,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -945,5 +945,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="这个用到得多，但是很少去记住，在这里记录一下，至少要用到的时候，来这里找 遍历个map类型 #foreach($param in $&amp;#123;paramValues.keySet()&amp;#125;)   &amp;lt;tr&amp;gt;       &amp;lt;th&amp;gt;$param&amp;lt;/th&amp;gt;       &amp;lt;td&amp;gt;$&amp;#123;paramValues.get($param)&amp;#125;&amp;">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-26T01:57:30.623Z">
+<meta property="og:updated_time" content="2018-02-26T01:57:30.624Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="velocity的List&#x2F;Map&#x2F;数组">
 <meta name="twitter:description" content="这个用到得多，但是很少去记住，在这里记录一下，至少要用到的时候，来这里找 遍历个map类型 #foreach($param in $&amp;#123;paramValues.keySet()&amp;#125;)   &amp;lt;tr&amp;gt;       &amp;lt;th&amp;gt;$param&amp;lt;/th&amp;gt;       &amp;lt;td&amp;gt;$&amp;#123;paramValues.get($param)&amp;#125;&amp;">
@@ -406,10 +406,10 @@
 
       
         <p>这个用到得多，但是很少去记住，在这里记录一下，至少要用到的时候，来这里找</p>
-<h2 id="遍历个map类型"><a href="#遍历个map类型" class="headerlink" title="遍历个map类型"></a>遍历个map类型</h2><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"></div><div class="line"> #foreach($param in $&#123;paramValues.keySet()&#125;)  </div><div class="line"> <span class="tag">&lt;<span class="name">tr</span>&gt;</span>  </div><div class="line">     <span class="tag">&lt;<span class="name">th</span>&gt;</span>$param<span class="tag">&lt;/<span class="name">th</span>&gt;</span>  </div><div class="line">     <span class="tag">&lt;<span class="name">td</span>&gt;</span>$&#123;paramValues.get($param)&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span>  </div><div class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span>  </div><div class="line"> #end  </div><div class="line"></div><div class="line"></div><div class="line">  #foreach($map in $!scoreQuota.scoreQuotaDto.rule_map.entrySet())</div><div class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"form-field-checkbox"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">class</span>=<span class="string">"ace"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"lbl"</span>&gt;</span> $map.key - $map.value<span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line"> #end</div></pre></td></tr></table></figure>
-<h2 id="遍历List类型"><a href="#遍历List类型" class="headerlink" title="遍历List类型"></a>遍历List类型</h2><figure class="highlight html"><table><tr><td class="code"><pre><div class="line"></div><div class="line">#foreach($sal in $&#123;salerList&#125;)  </div><div class="line">$sal.name  </div><div class="line">#end</div></pre></td></tr></table></figure>
+<h2 id="遍历个map类型"><a href="#遍历个map类型" class="headerlink" title="遍历个map类型"></a>遍历个map类型</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"> #foreach($param in $&#123;paramValues.keySet()&#125;)  </span><br><span class="line"> <span class="tag">&lt;<span class="name">tr</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">th</span>&gt;</span>$param<span class="tag">&lt;/<span class="name">th</span>&gt;</span>  </span><br><span class="line">     <span class="tag">&lt;<span class="name">td</span>&gt;</span>$&#123;paramValues.get($param)&#125;<span class="tag">&lt;/<span class="name">td</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">tr</span>&gt;</span>  </span><br><span class="line"> #end  </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  #foreach($map in $!scoreQuota.scoreQuotaDto.rule_map.entrySet())</span><br><span class="line">        <span class="tag">&lt;<span class="name">label</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">name</span>=<span class="string">"form-field-checkbox"</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">class</span>=<span class="string">"ace"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"lbl"</span>&gt;</span> $map.key - $map.value<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line"> #end</span><br></pre></td></tr></table></figure>
+<h2 id="遍历List类型"><a href="#遍历List类型" class="headerlink" title="遍历List类型"></a>遍历List类型</h2><figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#foreach($sal in $&#123;salerList&#125;)  </span><br><span class="line">$sal.name  </span><br><span class="line">#end</span><br></pre></td></tr></table></figure>
 <h2 id="遍历数组"><a href="#遍历数组" class="headerlink" title="遍历数组"></a>遍历数组</h2><p>和List一样。关键是取下标: ${line[0]}</p>
-<figure class="highlight html"><table><tr><td class="code"><pre><div class="line"></div><div class="line">#foreach($value in $&#123;line&#125;)</div><div class="line">  $value</div><div class="line">  $&#123;line[0]&#125;</div><div class="line"> #end</div></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">#foreach($value in $&#123;line&#125;)</span><br><span class="line">  $value</span><br><span class="line">  $&#123;line[0]&#125;</span><br><span class="line"> #end</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -620,7 +620,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -934,5 +934,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

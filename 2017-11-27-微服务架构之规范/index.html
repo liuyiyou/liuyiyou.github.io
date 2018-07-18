@@ -89,7 +89,7 @@
 <meta property="og:description" content="说明在传统开发模式下的单应用架构，一般会将model层和dao层划分为一层（打包成jar）。之上是服务层（打包成jar），再之上是web层 好处：开发快速，简单坏处：只能单机部署，业务复杂后性能低下 在分布式服务的开发环境下，和单应用类似，区别在于，会将service接口和service实现打成两个包，对外提供服务的包括接口service，model以及相关类，客户端依赖service-api，且">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://liuyiyou.cn/images/service-product.png">
-<meta property="og:updated_time" content="2018-01-19T04:00:02.938Z">
+<meta property="og:updated_time" content="2018-01-19T04:00:02.939Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="微服务架构之规范">
 <meta name="twitter:description" content="说明在传统开发模式下的单应用架构，一般会将model层和dao层划分为一层（打包成jar）。之上是服务层（打包成jar），再之上是web层 好处：开发快速，简单坏处：只能单机部署，业务复杂后性能低下 在分布式服务的开发环境下，和单应用类似，区别在于，会将service接口和service实现打成两个包，对外提供服务的包括接口service，model以及相关类，客户端依赖service-api，且">
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  733
+                  734
                 </span>
               
 
@@ -433,11 +433,11 @@
 <p><img src="/images/service-product.png" alt="微服务包图"></p>
 <p>业务服务和其他服务需要调用的时候</p>
 <p>1、添加依赖</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.iba.server<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>product-server-contract<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"> <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.iba.server<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>product-server-contract<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"> <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>2、增加注解</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@SpringBootApplication</span></div><div class="line"><span class="meta">@EnableDiscoveryClient</span></div><div class="line"><span class="meta">@EnableFeignClients</span>(basePackages = &#123;<span class="string">"com.iba.service.*.contract"</span>&#125;)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StoreServerApplication</span> </span>&#123;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">      SpringApplication.run(StoreServerApplication.class, args);</div><div class="line"> &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="meta">@EnableFeignClients</span>(basePackages = &#123;<span class="string">"com.iba.service.*.contract"</span>&#125;)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StoreServerApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">      SpringApplication.run(StoreServerApplication.class, args);</span><br><span class="line"> &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>3、调用服务</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@RestController</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StoreController</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Logger logger = LoggerFactory.getLogger(StoreController.class);</div><div class="line"></div><div class="line"> <span class="meta">@Autowired</span></div><div class="line"> <span class="keyword">private</span> IProductService productService;</div><div class="line"></div><div class="line"></div><div class="line"> <span class="meta">@RequestMapping</span>(<span class="string">"getStore"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getStore</span><span class="params">()</span> </span>&#123;</div><div class="line">        logger.info(<span class="string">"调用本地服务"</span>);</div><div class="line"> productService.listUser();</div><div class="line"> logger.info(<span class="string">"调用其他服务提供的服务"</span>);</div><div class="line"> &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">StoreController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Logger logger = LoggerFactory.getLogger(StoreController.class);</span><br><span class="line"></span><br><span class="line"> <span class="meta">@Autowired</span></span><br><span class="line"> <span class="keyword">private</span> IProductService productService;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"> <span class="meta">@RequestMapping</span>(<span class="string">"getStore"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getStore</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        logger.info(<span class="string">"调用本地服务"</span>);</span><br><span class="line"> productService.listUser();</span><br><span class="line"> logger.info(<span class="string">"调用其他服务提供的服务"</span>);</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <ol>
 <li><p>MyBatis列表查询，如果没有数据，不会返回null，而是返回一个空集合，所以，不需要在上层使用</p>
 </li>
@@ -488,8 +488,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2017-12-01-SpringCloud注解一览/" rel="prev" title="SpringCloud注解一览">
-                SpringCloud注解一览 <i class="fa fa-chevron-right"></i>
+              <a href="/2017-12-01-SpringBoot注解一览/" rel="prev" title="SpringBoot注解一览">
+                SpringBoot注解一览 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -658,7 +658,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -972,5 +972,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

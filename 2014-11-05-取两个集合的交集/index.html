@@ -407,7 +407,7 @@
       
         <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>因为在项目中要用到这个功能，先使用一个查询，将一个外键查出来，然后在另外一个一个查询中查出外键，然后比较两个，如果第二个集合中的值在第一个中就需要做一些处理，所以就是一个求两个集合的交集，自己花了一段时间才写出来，到后面发现java framework中已经有这个方法了，但是之前一直没有使用过，所以记录一下：</p>
 <p>我写的：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">while</span> (iter.hasNext())&#123;</div><div class="line">           <span class="keyword">if</span> (!set2.contains(iter.next()))&#123;</div><div class="line">               iter.remove();</div><div class="line">              <span class="comment">// set1.remove(iter.next());这个不能使用，会出现ConcurrentModificationException异常</span></div><div class="line">              <span class="comment">//http://www.2cto.com/kf/201403/286536.html</span></div><div class="line">           &#125;</div><div class="line">       &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">while</span> (iter.hasNext())&#123;</span><br><span class="line">           <span class="keyword">if</span> (!set2.contains(iter.next()))&#123;</span><br><span class="line">               iter.remove();</span><br><span class="line">              <span class="comment">// set1.remove(iter.next());这个不能使用，会出现ConcurrentModificationException异常</span></span><br><span class="line">              <span class="comment">//http://www.2cto.com/kf/201403/286536.html</span></span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="注意的是：迭代器的删除和非迭代器的删除，在一个集合进行循环的时候，不能对其进行操作，我就一直使用"><a href="#注意的是：迭代器的删除和非迭代器的删除，在一个集合进行循环的时候，不能对其进行操作，我就一直使用" class="headerlink" title="注意的是：迭代器的删除和非迭代器的删除，在一个集合进行循环的时候，不能对其进行操作，我就一直使用"></a>注意的是：迭代器的删除和非迭代器的删除，在一个集合进行循环的时候，不能对其进行操作，我就一直使用</h3><p>之前看数据结构中有一段话不理解，现在理解了：</p>
 <blockquote>
 <p>Iterator接口的思路是，通过iteror方法，每个集合均可以创建并返回给客户一个实现Iterator接口的对象，并将当前位置的概念在对象内部存储下来。</p>
@@ -420,7 +420,7 @@
 <p>之前就是使用错了remove方法，所以报ConcurrentModifycationExceptionConcurrentModifycationException异常。</p>
 <p>学习了iter.remove和   list.remove(obj)</p>
 <p>在jdk中的</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection&lt;?&gt; c)</span> </span>&#123;</div><div class="line">      <span class="keyword">boolean</span> modified = <span class="keyword">false</span>;</div><div class="line">      Iterator&lt;E&gt; it = iterator();</div><div class="line">      <span class="keyword">while</span> (it.hasNext()) &#123;</div><div class="line">          <span class="keyword">if</span> (!c.contains(it.next())) &#123;</div><div class="line">              it.remove();</div><div class="line">              modified = <span class="keyword">true</span>;</div><div class="line">          &#125;</div><div class="line">      &#125;</div><div class="line">      <span class="keyword">return</span> modified;</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">retainAll</span><span class="params">(Collection&lt;?&gt; c)</span> </span>&#123;</span><br><span class="line">      <span class="keyword">boolean</span> modified = <span class="keyword">false</span>;</span><br><span class="line">      Iterator&lt;E&gt; it = iterator();</span><br><span class="line">      <span class="keyword">while</span> (it.hasNext()) &#123;</span><br><span class="line">          <span class="keyword">if</span> (!c.contains(it.next())) &#123;</span><br><span class="line">              it.remove();</span><br><span class="line">              modified = <span class="keyword">true</span>;</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> modified;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -451,8 +451,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2014-09-10-离职感言-第一份工作/" rel="next" title="离职感言-第一份工作">
-                <i class="fa fa-chevron-left"></i> 离职感言-第一份工作
+              <a href="/2014-09-10-DBUtils使用/" rel="next" title="DBUtils使用">
+                <i class="fa fa-chevron-left"></i> DBUtils使用
               </a>
             
           </div>
@@ -631,7 +631,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -945,5 +945,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

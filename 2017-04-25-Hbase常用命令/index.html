@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  210
+                  215
                 </span>
               
 
@@ -405,13 +405,13 @@
       
 
       
-        <h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="built_in">cd</span> hbase-1.2.4/bin</div><div class="line"></div><div class="line">./start-hbase.sh  </div><div class="line"></div><div class="line">./hbase shell</div></pre></td></tr></table></figure>
+        <h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="built_in">cd</span> hbase-1.2.4/bin</span><br><span class="line"></span><br><span class="line">./start-hbase.sh  </span><br><span class="line"></span><br><span class="line">./hbase shell</span><br></pre></td></tr></table></figure>
 <h3 id="创建表"><a href="#创建表" class="headerlink" title="创建表"></a>创建表</h3><p>注意： 没有 table关键字，没有;号，有’’号</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">hbase(main):001:0&gt; create <span class="string">'testtable'</span>, <span class="string">'colfam1'</span></div><div class="line">0 row(s) <span class="keyword">in</span> 1.6100 seconds</div><div class="line"></div><div class="line">=&gt; Hbase::Table - testtable</div></pre></td></tr></table></figure>
-<h3 id="查看表"><a href="#查看表" class="headerlink" title="查看表"></a>查看表</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">hbase(main):006:0&gt; list</div><div class="line">TABLE </div><div class="line"><span class="built_in">test</span></div><div class="line">test1</div><div class="line">testtable</div></pre></td></tr></table></figure>
-<h3 id="增加数据"><a href="#增加数据" class="headerlink" title="增加数据"></a>增加数据</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">hbase(main):003:0&gt; put  <span class="string">'testtable'</span> ,<span class="string">'myrow-1'</span>,<span class="string">'colfam1:q1'</span>,<span class="string">'value-1'</span></div><div class="line">0 row(s) <span class="keyword">in</span> 1.2280 seconds</div><div class="line"></div><div class="line">hbase(main):004:0&gt; put  <span class="string">'testtable'</span> ,<span class="string">'myrow-1'</span>,<span class="string">'colfam1:q2'</span>,<span class="string">'value-2'</span></div><div class="line">0 row(s) <span class="keyword">in</span> 0.0080 seconds</div><div class="line"></div><div class="line">hbase(main):005:0&gt; put  <span class="string">'testtable'</span> ,<span class="string">'myrow-1'</span>,<span class="string">'colfam1:q3'</span>,<span class="string">'value-3'</span></div><div class="line">0 row(s) <span class="keyword">in</span> 0.0070 seconds</div></pre></td></tr></table></figure>
-<h3 id="扫描全表"><a href="#扫描全表" class="headerlink" title="扫描全表"></a>扫描全表</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">hbase(main):008:0&gt; scan <span class="string">'testtable'</span></div><div class="line">ROW                     COLUMN+CELL                                                       </div><div class="line"> myrow-1                column=colfam1:q1, timestamp=1493024796264, value=value-1         </div><div class="line"> myrow-1                column=colfam1:q2, timestamp=1493024808400, value=value-2         </div><div class="line"> myrow-1                column=colfam1:q3, timestamp=1493024813433, value=value-3         </div><div class="line">1 row(s) <span class="keyword">in</span> 0.0260 seconds</div></pre></td></tr></table></figure>
-<h3 id="单条数据"><a href="#单条数据" class="headerlink" title="单条数据"></a>单条数据</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">hbase(main):010:0&gt; get <span class="string">'testtable'</span>, <span class="string">'myrow-1'</span></div><div class="line">COLUMN                  CELL                                                              </div><div class="line"> colfam1:q1             timestamp=1493024796264, value=value-1                            </div><div class="line"> colfam1:q2             timestamp=1493024808400, value=value-2                            </div><div class="line"> colfam1:q3             timestamp=1493024813433, value=value-3                            </div><div class="line">3 row(s) <span class="keyword">in</span> 0.0840 seconds</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hbase(main):001:0&gt; create <span class="string">'testtable'</span>, <span class="string">'colfam1'</span></span><br><span class="line">0 row(s) <span class="keyword">in</span> 1.6100 seconds</span><br><span class="line"></span><br><span class="line">=&gt; Hbase::Table - testtable</span><br></pre></td></tr></table></figure>
+<h3 id="查看表"><a href="#查看表" class="headerlink" title="查看表"></a>查看表</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">hbase(main):006:0&gt; list</span><br><span class="line">TABLE </span><br><span class="line"><span class="built_in">test</span></span><br><span class="line">test1</span><br><span class="line">testtable</span><br></pre></td></tr></table></figure>
+<h3 id="增加数据"><a href="#增加数据" class="headerlink" title="增加数据"></a>增加数据</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hbase(main):003:0&gt; put  <span class="string">'testtable'</span> ,<span class="string">'myrow-1'</span>,<span class="string">'colfam1:q1'</span>,<span class="string">'value-1'</span></span><br><span class="line">0 row(s) <span class="keyword">in</span> 1.2280 seconds</span><br><span class="line"></span><br><span class="line">hbase(main):004:0&gt; put  <span class="string">'testtable'</span> ,<span class="string">'myrow-1'</span>,<span class="string">'colfam1:q2'</span>,<span class="string">'value-2'</span></span><br><span class="line">0 row(s) <span class="keyword">in</span> 0.0080 seconds</span><br><span class="line"></span><br><span class="line">hbase(main):005:0&gt; put  <span class="string">'testtable'</span> ,<span class="string">'myrow-1'</span>,<span class="string">'colfam1:q3'</span>,<span class="string">'value-3'</span></span><br><span class="line">0 row(s) <span class="keyword">in</span> 0.0070 seconds</span><br></pre></td></tr></table></figure>
+<h3 id="扫描全表"><a href="#扫描全表" class="headerlink" title="扫描全表"></a>扫描全表</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hbase(main):008:0&gt; scan <span class="string">'testtable'</span></span><br><span class="line">ROW                     COLUMN+CELL                                                       </span><br><span class="line"> myrow-1                column=colfam1:q1, timestamp=1493024796264, value=value-1         </span><br><span class="line"> myrow-1                column=colfam1:q2, timestamp=1493024808400, value=value-2         </span><br><span class="line"> myrow-1                column=colfam1:q3, timestamp=1493024813433, value=value-3         </span><br><span class="line">1 row(s) <span class="keyword">in</span> 0.0260 seconds</span><br></pre></td></tr></table></figure>
+<h3 id="单条数据"><a href="#单条数据" class="headerlink" title="单条数据"></a>单条数据</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">hbase(main):010:0&gt; get <span class="string">'testtable'</span>, <span class="string">'myrow-1'</span></span><br><span class="line">COLUMN                  CELL                                                              </span><br><span class="line"> colfam1:q1             timestamp=1493024796264, value=value-1                            </span><br><span class="line"> colfam1:q2             timestamp=1493024808400, value=value-2                            </span><br><span class="line"> colfam1:q3             timestamp=1493024813433, value=value-3                            </span><br><span class="line">3 row(s) <span class="keyword">in</span> 0.0840 seconds</span><br></pre></td></tr></table></figure>
 <h3 id="删除数据"><a href="#删除数据" class="headerlink" title="删除数据"></a>删除数据</h3><p>```</p>
 
       
@@ -623,7 +623,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -937,5 +937,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

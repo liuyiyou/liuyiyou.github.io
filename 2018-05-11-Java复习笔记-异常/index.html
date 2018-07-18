@@ -80,19 +80,19 @@
 
 
 
-<meta name="description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 异常   Exception和RuntimeException的区别">
+<meta name="description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 异常   Exception和RuntimeException的区别Exception是受检查异常，即如果抛出该异常，调用方必须处理或者继续抛出RunTimeException：非检查异常，抛出该异常后，调用方不需要进行处理。一般采用此方法，除非某些时刻必须显示处理的时候，才使用第一种 public class E">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java复习笔记-异常">
 <meta property="og:url" content="http://liuyiyou.cn/2018-05-11-Java复习笔记-异常/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 异常   Exception和RuntimeException的区别">
+<meta property="og:description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 异常   Exception和RuntimeException的区别Exception是受检查异常，即如果抛出该异常，调用方必须处理或者继续抛出RunTimeException：非检查异常，抛出该异常后，调用方不需要进行处理。一般采用此方法，除非某些时刻必须显示处理的时候，才使用第一种 public class E">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://liuyiyou.cn/images/java/exception.png">
-<meta property="og:updated_time" content="2018-05-04T07:41:35.670Z">
+<meta property="og:updated_time" content="2018-07-18T03:48:42.493Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java复习笔记-异常">
-<meta name="twitter:description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 异常   Exception和RuntimeException的区别">
+<meta name="twitter:description" content="目的工作几年，基础记了忘，忘了记，现在统一记录一下，后续都可以在这里进行回顾 内容 异常   Exception和RuntimeException的区别Exception是受检查异常，即如果抛出该异常，调用方必须处理或者继续抛出RunTimeException：非检查异常，抛出该异常后，调用方不需要进行处理。一般采用此方法，除非某些时刻必须显示处理的时候，才使用第一种 public class E">
 <meta name="twitter:image" content="http://liuyiyou.cn/images/java/exception.png">
 
 
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  43
+                  436
                 </span>
               
 
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -412,7 +412,19 @@
 <li>异常</li>
 </ul>
 <p><img src="/images/java/exception.png" alt="异常图"></p>
-<p>Exception和RuntimeException的区别</p>
+<h2 id="Exception和RuntimeException的区别"><a href="#Exception和RuntimeException的区别" class="headerlink" title="Exception和RuntimeException的区别"></a>Exception和RuntimeException的区别</h2><p>Exception是受检查异常，即如果抛出该异常，调用方必须处理或者继续抛出<br>RunTimeException：非检查异常，抛出该异常后，调用方不需要进行处理。一般采用此方法，除非某些时刻必须显示处理的时候，才使用第一种</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ExtendExcptionTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//继承Exception的方法需要继续抛出或者TryCatch异常</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> <span class="keyword">throws</span> ExtendException </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ExtendException();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//继承Exception的方法不需要继续抛出或者TryCatch异常</span></span><br><span class="line">    <span class="meta">@Test</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> ExtendRunTimeException();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="异常处理方法"><a href="#异常处理方法" class="headerlink" title="异常处理方法"></a>异常处理方法</h2><ol>
+<li>在Controller层使用try-catch进行处理</li>
+<li>直接抛给上层框架进行统一处理</li>
+</ol>
+<h2 id="try-catch-finlay-执行顺序"><a href="#try-catch-finlay-执行顺序" class="headerlink" title="try-catch-finlay 执行顺序"></a>try-catch-finlay 执行顺序</h2><p>结论：</p>
+<ol>
+<li>不管有没有出现异常，finally块中代码都会执行；</li>
+<li>当try和catch中有return时，finally仍然会执行；</li>
+<li>finally中最好不要包含return，否则程序会提前退出，返回值不是try或catch中保存的返回值。</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//不管有没有出现异常，finally块中代码都会执行；</span></span><br><span class="line"><span class="comment">// a,c, return 0</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">tryCatch</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"a"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"b"</span>);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"c"</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//finally中最好不要包含return，否则程序会提前退出，返回值不是try或catch中保存的返回值。</span></span><br><span class="line">    <span class="comment">//a c, return 2</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">tryCatch2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"a"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            System.out.println(<span class="string">"b"</span>);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"c"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//不管有没有出现异常，finally块中代码都会执行；</span></span><br><span class="line">    <span class="comment">// a, b,c, return 2</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">tryCatch3</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"a"</span>);</span><br><span class="line">            <span class="keyword">int</span> i = <span class="number">1</span>/<span class="number">0</span>;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">            System.out.println(<span class="string">"b"</span>);</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            System.out.println(<span class="string">"c"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="number">2</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -585,7 +597,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容"><span class="nav-number">2.</span> <span class="nav-text">内容</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#目的"><span class="nav-number">1.</span> <span class="nav-text">目的</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#内容"><span class="nav-number">2.</span> <span class="nav-text">内容</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Exception和RuntimeException的区别"><span class="nav-number">3.</span> <span class="nav-text">Exception和RuntimeException的区别</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#异常处理方法"><span class="nav-number">4.</span> <span class="nav-text">异常处理方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#try-catch-finlay-执行顺序"><span class="nav-number">5.</span> <span class="nav-text">try-catch-finlay 执行顺序</span></a></li></ol></div>
             
 
           </div>
@@ -619,7 +631,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -933,5 +945,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

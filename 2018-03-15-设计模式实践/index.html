@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  266
+                  270
                 </span>
               
 
@@ -406,12 +406,12 @@
 
       
         <p>今天与第三方进行对接的时候，发现对方只需要一个接口，通过里面的接口名称，调用不同的方法，比如有如下接口</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">method=order.list.get</div><div class="line">method=order.detail.get</div><div class="line">method=prod.list.get</div><div class="line">method=prod.detail.get</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">method=order.list.get</span><br><span class="line">method=order.detail.get</span><br><span class="line">method=prod.list.get</span><br><span class="line">method=prod.detail.get</span><br></pre></td></tr></table></figure>
 <p>最简单方法：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="keyword">if</span>(method.equals(<span class="string">"order.list.get"</span>))&#123;</div><div class="line">    getOrderList(params);</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(method.equals(<span class="string">"order.detail.get"</span>))&#123;</div><div class="line">    getOrderDetail(params);</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(method.equal(<span class="string">"prod.list.get"</span>))&#123;</div><div class="line">    getProdList(params)</div><div class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"prod.detail.get"</span>.equals(method))&#123;</div><div class="line">    getProdDetail(params)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span>(method.equals(<span class="string">"order.list.get"</span>))&#123;</span><br><span class="line">    getOrderList(params);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(method.equals(<span class="string">"order.detail.get"</span>))&#123;</span><br><span class="line">    getOrderDetail(params);</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(method.equal(<span class="string">"prod.list.get"</span>))&#123;</span><br><span class="line">    getProdList(params)</span><br><span class="line">&#125;<span class="keyword">else</span> <span class="keyword">if</span>(<span class="string">"prod.detail.get"</span>.equals(method))&#123;</span><br><span class="line">    getProdDetail(params)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>后续还要增加其他的接口</p>
 <h2 id="使用策略模式"><a href="#使用策略模式" class="headerlink" title="使用策略模式"></a>使用策略模式</h2><p>使用设计模式：命令模式</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Service</span>(<span class="string">"orderdetailget"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetOrderDetail</span> <span class="keyword">implements</span> <span class="title">ErpExecute</span> </span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">(String params)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"得到订单详情"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Service</span>(<span class="string">"orderlistget"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetOrderList</span> <span class="keyword">implements</span> <span class="title">ErpExecute</span></span>&#123;</div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">(String params)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="string">"得到订单列表"</span>;</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">    String method = <span class="string">"orderlistget"</span>;</div><div class="line">    ErpExecute erpExecute = SpringBeanUtil.getBeanByName(method);</div><div class="line">    System.out.println(erpExecute.execute(<span class="string">"请求订单列表"</span>));</div><div class="line">    method = <span class="string">"orderdetailget"</span>;</div><div class="line">    erpExecute = SpringBeanUtil.getBeanByName(method);</div><div class="line">    System.out.println(erpExecute.execute(<span class="string">"请求订单详情"</span>));</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Service</span>(<span class="string">"orderdetailget"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetOrderDetail</span> <span class="keyword">implements</span> <span class="title">ErpExecute</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">(String params)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"得到订单详情"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span>(<span class="string">"orderlistget"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">GetOrderList</span> <span class="keyword">implements</span> <span class="title">ErpExecute</span></span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">execute</span><span class="params">(String params)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"得到订单列表"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    String method = <span class="string">"orderlistget"</span>;</span><br><span class="line">    ErpExecute erpExecute = SpringBeanUtil.getBeanByName(method);</span><br><span class="line">    System.out.println(erpExecute.execute(<span class="string">"请求订单列表"</span>));</span><br><span class="line">    method = <span class="string">"orderdetailget"</span>;</span><br><span class="line">    erpExecute = SpringBeanUtil.getBeanByName(method);</span><br><span class="line">    System.out.println(erpExecute.execute(<span class="string">"请求订单详情"</span>));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这样是可以，但是有一个问题，比如订单列表和订单详情应该是在一个类中，而这种方式，需要每个接口有一个实现类</p>
 <p>现在想要的是，动态方法调用</p>
 
@@ -444,8 +444,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018-03-13-Autowired的一些解惑/" rel="next" title="Autowired的一些解惑">
-                <i class="fa fa-chevron-left"></i> Autowired的一些解惑
+              <a href="/2018-03-14-Java8新特性/" rel="next" title="Java8新特性">
+                <i class="fa fa-chevron-left"></i> Java8新特性
               </a>
             
           </div>
@@ -624,7 +624,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -938,5 +938,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

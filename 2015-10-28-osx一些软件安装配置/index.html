@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  578
+                  587
                 </span>
               
 
@@ -413,29 +413,29 @@
 <li>~/.bash_profile  一般在这个文件中添加用户级环境变量</li>
 </ul>
 <h2 id="java环境变量的配置"><a href="#java环境变量的配置" class="headerlink" title="java环境变量的配置"></a>java环境变量的配置</h2><p>osx自动带有Java，可以通过</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="built_in">cd</span>  /usr/bin</div><div class="line">ls -l java</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span>  /usr/bin</span><br><span class="line">ls -l java</span><br></pre></td></tr></table></figure>
 <p>看到配置的信息，不过一般在.bash_profile中进行配置</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="built_in">export</span> JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_65.jdk/Contents/Home <span class="comment">#jdk安装路径   </span></div><div class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></div><div class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">export</span> JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.7.0_65.jdk/Contents/Home <span class="comment">#jdk安装路径   </span></span><br><span class="line"><span class="built_in">export</span> PATH=<span class="variable">$JAVA_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> CLASSPATH=.:<span class="variable">$JAVA_HOME</span>/lib/dt.jar:<span class="variable">$JAVA_HOME</span>/lib/tools.jar</span><br></pre></td></tr></table></figure>
 <p>不知道配置得是否正确</p>
-<h2 id="maven安装和环境变量配置"><a href="#maven安装和环境变量配置" class="headerlink" title="maven安装和环境变量配置"></a>maven安装和环境变量配置</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">M2_HOME=/Users/liuyiyou/TechSoft/apache-maven-3.0.5</div><div class="line">PATH=<span class="variable">$M2_HOME</span>/bin:<span class="variable">$PATH</span></div><div class="line"><span class="built_in">export</span> PATH</div></pre></td></tr></table></figure>
-<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">MYSQL_HOME=/usr/<span class="built_in">local</span>/mysql</div><div class="line">PATH=<span class="variable">$MYSQL_HOME</span>/bin:<span class="variable">$PATH</span></div><div class="line"><span class="built_in">export</span> PATH</div></pre></td></tr></table></figure>
+<h2 id="maven安装和环境变量配置"><a href="#maven安装和环境变量配置" class="headerlink" title="maven安装和环境变量配置"></a>maven安装和环境变量配置</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">M2_HOME=/Users/liuyiyou/TechSoft/apache-maven-3.0.5</span><br><span class="line">PATH=<span class="variable">$M2_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure>
+<h2 id="mysql"><a href="#mysql" class="headerlink" title="mysql"></a>mysql</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">MYSQL_HOME=/usr/<span class="built_in">local</span>/mysql</span><br><span class="line">PATH=<span class="variable">$MYSQL_HOME</span>/bin:<span class="variable">$PATH</span></span><br><span class="line"><span class="built_in">export</span> PATH</span><br></pre></td></tr></table></figure>
 <h2 id="memcached"><a href="#memcached" class="headerlink" title="memcached"></a>memcached</h2><p>见 <a href="/2015-05-16-memcached安装/">2015-05-16-memcached安装</a></p>
 <h2 id="redis"><a href="#redis" class="headerlink" title="redis"></a>redis</h2><p>见 <a href="/2015-05-28-Redis安装与基本测试/">Redis安装与基本测试</a></p>
 <h2 id="hadoop"><a href="#hadoop" class="headerlink" title="hadoop"></a>hadoop</h2><p>见 <a href="/2016-01-01-osx下hadoop环境搭建以及启动/">2016-01-01-osx下hadoop环境搭建以及启动</a></p>
 <h2 id="hive"><a href="#hive" class="headerlink" title="hive"></a>hive</h2><p>见 <a href="/2016-01-01-hive环境搭建以及常用命令/">2016-01-01-hive环境搭建以及常用命令</a></p>
-<h2 id="hbase"><a href="#hbase" class="headerlink" title="hbase"></a>hbase</h2><p>官方文档：<br><a href="http://hbase.apache.org/book.html" target="_blank" rel="external">http://hbase.apache.org/book.html</a></p>
-<p>中文文档：这个比较老<br><a href="http://abloz.com/hbase/book.html#standalone_dist" target="_blank" rel="external">http://abloz.com/hbase/book.html#standalone_dist</a><br><a href="http://abloz.com/hbase/book.html" target="_blank" rel="external">http://abloz.com/hbase/book.html</a></p>
-<p>基本操作：<br><a href="http://www.uml.org.cn/sjjm/201212141.asp" target="_blank" rel="external">http://www.uml.org.cn/sjjm/201212141.asp</a></p>
+<h2 id="hbase"><a href="#hbase" class="headerlink" title="hbase"></a>hbase</h2><p>官方文档：<br><a href="http://hbase.apache.org/book.html" target="_blank" rel="noopener">http://hbase.apache.org/book.html</a></p>
+<p>中文文档：这个比较老<br><a href="http://abloz.com/hbase/book.html#standalone_dist" target="_blank" rel="noopener">http://abloz.com/hbase/book.html#standalone_dist</a><br><a href="http://abloz.com/hbase/book.html" target="_blank" rel="noopener">http://abloz.com/hbase/book.html</a></p>
+<p>基本操作：<br><a href="http://www.uml.org.cn/sjjm/201212141.asp" target="_blank" rel="noopener">http://www.uml.org.cn/sjjm/201212141.asp</a></p>
 <p>1、下载hbase-1.2.4-bin.tar.gz<br>2、tar xzvf hbase-1.2.4-bin.tar.gz<br>3、cd hbase-1.2.4<br>4、配置java环境变量<br>    4.1:echo $PATH 或者 cat /etc/profile<br>    4.2:在conf/hbase-env.sh中配置：<br>    export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_102.jdk/Contents/Home/  </p>
-<p>5、配置hbase-site.xml<br>6、./start-hbase.sh<br>7、<a href="http://localhost:16010" target="_blank" rel="external">http://localhost:16010</a><br>8、./hbase shell</p>
+<p>5、配置hbase-site.xml<br>6、./start-hbase.sh<br>7、<a href="http://localhost:16010" target="_blank" rel="noopener">http://localhost:16010</a><br>8、./hbase shell</p>
 <h2 id="spark"><a href="#spark" class="headerlink" title="spark"></a>spark</h2><h2 id="hue"><a href="#hue" class="headerlink" title="hue"></a>hue</h2><p>见 <a href="/2017-04-26-Hue安装/">Hue安装</a></p>
 <h2 id="rabitmq"><a href="#rabitmq" class="headerlink" title="rabitmq"></a>rabitmq</h2><p>见 <a href="/2017-08-28-rabbitmq安装/">rabbitmq安装</a></p>
 <h2 id="nginx"><a href="#nginx" class="headerlink" title="nginx"></a>nginx</h2><p>位置：</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">Docroot is: /usr/<span class="built_in">local</span>/var/www</div><div class="line"></div><div class="line">The default port has been <span class="built_in">set</span> <span class="keyword">in</span> /usr/<span class="built_in">local</span>/etc/nginx/nginx.conf to 8080 so that</div><div class="line">nginx can run without sudo.</div><div class="line"></div><div class="line">nginx will load all files <span class="keyword">in</span> /usr/<span class="built_in">local</span>/etc/nginx/servers/.</div><div class="line"></div><div class="line">To have launchd start nginx now and restart at login:</div><div class="line">  brew services start nginx</div><div class="line">Or, <span class="keyword">if</span> you don<span class="string">'t want/need a background service you can just run:</span></div><div class="line"><span class="string">  nginx</span></div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">Docroot is: /usr/<span class="built_in">local</span>/var/www</span><br><span class="line"></span><br><span class="line">The default port has been <span class="built_in">set</span> <span class="keyword">in</span> /usr/<span class="built_in">local</span>/etc/nginx/nginx.conf to 8080 so that</span><br><span class="line">nginx can run without sudo.</span><br><span class="line"></span><br><span class="line">nginx will load all files <span class="keyword">in</span> /usr/<span class="built_in">local</span>/etc/nginx/servers/.</span><br><span class="line"></span><br><span class="line">To have launchd start nginx now and restart at login:</span><br><span class="line">  brew services start nginx</span><br><span class="line">Or, <span class="keyword">if</span> you don<span class="string">'t want/need a background service you can just run:</span></span><br><span class="line"><span class="string">  nginx</span></span><br></pre></td></tr></table></figure>
 <p>位置：</p>
 <p>配置文件在上面有提到<br>日志文件在Celler上</p>
 <p>常用命令：</p>
-<p><a href="http://my.oschina.net/psuyun/blog/113694" target="_blank" rel="external">http://my.oschina.net/psuyun/blog/113694</a></p>
+<p><a href="http://my.oschina.net/psuyun/blog/113694" target="_blank" rel="noopener">http://my.oschina.net/psuyun/blog/113694</a></p>
 <p>启动：sudo nginx<br>重启：sudo nginx -s reload<br>关闭：sudo nginx -s stop</p>
 
       
@@ -647,7 +647,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -961,5 +961,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

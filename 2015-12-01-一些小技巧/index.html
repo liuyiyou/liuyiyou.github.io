@@ -407,7 +407,7 @@
       
         <h2 id="关于jrebel"><a href="#关于jrebel" class="headerlink" title="关于jrebel"></a>关于jrebel</h2><p>今天在敲代码的时候，发现修改mybatis的xml映射文件之后，jrebel竟然没有重新加载这个xml，导致每修改一次就需要重启一次，原因在于，jrebel只加载类似prototype类型的java文件和xml。</p>
 <h2 id="关于mysql"><a href="#关于mysql" class="headerlink" title="关于mysql"></a>关于mysql</h2><p>mysql在group by 的时候，如果某个字段有味null的时候，group by 后的结果可能就是null。但是在某些情况下，需要填充，可以使用如下方式</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span> (<span class="keyword">select</span> <span class="number">20151201</span>, <span class="keyword">id</span>, <span class="keyword">name</span>   <span class="keyword">from</span> table2  <span class="keyword">group</span> <span class="keyword">by</span>   xx)</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">insert</span> <span class="keyword">into</span> <span class="keyword">table</span> (<span class="keyword">select</span> <span class="number">20151201</span>, <span class="keyword">id</span>, <span class="keyword">name</span>   <span class="keyword">from</span> table2  <span class="keyword">group</span> <span class="keyword">by</span>   xx)</span><br></pre></td></tr></table></figure>
 <p>这样就能确保第一个值是有值的  而且是  20151201</p>
 <h2 id="关于wf"><a href="#关于wf" class="headerlink" title="关于wf"></a>关于wf</h2><p>wf的控制层因为要继承MvcController，导致不能在该层使用注解，需要通过显示的SpringContext.getBean(Bean.class)来得到服务类的实例。当然，有其他方式解决</p>
 <h2 id="关于Mybatis"><a href="#关于Mybatis" class="headerlink" title="关于Mybatis"></a>关于Mybatis</h2><p>在不与Spring集成的情况下，在使用xxxMapper的时候，接口中的Mapper名称已经路径与xml文件路径可以不一致，但是要与namespace一致。</p>
@@ -638,7 +638,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -952,5 +952,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

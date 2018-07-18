@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  398
+                  403
                 </span>
               
 
@@ -409,17 +409,17 @@
 <li>Mac安装Redis</li>
 <li>Docker安装Redis</li>
 </ul>
-<h2 id="Mac安装Redis"><a href="#Mac安装Redis" class="headerlink" title="Mac安装Redis"></a>Mac安装Redis</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="variable">$lyy</span>:<span class="built_in">cd</span>  /Users/liuyiyou/soft</div><div class="line"><span class="variable">$lyy</span>: wget http://download.redis.io/releases/redis-3.0.1.tar.gz</div><div class="line"><span class="variable">$lyy</span>: tar xzf redis-3.0.1.tar.gz</div><div class="line"><span class="variable">$lyy</span>: <span class="built_in">cd</span> redis-3.0.1</div><div class="line"><span class="variable">$lyy</span>: make</div><div class="line"><span class="variable">$lyy</span>: <span class="built_in">cd</span> src  </div><div class="line"><span class="variable">$lyy</span>: install</div></pre></td></tr></table></figure>
+<h2 id="Mac安装Redis"><a href="#Mac安装Redis" class="headerlink" title="Mac安装Redis"></a>Mac安装Redis</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="variable">$lyy</span>:<span class="built_in">cd</span>  /Users/liuyiyou/soft</span><br><span class="line"><span class="variable">$lyy</span>: wget http://download.redis.io/releases/redis-3.0.1.tar.gz</span><br><span class="line"><span class="variable">$lyy</span>: tar xzf redis-3.0.1.tar.gz</span><br><span class="line"><span class="variable">$lyy</span>: <span class="built_in">cd</span> redis-3.0.1</span><br><span class="line"><span class="variable">$lyy</span>: make</span><br><span class="line"><span class="variable">$lyy</span>: <span class="built_in">cd</span> src  </span><br><span class="line"><span class="variable">$lyy</span>: install</span><br></pre></td></tr></table></figure>
 <p>安装完成之后的路径</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="variable">$lyy</span>: <span class="built_in">cd</span> /Users/liuyiyou/soft/redis-3.0.1</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="variable">$lyy</span>: <span class="built_in">cd</span> /Users/liuyiyou/soft/redis-3.0.1</span><br></pre></td></tr></table></figure>
 <h3 id="配置环境变量："><a href="#配置环境变量：" class="headerlink" title="配置环境变量："></a>配置环境变量：</h3><p>为了以后方便使用，一般会将Redis的相关命令和配置文件移动到/usr/local/redis下</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">~  mkdir -p /usr/<span class="built_in">local</span>/redis/bin</div><div class="line">~  mkdir -p /usr/<span class="built_in">local</span>/redis/etc</div><div class="line">~ mv /Users/liuyiyou/soft/redis-3.0.1/redis.conf /usr/<span class="built_in">local</span>/redis/etc</div><div class="line">~  <span class="built_in">cd</span> /Users/liuyiyou/soft/redis-3.0.1/src</div><div class="line">mv mkreleasehdr.sh redis-benchmark redis-check-aof redis-check-dump</div><div class="line">redis-cli redis-server /usr/<span class="built_in">local</span>/redis/bin</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">~  mkdir -p /usr/<span class="built_in">local</span>/redis/bin</span><br><span class="line">~  mkdir -p /usr/<span class="built_in">local</span>/redis/etc</span><br><span class="line">~ mv /Users/liuyiyou/soft/redis-3.0.1/redis.conf /usr/<span class="built_in">local</span>/redis/etc</span><br><span class="line">~  <span class="built_in">cd</span> /Users/liuyiyou/soft/redis-3.0.1/src</span><br><span class="line">mv mkreleasehdr.sh redis-benchmark redis-check-aof redis-check-dump</span><br><span class="line">redis-cli redis-server /usr/<span class="built_in">local</span>/redis/bin</span><br></pre></td></tr></table></figure>
 <p>Redis分为服务端和客户端，默认端口为6379，当然也可以通过–port xxxx来指定端口运行服务</p>
-<h2 id="Docker安装Redis"><a href="#Docker安装Redis" class="headerlink" title="Docker安装Redis"></a>Docker安装Redis</h2><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">docker search  redis</div><div class="line">docker pull redis</div></pre></td></tr></table></figure>
-<h2 id="启动redis服务"><a href="#启动redis服务" class="headerlink" title="启动redis服务"></a>启动redis服务</h2><h3 id="Mac方式启动"><a href="#Mac方式启动" class="headerlink" title="Mac方式启动"></a>Mac方式启动</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/redis/bin</div><div class="line">./redis-server</div><div class="line"><span class="comment"># 也可以直接使用  redis-server ，因为已经将命令复制到/user/local中了</span></div><div class="line"></div><div class="line">13133:C 05 Oct 13:28:46.925 <span class="comment"># Warning: no config file specified, using the default config.</span></div><div class="line">In order to specify a config file use ./redis-server /path/to/redis.conf</div><div class="line">13133:M 05 Oct 13:28:46.926 * Increased maximum number of open files to 10032 (it was originally <span class="built_in">set</span> to 256).</div></pre></td></tr></table></figure>
-<h3 id="Docker方式启动"><a href="#Docker方式启动" class="headerlink" title="Docker方式启动"></a>Docker方式启动</h3><figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"><span class="comment">## 第一次</span></div><div class="line">docker run -p 63790:6379  --name docker-redis -v /Users/liuyiyou/docker/redis/data:/data  -d redis redis-server</div><div class="line"><span class="comment">## 后续</span></div><div class="line">docker start  docker-redis</div></pre></td></tr></table></figure>
+<h2 id="Docker安装Redis"><a href="#Docker安装Redis" class="headerlink" title="Docker安装Redis"></a>Docker安装Redis</h2><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker search  redis</span><br><span class="line">docker pull redis</span><br></pre></td></tr></table></figure>
+<h2 id="启动redis服务"><a href="#启动redis服务" class="headerlink" title="启动redis服务"></a>启动redis服务</h2><h3 id="Mac方式启动"><a href="#Mac方式启动" class="headerlink" title="Mac方式启动"></a>Mac方式启动</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /usr/<span class="built_in">local</span>/redis/bin</span><br><span class="line">./redis-server</span><br><span class="line"><span class="comment"># 也可以直接使用  redis-server ，因为已经将命令复制到/user/local中了</span></span><br><span class="line"></span><br><span class="line">13133:C 05 Oct 13:28:46.925 <span class="comment"># Warning: no config file specified, using the default config.</span></span><br><span class="line">In order to specify a config file use ./redis-server /path/to/redis.conf</span><br><span class="line">13133:M 05 Oct 13:28:46.926 * Increased maximum number of open files to 10032 (it was originally <span class="built_in">set</span> to 256).</span><br></pre></td></tr></table></figure>
+<h3 id="Docker方式启动"><a href="#Docker方式启动" class="headerlink" title="Docker方式启动"></a>Docker方式启动</h3><figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"><span class="comment">## 第一次</span></span><br><span class="line">docker run -p 63790:6379  --name docker-redis -v /Users/liuyiyou/docker/redis/data:/data  -d redis redis-server</span><br><span class="line"><span class="comment">## 后续</span></span><br><span class="line">docker start  docker-redis</span><br></pre></td></tr></table></figure>
 <h2 id="以守护进程的方式启动并指定配置文件"><a href="#以守护进程的方式启动并指定配置文件" class="headerlink" title="以守护进程的方式启动并指定配置文件"></a>以守护进程的方式启动并指定配置文件</h2><p>将redis.conf文件中的daemonize no 改成yes</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">./redis-server /usr/<span class="built_in">local</span>/redis/etc/redis.conf</div><div class="line"><span class="comment"># 是否启动成功</span></div><div class="line"> ps -ef|grep redis</div><div class="line"> netstat -tunpl | grep  6379</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">./redis-server /usr/<span class="built_in">local</span>/redis/etc/redis.conf</span><br><span class="line"><span class="comment"># 是否启动成功</span></span><br><span class="line"> ps -ef|grep redis</span><br><span class="line"> netstat -tunpl | grep  6379</span><br></pre></td></tr></table></figure>
 <p>默认数据库是0号数据库。可以通过select选择其他数据库。</p>
 
       
@@ -631,7 +631,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -945,5 +945,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

@@ -405,11 +405,11 @@
       
 
       
-        <h2 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h2><p><a href="http://www.cnblogs.com/ggjucheng/archive/2013/01/04/2844393.html" target="_blank" rel="external">hive创建/删除/截断 表</a></p>
+        <h2 id="分区"><a href="#分区" class="headerlink" title="分区"></a>分区</h2><p><a href="http://www.cnblogs.com/ggjucheng/archive/2013/01/04/2844393.html" target="_blank" rel="noopener">hive创建/删除/截断 表</a></p>
 <p>一个表可以拥有一个或者多个分区，每个分区以文件夹的形式单独存在表文件夹的目录下</p>
 <p>分区是以字段形式在表结构中存在，通过desc table命令可以查看到字段存在，但是该字段不存放实际的数据内容，仅仅是分区的表示</p>
 <p>Hive Select查询中一般会扫描整个内容，会消耗很多时间做没必要的工作，有时候只需要扫描表中关心的一部分数据，因此建表事引入了分区概念，表中的一个Partition对应表下的一个目录，Partition就是辅助查询，缩小查询范围，加快数据的检索速度和对数据按照一定的规格和条件进行管理。</p>
-<h2 id="NameNode和DataNode"><a href="#NameNode和DataNode" class="headerlink" title="NameNode和DataNode"></a>NameNode和DataNode</h2><p>参考<a href="http://www.csdn.net/article/2010-11-29/282725" target="_blank" rel="external">Hadoop分布式文件系统：架构和设计要点</a></p>
+<h2 id="NameNode和DataNode"><a href="#NameNode和DataNode" class="headerlink" title="NameNode和DataNode"></a>NameNode和DataNode</h2><p>参考<a href="http://www.csdn.net/article/2010-11-29/282725" target="_blank" rel="noopener">Hadoop分布式文件系统：架构和设计要点</a></p>
 <p>HDFS采用master/slave架构。一个HDFS集群是有一个Namenode和一定数目的Datanode组成。</p>
 <p>Namenode是一个中心服务器，负责管理文件系统的namespace和客户端对文件的访问。</p>
 <p>Datanode在集群中一般是一个节点一个，负责管理节点上它们附带的存储。</p>
@@ -625,7 +625,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -939,5 +939,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

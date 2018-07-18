@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="SELECT语句的执行的逻辑查询处理步骤： (8)	SELECT (9)DISTINCT(11)	&amp;lt;TOP_specification&amp;gt; &amp;lt;select_list&amp;gt;(1) 	FROM &amp;lt;left_table&amp;gt;(3)	&amp;lt;join_type&amp;gt; JOIN &amp;lt;right_table&amp;gt;(2)	ON &amp;lt;join_condition&amp;gt;(4)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-26T01:55:10.100Z">
+<meta property="og:updated_time" content="2018-02-26T01:55:10.101Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SELECT语句的执行的逻辑查询处理步骤">
 <meta name="twitter:description" content="SELECT语句的执行的逻辑查询处理步骤： (8)	SELECT (9)DISTINCT(11)	&amp;lt;TOP_specification&amp;gt; &amp;lt;select_list&amp;gt;(1) 	FROM &amp;lt;left_table&amp;gt;(3)	&amp;lt;join_type&amp;gt; JOIN &amp;lt;right_table&amp;gt;(2)	ON &amp;lt;join_condition&amp;gt;(4)">
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  504
+                  508
                 </span>
               
 
@@ -406,7 +406,7 @@
 
       
         <p>SELECT语句的执行的逻辑查询处理步骤：</p>
-<figure class="highlight sql"><table><tr><td class="code"><pre><div class="line"></div><div class="line">(8)	<span class="keyword">SELECT</span> (<span class="number">9</span>)<span class="keyword">DISTINCT</span></div><div class="line">(<span class="number">11</span>)	&lt;TOP_specification&gt; &lt;select_list&gt;</div><div class="line">(<span class="number">1</span>) 	<span class="keyword">FROM</span> &lt;left_table&gt;</div><div class="line">(<span class="number">3</span>)	&lt;join_type&gt; <span class="keyword">JOIN</span> &lt;right_table&gt;</div><div class="line">(<span class="number">2</span>)	<span class="keyword">ON</span> &lt;join_condition&gt;</div><div class="line">(<span class="number">4</span>)	<span class="keyword">WHERE</span> &lt;where_condition&gt;</div><div class="line">(<span class="number">5</span>)	<span class="keyword">GROUP</span> <span class="keyword">BY</span> &lt;group_by_list&gt;</div><div class="line">(<span class="number">6</span>)	<span class="keyword">WITH</span> &#123;<span class="keyword">CUBE</span> | <span class="keyword">ROLLUP</span>&#125;</div><div class="line">(<span class="number">7</span>)	<span class="keyword">HAVING</span> &lt;having_condition&gt;</div><div class="line">(<span class="number">10</span>)	<span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;order_by_list&gt;</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">(8)	<span class="keyword">SELECT</span> (<span class="number">9</span>)<span class="keyword">DISTINCT</span></span><br><span class="line">(<span class="number">11</span>)	&lt;TOP_specification&gt; &lt;select_list&gt;</span><br><span class="line">(<span class="number">1</span>) 	<span class="keyword">FROM</span> &lt;left_table&gt;</span><br><span class="line">(<span class="number">3</span>)	&lt;join_type&gt; <span class="keyword">JOIN</span> &lt;right_table&gt;</span><br><span class="line">(<span class="number">2</span>)	<span class="keyword">ON</span> &lt;join_condition&gt;</span><br><span class="line">(<span class="number">4</span>)	<span class="keyword">WHERE</span> &lt;where_condition&gt;</span><br><span class="line">(<span class="number">5</span>)	<span class="keyword">GROUP</span> <span class="keyword">BY</span> &lt;group_by_list&gt;</span><br><span class="line">(<span class="number">6</span>)	<span class="keyword">WITH</span> &#123;<span class="keyword">CUBE</span> | <span class="keyword">ROLLUP</span>&#125;</span><br><span class="line">(<span class="number">7</span>)	<span class="keyword">HAVING</span> &lt;having_condition&gt;</span><br><span class="line">(<span class="number">10</span>)	<span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;order_by_list&gt;</span><br></pre></td></tr></table></figure>
 <p>注意：</p>
 <ol>
 <li><p>如果最上层的列中包含汇总函数，则每left join 一次，汇总的函数列会乘以2</p>
@@ -414,7 +414,7 @@
 <li><p>多个连接查询的时候，Group by 只能有一个（这个不是字面意思）</p>
 </li>
 </ol>
-<figure class="highlight sql"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">select</span> <span class="keyword">sum</span>(a.click) <span class="keyword">from</span> a     #假设click为<span class="number">1</span>，则第一次leftjoin之后为<span class="number">1</span>，第二次leftjoin后为<span class="number">2</span></div><div class="line"><span class="keyword">left</span>  <span class="keyword">join</span> b</div><div class="line"><span class="keyword">on</span> a.id = b.id</div><div class="line"><span class="keyword">left</span> <span class="keyword">join</span> c  # <span class="keyword">group</span> <span class="keyword">by</span> a.id 不能写在这里</div><div class="line"><span class="keyword">on</span> a.id = c.id</div><div class="line">grouop <span class="keyword">by</span> a.id</div></pre></td></tr></table></figure>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">select</span> <span class="keyword">sum</span>(a.click) <span class="keyword">from</span> a     #假设click为<span class="number">1</span>，则第一次leftjoin之后为<span class="number">1</span>，第二次leftjoin后为<span class="number">2</span></span><br><span class="line"><span class="keyword">left</span>  <span class="keyword">join</span> b</span><br><span class="line"><span class="keyword">on</span> a.id = b.id</span><br><span class="line"><span class="keyword">left</span> <span class="keyword">join</span> c  # <span class="keyword">group</span> <span class="keyword">by</span> a.id 不能写在这里</span><br><span class="line"><span class="keyword">on</span> a.id = c.id</span><br><span class="line">grouop <span class="keyword">by</span> a.id</span><br></pre></td></tr></table></figure>
 <p>每个步骤产生一个虚拟表，该虚拟表被用作下一个步骤的输入。只有最后一步生成的表返回给调用者。如<br>果没有某一子句，则跳过相应的步骤。</p>
 <ol>
 <li><p>FROM:对FROM子句中的前两个表执行笛卡尔积，生成虚拟表VT1。</p>
@@ -625,7 +625,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -939,5 +939,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

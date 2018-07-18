@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="这周好像没有干具体的需求，本来按照排期，是应该搞商家积分体系的，但是刚排完期，就来了几个紧急需求，然后是各种问题排查，最多时候，同时排查四个问题，脑子都有点转不过来，到把这些零零碎碎的搞完的时候，时间已经走到了周四，终于开始可以干正事了。 好像很多 velocity字符串中间不能用-，否则第一个出不来  $!user.id -  $!user.name 只能显示name，如果要显示可以这样 $!u">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-01-19T04:00:02.931Z">
+<meta property="og:updated_time" content="2018-01-19T04:00:02.932Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017-04-16总结">
 <meta name="twitter:description" content="这周好像没有干具体的需求，本来按照排期，是应该搞商家积分体系的，但是刚排完期，就来了几个紧急需求，然后是各种问题排查，最多时候，同时排查四个问题，脑子都有点转不过来，到把这些零零碎碎的搞完的时候，时间已经走到了周四，终于开始可以干正事了。 好像很多 velocity字符串中间不能用-，否则第一个出不来  $!user.id -  $!user.name 只能显示name，如果要显示可以这样 $!u">
@@ -409,8 +409,8 @@
 <p>好像很多</p>
 <p>velocity字符串中间不能用-，否则第一个出不来  $!user.id -  $!user.name 只能显示name，如果要显示可以这样 $!user.id — $!user.name</p>
 <p>好久没用写jQuery，又忘记得差不多了。</p>
-<figure class="highlight js"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">// 所有选中的checkbox</span></div><div class="line">$(<span class="string">":checkbox"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">index, el</span>) </span>&#123;</div><div class="line">    <span class="keyword">if</span>($(el).is(<span class="string">':checked'</span>))&#123;</div><div class="line">       <span class="built_in">console</span>.info($(el).val());</div><div class="line">    &#125;</div><div class="line">&#125;);</div></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="comment">&lt;!-- setXIncludeAware is not supported on this JAXP implementation or earlier: </span></div><div class="line"><span class="comment">            class org.apache.xerces.jaxp.DocumentBuilderFactoryImpl --&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>xerces<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>xercesImpl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>xalan<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>xalan<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight js"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">// 所有选中的checkbox</span></span><br><span class="line">$(<span class="string">":checkbox"</span>).each(<span class="function"><span class="keyword">function</span>(<span class="params">index, el</span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span>($(el).is(<span class="string">':checked'</span>))&#123;</span><br><span class="line">       <span class="built_in">console</span>.info($(el).val());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="comment">&lt;!-- setXIncludeAware is not supported on this JAXP implementation or earlier: </span></span><br><span class="line"><span class="comment">            class org.apache.xerces.jaxp.DocumentBuilderFactoryImpl --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>xerces<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>xercesImpl<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.9.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>xalan<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>xalan<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.7.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>nginx目录权限设置</p>
 
       
@@ -597,7 +597,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -911,5 +911,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

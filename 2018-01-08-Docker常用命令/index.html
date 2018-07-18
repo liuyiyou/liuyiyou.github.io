@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="下面是Docker常用到的命令 docker info //显示docker的一些信息，一般用来确定是否启动成功 容器镜像操作这部分主要是一些常规命令 // 搜索镜像：docker search mysql //搜索tagscurl -s -S &apos;https://registry.hub.docker.com/v2/repositories/library/memcached/tags/&apos; | j">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-07T07:53:16.087Z">
+<meta property="og:updated_time" content="2018-05-14T17:56:39.606Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Docker常用命令">
 <meta name="twitter:description" content="下面是Docker常用到的命令 docker info //显示docker的一些信息，一般用来确定是否启动成功 容器镜像操作这部分主要是一些常规命令 // 搜索镜像：docker search mysql //搜索tagscurl -s -S &apos;https://registry.hub.docker.com/v2/repositories/library/memcached/tags/&apos; | j">
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  618
+                  624
                 </span>
               
 
@@ -406,13 +406,13 @@
 
       
         <p>下面是Docker常用到的命令</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">docker info //显示docker的一些信息，一般用来确定是否启动成功</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker info //显示docker的一些信息，一般用来确定是否启动成功</span><br></pre></td></tr></table></figure>
 <h2 id="容器镜像操作"><a href="#容器镜像操作" class="headerlink" title="容器镜像操作"></a>容器镜像操作</h2><p>这部分主要是一些常规命令</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line"></div><div class="line">// 搜索镜像：</div><div class="line">docker search mysql </div><div class="line"></div><div class="line">//搜索tags</div><div class="line">curl -s -S <span class="string">'https://registry.hub.docker.com/v2/repositories/library/memcached/tags/'</span> | jq <span class="string">'."results"[]["name"]'</span> |sort   </div><div class="line"></div><div class="line">//为查看所有的容器，包括已经停止的。</div><div class="line">docker ps -a </div><div class="line"></div><div class="line">//列出本地主机上的镜像</div><div class="line">docker images  </div><div class="line"></div><div class="line">//拉取镜像，</div><div class="line">docker pull &lt;镜像名:tag&gt;   </div><div class="line"></div><div class="line">//如果不显示指定tag，默认为latest标签</div><div class="line">docker pull name[:TAG]，</div><div class="line"></div><div class="line">//获取镜像详细信息，如果只要其中一项内容，可以使用-f参数指定 docker inspet -f &#123;&#123;<span class="string">".Architecure"</span>&#125;&#125;  550</div><div class="line">docker  inspect  ID: </div><div class="line"></div><div class="line">//删除镜像，其中Image可以为标签或者ID，强制删除 加 -f参数</div><div class="line">docker rmi IMAGE[IMAGE ...] ，</div><div class="line"></div><div class="line">//删除所有镜像</div><div class="line">docker rmi $(docker images | grep none | awk <span class="string">'&#123;print $3&#125;'</span> | sort -r)  </div><div class="line"></div><div class="line">////删除所有镜像</div><div class="line">docker rm $(docker ps -a -q) x</div><div class="line"></div><div class="line">//删除单个容器</div><div class="line">docker rm &lt;容器名orID&gt;  </div><div class="line"></div><div class="line">//停止容器</div><div class="line">docker stop &lt;容器名orID&gt;  </div><div class="line"></div><div class="line">//启动容器</div><div class="line">docker start &lt;容器名orID&gt; </div><div class="line"></div><div class="line">//杀死容器</div><div class="line">docker <span class="built_in">kill</span> &lt;容器名orID&gt;  </div><div class="line"></div><div class="line">//构建自己的镜像</div><div class="line">docker build -t &lt;镜像名&gt; &lt;Dockerfile路径&gt; </div><div class="line"></div><div class="line">//基于已有镜像的容器创建</div><div class="line">docker commit [OPTIONS]  CONTAINER [REPOSITORY[:TAG]] </div><div class="line"></div><div class="line">-a  , --author = <span class="string">""</span>  作者信息</div><div class="line">-m , --message =<span class="string">""</span> 提交信息</div><div class="line"></div><div class="line">//连接到镜像</div><div class="line">docker <span class="built_in">exec</span>  -it NAME  bash   </div><div class="line"></div><div class="line"><span class="comment">#一个容器连接到另一个容器</span></div><div class="line">docker run -i -t --name sonar -d -link mmysql:db   tpires/sonar-server</div><div class="line">sonar</div><div class="line"></div><div class="line">容器连接到mmysql容器，并将mmysql容器重命名为db。这样，sonar容器就可以使用db的相关的环境变量了。</div></pre></td></tr></table></figure>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">// 搜索镜像：</span><br><span class="line">docker search mysql </span><br><span class="line"></span><br><span class="line">//搜索tags</span><br><span class="line">curl -s -S <span class="string">'https://registry.hub.docker.com/v2/repositories/library/memcached/tags/'</span> | jq <span class="string">'."results"[]["name"]'</span> |sort   </span><br><span class="line"></span><br><span class="line">//为查看所有的容器，包括已经停止的。</span><br><span class="line">docker ps -a </span><br><span class="line"></span><br><span class="line">//列出本地主机上的镜像</span><br><span class="line">docker images  </span><br><span class="line"></span><br><span class="line">//拉取镜像，</span><br><span class="line">docker pull &lt;镜像名:tag&gt;   </span><br><span class="line"></span><br><span class="line">//如果不显示指定tag，默认为latest标签</span><br><span class="line">docker pull name[:TAG]，</span><br><span class="line"></span><br><span class="line">//获取镜像详细信息，如果只要其中一项内容，可以使用-f参数指定 docker inspet -f &#123;&#123;<span class="string">".Architecure"</span>&#125;&#125;  550</span><br><span class="line">docker  inspect  ID: </span><br><span class="line"></span><br><span class="line">//删除镜像，其中Image可以为标签或者ID，强制删除 加 -f参数</span><br><span class="line">docker rmi IMAGE[IMAGE ...] ，</span><br><span class="line"></span><br><span class="line">//删除所有镜像</span><br><span class="line">docker rmi $(docker images | grep none | awk <span class="string">'&#123;print $3&#125;'</span> | sort -r)  </span><br><span class="line"></span><br><span class="line">////删除所有镜像</span><br><span class="line">docker rm $(docker ps -a -q) x</span><br><span class="line"></span><br><span class="line">//删除单个容器</span><br><span class="line">docker rm &lt;容器名orID&gt;  </span><br><span class="line"></span><br><span class="line">//停止容器</span><br><span class="line">docker stop &lt;容器名orID&gt;  </span><br><span class="line"></span><br><span class="line">//启动容器</span><br><span class="line">docker start &lt;容器名orID&gt; </span><br><span class="line"></span><br><span class="line">//杀死容器</span><br><span class="line">docker <span class="built_in">kill</span> &lt;容器名orID&gt;  </span><br><span class="line"></span><br><span class="line">//构建自己的镜像</span><br><span class="line">docker build -t &lt;镜像名&gt; &lt;Dockerfile路径&gt; </span><br><span class="line"></span><br><span class="line">//基于已有镜像的容器创建</span><br><span class="line">docker commit [OPTIONS]  CONTAINER [REPOSITORY[:TAG]] </span><br><span class="line"></span><br><span class="line">-a  , --author = <span class="string">""</span>  作者信息</span><br><span class="line">-m , --message =<span class="string">""</span> 提交信息</span><br><span class="line"></span><br><span class="line">//连接到镜像</span><br><span class="line">docker <span class="built_in">exec</span>  -it NAME  bash   </span><br><span class="line"></span><br><span class="line"><span class="comment">#一个容器连接到另一个容器</span></span><br><span class="line">docker run -i -t --name sonar -d -link mmysql:db   tpires/sonar-server</span><br><span class="line">sonar</span><br><span class="line"></span><br><span class="line">容器连接到mmysql容器，并将mmysql容器重命名为db。这样，sonar容器就可以使用db的相关的环境变量了。</span><br></pre></td></tr></table></figure>
 <h2 id="运行篇"><a href="#运行篇" class="headerlink" title="运行篇"></a>运行篇</h2><p>主要是一些运行、挂载、提交等</p>
 <h3 id="docker-run"><a href="#docker-run" class="headerlink" title="docker run"></a>docker run</h3><p>-i 标识保证容器中stdin是开启的<br>-t 标识Docker为要创建的容器分配一个tty终端<br>-d 标识是让 docker 容器在后台运行,并返回容器ID。<br>-p 标识通知 Docker 将容器内部使用的网络端口映射到我们使用的主机上。<br>–name 定义一个容器的名字，如果在执行docker run时没有指定Name，那么deamon会自动生成一个随机数字符串当做UUID。<br>-m :设置容器使用内存最大值；</p>
-<figure class="highlight sh"><table><tr><td class="code"><pre><div class="line">docker run -i -t ubuntu /bin/bash</div></pre></td></tr></table></figure>
-<p>sh<br>docker run –name mysql -p 6033:3306 -e MYSQL_ROOT_PASSWORD=123456 -dmysql/mysql-server:latest<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">容器的名字为mysql，将容器的3306端口映射到本机的6033端口，mysql数据库的密码为password ，运行的镜像为mysql/mysql-server:latest</div></pre></td></tr></table></figure></p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">docker run -i -t ubuntu /bin/bash</span><br></pre></td></tr></table></figure>
+<p>sh<br>docker run –name mysql -p 6033:3306 -e MYSQL_ROOT_PASSWORD=123456 -dmysql/mysql-server:latest<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">容器的名字为mysql，将容器的3306端口映射到本机的6033端口，mysql数据库的密码为password ，运行的镜像为mysql/mysql-server:latest</span><br></pre></td></tr></table></figure></p>
 <p>docker run –name redmine -p 9003:80 -p 9023:22 -d -v /var/redmine/files:/redmine/files -v /var/redmine/mysql:/var/lib/mysql sameersbn/redmine<br>```</p>
 <p>挂载</p>
 <h3 id="docker-save"><a href="#docker-save" class="headerlink" title="docker save"></a>docker save</h3>
@@ -625,7 +625,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -939,5 +939,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

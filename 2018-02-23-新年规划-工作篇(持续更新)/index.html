@@ -406,10 +406,10 @@
 
       
         <h2 id="Redis序列化"><a href="#Redis序列化" class="headerlink" title="Redis序列化"></a>Redis序列化</h2><p>现有Redis序列化采用的是默认的<code>JdkSerializationRedisSerializer</code>， 序列化的对象是这个样子</p>
-<figure class="highlight"><table><tr><td class="code"><pre><div class="line">\xac\xed\x00\x05sr\x00 com.iba.busi.entity.busi.SubsAct\x00\x00\x00\x00\x00\x00\x00\x01\x02\x00\x19L\x00\x05actIdt\x00\x10Ljava/lang/Long;L\x00\x0eactIdListNotInt\x00\x13Ljava/lang/Boolean;L\x00\aactRelst\x00\x12Ljava/lang/String;L\x00\x0cactRelsEqualq\x00~\x00\x02L\x00\aactTypet\x00\x10Ljava/lang/Byte;L\x00\x0bactualPricet\x00\x11Ljava/lang/Float;L\x00\ncreateTimet\x00\x10Ljava/util/Date;L\x00\rcreateTimeEndq\x00~\x00\x06L\x00\x0fcreateTimeStartq\x00~\x00\x06L\x00\x0fcreateTimestampq\x00~\x00\x01L\x00\x0bdeductPriceq\x00~\x00\x05L\x00\x02idt\x00\x13Ljava/lang/Integer;L\x00\x0bidListNotInq\x00~\x00\x02L\x00\x0boriginPriceq\x00~\x00\x05L\x00\x06statusq\x00~\x00\x04L\x00\nstatusTimeq\x00~\x00\x06L\x00\rstatusTimeEndq\x00~\x00\x06L\x00\x0fstatusTimeStartq\x00~\x00\x06L\x00\x06subsIdq\x00~\x00\x01L\x00\x0fsubsIdListNotInq\x00~\x00\x02L\x00\x03uidq\x00~\x00\aL\x00\x0cuidListNotInq\x00~\x00\x02L\x00\avoucherq\x00~\x00\aL\x00\x10voucherListNotInq\x00~\x00\x02L\x00\x06weightq\x00~\x00\axpsr\x00\x0ejava.lang.Long;\x8b\xe4\x90\xcc\x8f#\xdf\x02\x00\x01J\x00\x05valuexr\x00\x10java.lang.Number\x86\xac\x95\x1d\x0b\x94\xe0\x8b\x02\x00\x00xp\x00\x00\x00\x00\x00\x0fHApppsr\x00\x0ejava.lang.Byte\x9cN`\x84\xeeP\xf5\x1c\x02\x00\x01B\x00\x05valuexq\x00~\x00\n\nsr\x00\x0fjava.lang.Float\xda\xed\xc9\xa2\xdb&lt;\xf0\xec\x02\x00\x01F\x00\x05valuexq\x00~\x00\n?\x80\x00\x00sr\x00\x0ejava.util.Datehj\x81\x01KYt\x19\x03\x00\x00xpw\b\x00\x00\x01[\x13\xa3\xe9\xa8xppsq\x00~\x00\t\x00\x00\x00\x00\b\x94\x0f&#125;sq\x00~\x00\x0e\x00\x00\x00\x00sr\x00\x11java.lang.Integer\x12\xe2\xa0\xa4\xf7\x81\x878\x02\x00\x01I\x00\x05valuexq\x00~\x00\n\x00\x00\x13\xe2psq\x00~\x00\x0e?\x80\x00\x00sq\x00~\x00\x0c\x01sq\x00~\x00\x10w\b\x00\x00\x01[\x13\xa3\xe9\xa8xppsq\x00~\x00\t\x00\x00\x00\x00\x00\x0fS\xa7psq\x00~\x00\x14;\x9c\xbczpsq\x00~\x00\x14\x00\x00\x00\x00pp</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="code"><pre><span class="line">\xac\xed\x00\x05sr\x00 com.iba.busi.entity.busi.SubsAct\x00\x00\x00\x00\x00\x00\x00\x01\x02\x00\x19L\x00\x05actIdt\x00\x10Ljava/lang/Long;L\x00\x0eactIdListNotInt\x00\x13Ljava/lang/Boolean;L\x00\aactRelst\x00\x12Ljava/lang/String;L\x00\x0cactRelsEqualq\x00~\x00\x02L\x00\aactTypet\x00\x10Ljava/lang/Byte;L\x00\x0bactualPricet\x00\x11Ljava/lang/Float;L\x00\ncreateTimet\x00\x10Ljava/util/Date;L\x00\rcreateTimeEndq\x00~\x00\x06L\x00\x0fcreateTimeStartq\x00~\x00\x06L\x00\x0fcreateTimestampq\x00~\x00\x01L\x00\x0bdeductPriceq\x00~\x00\x05L\x00\x02idt\x00\x13Ljava/lang/Integer;L\x00\x0bidListNotInq\x00~\x00\x02L\x00\x0boriginPriceq\x00~\x00\x05L\x00\x06statusq\x00~\x00\x04L\x00\nstatusTimeq\x00~\x00\x06L\x00\rstatusTimeEndq\x00~\x00\x06L\x00\x0fstatusTimeStartq\x00~\x00\x06L\x00\x06subsIdq\x00~\x00\x01L\x00\x0fsubsIdListNotInq\x00~\x00\x02L\x00\x03uidq\x00~\x00\aL\x00\x0cuidListNotInq\x00~\x00\x02L\x00\avoucherq\x00~\x00\aL\x00\x10voucherListNotInq\x00~\x00\x02L\x00\x06weightq\x00~\x00\axpsr\x00\x0ejava.lang.Long;\x8b\xe4\x90\xcc\x8f#\xdf\x02\x00\x01J\x00\x05valuexr\x00\x10java.lang.Number\x86\xac\x95\x1d\x0b\x94\xe0\x8b\x02\x00\x00xp\x00\x00\x00\x00\x00\x0fHApppsr\x00\x0ejava.lang.Byte\x9cN`\x84\xeeP\xf5\x1c\x02\x00\x01B\x00\x05valuexq\x00~\x00\n\nsr\x00\x0fjava.lang.Float\xda\xed\xc9\xa2\xdb&lt;\xf0\xec\x02\x00\x01F\x00\x05valuexq\x00~\x00\n?\x80\x00\x00sr\x00\x0ejava.util.Datehj\x81\x01KYt\x19\x03\x00\x00xpw\b\x00\x00\x01[\x13\xa3\xe9\xa8xppsq\x00~\x00\t\x00\x00\x00\x00\b\x94\x0f&#125;sq\x00~\x00\x0e\x00\x00\x00\x00sr\x00\x11java.lang.Integer\x12\xe2\xa0\xa4\xf7\x81\x878\x02\x00\x01I\x00\x05valuexq\x00~\x00\n\x00\x00\x13\xe2psq\x00~\x00\x0e?\x80\x00\x00sq\x00~\x00\x0c\x01sq\x00~\x00\x10w\b\x00\x00\x01[\x13\xa3\xe9\xa8xppsq\x00~\x00\t\x00\x00\x00\x00\x00\x0fS\xa7psq\x00~\x00\x14;\x9c\xbczpsq\x00~\x00\x14\x00\x00\x00\x00pp</span><br></pre></td></tr></table></figure>
 <p>在排查问题的时候，很麻烦</p>
 <p>经过修改后，是这个样子：</p>
-<figure class="highlight javascript"><table><tr><td class="code"><pre><div class="line"><span class="string">"&#123;\"account\":\"neo\",\"createTime\":1476242931000,\"email\":\"neo@qq.com\",\"lastLogin\":1495509056000,\"loginIp\":\"192.168.0.253\",\"nickName\":\"\xe6\xac\xa7\xe9\x98\xb3\",\"orgId\":615,\"password\":\"12bc4d1788ce2418b8160d155922ae7a5f4951af\",\"phone\":\"15102063659\",\"roleIds\":\"59\",\"skin\":\"default\",\"status\":1,\"statusTime\":1477388849000,\"suid\":92&#125;"</span></div></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="string">"&#123;\"account\":\"neo\",\"createTime\":1476242931000,\"email\":\"neo@qq.com\",\"lastLogin\":1495509056000,\"loginIp\":\"192.168.0.253\",\"nickName\":\"\xe6\xac\xa7\xe9\x98\xb3\",\"orgId\":615,\"password\":\"12bc4d1788ce2418b8160d155922ae7a5f4951af\",\"phone\":\"15102063659\",\"roleIds\":\"59\",\"skin\":\"default\",\"status\":1,\"statusTime\":1477388849000,\"suid\":92&#125;"</span></span><br></pre></td></tr></table></figure>
 <p>好处</p>
 <ol>
 <li>排查问题方便</li>
@@ -643,7 +643,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -957,5 +957,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

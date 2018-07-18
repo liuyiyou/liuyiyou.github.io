@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  418
+                  420
                 </span>
               
 
@@ -409,10 +409,10 @@
 <h2 id="连接Redis服务"><a href="#连接Redis服务" class="headerlink" title="连接Redis服务"></a>连接Redis服务</h2><p>用法：redis-cli [OPTIONS] [cmd [arg [arg …]]]</p>
 <p>-h &lt;主机ip&gt;，默认是127.0.0.1</p>
 <p>-p &lt;端口&gt;，默认是6379</p>
-<p>-a &lt;密码&gt;，如果redis加锁，需要传递密码<br>eg:<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">redis-cli -h 192.168.0.200 -p 3682 -a pwd</div></pre></td></tr></table></figure></p>
+<p>-a &lt;密码&gt;，如果redis加锁，需要传递密码<br>eg:<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">redis-cli -h 192.168.0.200 -p 3682 -a pwd</span><br></pre></td></tr></table></figure></p>
 <h2 id="批量删除Key"><a href="#批量删除Key" class="headerlink" title="批量删除Key"></a>批量删除Key</h2><p>redis 没有提供批量删除key的方法，只有匹配多个key的方法</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">set key1 1</div><div class="line">set key2 2</div><div class="line">del key*  #没有</div><div class="line">get key*  #没有</div><div class="line">key key* # 2</div></pre></td></tr></table></figure>
-<p>不过我们可以借助 Linux 的 xargs 指令来完成这个动作,注意，这个是直接在终端操作，而不需要连接redis<br><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">## 远程</div><div class="line">./redis-cli  -h 192.168.0.200 -p 3682 -a ibalife KEYS &quot;PhysicalShopAdmin:*&quot;|xargs  ./redis-cli  -h 192.168.0.200 -p 3682 -a ibalife  DEL</div><div class="line">## 本地</div><div class="line">./redis-cli   KEYS &quot;key:*&quot;|xargs  ./redis-cli   DEL</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">set key1 1</span><br><span class="line">set key2 2</span><br><span class="line">del key*  #没有</span><br><span class="line">get key*  #没有</span><br><span class="line">key key* # 2</span><br></pre></td></tr></table></figure>
+<p>不过我们可以借助 Linux 的 xargs 指令来完成这个动作,注意，这个是直接在终端操作，而不需要连接redis<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">## 远程</span><br><span class="line">./redis-cli  -h 192.168.0.200 -p 3682 -a ibalife KEYS &quot;PhysicalShopAdmin:*&quot;|xargs  ./redis-cli  -h 192.168.0.200 -p 3682 -a ibalife  DEL</span><br><span class="line">## 本地</span><br><span class="line">./redis-cli   KEYS &quot;key:*&quot;|xargs  ./redis-cli   DEL</span><br></pre></td></tr></table></figure></p>
 <h3 id="键值相关命令"><a href="#键值相关命令" class="headerlink" title="键值相关命令"></a>键值相关命令</h3><ul>
 <li>keys：返回满足给定pattern的所有key   eg:  key *</li>
 <li>exists：确认一个key是否存在   eg:  exists  name</li>
@@ -646,7 +646,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -960,5 +960,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  472
+                  491
                 </span>
               
 
@@ -405,8 +405,8 @@
       
 
       
-        <h2 id="最简配置"><a href="#最简配置" class="headerlink" title="最简配置"></a>最简配置</h2><h2 id="pom"><a href="#pom" class="headerlink" title="pom"></a>pom</h2><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="application-properties"><a href="#application-properties" class="headerlink" title="application.properties"></a>application.properties</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"></div><div class="line">spring.jta.enabled=true</div><div class="line">spring.jta.atomikos.service=com.atomikos.icatch.standalone.UserTransactionServiceFactory</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">spring.jta.atomikos.datasource.one.xa-data-source-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</div><div class="line">spring.jta.atomikos.datasource.one.unique-resource-name=dataSourceOne</div><div class="line">spring.jta.atomikos.datasource.one.max-pool-size=5</div><div class="line">spring.jta.atomikos.datasource.one.xa-properties.user=root</div><div class="line">spring.jta.atomikos.datasource.one.xa-properties.password=123456</div><div class="line">spring.jta.atomikos.datasource.one.xa-properties.url=jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull</div><div class="line"></div><div class="line"></div><div class="line">spring.jta.atomikos.datasource.two.unique-resource-name=dataSourceTwo</div><div class="line">spring.jta.atomikos.datasource.two.max-pool-size=5</div><div class="line">spring.jta.atomikos.datasource.two.xa-properties.user=root</div><div class="line">spring.jta.atomikos.datasource.two.xa-properties.password=123456</div><div class="line">spring.jta.atomikos.datasource.two.xa-properties.url=jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull</div><div class="line">spring.jta.atomikos.datasource.two.xa-data-source-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</div><div class="line"></div><div class="line"></div><div class="line">spring.jta.atomikos.datasource.three.unique-resource-name=dataSourceThree</div><div class="line">spring.jta.atomikos.datasource.three.max-pool-size=5</div><div class="line">spring.jta.atomikos.datasource.three.xa-properties.user=ibalife</div><div class="line">spring.jta.atomikos.datasource.three.xa-properties.password=ibalife</div><div class="line">spring.jta.atomikos.datasource.three.xa-properties.url=jdbc:mysql://192.168.0.200:3306/ibalife_user?useUnicode=true&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull</div><div class="line">spring.jta.atomikos.datasource.three.xa-data-source-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</div></pre></td></tr></table></figure>
+        <h2 id="最简配置"><a href="#最简配置" class="headerlink" title="最简配置"></a>最简配置</h2><h2 id="pom"><a href="#pom" class="headerlink" title="pom"></a>pom</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-jdbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="application-properties"><a href="#application-properties" class="headerlink" title="application.properties"></a>application.properties</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">spring.jta.enabled=true</span><br><span class="line">spring.jta.atomikos.service=com.atomikos.icatch.standalone.UserTransactionServiceFactory</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spring.jta.atomikos.datasource.one.xa-data-source-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</span><br><span class="line">spring.jta.atomikos.datasource.one.unique-resource-name=dataSourceOne</span><br><span class="line">spring.jta.atomikos.datasource.one.max-pool-size=5</span><br><span class="line">spring.jta.atomikos.datasource.one.xa-properties.user=root</span><br><span class="line">spring.jta.atomikos.datasource.one.xa-properties.password=123456</span><br><span class="line">spring.jta.atomikos.datasource.one.xa-properties.url=jdbc:mysql://localhost:3306/blog?useUnicode=true&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spring.jta.atomikos.datasource.two.unique-resource-name=dataSourceTwo</span><br><span class="line">spring.jta.atomikos.datasource.two.max-pool-size=5</span><br><span class="line">spring.jta.atomikos.datasource.two.xa-properties.user=root</span><br><span class="line">spring.jta.atomikos.datasource.two.xa-properties.password=123456</span><br><span class="line">spring.jta.atomikos.datasource.two.xa-properties.url=jdbc:mysql://localhost:3306/test?useUnicode=true&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull</span><br><span class="line">spring.jta.atomikos.datasource.two.xa-data-source-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">spring.jta.atomikos.datasource.three.unique-resource-name=dataSourceThree</span><br><span class="line">spring.jta.atomikos.datasource.three.max-pool-size=5</span><br><span class="line">spring.jta.atomikos.datasource.three.xa-properties.user=ibalife</span><br><span class="line">spring.jta.atomikos.datasource.three.xa-properties.password=ibalife</span><br><span class="line">spring.jta.atomikos.datasource.three.xa-properties.url=jdbc:mysql://192.168.0.200:3306/ibalife_user?useUnicode=true&amp;characterEncoding=utf-8&amp;rewriteBatchedStatements=true&amp;zeroDateTimeBehavior=convertToNull</span><br><span class="line">spring.jta.atomikos.datasource.three.xa-data-source-class-name=com.mysql.jdbc.jdbc2.optional.MysqlXADataSource</span><br></pre></td></tr></table></figure>
 <h3 id="java"><a href="#java" class="headerlink" title="java"></a>java</h3><pre><code class="java">
 <span class="comment">/**</span>
 <span class="comment">     * 数据源1 ,这样写是为了每个DataSource能依赖他自己的sqlsessionFactory</span>
@@ -703,7 +703,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -1017,5 +1017,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

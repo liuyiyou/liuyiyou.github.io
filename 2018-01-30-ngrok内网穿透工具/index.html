@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  339
+                  354
                 </span>
               
 
@@ -386,7 +386,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -409,11 +409,11 @@
       
         <h2 id="为什么要使用Ngrok？Ngrok可以干嘛？"><a href="#为什么要使用Ngrok？Ngrok可以干嘛？" class="headerlink" title="为什么要使用Ngrok？Ngrok可以干嘛？"></a>为什么要使用Ngrok？Ngrok可以干嘛？</h2><p>我们经常会有 “把本机开发中的 web 项目给朋友看一下” 或 “测试一下支付宝、微信的支付功能” 这种临时需求，为此专门购买个域名然后在 VPS或云主机 上部署一遍就有点太浪费了。那么这时候，Ngrok就是个很好的东西，它可以穿透你的内网，让服务通过一个域名的80端口访问到你内网本机的端口服务，这样你就省去了重新部署环境的尴尬，你的电脑就是一台临时的网站服务器。</p>
 <p><img src="/images/ngrok.png" alt="ngrok"></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载MAC版的ngrok：<a href="https://ngrok.com/download" target="_blank" rel="external">https://ngrok.com/download</a></p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>下载MAC版的ngrok：<a href="https://ngrok.com/download" target="_blank" rel="noopener">https://ngrok.com/download</a></p>
 <p>编写shell启动脚本:start_ser.sh</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">#!/bin/sh</div><div class="line">server_addr=&quot;ngrok.liuyiyou.cn&quot;</div><div class="line">portTun=&quot;4443&quot;</div><div class="line">read -p &quot;名字全拼--&gt;&quot; domain</div><div class="line">echo &quot;&quot;</div><div class="line">read -p &quot;Web服务端口--&gt;&quot; portWeb</div><div class="line"></div><div class="line">lsof -i tcp:4443</div><div class="line">errorCore=$?</div><div class="line">if [ $&#123;errorCore&#125; == 0 ];then</div><div class="line">		echo &quot;&quot;</div><div class="line">        read -p &quot;Ngrok隧道端口$&#123;portTun&#125;被占用，忽略并继续启动输入 yes --&gt;&quot; choese</div><div class="line">fi</div><div class="line">if [ $&#123;choese&#125; != yes ];then</div><div class="line">	exit</div><div class="line">fi</div><div class="line">echo &quot;server_addr: &quot;$&#123;server_addr&#125;:$&#123;portTun&#125;&quot;&quot; &gt;ngrok.cfg</div><div class="line">echo &quot;trust_host_root_certs: false&quot; &gt;&gt;ngrok.cfg</div><div class="line"></div><div class="line">./ngrok -config=ngrok.cfg -subdomain $&#123;domain&#125; $&#123;portWeb&#125;</div><div class="line">exit</div></pre></td></tr></table></figure>
-<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><div class="line">添加可执行权限</div><div class="line">chmod +x ngrok   </div><div class="line">bash start_ser.sh</div><div class="line">Tunnel Status                 online</div><div class="line">Version                       1.7/1.7</div><div class="line">Forwarding                    http://lyy.ngrok.liuyiyou.cn -&gt; 127.0.0.1:8080</div><div class="line">Forwarding                    https://lyy.ngrok.liuyiyou.cn -&gt; 127.0.0.1:8080</div><div class="line">Web Interface                 127.0.0.1:4040</div><div class="line"># Conn                        0</div><div class="line">Avg Conn Time                 0.00ms</div></pre></td></tr></table></figure>
-<p>之前访问的web的地址为 <a href="http://localhost:8080" target="_blank" rel="external">http://localhost:8080</a> ，现在可以通过 <a href="http://lyy.ngrok.liuyiyou.cn" target="_blank" rel="external">http://lyy.ngrok.liuyiyou.cn</a>  进行访问</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">#!/bin/sh</span><br><span class="line">server_addr=&quot;ngrok.liuyiyou.cn&quot;</span><br><span class="line">portTun=&quot;4443&quot;</span><br><span class="line">read -p &quot;名字全拼--&gt;&quot; domain</span><br><span class="line">echo &quot;&quot;</span><br><span class="line">read -p &quot;Web服务端口--&gt;&quot; portWeb</span><br><span class="line"></span><br><span class="line">lsof -i tcp:4443</span><br><span class="line">errorCore=$?</span><br><span class="line">if [ $&#123;errorCore&#125; == 0 ];then</span><br><span class="line">		echo &quot;&quot;</span><br><span class="line">        read -p &quot;Ngrok隧道端口$&#123;portTun&#125;被占用，忽略并继续启动输入 yes --&gt;&quot; choese</span><br><span class="line">fi</span><br><span class="line">if [ $&#123;choese&#125; != yes ];then</span><br><span class="line">	exit</span><br><span class="line">fi</span><br><span class="line">echo &quot;server_addr: &quot;$&#123;server_addr&#125;:$&#123;portTun&#125;&quot;&quot; &gt;ngrok.cfg</span><br><span class="line">echo &quot;trust_host_root_certs: false&quot; &gt;&gt;ngrok.cfg</span><br><span class="line"></span><br><span class="line">./ngrok -config=ngrok.cfg -subdomain $&#123;domain&#125; $&#123;portWeb&#125;</span><br><span class="line">exit</span><br></pre></td></tr></table></figure>
+<h2 id="运行"><a href="#运行" class="headerlink" title="运行"></a>运行</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">添加可执行权限</span><br><span class="line">chmod +x ngrok   </span><br><span class="line">bash start_ser.sh</span><br><span class="line">Tunnel Status                 online</span><br><span class="line">Version                       1.7/1.7</span><br><span class="line">Forwarding                    http://lyy.ngrok.liuyiyou.cn -&gt; 127.0.0.1:8080</span><br><span class="line">Forwarding                    https://lyy.ngrok.liuyiyou.cn -&gt; 127.0.0.1:8080</span><br><span class="line">Web Interface                 127.0.0.1:4040</span><br><span class="line"># Conn                        0</span><br><span class="line">Avg Conn Time                 0.00ms</span><br></pre></td></tr></table></figure>
+<p>之前访问的web的地址为 <a href="http://localhost:8080" target="_blank" rel="noopener">http://localhost:8080</a> ，现在可以通过 <a href="http://lyy.ngrok.liuyiyou.cn" target="_blank" rel="noopener">http://lyy.ngrok.liuyiyou.cn</a>  进行访问</p>
 
       
     </div>
@@ -624,7 +624,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -938,5 +938,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

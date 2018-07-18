@@ -412,7 +412,7 @@
 </ol>
 <p>1-value1         ；   第一列-1      ；      第一列-value1<br>2-value2         ；   第二列-2      ；      第二列-value2<br>3-value3         ；   第三列-3      ；      第三列-value3</p>
 <p>最后，还要分类存储</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">public</span> Map&lt;String, List&lt;Map&lt;String, Integer&gt;&gt;&gt; getWorkerScore(String wokerId) <span class="keyword">throws</span> IOException &#123;</div><div class="line"></div><div class="line">        <span class="comment">// 积分列-积分值  完成第一步</span></div><div class="line">        Map&lt;String, Integer&gt; tmpResult = getSimpleWorkerScore(wokerId);</div><div class="line">        <span class="comment">// 积分列名-积分值</span></div><div class="line">        Map&lt;String, Integer&gt; resultMap = Maps.newLinkedHashMap();</div><div class="line">        <span class="comment">// 在这里处理一下MAP</span></div><div class="line">        <span class="keyword">if</span> (categoryMap.isEmpty() || scoreDefMap.isEmpty()) &#123;</div><div class="line">            getAllScoreQuotaDtos(<span class="string">"ScoreQuotaMain"</span>);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        Map&lt;String, List&lt;Map&lt;String, Integer&gt;&gt;&gt; result = Maps.newLinkedHashMap();</div><div class="line"></div><div class="line">        <span class="comment">//完成第二步</span></div><div class="line">        <span class="keyword">for</span> (String key : scoreDefMap.keySet()) &#123;</div><div class="line">            <span class="keyword">if</span> (tmpResult.containsKey(key)) &#123;</div><div class="line">                resultMap.put(scoreDefMap.get(key), tmpResult.get(key));</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="comment">//最后一步</span></div><div class="line">        <span class="keyword">for</span> (String category : categoryMap.keySet()) &#123;</div><div class="line">            List&lt;Map&lt;String, Integer&gt;&gt; resultList = Lists.newArrayList();</div><div class="line">            List&lt;String&gt; scoreNameList = categoryMap.get(category);</div><div class="line">            <span class="keyword">for</span> (String name : scoreNameList) &#123;</div><div class="line">                <span class="keyword">if</span> (resultMap.containsKey(name)) &#123;</div><div class="line">                    HashMap&lt;String, Integer&gt; map = Maps.newLinkedHashMap();</div><div class="line">                    map.put(name, resultMap.get(name));</div><div class="line">                    resultList.add(map);</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            result.put(category, resultList);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> result;</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> Map&lt;String, List&lt;Map&lt;String, Integer&gt;&gt;&gt; getWorkerScore(String wokerId) <span class="keyword">throws</span> IOException &#123;</span><br><span class="line"></span><br><span class="line">        <span class="comment">// 积分列-积分值  完成第一步</span></span><br><span class="line">        Map&lt;String, Integer&gt; tmpResult = getSimpleWorkerScore(wokerId);</span><br><span class="line">        <span class="comment">// 积分列名-积分值</span></span><br><span class="line">        Map&lt;String, Integer&gt; resultMap = Maps.newLinkedHashMap();</span><br><span class="line">        <span class="comment">// 在这里处理一下MAP</span></span><br><span class="line">        <span class="keyword">if</span> (categoryMap.isEmpty() || scoreDefMap.isEmpty()) &#123;</span><br><span class="line">            getAllScoreQuotaDtos(<span class="string">"ScoreQuotaMain"</span>);</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        Map&lt;String, List&lt;Map&lt;String, Integer&gt;&gt;&gt; result = Maps.newLinkedHashMap();</span><br><span class="line"></span><br><span class="line">        <span class="comment">//完成第二步</span></span><br><span class="line">        <span class="keyword">for</span> (String key : scoreDefMap.keySet()) &#123;</span><br><span class="line">            <span class="keyword">if</span> (tmpResult.containsKey(key)) &#123;</span><br><span class="line">                resultMap.put(scoreDefMap.get(key), tmpResult.get(key));</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment">//最后一步</span></span><br><span class="line">        <span class="keyword">for</span> (String category : categoryMap.keySet()) &#123;</span><br><span class="line">            List&lt;Map&lt;String, Integer&gt;&gt; resultList = Lists.newArrayList();</span><br><span class="line">            List&lt;String&gt; scoreNameList = categoryMap.get(category);</span><br><span class="line">            <span class="keyword">for</span> (String name : scoreNameList) &#123;</span><br><span class="line">                <span class="keyword">if</span> (resultMap.containsKey(name)) &#123;</span><br><span class="line">                    HashMap&lt;String, Integer&gt; map = Maps.newLinkedHashMap();</span><br><span class="line">                    map.put(name, resultMap.get(name));</span><br><span class="line">                    resultList.add(map);</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            result.put(category, resultList);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -597,7 +597,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -911,5 +911,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

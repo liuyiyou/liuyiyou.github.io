@@ -88,7 +88,7 @@
 <meta property="og:site_name" content="温故而知新    触类而旁通">
 <meta property="og:description" content="关于@Autowired，在实际的开发过程中，一般都是按照类型，如果一个接口，有两个实现类，在这两个的实现类上都需要加上@Service(“service1”),@Service(“service2”) 在使用的过程中需要这样 @Autowired@Qulifater(&quot;service1&quot;)private IService servce; 否则Spring会报错，只需要一个，却发现了两个Bean。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-04-08T02:09:28.790Z">
+<meta property="og:updated_time" content="2018-04-08T02:09:28.791Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Autowired的一些解惑">
 <meta name="twitter:description" content="关于@Autowired，在实际的开发过程中，一般都是按照类型，如果一个接口，有两个实现类，在这两个的实现类上都需要加上@Service(“service1”),@Service(“service2”) 在使用的过程中需要这样 @Autowired@Qulifater(&quot;service1&quot;)private IService servce; 否则Spring会报错，只需要一个，却发现了两个Bean。">
@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  104
+                  106
                 </span>
               
 
@@ -407,10 +407,10 @@
       
         <p>关于@Autowired，在实际的开发过程中，一般都是按照类型，如果一个接口，有两个实现类，在这两个的实现类上都需要加上@Service(“service1”),@Service(“service2”)</p>
 <p>在使用的过程中需要这样</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Autowired</span></div><div class="line"><span class="meta">@Qulifater</span>(<span class="string">"service1"</span>)</div><div class="line"><span class="keyword">private</span> IService servce;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="meta">@Qulifater</span>(<span class="string">"service1"</span>)</span><br><span class="line"><span class="keyword">private</span> IService servce;</span><br></pre></td></tr></table></figure>
 <p>否则Spring会报错，只需要一个，却发现了两个Bean。</p>
 <p>但是，实际上，可以这样使用</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@Autowired</span></div><div class="line"><span class="keyword">private</span> IService service1</div><div class="line"><span class="meta">@Autowired</span></div><div class="line"><span class="keyword">private</span> IService service2</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> IService service1</span><br><span class="line"><span class="meta">@Autowired</span></span><br><span class="line"><span class="keyword">private</span> IService service2</span><br></pre></td></tr></table></figure>
 <p>举例：</p>
 
       
@@ -442,8 +442,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018-03-13-Java8新特性-Lambda/" rel="next" title="Java8新特性-Lambda">
-                <i class="fa fa-chevron-left"></i> Java8新特性-Lambda
+              <a href="/2018-03-08-变房奴了/" rel="next" title="变房奴了">
+                <i class="fa fa-chevron-left"></i> 变房奴了
               </a>
             
           </div>
@@ -452,8 +452,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018-03-15-设计模式实践/" rel="prev" title="设计模式实践">
-                设计模式实践 <i class="fa fa-chevron-right"></i>
+              <a href="/2018-03-13-Java8新特性-Lambda/" rel="prev" title="Java8新特性-Lambda">
+                Java8新特性-Lambda <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -597,7 +597,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -911,5 +911,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

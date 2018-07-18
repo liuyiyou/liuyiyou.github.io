@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  179
+                  180
                 </span>
               
 
@@ -408,8 +408,8 @@
         <h2 id="常规异常"><a href="#常规异常" class="headerlink" title="常规异常"></a>常规异常</h2><h2 id="统一异常"><a href="#统一异常" class="headerlink" title="统一异常"></a>统一异常</h2><p>需要注意的是, ExceptionHandler 的优先级比 ControllerAdvice 高, 即 Controller 抛出的异常如果既可以让 ExceptionHandler 标注的方法处理, 又可以让 ControllerAdvice 标注的类中的方法处理, 则优先让 ExceptionHandler 标注的方法处理.</p>
 <h2 id="处理404"><a href="#处理404" class="headerlink" title="处理404"></a>处理404</h2><p>在上述过程中，如果发送异常，则会由统一异常进行管理，但是如果是404，SpringBoot不会抛出异常，而是跳转到error页面，如果没有error页面，则会返回whitepage，将错误信息打印出来。<br>如果是做接口，返回的话不是很友好。</p>
 <p>解决方案：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">spring.mvc.throw-exception-<span class="keyword">if</span>-no-handler-found=<span class="keyword">true</span></div><div class="line">spring.resources.add-mappings=<span class="keyword">false</span></div></pre></td></tr></table></figure>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://segmentfault.com/a/1190000006749441" target="_blank" rel="external">https://segmentfault.com/a/1190000006749441</a></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">spring.mvc.throw-exception-<span class="keyword">if</span>-no-handler-found=<span class="keyword">true</span></span><br><span class="line">spring.resources.add-mappings=<span class="keyword">false</span></span><br></pre></td></tr></table></figure>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="https://segmentfault.com/a/1190000006749441" target="_blank" rel="noopener">https://segmentfault.com/a/1190000006749441</a></p>
 
       
     </div>
@@ -620,7 +620,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -934,5 +934,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

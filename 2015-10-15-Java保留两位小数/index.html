@@ -408,7 +408,7 @@
         <p>所谓的两位小数，而不是保留两个有效数字，也就是说，如果是12.3012 会显示成12.30 。但是如果是12.00121也要显示成12.00，哪怕是12也要显示成12.00</p>
 <p>好吧，这个应该是很基础的功能，然而在之前却没有用过，最近在做报表分析统计工作的时候，要加上这个功能，发现者其中的几个类都没有使用过。所以在这里记录一下，用来备忘。</p>
 <p>NumberFormat 用来格式化数字。很简单，但是容易混淆，我就混淆了。</p>
-<h2 id="NumberFormat"><a href="#NumberFormat" class="headerlink" title="NumberFormat"></a>NumberFormat</h2><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">//数字实例化</span></div><div class="line">NumberFormat.getNumberInstance();</div><div class="line"></div><div class="line"><span class="comment">//百分号实例化</span></div><div class="line">NumberFormat.getPercentInstance()</div><div class="line"> </div><div class="line"> <span class="comment">/**</span></div><div class="line"><span class="comment"> * 设置数的小数部分所允许的最大位数。</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span> newValue</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMaximumFractionDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</div><div class="line">         </div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 设置数的整数部分所允许的最大位数。</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span> newValue</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMaximumIntegerDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</div><div class="line">        </div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> *  设置数的小数部分所允许的最小位数。</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span> newValue</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMinimumFractionDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"><span class="comment"> * 设置数的整数部分所允许的最小位数。</span></div><div class="line"><span class="comment"> * <span class="doctag">@param</span> newValue</span></div><div class="line"><span class="comment"> */</span></div><div class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMinimumIntegerDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</div></pre></td></tr></table></figure>
+<h2 id="NumberFormat"><a href="#NumberFormat" class="headerlink" title="NumberFormat"></a>NumberFormat</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">//数字实例化</span></span><br><span class="line">NumberFormat.getNumberInstance();</span><br><span class="line"></span><br><span class="line"><span class="comment">//百分号实例化</span></span><br><span class="line">NumberFormat.getPercentInstance()</span><br><span class="line"> </span><br><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 设置数的小数部分所允许的最大位数。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> newValue</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMaximumFractionDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</span><br><span class="line">         </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 设置数的整数部分所允许的最大位数。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> newValue</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMaximumIntegerDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</span><br><span class="line">        </span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> *  设置数的小数部分所允许的最小位数。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> newValue</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMinimumFractionDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 设置数的整数部分所允许的最小位数。</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param</span> newValue</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">void</span>	<span class="title">setMinimumIntegerDigits</span><span class="params">(<span class="keyword">int</span> newValue)</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure>
       
     </div>
     
@@ -618,7 +618,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -932,5 +932,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

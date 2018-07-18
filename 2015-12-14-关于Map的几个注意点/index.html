@@ -408,12 +408,12 @@
         <ol>
 <li>Map不支持 map.get(null)，也就是说，在通过get(Object key)的时候，需要注意key不能是null</li>
 </ol>
-<p>上面的说法不成立，Map只是抽象接口，HashMap可以用null做key<br><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putTest</span><span class="params">()</span> </span>&#123;</div><div class="line">		Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">		map.put(<span class="keyword">null</span>,<span class="string">"aaa"</span>);</div><div class="line">		System.out.println(map.get(<span class="keyword">null</span>)); <span class="comment">//aaa</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<p>上面的说法不成立，Map只是抽象接口，HashMap可以用null做key<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">putTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">		map.put(<span class="keyword">null</span>,<span class="string">"aaa"</span>);</span><br><span class="line">		System.out.println(map.get(<span class="keyword">null</span>)); <span class="comment">//aaa</span></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure></p>
 <ol>
 <li>如果是一个Map<string,object>类型的map。 不能通过 map.get(1)来获取，虽然不会报错，但是却无法拿到值</string,object></li>
 </ol>
 <p>上面的说法多余，key为String肯定拿不到int类型的，如果key类型为Object或者不显示类型，存什么就能取什么</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line">Map&lt;String,User&gt; userMap = <span class="keyword">new</span> HashMap&lt;String,User&gt;();</div><div class="line">userMap.put(<span class="string">"1"</span>, <span class="keyword">new</span> User());</div><div class="line">System.out.println(userMap.get(<span class="string">"1"</span>));  <span class="comment">//有对象</span></div><div class="line">System.out.println(userMap.get(<span class="number">1</span>));  <span class="comment">//null</span></div><div class="line"></div><div class="line">  Map&lt;Object,String&gt; userMap2 = <span class="keyword">new</span> HashMap&lt;Object, String&gt;();</div><div class="line">  userMap2.put(<span class="string">"1"</span>, <span class="string">"1"</span>);</div><div class="line">  userMap2.put(<span class="number">1</span>, <span class="string">"1"</span>);</div><div class="line">  System.out.println(userMap2.get(<span class="string">"1"</span>));  <span class="comment">//1</span></div><div class="line">  System.out.println(userMap2.get(<span class="number">1</span>));  <span class="comment">//1</span></div><div class="line"></div><div class="line">  Map  userMap3 = <span class="keyword">new</span> HashMap ();</div><div class="line">  userMap3.put(<span class="string">"1"</span>, <span class="string">"1"</span>);</div><div class="line">  userMap3.put(<span class="number">1</span>, <span class="string">"1"</span>);</div><div class="line">  System.out.println(userMap3.get(<span class="string">"1"</span>));  <span class="comment">//1</span></div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Map&lt;String,User&gt; userMap = <span class="keyword">new</span> HashMap&lt;String,User&gt;();</span><br><span class="line">userMap.put(<span class="string">"1"</span>, <span class="keyword">new</span> User());</span><br><span class="line">System.out.println(userMap.get(<span class="string">"1"</span>));  <span class="comment">//有对象</span></span><br><span class="line">System.out.println(userMap.get(<span class="number">1</span>));  <span class="comment">//null</span></span><br><span class="line"></span><br><span class="line">  Map&lt;Object,String&gt; userMap2 = <span class="keyword">new</span> HashMap&lt;Object, String&gt;();</span><br><span class="line">  userMap2.put(<span class="string">"1"</span>, <span class="string">"1"</span>);</span><br><span class="line">  userMap2.put(<span class="number">1</span>, <span class="string">"1"</span>);</span><br><span class="line">  System.out.println(userMap2.get(<span class="string">"1"</span>));  <span class="comment">//1</span></span><br><span class="line">  System.out.println(userMap2.get(<span class="number">1</span>));  <span class="comment">//1</span></span><br><span class="line"></span><br><span class="line">  Map  userMap3 = <span class="keyword">new</span> HashMap ();</span><br><span class="line">  userMap3.put(<span class="string">"1"</span>, <span class="string">"1"</span>);</span><br><span class="line">  userMap3.put(<span class="number">1</span>, <span class="string">"1"</span>);</span><br><span class="line">  System.out.println(userMap3.get(<span class="string">"1"</span>));  <span class="comment">//1</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -599,7 +599,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -913,5 +913,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

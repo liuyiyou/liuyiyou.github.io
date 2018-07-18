@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  455
+                  470
                 </span>
               
 
@@ -411,23 +411,23 @@
 <li>配置中心注册服务到服务中心</li>
 </ul>
 <h2 id="统一服务注册中心"><a href="#统一服务注册中心" class="headerlink" title="统一服务注册中心"></a>统一服务注册中心</h2><p>新建项目：enreka-server-center</p>
-<h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-eureka-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="添加注解"><a href="#添加注解" class="headerlink" title="添加注解"></a>添加注解</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@EnableEurekaServer</span></div></pre></td></tr></table></figure>
+<h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-eureka-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="添加注解"><a href="#添加注解" class="headerlink" title="添加注解"></a>添加注解</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EnableEurekaServer</span></span><br></pre></td></tr></table></figure>
 <h3 id="配置配置中心"><a href="#配置配置中心" class="headerlink" title="配置配置中心"></a>配置配置中心</h3><p>application-peer1</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">spring.application.name=high-eureka-service</div><div class="line">server.port=1111</div><div class="line">eureka.instance.hostname=peer1</div><div class="line">eureka.client.service-url.defaultZone=http://peer2:1112/eureka/</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring.application.name=high-eureka-service</span><br><span class="line">server.port=1111</span><br><span class="line">eureka.instance.hostname=peer1</span><br><span class="line">eureka.client.service-url.defaultZone=http://peer2:1112/eureka/</span><br></pre></td></tr></table></figure>
 <p>application-peer2</p>
-<figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">spring.application.name=high-eureka-service</div><div class="line">server.port=1112</div><div class="line">eureka.instance.hostname=peer2</div><div class="line">eureka.client.service-url.defaultZone=http://peer1:1111/eureka/</div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring.application.name=high-eureka-service</span><br><span class="line">server.port=1112</span><br><span class="line">eureka.instance.hostname=peer2</span><br><span class="line">eureka.client.service-url.defaultZone=http://peer1:1111/eureka/</span><br></pre></td></tr></table></figure>
 <h2 id="统一的配置中心"><a href="#统一的配置中心" class="headerlink" title="统一的配置中心"></a>统一的配置中心</h2><p>新建项目: config-center</p>
-<h3 id="添加依赖-1"><a href="#添加依赖-1" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-config-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-eureka<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="添加注解-1"><a href="#添加注解-1" class="headerlink" title="添加注解"></a>添加注解</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@EnableDiscoveryClient</span></div><div class="line"><span class="meta">@EnableConfigServer</span></div><div class="line"><span class="meta">@SpringBootApplication</span></div></pre></td></tr></table></figure>
-<h3 id="配置配置中心-1"><a href="#配置配置中心-1" class="headerlink" title="配置配置中心"></a>配置配置中心</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">spring.application.name=config-server</div><div class="line">server.port=8888</div><div class="line">spring.cloud.config.server.git.uri=http://github.com/liuyiyou/config_center_repository.git</div><div class="line">##如果配置中心git仓库是多文件夹方式</div><div class="line">spring.cloud.config.server.git.searchPaths=config_repo,config_repo/*</div><div class="line">spring.cloud.config.label=master</div><div class="line">spring.cloud.config.server.git.username=xxxx</div><div class="line">spring.cloud.config.server.git.password=xxxx</div></pre></td></tr></table></figure>
+<h3 id="添加依赖-1"><a href="#添加依赖-1" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-config-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-eureka<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="添加注解-1"><a href="#添加注解-1" class="headerlink" title="添加注解"></a>添加注解</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="meta">@EnableConfigServer</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置配置中心-1"><a href="#配置配置中心-1" class="headerlink" title="配置配置中心"></a>配置配置中心</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring.application.name=config-server</span><br><span class="line">server.port=8888</span><br><span class="line">spring.cloud.config.server.git.uri=http://github.com/liuyiyou/config_center_repository.git</span><br><span class="line">##如果配置中心git仓库是多文件夹方式</span><br><span class="line">spring.cloud.config.server.git.searchPaths=config_repo,config_repo/*</span><br><span class="line">spring.cloud.config.label=master</span><br><span class="line">spring.cloud.config.server.git.username=xxxx</span><br><span class="line">spring.cloud.config.server.git.password=xxxx</span><br></pre></td></tr></table></figure>
 <p>配置中心完成</p>
 <h2 id="配置中心客户端（其他服务）"><a href="#配置中心客户端（其他服务）" class="headerlink" title="配置中心客户端（其他服务）"></a>配置中心客户端（其他服务）</h2><p>新建项目: config-client</p>
-<h3 id="添加依赖-2"><a href="#添加依赖-2" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-eureka<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure>
-<h3 id="添加注解-2"><a href="#添加注解-2" class="headerlink" title="添加注解"></a>添加注解</h3><figure class="highlight java"><table><tr><td class="code"><pre><div class="line"><span class="meta">@EnableDiscoveryClient</span></div><div class="line"><span class="meta">@SpringBootApplication</span></div></pre></td></tr></table></figure>
-<h3 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h3><figure class="highlight xml"><table><tr><td class="code"><pre><div class="line">spring.application.name=config-client</div><div class="line">#服务注册中心地址: 这个只能放在项目中，而不是放在git仓库中</div><div class="line">eureka.client.service-url.defaultZone=http://peer1:1111/eureka</div><div class="line">spring.cloud.config.discovery.enabled=true</div><div class="line">spring.cloud.config.discovery.serviceId=config-server</div><div class="line">spring.cloud.config.profile=dev</div></pre></td></tr></table></figure>
+<h3 id="添加依赖-2"><a href="#添加依赖-2" class="headerlink" title="添加依赖"></a>添加依赖</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-config<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-eureka<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="添加注解-2"><a href="#添加注解-2" class="headerlink" title="添加注解"></a>添加注解</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br></pre></td></tr></table></figure>
+<h3 id="配置客户端"><a href="#配置客户端" class="headerlink" title="配置客户端"></a>配置客户端</h3><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line">spring.application.name=config-client</span><br><span class="line">#服务注册中心地址: 这个只能放在项目中，而不是放在git仓库中</span><br><span class="line">eureka.client.service-url.defaultZone=http://peer1:1111/eureka</span><br><span class="line">spring.cloud.config.discovery.enabled=true</span><br><span class="line">spring.cloud.config.discovery.serviceId=config-server</span><br><span class="line">spring.cloud.config.profile=dev</span><br></pre></td></tr></table></figure>
 <p>需要说明：其他服务注册服务中心的地址必须放到项目的配置文件夹中，因为启动注册中心后，在启动客户端的时候，默认会通过service-url去找到config-server暴露的服务，通过config-server暴露的服务去git仓库中读取其他的配置信息</p>
-<p><a href="https://github.com/liuyiyou/cn.liuyiyou.springcloud" target="_blank" rel="external">SpringCloud源码</a></p>
+<p><a href="https://github.com/liuyiyou/cn.liuyiyou.springcloud" target="_blank" rel="noopener">SpringCloud源码</a></p>
 
       
     </div>
@@ -638,7 +638,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -952,5 +952,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

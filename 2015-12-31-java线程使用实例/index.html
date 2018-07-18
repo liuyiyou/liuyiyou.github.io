@@ -368,7 +368,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  787
+                  789
                 </span>
               
 
@@ -416,13 +416,13 @@
 </li>
 </ol>
 <p>步骤描述如下:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demoTest</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">// 1:导入文件解析</span></div><div class="line">	List&lt;User&gt; users = parse();</div><div class="line"></div><div class="line">	<span class="comment">// 2:将解析后的文件导入数据库</span></div><div class="line">	<span class="keyword">int</span> result = intoDB(users);</div><div class="line"></div><div class="line">	<span class="comment">// 3:同步到A表</span></div><div class="line">	syncTableA(users);</div><div class="line"></div><div class="line">	<span class="comment">// 4:同步到B表</span></div><div class="line">	syncTableB(users);</div><div class="line"></div><div class="line">	<span class="comment">// 返回结果</span></div><div class="line">	System.out.println(<span class="string">"返回结果"</span>+result);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">syncTableA</span><span class="params">(List&lt;User&gt; users)</span> </span>&#123;</div><div class="line">	System.out.println(<span class="string">"同步到A表成功"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">syncTableB</span><span class="params">(List&lt;User&gt; users)</span> </span>&#123;</div><div class="line">	System.out.println(<span class="string">"同步到B表成功"</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">intoDB</span><span class="params">(List&lt;User&gt; users)</span> </span>&#123;</div><div class="line">	System.out.println(<span class="string">"导入数据库成功"</span>);</div><div class="line">	<span class="keyword">return</span> users.size();</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">private</span> List&lt;User&gt; <span class="title">parse</span><span class="params">()</span> </span>&#123;</div><div class="line">	List&lt;User&gt; users = <span class="keyword">new</span> ArrayList&lt;User&gt;();</div><div class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</div><div class="line">		User user = <span class="keyword">new</span> User(i, <span class="number">18</span> + i, <span class="string">"name"</span> + i);</div><div class="line">		users.add(user);</div><div class="line">	&#125;</div><div class="line">	System.out.println(<span class="string">"解析完成"</span>);</div><div class="line">	<span class="keyword">return</span> users;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demoTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 1:导入文件解析</span></span><br><span class="line">	List&lt;User&gt; users = parse();</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 2:将解析后的文件导入数据库</span></span><br><span class="line">	<span class="keyword">int</span> result = intoDB(users);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 3:同步到A表</span></span><br><span class="line">	syncTableA(users);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 4:同步到B表</span></span><br><span class="line">	syncTableB(users);</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 返回结果</span></span><br><span class="line">	System.out.println(<span class="string">"返回结果"</span>+result);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">syncTableA</span><span class="params">(List&lt;User&gt; users)</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"同步到A表成功"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">syncTableB</span><span class="params">(List&lt;User&gt; users)</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"同步到B表成功"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">int</span> <span class="title">intoDB</span><span class="params">(List&lt;User&gt; users)</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"导入数据库成功"</span>);</span><br><span class="line">	<span class="keyword">return</span> users.size();</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">private</span> List&lt;User&gt; <span class="title">parse</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	List&lt;User&gt; users = <span class="keyword">new</span> ArrayList&lt;User&gt;();</span><br><span class="line">	<span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">		User user = <span class="keyword">new</span> User(i, <span class="number">18</span> + i, <span class="string">"name"</span> + i);</span><br><span class="line">		users.add(user);</span><br><span class="line">	&#125;</span><br><span class="line">	System.out.println(<span class="string">"解析完成"</span>);</span><br><span class="line">	<span class="keyword">return</span> users;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>逻辑还是挺清晰的，但是实际情况下，会有以下问题</p>
 <p>解析过程需要的时间比较长，而且还需要调用远程服务，此外同步到其他表还需要一定的计算，导致如果数据量稍微大一点的时候，后台IO阻塞，虽然不影响实际结果，但是前台会报错。</p>
 <p>需求方要求前台必须显示导入的结果信息，前台报错的话，非开发人员会认为是导入错误了。</p>
 <p>问题1：如果出在解析同步数据时间超长</p>
 <p>解决方案：同步采用多线程:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><div class="line"></div><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demoTest</span><span class="params">()</span> </span>&#123;</div><div class="line"></div><div class="line">	ExecutorService executorService = Executors.newSingleThreadExecutor();</div><div class="line"></div><div class="line">	<span class="comment">// 1:导入文件解析</span></div><div class="line">	<span class="keyword">final</span> List&lt;User&gt; users = parse();</div><div class="line"></div><div class="line">	<span class="comment">// 2:将解析后的文件导入数据库</span></div><div class="line">	<span class="keyword">int</span> result = intoDB(users);</div><div class="line"></div><div class="line">	executorService.execute(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">			<span class="comment">// 3:同步到A表</span></div><div class="line">			syncTableA(users);</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">	executorService.execute(<span class="keyword">new</span> Runnable() &#123;</div><div class="line">		<span class="meta">@Override</span></div><div class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</div><div class="line">			<span class="comment">// 4:同步到B表</span></div><div class="line">			syncTableB(users);</div><div class="line">		&#125;</div><div class="line">	&#125;);</div><div class="line">	<span class="comment">// 返回结果,这个是放在最后</span></div><div class="line">	System.out.println(<span class="string">"返回结果"</span>+result);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="meta">@Test</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">demoTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	ExecutorService executorService = Executors.newSingleThreadExecutor();</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 1:导入文件解析</span></span><br><span class="line">	<span class="keyword">final</span> List&lt;User&gt; users = parse();</span><br><span class="line"></span><br><span class="line">	<span class="comment">// 2:将解析后的文件导入数据库</span></span><br><span class="line">	<span class="keyword">int</span> result = intoDB(users);</span><br><span class="line"></span><br><span class="line">	executorService.execute(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="comment">// 3:同步到A表</span></span><br><span class="line">			syncTableA(users);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	executorService.execute(<span class="keyword">new</span> Runnable() &#123;</span><br><span class="line">		<span class="meta">@Override</span></span><br><span class="line">		<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">			<span class="comment">// 4:同步到B表</span></span><br><span class="line">			syncTableB(users);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;);</span><br><span class="line">	<span class="comment">// 返回结果,这个是放在最后</span></span><br><span class="line">	System.out.println(<span class="string">"返回结果"</span>+result);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>这样能解决同步时间太长导致的超时问题。而且前台能返回导入后的结果信息，但是实际情况却是，解析太慢了，导致还没有解析就出错了。主要出现在解析过程中调用服务的情况</p>
 <p>第二种方案：</p>
 <p>在第一种方案的基础上更近一步，不解析直接插入到数据库，前台直接返回，后台再开一个线程，用来更新数据库</p>
@@ -612,7 +612,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -926,5 +926,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>

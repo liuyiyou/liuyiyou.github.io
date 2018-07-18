@@ -405,14 +405,14 @@
       
 
       
-        <figure class="highlight sql"><table><tr><td class="code"><pre><div class="line">mysql&gt; explain select * from SYS_ROLE where name='ROLE_ADMIN';</div><div class="line">+<span class="comment">----+-------------+----------+------------+------+---------------+------+---------+------+------+----------+-------------+</span></div><div class="line">| id | select_type | table    | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |</div><div class="line">+<span class="comment">----+-------------+----------+------------+------+---------------+------+---------+------+------+----------+-------------+</span></div><div class="line">| 1  | SIMPLE      | SYS_ROLE | NULL       | ALL  | NULL          | NULL | NULL    | NULL | 2    | 50.00    | Using where |</div><div class="line">+<span class="comment">----+-------------+----------+------------+------+---------------+------+---------+------+------+----------+-------------+</span></div><div class="line">1 行于数据集 (0.06 秒)</div></pre></td></tr></table></figure>
+        <figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">mysql&gt; explain select * from SYS_ROLE where name='ROLE_ADMIN';</span><br><span class="line">+<span class="comment">----+-------------+----------+------------+------+---------------+------+---------+------+------+----------+-------------+</span></span><br><span class="line">| id | select_type | table    | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra       |</span><br><span class="line">+<span class="comment">----+-------------+----------+------------+------+---------------+------+---------+------+------+----------+-------------+</span></span><br><span class="line">| 1  | SIMPLE      | SYS_ROLE | NULL       | ALL  | NULL          | NULL | NULL    | NULL | 2    | 50.00    | Using where |</span><br><span class="line">+<span class="comment">----+-------------+----------+------------+------+---------------+------+---------+------+------+----------+-------------+</span></span><br><span class="line">1 行于数据集 (0.06 秒)</span><br></pre></td></tr></table></figure>
 <p>id,select_type,table 用于定位查询，表示本行参数所对应的sql查询部分</p>
 <h2 id="id"><a href="#id" class="headerlink" title="id"></a>id</h2><p>SELECT识别符。这是SELECT的查询序列号。不重要，需要注意的是，不要把id当成执行顺序，这并不准确。</p>
 <h2 id="select-type"><a href="#select-type" class="headerlink" title="select_type"></a>select_type</h2><ul>
 <li>SIMPLE: 指示非子查询和union的简单查询。</li>
 <li>PRIMARY: 指示在有子查询的语句中最外面的select，主查询。</li>
 </ul>
-<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="http://blog.csdn.net/jathamj/article/details/53909614" target="_blank" rel="external">http://blog.csdn.net/jathamj/article/details/53909614</a><br><a href="http://blog.csdn.net/jathamj/article/details/53926855" target="_blank" rel="external">http://blog.csdn.net/jathamj/article/details/53926855</a></p>
+<h2 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h2><p><a href="http://blog.csdn.net/jathamj/article/details/53909614" target="_blank" rel="noopener">http://blog.csdn.net/jathamj/article/details/53909614</a><br><a href="http://blog.csdn.net/jathamj/article/details/53926855" target="_blank" rel="noopener">http://blog.csdn.net/jathamj/article/details/53926855</a></p>
 
       
     </div>
@@ -623,7 +623,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">120.3k</span>
+    <span title="网站字数总数">121.4k</span>
   
 </div>
 
@@ -937,5 +937,41 @@
 
   
 
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
 </body>
 </html>
