@@ -4,10 +4,10 @@
 
 
 <html class="theme-next pisces" lang="zh-Hans">
-<head>
-  <meta charset="UTF-8"/>
-<meta http-equiv="X-UA-Compatible" content="IE=edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="theme-color" content="#222">
 
 
@@ -25,8 +25,8 @@
 
 
 
-<meta http-equiv="Cache-Control" content="no-transform" />
-<meta http-equiv="Cache-Control" content="no-siteapp" />
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
 
 
 
@@ -49,9 +49,9 @@
 
 
 
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css">
 
 
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
@@ -69,7 +69,7 @@
 
 
 
-  <meta name="keywords" content="spring," />
+  <meta name="keywords" content="spring,">
 
 
 
@@ -89,7 +89,7 @@
 <meta property="og:description" content="本文只讲接口，主要是为了方便记忆。具体的抽象类和实现类，在后文中进行讲解，而且具体实现类过长，可能还要分为几篇  几个BeanFactory接口的意义 BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的api AutowireCapableBeanFactory：扩展BeanFactory接口，由能够">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://liuyiyou.cn/images/spring/BeanFactory.png">
-<meta property="og:updated_time" content="2018-02-12T03:24:59.194Z">
+<meta property="og:updated_time" content="2018-09-29T07:10:14.487Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring源码分析之BeanFactroy接口">
 <meta name="twitter:description" content="本文只讲接口，主要是为了方便记忆。具体的抽象类和实现类，在后文中进行讲解，而且具体实现类过长，可能还要分为几篇  几个BeanFactory接口的意义 BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的api AutowireCapableBeanFactory：扩展BeanFactory接口，由能够">
@@ -123,7 +123,7 @@
 
 
 
-  <link rel="canonical" href="http://liuyiyou.cn/2018-02-06-Spring源码分析之BeanFactroy接口/"/>
+  <link rel="canonical" href="http://liuyiyou.cn/2018-02-06-Spring源码分析之BeanFactroy接口/">
 
 
 
@@ -141,7 +141,7 @@
 
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
   
   
@@ -151,13 +151,13 @@
   <div class="container sidebar-position-right page-post-detail">
     <div class="headband"></div>
 
-    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
       <div class="header-inner"><div class="site-brand-wrapper">
   <div class="site-meta ">
     
 
     <div class="custom-logo-site-title">
-      <a href="/"  class="brand" rel="start">
+      <a href="/" class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
         <span class="site-title">温故而知新    触类而旁通</span>
         <span class="logo-line-after"><i></i></span>
@@ -187,7 +187,7 @@
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
             
             首页
           </a>
@@ -197,7 +197,7 @@
         <li class="menu-item menu-item-archives">
           <a href="/archives/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
             
             归档
           </a>
@@ -207,7 +207,7 @@
         <li class="menu-item menu-item-categories">
           <a href="/categories/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
             
             分类
           </a>
@@ -217,7 +217,7 @@
         <li class="menu-item menu-item-tags">
           <a href="/tags/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
           </a>
@@ -227,7 +227,7 @@
         <li class="menu-item menu-item-inbox">
           <a href="/inbox/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-inbox"></i> <br>
             
             收藏
           </a>
@@ -237,7 +237,7 @@
         <li class="menu-item menu-item-about">
           <a href="/about/" rel="section">
             
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
             
             关于
           </a>
@@ -271,20 +271,20 @@
   
   
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
   
   
   
   <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://liuyiyou.cn/2018-02-06-Spring源码分析之BeanFactroy接口/">
 
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="liuyiyou">
       <meta itemprop="description" content="">
       <meta itemprop="image" content="/images/avatar.gif">
     </span>
 
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
       <meta itemprop="name" content="温故而知新    触类而旁通">
     </span>
 
@@ -316,7 +316,7 @@
           </span>
 
           
-            <span class="post-category" >
+            <span class="post-category">
             
               <span class="post-meta-divider">|</span>
             
@@ -327,7 +327,7 @@
                 <span class="post-meta-item-text">分类于</span>
               
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
                   <a href="/categories/spring/" itemprop="url" rel="index">
                     <span itemprop="name">spring</span>
                   </a>
@@ -370,7 +370,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  905
+                  979
                 </span>
               
 
@@ -408,7 +408,7 @@
 
       
         <p>本文只讲接口，主要是为了方便记忆。具体的抽象类和实现类，在后文中进行讲解，而且具体实现类过长，可能还要分为几篇</p>
-<p><img src="/images/spring/BeanFactory.png" alt="冒泡排序"></p>
+<p><img src="/images/spring/BeanFactory.png" alt="BeanFactory接口图"></p>
 <h2 id="几个BeanFactory接口的意义"><a href="#几个BeanFactory接口的意义" class="headerlink" title="几个BeanFactory接口的意义"></a>几个BeanFactory接口的意义</h2><ul>
 <li>BeanFactory：是Spring bean容器的根接口.提供获取bean,是否包含bean,是否单例与原型,获取bean类型,bean 别名的api</li>
 <li>AutowireCapableBeanFactory：扩展BeanFactory接口，由能够自动装配的bean工厂实现，并为现有的bean实例公开这个功能。</li>
@@ -420,7 +420,7 @@
 <p>为什么要有这么多的BeanFactory？</p>
 <h2 id="BeanFactory"><a href="#BeanFactory" class="headerlink" title="BeanFactory"></a>BeanFactory</h2><p>接口由持有多个bean定义的对象实现，每个定义由一个String名称唯一标识。可以获得任何这些对象的独立实例（Prototype设计模式），或者可以获得单个共享实例（Singleton设计模式的上级替代方案）。将返回哪种类型的实例取决于bean工厂配置 - API是相同的。 Singleton方法在实践中更加有用，也更为常见。</p>
 <p>这种方法的重点在于，BeanFactory是应用程序组件的中央注册表，集中配置应用程序,通常，BeanFactory将加载存储在配置源（例如XML文档）中的bean定义，并使用org.springframework.beans包来配置bean。但是，实现可以直接在Java代码中直接返回它创建的Java对象。对于如何存储定义没有限制：LDAP，RDBMS，XML，属性文件等。鼓励实现支持bean之间的引用，不管是单例还是原型。</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BeanFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    String FACTORY_BEAN_PREFIX = <span class="string">"&amp;"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Object <span class="title">getBean</span><span class="params">(String name)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Object <span class="title">getBean</span><span class="params">(String name, Class requiredType)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">containsBean</span><span class="params">(String name)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isSingleton</span><span class="params">(String name)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</span><br><span class="line"></span><br><span class="line">    String[] getAliases(String name) <span class="keyword">throws</span> NoSuchBeanDefinitionException;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BeanFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">    用户使用容器时，可以使用转义符“＆”来得到FactoryBean本身，用来区分通过容器来获取FactoryBean产生的对象和获取FactoryBean本身。举例来说，如果myJndiObject是一个FactoryBean，那么使用＆myJndiObject得到的是FactoryBean，而不是myJndiObject这个FactoryBean产生出来的对象。</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line">    String FACTORY_BEAN_PREFIX = <span class="string">"&amp;"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Object <span class="title">getBean</span><span class="params">(String name)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Object <span class="title">getBean</span><span class="params">(String name, Class requiredType)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">containsBean</span><span class="params">(String name)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isSingleton</span><span class="params">(String name)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</span><br><span class="line"></span><br><span class="line">    String[] getAliases(String name) <span class="keyword">throws</span> NoSuchBeanDefinitionException;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="ListableBeanFactory"><a href="#ListableBeanFactory" class="headerlink" title="ListableBeanFactory"></a>ListableBeanFactory</h2><p>BeanFactory接口的扩展由bean工厂实现，bean工厂可以枚举它们的所有bean实例，而不是按照客户的要求一个接一个的尝试bean的名字。预加载所有bean定义的BeanFactory实现（例如基于XML的工厂）可以实现这个接口。<br>如果这是一个HierarchicalBeanFactory，则返回值不会考虑任何BeanFactory层次结构，而只会涉及当前工厂中定义的Bean。使用BeanFactoryUtils助手类也可以考虑祖先工厂中的bean。<br>这个接口中的方法只会尊重这个工厂的bean定义。他们将忽略任何单身bean已经通过其他方式注册，如org.springframework.beans.factory.config.ConfigurableBeanFactory的registerSingleton方法，除了getBeanNamesOfType和getBeansOfType将检查这种手动注册的单身。当然，BeanFactory的getBean也允许透明地访问这些特殊的bean。但是，在典型的情况下，所有的bean都将由外部bean定义来定义，所以大多数应用程序不需要担心这种差异。<br>注意：除getBeanDefinitionCount和containsBeanDefinition之外，此接口中的方法不适用于频繁调用。实现可能会很慢。</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">ListableBeanFactory</span> <span class="keyword">extends</span> <span class="title">BeanFactory</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">getBeanDefinitionCount</span><span class="params">()</span></span>;</span><br><span class="line"></span><br><span class="line">    String[] getBeanDefinitionNames();</span><br><span class="line"></span><br><span class="line">    String[] getBeanDefinitionNames(Class type);</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">containsBeanDefinition</span><span class="params">(String name)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Map <span class="title">getBeansOfType</span><span class="params">(Class type, <span class="keyword">boolean</span> includePrototypes, <span class="keyword">boolean</span> includeFactoryBeans)</span></span></span><br><span class="line"><span class="function">            <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h2 id="AutowireCapableBeanFactory"><a href="#AutowireCapableBeanFactory" class="headerlink" title="AutowireCapableBeanFactory"></a>AutowireCapableBeanFactory</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function">Object <span class="title">autowire</span><span class="params">(Class beanClass, <span class="keyword">int</span> autowireMode, <span class="keyword">boolean</span> dependencyCheck)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">autowireBeanProperties</span><span class="params">(Object existingBean, <span class="keyword">int</span> autowireMode, <span class="keyword">boolean</span> dependencyCheck)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"><span class="function">Object <span class="title">applyBeanPostProcessorsBeforeInitialization</span><span class="params">(Object existingBean, String name)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"><span class="function">Object <span class="title">applyBeanPostProcessorsAfterInitialization</span><span class="params">(Object existingBean, String name)</span></span></span><br><span class="line"><span class="function">        <span class="keyword">throws</span> BeansException</span>;</span><br></pre></td></tr></table></figure>
@@ -457,8 +457,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018-02-06-Spring学习之PropertiySource/" rel="next" title="Spring学习之PropertiySource">
-                <i class="fa fa-chevron-left"></i> Spring学习之PropertiySource
+              <a href="/2018-02-06-mysql相关命令小结/" rel="next" title="mysql相关命令小结">
+                <i class="fa fa-chevron-left"></i> mysql相关命令小结
               </a>
             
           </div>
@@ -533,7 +533,7 @@
 
       <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
-          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
             
               <p class="site-author-name" itemprop="name">liuyiyou</p>
               <p class="site-description motion-element" itemprop="description"></p>
@@ -546,7 +546,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">165</span>
+                  <span class="site-state-item-count">169</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -568,7 +568,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">35</span>
+                  <span class="site-state-item-count">36</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -623,7 +623,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2012 &mdash; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -637,7 +637,7 @@
     
       <span class="post-meta-item-text">网站字数总数&#58;</span>
     
-    <span title="网站字数总数">121.4k</span>
+    <span title="网站字数总数">124.4k</span>
   
 </div>
 
