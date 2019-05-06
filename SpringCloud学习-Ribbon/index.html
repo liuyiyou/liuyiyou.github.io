@@ -17,19 +17,21 @@
   <meta http-equiv="window-target" content="_top">
   
   
-  <title>归档: 2017/11 | 温故而知新、触类而旁通</title>
-  <meta name="description" content="温故而知新、触类而旁通">
-<meta property="og:type" content="website">
-<meta property="og:title" content="温故而知新    触类而旁通">
-<meta property="og:url" content="http://liuyiyou.cn/archives/2017/11/index.html">
+  <title>SpringCloud学习-Ribbon | 温故而知新、触类而旁通</title>
+  <meta name="description" content="引入Ribbon&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-cloud-starter-netflix-eureka-client&amp;lt;/artifactId&amp;gt;&amp;lt;/dependency&amp;gt; 上面这个包含了Ribb">
+<meta name="keywords" content="spring-cloud">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringCloud学习-Ribbon">
+<meta property="og:url" content="http://liuyiyou.cn/SpringCloud学习-Ribbon/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="温故而知新、触类而旁通">
+<meta property="og:description" content="引入Ribbon&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-cloud-starter-netflix-eureka-client&amp;lt;/artifactId&amp;gt;&amp;lt;/dependency&amp;gt; 上面这个包含了Ribb">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-02-08T14:00:20.041Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="温故而知新    触类而旁通">
-<meta name="twitter:description" content="温故而知新、触类而旁通">
+<meta name="twitter:title" content="SpringCloud学习-Ribbon">
+<meta name="twitter:description" content="引入Ribbon&amp;lt;dependency&amp;gt;    &amp;lt;groupId&amp;gt;org.springframework.cloud&amp;lt;/groupId&amp;gt;    &amp;lt;artifactId&amp;gt;spring-cloud-starter-netflix-eureka-client&amp;lt;/artifactId&amp;gt;&amp;lt;/dependency&amp;gt; 上面这个包含了Ribb">
   <!-- Canonical links -->
-  <link rel="canonical" href="http://liuyiyou.cn/archives/2017/11/index.html">
+  <link rel="canonical" href="http://liuyiyou.cn/SpringCloud学习-Ribbon/index.html">
   
     <link rel="alternate" href="/atom.xml" title="温故而知新    触类而旁通" type="application/atom+xml">
   
@@ -337,98 +339,168 @@
   
   
 <main class="main" role="main">
-  	<article class="content article article-archives article-type-list" itemscope="">
-	    <header class="article-header">
-	      <h1 itemprop="title">归档: 2017/11</h1>
-	      <p class="text-muted">共 6 篇文章</p>
-	    </header>
-	    <div class="article-body">
-	      
-  
-  
+  <div class="content">
+  <article id="post-SpringCloud学习-Ribbon" class="article article-type-post" itemscope="" itemtype="http://schema.org/BlogPosting">
     
-    
+    <div class="article-header">
       
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SpringCloud学习-Ribbon
+    </h1>
+  
+
       
-      <section class="panel panel-default b-no">
-        <div class="panel-heading" role="tab">
-          <h3 class="panel-title">
-            <a data-toggle="collapse" href="#collapse2017" aria-expanded="true">
-              <i class="icon icon-calendar-plus text-active"></i><i class="icon icon-calendar-minus text"></i>
-              2017
-            </a>
-            <!-- <a href="/archives/2017" class="archive-year">2017</a> -->
-          </h3>
-        </div>
-        <div id="collapse2017" class="panel-collapse collapse in" role="tabpanel" aria-labelledby="heading2017">
-        <div class="panel-body">
-          <div class="collection">
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/SpringCloud学习-Ribbon/" class="article-date">
+	  <time datetime="2017-11-11T16:00:00.000Z" itemprop="datePublished">2017-11-12</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/spring-cloud/">spring-cloud</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/spring-cloud/">spring-cloud</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/SpringCloud学习-Ribbon/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 440(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 2(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h2 id="引入Ribbon"><a href="#引入Ribbon" class="headerlink" title="引入Ribbon"></a>引入Ribbon</h2><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-eureka-client<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>上面这个包含了Ribbon，如果不想引入这么多，可以只引入Ribbon<br><figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.cloud<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-cloud-starter-netflix-ribbon<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h2 id="开启负载均衡"><a href="#开启负载均衡" class="headerlink" title="开启负载均衡"></a>开启负载均衡</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@EnableDiscoveryClient</span></span><br><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RibbonApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		SpringApplication.run(RibbonApplication.class, args);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="comment">/**</span></span><br><span class="line"><span class="comment">	 * 开启客户端负载均衡</span></span><br><span class="line"><span class="comment">	 */</span></span><br><span class="line">	<span class="meta">@LoadBalanced</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> RestTemplate <span class="title">restTemplate</span><span class="params">()</span></span>&#123;</span><br><span class="line">		<span class="keyword">return</span> <span class="keyword">new</span> RestTemplate();</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RibbonConsumerController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Autowired</span></span><br><span class="line">    <span class="keyword">private</span> RestTemplate restTemplate;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//并没有指定服务端口，只是指定了服务名称即可发生调用</span></span><br><span class="line">    <span class="meta">@GetMapping</span>(<span class="string">"/ribbon"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">helloRibbon</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> restTemplate.getForEntity(<span class="string">"http://HELLO-SERVICE/base"</span>, String.class).getBody();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="实现原理"><a href="#实现原理" class="headerlink" title="实现原理"></a>实现原理</h2><ol>
+<li>Ribbon首先根据其所在的zone优先选择一个负载较少的Eureka服务器</li>
+<li>定期从Eureka服务器更新，并过滤服务实例列表</li>
+<li>根据指定的负载均衡策略，从可用的服务实例选择一个</li>
+<li>调用该地址，通过Rest客户端进行服务调用</li>
+</ol>
+<h2 id="扩展知识"><a href="#扩展知识" class="headerlink" title="扩展知识"></a>扩展知识</h2><p>Ribbon提供了6个组件</p>
+<ol>
+<li>服务器列表（ServerList）<br>服务器列表就是客户端负载均衡所使用的各服务实例列表。Ribbon在实现上支持下面3种服务器列表方式</li>
+</ol>
+<ul>
+<li>静态服务器列表：可以通过Ribbon中的<code>BaseLoadBanlancer#setServersList()</code>方法进行设置</li>
+<li><p>基于配置的服务器列表：需要在项目中通过配置文件&lt;服务名称&gt;.ribbon.listOfServers属性进行设置。代码如下:</p>
+   <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"># 这里为用户服务配置了3个服务器列表</span><br><span class="line">userservice.ribbon.listOfServers=http://127.0.0.1:100001,</span><br><span class="line">http://127.0.0.1:100002,</span><br><span class="line">http://127.0.0.1:100003</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>基于服务发现的服务列表</p>
+</li>
+</ul>
+<ol start="2">
+<li>服务器列表过滤器（ServerListFilter）</li>
+<li>服务实例存货探测（IPing）</li>
+<li>负载均衡策略（IRule）</li>
+<li>负载均衡器（ILoadBanlace）</li>
+<li>服务调用器（RestClient）</li>
+</ol>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
     
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://liuyiyou.cn/SpringCloud学习-Ribbon/" title="SpringCloud学习-Ribbon" target="_blank" rel="external">http://liuyiyou.cn/SpringCloud学习-Ribbon/</a>
+    </li>
     
-<a href="/SpringCloud学习-Sleuth/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2017-11-16T16:00:00.000Z" itemprop="datePublished">2017-11-17</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> SpringCloud学习-Sleuth
-</a>
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liuyiyou" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liuyiyou" target="_blank"><span class="text-dark">liuyiyou</span><small class="ml-1x">Java Developer</small></a></h3>
+        <div>心有猛虎、细嗅蔷薇</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
 
 
   
-    
-    
-    
-<a href="/SpringCloud学习-Zuul/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2017-11-13T16:00:00.000Z" itemprop="datePublished">2017-11-14</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> SpringCloud学习-Zuul
-</a>
+</div>
 
-
+  <nav class="bar bar-footer clearfix" data-stick-bottom="">
+  <div class="bar-inner">
   
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/SpringCloud学习-Feigh/" title="SpringCloud学习-Feigh"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
     
     
-    
-<a href="/SpringCloud学习-Hystrix/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2017-11-13T16:00:00.000Z" itemprop="datePublished">2017-11-14</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> SpringCloud学习-Hystrix
-</a>
-
-
-  
+    <li class="next">
+      <a href="/SpringCloud学习-Eureka/" title="SpringCloud学习-Eureka"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
     
     
-    
-<a href="/SpringCloud学习-Feigh/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2017-11-12T16:00:00.000Z" itemprop="datePublished">2017-11-13</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> SpringCloud学习-Feigh
-</a>
-
-
-  
-    
-    
-    
-<a href="/SpringCloud学习-Ribbon/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2017-11-11T16:00:00.000Z" itemprop="datePublished">2017-11-12</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> SpringCloud学习-Ribbon
-</a>
-
-
-  
-    
-    
-    
-<a href="/SpringCloud学习-Eureka/" class="collection-item" target="_blank" itemprop="url">
-  <time datetime="2017-11-10T16:00:00.000Z" itemprop="datePublished">2017-11-11</time>
-  <span>&nbsp;&nbsp;&nbsp;</span> SpringCloud学习-Eureka
-</a>
-
-
+  </ul>
   
   
-    </div></div></div></section>
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
   
 
-	    </div>
-  	</article>
-  	 	
+
 </main>
 
   <footer class="footer" itemscope="" itemtype="http://schema.org/WPFooter">
@@ -477,6 +549,39 @@ window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
 
 
 
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'TOW8ykj7scHK3P3WH9E5l6Rs-gzGzoHsz',
+    appKey: 'AqBkIXh8Nw7SY25KLD0js1tn',
+    placeholder: '写下你的评论',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
 
 
 
