@@ -18,18 +18,18 @@
   
   
   <title>Java8新特性-Optional | 温故而知新、触类而旁通</title>
-  <meta name="description" content="作用减少NPE">
+  <meta name="description" content="作用减少NPE 创建//创建一个空的OptionalOptional.empty//依据一个非空值创建Optional,如果是car==null 则会报NPEOptional&amp;lt;Car&amp;gt; optCar = Optional.of(car);//可接受null的Optional,如果是car==null 则返回一个空对象Optional&amp;lt;Car&amp;gt; optCar = Option">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java8新特性-Optional">
 <meta property="og:url" content="http://liuyiyou.cn/Java8新特性-Optional/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="作用减少NPE">
+<meta property="og:description" content="作用减少NPE 创建//创建一个空的OptionalOptional.empty//依据一个非空值创建Optional,如果是car==null 则会报NPEOptional&amp;lt;Car&amp;gt; optCar = Optional.of(car);//可接受null的Optional,如果是car==null 则返回一个空对象Optional&amp;lt;Car&amp;gt; optCar = Option">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-04-23T08:48:18.461Z">
+<meta property="og:updated_time" content="2019-05-08T19:51:36.055Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java8新特性-Optional">
-<meta name="twitter:description" content="作用减少NPE">
+<meta name="twitter:description" content="作用减少NPE 创建//创建一个空的OptionalOptional.empty//依据一个非空值创建Optional,如果是car==null 则会报NPEOptional&amp;lt;Car&amp;gt; optCar = Optional.of(car);//可接受null的Optional,如果是car==null 则返回一个空对象Optional&amp;lt;Car&amp;gt; optCar = Option">
   <!-- Canonical links -->
   <link rel="canonical" href="http://liuyiyou.cn/Java8新特性-Optional/index.html">
   
@@ -199,7 +199,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/spring-cloud/" style="font-size: 14px;">spring-cloud</a> <a href="/tags/数据结构/" style="font-size: 13.5px;">数据结构</a>
+      <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/spring-boot/" style="font-size: 14px;">spring-boot</a> <a href="/tags/spring-cloud/" style="font-size: 13.67px;">spring-cloud</a> <a href="/tags/数据结构/" style="font-size: 13.33px;">数据结构</a>
     </div>
   </div>
 
@@ -220,7 +220,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/">spring-cloud</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/">spring-cloud</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -230,7 +230,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-cloud/">spring-cloud</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">5</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot/">spring-boot</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-cloud/">spring-cloud</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -240,7 +240,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -256,10 +256,55 @@
             
             <div class="item-inner">
               <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/公司ES优化/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-07T05:50:19.367Z" itemprop="datePublished">2020-05-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/MySql知识点总结/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-01-02T04:55:18.411Z" itemprop="datePublished">2019-01-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/Java8新特性-Lambda/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-05-04T07:22:10.386Z" itemprop="datePublished">2018-05-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
                 <a class="category-link" href="/categories/java/">java</a>
               </p>
               <p class="item-title">
-                <a href="/Java8新特性-Optional/" class="title">Java8新特性-Optional</a>
+                <a href="/Java8新特性-总起/" class="title">Java8新特性-总起</a>
               </p>
               <p class="item-date">
                 <time datetime="2018-03-12T16:00:00.000Z" itemprop="datePublished">2018-03-13</time>
@@ -274,55 +319,10 @@
                 <a class="category-link" href="/categories/java/">java</a>
               </p>
               <p class="item-title">
-                <a href="/2018-03-14-Java8新特性/" class="title">Java8新特性</a>
+                <a href="/Java8新特性-Stream/" class="title">Java8新特性-Stream</a>
               </p>
               <p class="item-date">
                 <time datetime="2018-03-12T16:00:00.000Z" itemprop="datePublished">2018-03-13</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/java/">java</a>
-              </p>
-              <p class="item-title">
-                <a href="/Java8新特性-Lambda/" class="title">Java8新特性-Lambda</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2018-03-12T16:00:00.000Z" itemprop="datePublished">2018-03-13</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/spring-cloud/">spring-cloud</a>
-              </p>
-              <p class="item-title">
-                <a href="/SpringCloud学习-Sleuth/" class="title">SpringCloud学习-Sleuth</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2017-11-16T16:00:00.000Z" itemprop="datePublished">2017-11-17</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/spring-cloud/">spring-cloud</a>
-              </p>
-              <p class="item-title">
-                <a href="/SpringCloud学习-Zuul/" class="title">SpringCloud学习-Zuul</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2017-11-13T16:00:00.000Z" itemprop="datePublished">2017-11-14</time>
               </p>
             </div>
           </li>
@@ -384,7 +384,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/Java8新特性-Optional/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 5(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 109(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -395,6 +395,10 @@
     <div class="article-entry marked-body" itemprop="articleBody">
       
         <h2 id="作用"><a href="#作用" class="headerlink" title="作用"></a>作用</h2><p>减少NPE</p>
+<h2 id="创建"><a href="#创建" class="headerlink" title="创建"></a>创建</h2><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="comment">//创建一个空的Optional</span></span><br><span class="line">Optional.empty</span><br><span class="line"></span><br><span class="line"><span class="comment">//依据一个非空值创建Optional,如果是car==null 则会报NPE</span></span><br><span class="line">Optional&lt;Car&gt; optCar = Optional.of(car);</span><br><span class="line"></span><br><span class="line"><span class="comment">//可接受null的Optional,如果是car==null 则返回一个空对象</span></span><br><span class="line">Optional&lt;Car&gt; optCar = Optional.ofNullable(car);</span><br></pre></td></tr></table></figure>
+<h2 id="怎样获取值"><a href="#怎样获取值" class="headerlink" title="怎样获取值"></a>怎样获取值</h2><p>虽然Optional有提供一个<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">```java</span><br><span class="line">Optional&lt;Car&gt; optCar = Optional.ofNullable(car);</span><br><span class="line">if(optCar.isPresent)&#123;</span><br><span class="line">  optCar.get();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>则意义不是很大</p>
+<p>1.1 使用map提取或者转换值</p>
 
       
     </div>
@@ -450,9 +454,13 @@
   
   <ul class="pager pull-left">
     
+    <li class="prev">
+      <a href="/Java8新特性-函数式接口/" title="Java8新特性-函数式接口"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
     
     <li class="next">
-      <a href="/2018-03-14-Java8新特性/" title="Java8新特性"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+      <a href="/SpringCloud学习-Sleuth/" title="SpringCloud学习-Sleuth"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
     </li>
     
     

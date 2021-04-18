@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>SpringBoot学习-控制器 | 温故而知新、触类而旁通</title>
+  <meta name="description" content="在上一篇SpringBoot学习-初探中搭建了一个最简单SpringBoot程序，后续不再提供项目搭建截图，直接采用maven模式 内容 返回json 返回模板 Circular view path问题解决方案 使用fastjson代替jackson  返回json从spring4.0开始，Spring提供了@RestController注解，提供该注解是一个组合注解 @Controller &amp;a">
+<meta name="keywords" content="spring-boot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot学习-控制器">
+<meta property="og:url" content="http://liuyiyou.cn/SpringBoot学习-控制器/index.html">
+<meta property="og:site_name" content="温故而知新    触类而旁通">
+<meta property="og:description" content="在上一篇SpringBoot学习-初探中搭建了一个最简单SpringBoot程序，后续不再提供项目搭建截图，直接采用maven模式 内容 返回json 返回模板 Circular view path问题解决方案 使用fastjson代替jackson  返回json从spring4.0开始，Spring提供了@RestController注解，提供该注解是一个组合注解 @Controller &amp;a">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-04-17T13:44:08.077Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="SpringBoot学习-控制器">
+<meta name="twitter:description" content="在上一篇SpringBoot学习-初探中搭建了一个最简单SpringBoot程序，后续不再提供项目搭建截图，直接采用maven模式 内容 返回json 返回模板 Circular view path问题解决方案 使用fastjson代替jackson  返回json从spring4.0开始，Spring提供了@RestController注解，提供该注解是一个组合注解 @Controller &amp;a">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://liuyiyou.cn/SpringBoot学习-控制器/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="温故而知新    触类而旁通" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/liuyiyou" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">liuyiyou</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Java Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Guangzhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索">
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech="">
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope="" itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/inbox">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/liuyiyou" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/liuyiyou" target="_blank" title="Weibo" data-toggle="tooltip" data-placement="top"><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope="" itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/spring-boot/" style="font-size: 14px;">spring-boot</a> <a href="/tags/spring-cloud/" style="font-size: 13.67px;">spring-cloud</a> <a href="/tags/数据结构/" style="font-size: 13.33px;">数据结构</a>
+    </div>
+  </div>
+
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p><a href="www.yiyou.fun">个人博客<a></a></a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/">spring-cloud</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot/">spring-boot</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-cloud/">spring-cloud</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/公司ES优化/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-07T05:50:19.367Z" itemprop="datePublished">2020-05-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/MySql知识点总结/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-01-02T04:55:18.411Z" itemprop="datePublished">2019-01-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/Java8新特性-Lambda/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-05-04T07:22:10.386Z" itemprop="datePublished">2018-05-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/Java8新特性-总起/" class="title">Java8新特性-总起</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-03-12T16:00:00.000Z" itemprop="datePublished">2018-03-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/Java8新特性-Stream/" class="title">Java8新特性-Stream</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-03-12T16:00:00.000Z" itemprop="datePublished">2018-03-13</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-SpringBoot学习-控制器" class="article article-type-post" itemscope="" itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+        
+  
+    <h1 class="article-title" itemprop="name">
+      SpringBoot学习-控制器
+    </h1>
+  
+
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/SpringBoot学习-控制器/" class="article-date">
+	  <time datetime="2017-09-11T16:00:00.000Z" itemprop="datePublished">2017-09-12</time>
+	</a>
+</span>
+        
+  <span class="article-category">
+    <i class="icon icon-folder"></i>
+    <a class="article-category-link" href="/categories/spring-boot/">spring-boot</a>
+  </span>
+
+        
+  <span class="article-tag">
+    <i class="icon icon-tags"></i>
+	<a class="article-tag-link" href="/tags/spring-boot/">spring-boot</a>
+  </span>
+
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/SpringBoot学习-控制器/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 955(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 5(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>在上一篇<a href="/2017-09-10-SpringBoot学习-初探/">SpringBoot学习-初探</a>中搭建了一个最简单SpringBoot程序，后续不再提供项目搭建截图，直接采用maven模式</p>
+<h2 id="内容"><a href="#内容" class="headerlink" title="内容"></a>内容</h2><ul>
+<li>返回json</li>
+<li>返回模板</li>
+<li>Circular view path问题解决方案</li>
+<li>使用fastjson代替jackson</li>
+</ul>
+<h2 id="返回json"><a href="#返回json" class="headerlink" title="返回json"></a>返回json</h2><p>从spring4.0开始，Spring提供了<code>@RestController</code>注解，提供该注解是一个组合注解 <code>@Controller</code> &amp;&amp; <code>@ResponseBody</code>。SpringBoot常见方式是使用@RestController，在控制层加上该注解之后，默认返回json，而不需要额外的配置。</p>
+<p>下面的两个方法，如果使用<code>@Controller</code>进行注解，会找对应模板下的Hello模板，但是使用<code>@RestController</code>进行注解的时候，直接返回内容<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/rest/"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloRestController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"hello"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Hello"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h2 id="返回模板"><a href="#返回模板" class="headerlink" title="返回模板"></a>返回模板</h2><p>想要返回模板，需要加入对应的starter，以thymeleaf为例，首先需要加入如下依赖</p>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如果不加该依赖（获取其他依赖）会产生两个主要问题</p>
+<ul>
+<li>404</li>
+<li>Circular view path 异常：</li>
+</ul>
+<p>404原因：如果没有添加对应的依赖，默认使用InterResourceViewResolver和JStlView，导致模板定位不准？</p>
+<figure class="highlight sh"><table><tr><td class="code"><pre><span class="line">javax.servlet.ServletException: Circular view path [hello2]: would dispatch back to the current handler URL [/controller/hello2] again. Check your ViewResolver setup! (Hint: This may be the result of an unspecified view, due to default view name generation.)</span><br><span class="line">	at org.springframework.web.servlet.view.InternalResourceView.prepareForRendering(InternalResourceView.java:205) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</span><br><span class="line">	at org.springframework.web.servlet.view.InternalResourceView.renderMergedOutputModel(InternalResourceView.java:145) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</span><br><span class="line">	at org.springframework.web.servlet.view.AbstractView.render(AbstractView.java:303) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</span><br><span class="line">	at org.springframework.web.servlet.DispatcherServlet.render(DispatcherServlet.java:1286) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</span><br><span class="line">	at org.springframework.web.servlet.DispatcherServlet.processDispatchResult(DispatcherServlet.java:1041) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</span><br><span class="line">	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:984) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</span><br><span class="line">	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:901) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</span><br><span class="line">	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:970) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</span><br><span class="line">	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:861) ~[spring-webmvc-4.3.13.RELEASE.jar:4.3.13.RELEASE]</span><br></pre></td></tr></table></figure>
+<h2 id="Circular-view-path问题解决方案"><a href="#Circular-view-path问题解决方案" class="headerlink" title="Circular view path问题解决方案"></a>Circular view path问题解决方案</h2><p>Circular view path 异常引发方式：</p>
+<ol>
+<li>没有添加thymeleaf</li>
+<li>如下所示：</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/controller/"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</span><br><span class="line">    <span class="meta">@RequestMapping</span>(<span class="string">"hello2"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">hello2</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"hello2"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>原因：<a href="https://stackoverflow.com/questions/18813615/how-to-avoid-the-circular-view-path-exception-with-spring-mvc-test" target="_blank" rel="noopener">https://stackoverflow.com/questions/18813615/how-to-avoid-the-circular-view-path-exception-with-spring-mvc-test</a>  </p>
+<p>当没有声明ViewResolver时，spring会给你注册一个默认的ViewResolver，就是JstlView的实例， 该对象继承自InternalResoureView。<br>JstlView用来封装JSP或者同一Web应用中的其他资源，它将model对象作为request请求的属性值暴露出来, 并将该请求通过javax.servlet.RequestDispatcher转发到指定的URL.<br>Spring认为， 这个view的URL是可以用来指定同一web应用中特定资源的，是可以被RequestDispatcher转发的。<br>也就是说，在页面渲染(render)之前，Spring会试图使用RequestDispatcher来继续转发该请求。如下代码：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (path.startsWith(<span class="string">"/"</span>) ? uri.equals(path) : uri.equals(StringUtils.applyRelativePath(uri, path))) &#123;</span><br><span class="line">    <span class="keyword">throw</span> <span class="keyword">new</span> ServletException(<span class="string">"Circular view path ["</span> + path + <span class="string">"]: would dispatch back "</span> +</span><br><span class="line">                        <span class="string">"to the current handler URL ["</span> + uri + <span class="string">"] again. Check your ViewResolver setup! "</span> +</span><br><span class="line">                        <span class="string">"(Hint: This may be the result of an unspecified view, due to default view name generation.)"</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="解决方法"><a href="#解决方法" class="headerlink" title="解决方法"></a>解决方法</h2><ul>
+<li>添加thymeleaf</li>
+<li>使用内置的InterResourceViewResolver，这个后续在集成jsp做模板的时候使用</li>
+</ul>
+<h2 id="使用fastjson代替jackson"><a href="#使用fastjson代替jackson" class="headerlink" title="使用fastjson代替jackson"></a>使用fastjson代替jackson</h2><p>原因：</p>
+<ul>
+<li>可能引发的中文乱码：这个在SpringBoot下很少发生</li>
+<li>日期格式问题，jackson序列化的日期是long</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.alibaba<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>fastjson<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.35<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloApplication</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurerAdapter</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 程序启动入口</span></span><br><span class="line">        <span class="comment">// 启动嵌入式的 Tomcat 并初始化 Spring 环境及其各 Spring 组件</span></span><br><span class="line">        SpringApplication.run(HelloApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">static</span> String dateFormat = <span class="string">"yyyy-MM-dd HH:mm:ss"</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">configureMessageConverters</span><span class="params">(List&lt;HttpMessageConverter&lt;?&gt;&gt; converters)</span> </span>&#123;</span><br><span class="line">        FastJsonHttpMessageConverter fastConverter =</span><br><span class="line">                <span class="keyword">new</span> FastJsonHttpMessageConverter();</span><br><span class="line">        FastJsonConfig fastJsonConfig = <span class="keyword">new</span> FastJsonConfig();</span><br><span class="line">        SerializeConfig serializeConfig = SerializeConfig.globalInstance;</span><br><span class="line">        serializeConfig.put(BigInteger.class, ToStringSerializer.instance);</span><br><span class="line">        serializeConfig.put(Long.class, ToStringSerializer.instance);</span><br><span class="line">        serializeConfig.put(Long.TYPE, ToStringSerializer.instance);</span><br><span class="line">        serializeConfig.put(Date.class, <span class="keyword">new</span> SimpleDateFormatSerializer(dateFormat));</span><br><span class="line">        fastJsonConfig.setSerializeConfig(serializeConfig);</span><br><span class="line">        fastConverter.setFastJsonConfig(fastJsonConfig);</span><br><span class="line">        converters.add(fastConverter);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://liuyiyou.cn/SpringBoot学习-控制器/" title="SpringBoot学习-控制器" target="_blank" rel="external">http://liuyiyou.cn/SpringBoot学习-控制器/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liuyiyou" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liuyiyou" target="_blank"><span class="text-dark">liuyiyou</span><small class="ml-1x">Java Developer</small></a></h3>
+        <div>心有猛虎、细嗅蔷薇</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom="">
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/SpringBoot学习-异常处理/" title="SpringBoot学习-异常处理"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/SpringBoot学习-初探/" title="SpringBoot学习-初探"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope="" itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/liuyiyou" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/liuyiyou" target="_blank" title="Weibo" data-toggle="tooltip" data-placement="top"><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'TOW8ykj7scHK3P3WH9E5l6Rs-gzGzoHsz',
+    appKey: 'AqBkIXh8Nw7SY25KLD0js1tn',
+    placeholder: '写下你的评论',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>

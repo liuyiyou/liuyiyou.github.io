@@ -18,18 +18,18 @@
   
   
   <title>SpringCloud学习-Sleuth | 温故而知新、触类而旁通</title>
-  <meta name="description" content="Sleuth是什么分布式服务跟踪">
+  <meta name="description" content="Sleuth是什么 耗时分析 可视化错误（Zipkin） 链路优化  一些术语Span：是Sleuth最基本的工作单位，微服务发起一次请求就是一个新的Span TraceAnnotation用于记录时间信息，包含如下  cs: 客户端发起，一个新的span开始 sr: 服务端接受，表示服务端接受请求并开始处理 ss: 服务端完成请求处理，应答信息被返回给客户端 cr: 客户端接受请求，Span结束">
 <meta name="keywords" content="spring-cloud">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringCloud学习-Sleuth">
 <meta property="og:url" content="http://liuyiyou.cn/SpringCloud学习-Sleuth/index.html">
 <meta property="og:site_name" content="温故而知新    触类而旁通">
-<meta property="og:description" content="Sleuth是什么分布式服务跟踪">
+<meta property="og:description" content="Sleuth是什么 耗时分析 可视化错误（Zipkin） 链路优化  一些术语Span：是Sleuth最基本的工作单位，微服务发起一次请求就是一个新的Span TraceAnnotation用于记录时间信息，包含如下  cs: 客户端发起，一个新的span开始 sr: 服务端接受，表示服务端接受请求并开始处理 ss: 服务端完成请求处理，应答信息被返回给客户端 cr: 客户端接受请求，Span结束">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-02-09T14:09:30.581Z">
+<meta property="og:updated_time" content="2019-05-13T08:14:41.440Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringCloud学习-Sleuth">
-<meta name="twitter:description" content="Sleuth是什么分布式服务跟踪">
+<meta name="twitter:description" content="Sleuth是什么 耗时分析 可视化错误（Zipkin） 链路优化  一些术语Span：是Sleuth最基本的工作单位，微服务发起一次请求就是一个新的Span TraceAnnotation用于记录时间信息，包含如下  cs: 客户端发起，一个新的span开始 sr: 服务端接受，表示服务端接受请求并开始处理 ss: 服务端完成请求处理，应答信息被返回给客户端 cr: 客户端接受请求，Span结束">
   <!-- Canonical links -->
   <link rel="canonical" href="http://liuyiyou.cn/SpringCloud学习-Sleuth/index.html">
   
@@ -199,7 +199,7 @@
   <div class="widget">
     <h3 class="widget-title">标签云</h3>
     <div class="widget-body tagcloud">
-      <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/spring-cloud/" style="font-size: 14px;">spring-cloud</a> <a href="/tags/数据结构/" style="font-size: 13.5px;">数据结构</a>
+      <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/spring-boot/" style="font-size: 14px;">spring-boot</a> <a href="/tags/spring-cloud/" style="font-size: 13.67px;">spring-cloud</a> <a href="/tags/数据结构/" style="font-size: 13.33px;">数据结构</a>
     </div>
   </div>
 
@@ -220,7 +220,7 @@
   <div class="widget">
     <h3 class="widget-title">分类</h3>
     <div class="widget-body">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">3</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/">spring-cloud</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">5</span></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/">spring-cloud</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -230,7 +230,7 @@
   <div class="widget">
     <h3 class="widget-title">标签</h3>
     <div class="widget-body">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">3</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-cloud/">spring-cloud</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">5</span></li></ul>
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot/">spring-boot</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-cloud/">spring-cloud</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -240,7 +240,7 @@
   <div class="widget">
     <h3 class="widget-title">归档</h3>
     <div class="widget-body">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">3</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">5</span></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">5</span></li></ul>
     </div>
   </div>
 
@@ -256,10 +256,55 @@
             
             <div class="item-inner">
               <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/公司ES优化/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-07T05:50:19.367Z" itemprop="datePublished">2020-05-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/MySql知识点总结/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-01-02T04:55:18.411Z" itemprop="datePublished">2019-01-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/Java8新特性-Lambda/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-05-04T07:22:10.386Z" itemprop="datePublished">2018-05-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
                 <a class="category-link" href="/categories/java/">java</a>
               </p>
               <p class="item-title">
-                <a href="/Java8新特性-Optional/" class="title">Java8新特性-Optional</a>
+                <a href="/Java8新特性-总起/" class="title">Java8新特性-总起</a>
               </p>
               <p class="item-date">
                 <time datetime="2018-03-12T16:00:00.000Z" itemprop="datePublished">2018-03-13</time>
@@ -274,55 +319,10 @@
                 <a class="category-link" href="/categories/java/">java</a>
               </p>
               <p class="item-title">
-                <a href="/2018-03-14-Java8新特性/" class="title">Java8新特性</a>
+                <a href="/Java8新特性-Stream/" class="title">Java8新特性-Stream</a>
               </p>
               <p class="item-date">
                 <time datetime="2018-03-12T16:00:00.000Z" itemprop="datePublished">2018-03-13</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/java/">java</a>
-              </p>
-              <p class="item-title">
-                <a href="/Java8新特性-Lambda/" class="title">Java8新特性-Lambda</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2018-03-12T16:00:00.000Z" itemprop="datePublished">2018-03-13</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/spring-cloud/">spring-cloud</a>
-              </p>
-              <p class="item-title">
-                <a href="/SpringCloud学习-Sleuth/" class="title">SpringCloud学习-Sleuth</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2017-11-16T16:00:00.000Z" itemprop="datePublished">2017-11-17</time>
-              </p>
-            </div>
-          </li>
-          
-          <li>
-            
-            <div class="item-inner">
-              <p class="item-category">
-                <a class="category-link" href="/categories/spring-cloud/">spring-cloud</a>
-              </p>
-              <p class="item-title">
-                <a href="/SpringCloud学习-Zuul/" class="title">SpringCloud学习-Zuul</a>
-              </p>
-              <p class="item-date">
-                <time datetime="2017-11-13T16:00:00.000Z" itemprop="datePublished">2017-11-14</time>
               </p>
             </div>
           </li>
@@ -384,7 +384,7 @@
         <span class="post-comment"><i class="icon icon-comment"></i> <a href="/SpringCloud学习-Sleuth/#comments" class="article-comment-link">评论</a></span>
         
 	
-		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 11(字)</span>
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 137(字)</span>
 	
 	
 		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 1(分)</span>
@@ -394,8 +394,20 @@
     </div>
     <div class="article-entry marked-body" itemprop="articleBody">
       
-        <h2 id="Sleuth是什么"><a href="#Sleuth是什么" class="headerlink" title="Sleuth是什么"></a>Sleuth是什么</h2><p>分布式服务跟踪</p>
-
+        <h2 id="Sleuth是什么"><a href="#Sleuth是什么" class="headerlink" title="Sleuth是什么"></a>Sleuth是什么</h2><ol>
+<li>耗时分析</li>
+<li>可视化错误（Zipkin）</li>
+<li>链路优化</li>
+</ol>
+<h2 id="一些术语"><a href="#一些术语" class="headerlink" title="一些术语"></a>一些术语</h2><h3 id="Span："><a href="#Span：" class="headerlink" title="Span："></a>Span：</h3><p>是Sleuth最基本的工作单位，微服务发起一次请求就是一个新的Span</p>
+<h3 id="Trace"><a href="#Trace" class="headerlink" title="Trace"></a>Trace</h3><h3 id="Annotation"><a href="#Annotation" class="headerlink" title="Annotation"></a>Annotation</h3><p>用于记录时间信息，包含如下</p>
+<ul>
+<li>cs: 客户端发起，一个新的span开始</li>
+<li>sr: 服务端接受，表示服务端接受请求并开始处理</li>
+<li>ss: 服务端完成请求处理，应答信息被返回给客户端</li>
+<li>cr: 客户端接受请求，Span结束</li>
+</ul>
+<h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><h3 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h3>
       
     </div>
     <div class="article-footer">
@@ -451,7 +463,7 @@
   <ul class="pager pull-left">
     
     <li class="prev">
-      <a href="/Java8新特性-Lambda/" title="Java8新特性-Lambda"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+      <a href="/Java8新特性-Optional/" title="Java8新特性-Optional"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
     </li>
     
     

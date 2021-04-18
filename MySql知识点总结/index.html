@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang=zh>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000">
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top">
+  
+  
+  <title>温故而知新、触类而旁通</title>
+  <meta name="description" content="知识点总结锁索引索引数据类型一般使用的索引的数据类型为hash索引和btree索引。从查询效率来讲，hash索引会比btree快，原因如下  Hash 索引仅仅能满足”=”,”IN”和”&amp;lt;=&amp;gt;”查询，不能使用范围查询。由于 Hash 索引比较的是进行 Hash 运算之后的 Hash 值，所以它只能用于等值的过滤，不能用于基于范围的过滤，因为经过相应的 Hash 算法处理之后的 Hash">
+<meta property="og:type" content="article">
+<meta property="og:title" content="温故而知新    触类而旁通">
+<meta property="og:url" content="http://liuyiyou.cn/MySql知识点总结/index.html">
+<meta property="og:site_name" content="温故而知新    触类而旁通">
+<meta property="og:description" content="知识点总结锁索引索引数据类型一般使用的索引的数据类型为hash索引和btree索引。从查询效率来讲，hash索引会比btree快，原因如下  Hash 索引仅仅能满足”=”,”IN”和”&amp;lt;=&amp;gt;”查询，不能使用范围查询。由于 Hash 索引比较的是进行 Hash 运算之后的 Hash 值，所以它只能用于等值的过滤，不能用于基于范围的过滤，因为经过相应的 Hash 算法处理之后的 Hash">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-05-07T11:36:03.600Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="温故而知新    触类而旁通">
+<meta name="twitter:description" content="知识点总结锁索引索引数据类型一般使用的索引的数据类型为hash索引和btree索引。从查询效率来讲，hash索引会比btree快，原因如下  Hash 索引仅仅能满足”=”,”IN”和”&amp;lt;=&amp;gt;”查询，不能使用范围查询。由于 Hash 索引比较的是进行 Hash 运算之后的 Hash 值，所以它只能用于等值的过滤，不能用于基于范围的过滤，因为经过相应的 Hash 算法处理之后的 Hash">
+  <!-- Canonical links -->
+  <link rel="canonical" href="http://liuyiyou.cn/MySql知识点总结/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="温故而知新    触类而旁通" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+  
+  
+  
+</head>
+
+
+<body class="main-center theme-black" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/liuyiyou" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">liuyiyou</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Java Developer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Guangzhou, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="搜索">
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="想要查找什么..." x-webkit-speech="">
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope="" itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav menu-highlight">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">首页</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">归档</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">分类</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">标签</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">项目</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/inbox">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">书单</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">友链</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">关于</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/liuyiyou" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/liuyiyou" target="_blank" title="Weibo" data-toggle="tooltip" data-placement="top"><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope="" itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签云</h3>
+    <div class="widget-body tagcloud">
+      <a href="/tags/java/" style="font-size: 13px;">java</a> <a href="/tags/spring-boot/" style="font-size: 14px;">spring-boot</a> <a href="/tags/spring-cloud/" style="font-size: 13.67px;">spring-cloud</a> <a href="/tags/数据结构/" style="font-size: 13.33px;">数据结构</a>
+    </div>
+  </div>
+
+    
+      <div class="widget">
+    <h3 class="widget-title">公告</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p><a href="www.yiyou.fun">个人博客<a></a></a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">分类</h3>
+    <div class="widget-body">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/java/">java</a><span class="category-list-count">4</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-boot/">spring-boot</a><span class="category-list-count">8</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/spring-cloud/">spring-cloud</a><span class="category-list-count">6</span></li><li class="category-list-item"><a class="category-list-link" href="/categories/数据结构/">数据结构</a><span class="category-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">标签</h3>
+    <div class="widget-body">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a><span class="tag-list-count">4</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-boot/">spring-boot</a><span class="tag-list-count">8</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/spring-cloud/">spring-cloud</a><span class="tag-list-count">6</span></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/数据结构/">数据结构</a><span class="tag-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">归档</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/05/">五月 2020</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/01/">一月 2019</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/05/">五月 2018</a><span class="archive-list-count">1</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2018/03/">三月 2018</a><span class="archive-list-count">4</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/11/">十一月 2017</a><span class="archive-list-count">6</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2017/09/">九月 2017</a><span class="archive-list-count">8</span></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2015/01/">一月 2015</a><span class="archive-list-count">5</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">最新文章</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/公司ES优化/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2020-05-07T05:50:19.367Z" itemprop="datePublished">2020-05-07</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/MySql知识点总结/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2019-01-02T04:55:18.411Z" itemprop="datePublished">2019-01-02</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/Java8新特性-Lambda/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-05-04T07:22:10.386Z" itemprop="datePublished">2018-05-04</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/Java8新特性-总起/" class="title">Java8新特性-总起</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-03-12T16:00:00.000Z" itemprop="datePublished">2018-03-13</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                <a class="category-link" href="/categories/java/">java</a>
+              </p>
+              <p class="item-title">
+                <a href="/Java8新特性-Stream/" class="title">Java8新特性-Stream</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2018-03-12T16:00:00.000Z" itemprop="datePublished">2018-03-13</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-MySql知识点总结" class="article article-type-post" itemscope="" itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/MySql知识点总结/" class="article-date">
+	  <time datetime="2019-01-02T04:55:18.411Z" itemprop="datePublished">2019-01-02</time>
+	</a>
+</span>
+        
+        
+
+        
+	<span class="article-read hidden-xs">
+	    <i class="icon icon-eye-fill" aria-hidden="true"></i>
+	    <span id="busuanzi_container_page_pv">
+			<span id="busuanzi_value_page_pv">0</span>
+		</span>
+	</span>
+
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/MySql知识点总结/#comments" class="article-comment-link">评论</a></span>
+        
+	
+		<span class="post-wordcount hidden-xs" itemprop="wordCount">字数统计: 1,733(字)</span>
+	
+	
+		<span class="post-readcount hidden-xs" itemprop="timeRequired">阅读时长: 6(分)</span>
+	
+
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <h1 id="知识点总结"><a href="#知识点总结" class="headerlink" title="知识点总结"></a>知识点总结</h1><h2 id="锁"><a href="#锁" class="headerlink" title="锁"></a>锁</h2><h2 id="索引"><a href="#索引" class="headerlink" title="索引"></a>索引</h2><h3 id="索引数据类型"><a href="#索引数据类型" class="headerlink" title="索引数据类型"></a>索引数据类型</h3><p>一般使用的索引的数据类型为hash索引和btree索引。从查询效率来讲，hash索引会比btree快，原因如下</p>
+<ol>
+<li><p>Hash 索引仅仅能满足”=”,”IN”和”&lt;=&gt;”查询，不能使用范围查询。<br>由于 Hash 索引比较的是进行 Hash 运算之后的 Hash 值，所以它只能用于等值的过滤，不能用于基于范围的过滤，因为经过相应的 Hash 算法处理之后的 Hash 值的大小关系，并不能保证和Hash运算前完全一样。</p>
+</li>
+<li><p>Hash 索引无法被用来避免数据的排序操作。<br>由于 Hash 索引中存放的是经过 Hash 计算之后的 Hash 值，而且Hash值的大小关系并不一定和 Hash 运算前的键值完全一样，所以数据库无法利用索引的数据来避免任何排序运算；</p>
+</li>
+<li><p>Hash 索引不能利用部分索引键查询。</p>
+<p>对于组合索引，Hash 索引在计算 Hash 值的时候是组合索引键合并后再一起计算 Hash 值，而不是单独计算 Hash 值，所以通过组合索引的前面一个或几个索引键进行查询的时候，Hash 索引也无法被利用。</p>
+</li>
+<li><p>Hash 索引在任何时候都不能避免表扫描。</p>
+<p>前面已经知道，Hash 索引是将索引键通过 Hash 运算之后，将 Hash运算结果的 Hash 值和所对应的行指针信息存放于一个 Hash 表中，由于不同索引键存在相同 Hash 值，所以即使取满足某个 Hash 键值的数据的记录条数，也无法从 Hash 索引中直接完成查询，还是要通过访问表中的实际数据进行相应的比较，并得到相应的结果。</p>
+</li>
+<li><p>Hash 索引遇到大量Hash值相等的情况后性能并不一定就会比B-Tree索引高。</p>
+<p>对于选择性比较低的索引键，如果创建 Hash 索引，那么将会存在大量记录指针信息存于同一个 Hash 值相关联。这样要定位某一条记录时就会非常麻烦，会浪费多次表数据的访问，而造成整体性能低下</p>
+</li>
+</ol>
+<h3 id="索引存储方式"><a href="#索引存储方式" class="headerlink" title="索引存储方式"></a>索引存储方式</h3><p>对于不同的存储引擎，索引实现细节有所不同，对于MyISAM数据表来说，数据表的数据行是在数据文件中，而索引值是在索引文件里，一个数据表可以有多个索引，所有的索引都存在一个索引文件里。索引文件里的每一个索引都是由分类的关键记录组成的，这些数组用于快速访问数据文件</p>
+<p> InnoDB存储引擎使用的是一个表空间，在这个表空间里，它管理着所有InnoDB类型数据表的数据和索引的存储</p>
+<h3 id="索引的选择技巧"><a href="#索引的选择技巧" class="headerlink" title="索引的选择技巧"></a>索引的选择技巧</h3><p>尽量为用来搜索、分类或分组的数据列编制索引，不要为作为输出显示的数据列编制索引</p>
+<p>​    综合考虑各数据列的维度势，如果索引列中的数据越多，维度越高，则索引的速度越快</p>
+<p>​    对短小的值进行索引</p>
+<p>​        短小的值可以让比较操作更快的完成，加快索引的查找速度</p>
+<p>​        短小的值可以让索引体积更小，减少磁盘IO</p>
+<p>​        短小的键值意味着缓存里的索引块可以容纳更多的键值，让MySQL可以在内存中容纳更多的键</p>
+<p>​    为字符串值的前缀编索引</p>
+<p>​    充分利用最左边的前缀</p>
+<h3 id="什么情况下不走索引"><a href="#什么情况下不走索引" class="headerlink" title="什么情况下不走索引"></a>什么情况下不走索引</h3><ul>
+<li>使用&lt;&gt;操作符</li>
+<li>NULL值，where子句出现is null 或is not null，</li>
+<li>使用函数（索引不是基于函数的索引）</li>
+<li>比较不同的数据类型state 为number ,to_char(state) =’2’，这种情况最隐蔽</li>
+<li>当索引条件字段选择性低</li>
+<li>同一个表中的两列（有索引）进行比较时，索引有时不被使用。</li>
+<li>当where字句中存在not function时，比如not in、not exists、column&lt;&gt;value等情况下，索引不能被使用</li>
+<li>当使用通配符%或者_作为查询字符串中的第一个字符时，索引不被使用</li>
+</ul>
+<h2 id="查询"><a href="#查询" class="headerlink" title="查询"></a>查询</h2><h3 id="sql执行顺序"><a href="#sql执行顺序" class="headerlink" title="sql执行顺序"></a>sql执行顺序</h3><p>from &gt; on &gt; join &gt; where &gt; group by &gt; with &gt; having &gt; select &gt; distinct &gt; order by &gt; limit</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line">(8)<span class="keyword">SELECT</span> (<span class="number">9</span>)<span class="keyword">DISTINCT</span></span><br><span class="line">(<span class="number">11</span>)&lt;TOP_specification&gt; &lt;select_list&gt;</span><br><span class="line">(<span class="number">1</span>)<span class="keyword">FROM</span> &lt;left_table&gt;</span><br><span class="line">(<span class="number">3</span>)　&lt;join_type&gt; <span class="keyword">JOIN</span> &lt;right_table&gt;</span><br><span class="line">(<span class="number">2</span>)　 <span class="keyword">ON</span> &lt;join_condition&gt;</span><br><span class="line">(<span class="number">4</span>)<span class="keyword">WHERE</span> &lt;where_condition&gt;</span><br><span class="line">(<span class="number">5</span>)<span class="keyword">GROUP</span> <span class="keyword">BY</span> &lt;group_by_list&gt;</span><br><span class="line">(<span class="number">6</span>)<span class="keyword">WITH</span> &#123;<span class="keyword">CUBE</span> | <span class="keyword">ROLLUP</span>&#125;</span><br><span class="line">(<span class="number">7</span>)<span class="keyword">HAVING</span> &lt;having_condition&gt;</span><br><span class="line">(<span class="number">10</span>)<span class="keyword">ORDER</span> <span class="keyword">BY</span> &lt;order_by_list&gt;</span><br></pre></td></tr></table></figure>
+<h3 id="连接查询"><a href="#连接查询" class="headerlink" title="连接查询"></a>连接查询</h3><p>MySQL在left-jion的时候，虽然是以左表为主，但是如果关联的右边有多条数据，也就是左-右为1-N的时候，查询出来的数据会是多条。这个时候需要使用group by</p>
+<p>另外，因为执行顺序，下面的upd.uid is not null，如果放在 on后面，不会起作用</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"># 某个用户下面的所有升级用户是否续费</span><br><span class="line"><span class="keyword">SELECT</span></span><br><span class="line">	u.account,</span><br><span class="line">	upd.* </span><br><span class="line"><span class="keyword">FROM</span></span><br><span class="line">	ibalife_user.user_ext4c_bmc bmc</span><br><span class="line">	<span class="keyword">LEFT</span> <span class="keyword">JOIN</span> ibalife_user.<span class="string">`user`</span> u <span class="keyword">ON</span> bmc.uid = u.uid</span><br><span class="line">	<span class="keyword">LEFT</span> <span class="keyword">JOIN</span> ( <span class="keyword">SELECT</span> uid, <span class="keyword">sum</span>( amount ) <span class="keyword">FROM</span> ibalife_busi.user_pre_upgrade <span class="keyword">WHERE</span> <span class="keyword">STATUS</span> = <span class="number">1</span> <span class="keyword">AND</span> upgrade_type = <span class="number">2</span> <span class="keyword">AND</span> pay_state = <span class="number">2</span> <span class="keyword">GROUP</span> <span class="keyword">BY</span> uid ) upd <span class="keyword">ON</span> bmc.uid = upd.uid </span><br><span class="line"><span class="keyword">WHERE</span></span><br><span class="line">	parent_uid = <span class="number">1000154072</span> </span><br><span class="line">	<span class="keyword">AND</span> upd.uid <span class="keyword">IS</span> <span class="keyword">NOT</span> <span class="literal">NULL</span></span><br></pre></td></tr></table></figure>
+<h3 id="JSON查询"><a href="#JSON查询" class="headerlink" title="JSON查询"></a>JSON查询</h3><p>查询某个json中的字段</p>
+<figure class="highlight sql"><table><tr><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">id</span>,<span class="keyword">type</span>,JSON_EXTRACT(config,<span class="string">'$rule[0].type'</span>) <span class="keyword">from</span> base_activity <span class="keyword">where</span> <span class="keyword">type</span> = <span class="number">3</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">select</span> * <span class="keyword">from</span> base_activity <span class="keyword">where</span> <span class="keyword">type</span> = <span class="number">3</span> <span class="keyword">and</span>  <span class="keyword">type</span>,JSON_EXTRACT(config,<span class="string">'$rule[0].type'</span>) = <span class="string">'13'</span></span><br></pre></td></tr></table></figure>
+<h3 id="常用函数"><a href="#常用函数" class="headerlink" title="常用函数"></a>常用函数</h3><h2 id="查询优化"><a href="#查询优化" class="headerlink" title="查询优化"></a>查询优化</h2><h3 id="Explain详解"><a href="#Explain详解" class="headerlink" title="Explain详解"></a>Explain详解</h3><h4 id="id"><a href="#id" class="headerlink" title="id"></a>id</h4><p>选择标识符</p>
+<h4 id="select-type"><a href="#select-type" class="headerlink" title="select_type"></a>select_type</h4><p>表示查询的类型</p>
+<h4 id="table"><a href="#table" class="headerlink" title="table"></a>table</h4><p>输出结果集的表</p>
+<h4 id="possible-key"><a href="#possible-key" class="headerlink" title="possible_key"></a>possible_key</h4><p>表示查询时，可能使用的索引</p>
+<h4 id="key"><a href="#key" class="headerlink" title="key"></a>key</h4><p>表示实际使用的索引</p>
+<h4 id="key-len"><a href="#key-len" class="headerlink" title="key_len"></a>key_len</h4><p>索引字段的长度</p>
+<h4 id="ref"><a href="#ref" class="headerlink" title="ref"></a>ref</h4><p>列与索引的比较</p>
+<h4 id="rows"><a href="#rows" class="headerlink" title="rows"></a>rows</h4><p>扫描出的行数(估算的行数)</p>
+<h4 id="type"><a href="#type" class="headerlink" title="type"></a>type</h4><p>如何从数据读取表：<a href="https://juejin.im/post/5eb3a976e51d454d9b12538b?utm_source=gold_browser_extension" target="_blank" rel="noopener">https://juejin.im/post/5eb3a976e51d454d9b12538b?utm_source=gold_browser_extension</a></p>
+<ul>
+<li>system：系统表，少量数据，往往不需要进行磁盘IO</li>
+<li>const：常量连接</li>
+<li>eq_ref：主键索引(primary key)或者非空唯一索引(unique not null)等值扫描</li>
+<li>ref：非主键非唯一索引等值扫描</li>
+<li>range：范围扫描</li>
+<li>index：索引树扫描</li>
+<li>all： 检查所有的数据行</li>
+</ul>
+<h4 id="row：需要检查数据行"><a href="#row：需要检查数据行" class="headerlink" title="row：需要检查数据行"></a>row：需要检查数据行</h4><h2 id="事务"><a href="#事务" class="headerlink" title="事务"></a>事务</h2><h3 id="隔离级别"><a href="#隔离级别" class="headerlink" title="隔离级别"></a>隔离级别</h3><p>在MySQL的众多存储引擎中，只有InnoDB支持事务，所有这里说的事务隔离级别指的是InnoDB下的事务隔离级别。</p>
+<p>读未提交：一个事务可以读取到另一个事务未提交的修改。这会带来脏读、幻读、不可重复读问题。（基本没用）</p>
+<p>读已提交：一个事务只能读取另一个事务已经提交的修改。其避免了脏读，但仍然存在不可重复读和幻读问题。</p>
+<p>可重复读：同一个事务中多次读取相同的数据返回的结果是一样的。其避免了脏读和不可重复读问题，但幻读依然存在。</p>
+<p>串行化：事务串行执行。避免了以上所有问题。</p>
+
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="http://liuyiyou.cn/MySql知识点总结/" title="" target="_blank" rel="external">http://liuyiyou.cn/MySql知识点总结/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/liuyiyou" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/liuyiyou" target="_blank"><span class="text-dark">liuyiyou</span><small class="ml-1x">Java Developer</small></a></h3>
+        <div>心有猛虎、细嗅蔷薇</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom="">
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    <li class="prev">
+      <a href="/公司ES优化/" title="(no title)"><i class="icon icon-angle-left" aria-hidden="true"></i><span>&nbsp;&nbsp;上一篇</span></a>
+    </li>
+    
+    
+    <li class="next">
+      <a href="/Java8新特性-Lambda/" title="(no title)"><span>下一篇&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+
+
+</main>
+
+  <footer class="footer" itemscope="" itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/liuyiyou" target="_blank" title="Github" data-toggle="tooltip" data-placement="top"><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/liuyiyou" target="_blank" title="Weibo" data-toggle="tooltip" data-placement="top"><i class="icon icon-weibo"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+<script src="/js/plugin.min.js"></script>
+<script src="/js/application.js"></script>
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: '文章',
+            PAGES: '页面',
+            CATEGORIES: '分类',
+            TAGS: '标签',
+            UNTITLED: '(未命名)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+<script src="/js/insight.js"></script>
+
+
+
+
+
+   
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: 'TOW8ykj7scHK3P3WH9E5l6Rs-gzGzoHsz',
+    appKey: 'AqBkIXh8Nw7SY25KLD0js1tn',
+    placeholder: '写下你的评论',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+
+<!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({"tex2jax":{"inlineMath":[["$","$"],["\\(","\\)"]],"skipTags":["script","noscript","style","textarea","pre","code"],"processEscapes":true},"TeX":{"equationNumbers":{"autoNumber":"AMS"}}});
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for(i=0; i < all.length; i += 1) {
+            all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+
+<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<!-- End: Injected MathJax -->
+</body>
+</html>
